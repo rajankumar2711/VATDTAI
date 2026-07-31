@@ -1,0 +1,124 @@
+[
+  {
+    "invoice_id": "SAP-BE-2026-01004",
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 2,
+    "anomalies": [
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01004",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01004 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01004",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01004 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      }
+    ],
+    "popup_title": "Analytics"
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01005",
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 4,
+    "anomalies": [
+      {
+        "rule": "Mathematical Integrity — Validate Tax Inclusive = Tax Exclusive + Tax with Tolerance and Payable Settlement",
+        "field": "TaxInclusiveTotal]/[TaxExclusiveTotal]/[TaxTotal",
+        "current": "712.0500",
+        "suggested": "714.0500",
+        "details": [
+          "Field: TaxInclusiveTotal]/[TaxExclusiveTotal]/[TaxTotal | Current: 712.0500 | Suggested: 714.0500",
+          "TaxInclusiveTotal should equal TaxExclusiveTotal + TaxTotal within amount tolerance 0.02. Both TaxExclusiveTotal and TaxTotal must be valid numeric values; null/blank makes mathematical validation incomplete and blocks structured reporting integrity."
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01005",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01005 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      },
+      {
+        "rule": "Mathematical Integrity — Validate Tax Inclusive = Tax Exclusive + Tax with Tolerance and Payable Settlement",
+        "field": "TaxInclusiveTotal]/[TaxExclusiveTotal]/[TaxTotal",
+        "current": "712.0500",
+        "suggested": "714.0500",
+        "details": [
+          "Field: TaxInclusiveTotal]/[TaxExclusiveTotal]/[TaxTotal | Current: 712.0500 | Suggested: 714.0500",
+          "TaxInclusiveTotal should equal TaxExclusiveTotal + TaxTotal within amount tolerance 0.02. Both TaxExclusiveTotal and TaxTotal must be valid numeric values; null/blank makes mathematical validation incomplete and blocks structured reporting integrity."
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01005",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01005 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      }
+    ],
+    "popup_title": "Analytics"
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01006",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01007",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01008",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01010",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  }
+]

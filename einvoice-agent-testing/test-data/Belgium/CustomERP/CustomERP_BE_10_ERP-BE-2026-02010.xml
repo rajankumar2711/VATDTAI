@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:ProcessInvoice xmlns:ns0="http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/" xmlns:ns2="http://www.openapplications.org/oagis/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openapplications.org/oagis/10 Invoice.xsd" releaseID="10.1" languageCode="en-US">
+  <ns2:ApplicationArea>
+    <ns2:Sender>
+      <ns2:LogicalID>Oracle-BE-QA</ns2:LogicalID>
+      <ns2:ComponentID>Receivables</ns2:ComponentID>
+      <ns2:TaskID>GenerateInvoice</ns2:TaskID>
+      <ns2:ReferenceID>ORF-BE-01-00010</ns2:ReferenceID>
+      <ns2:AuthorizationID>SYSADM</ns2:AuthorizationID>
+    </ns2:Sender>
+    <ns2:CreationDateTime>2026-01-12T09:10:00Z</ns2:CreationDateTime>
+    <ns2:BODID>urn:oracle:oagis:10:BE-01-00010</ns2:BODID>
+  </ns2:ApplicationArea>
+  <ns2:DataArea>
+    <ns2:Invoice>
+      <ns2:InvoiceHeader>
+        <ns2:DocumentID>
+          <ns2:ID schemeVersionID="1.0">ERP-BE-2026-02010</ns2:ID>
+        </ns2:DocumentID>
+        <ns2:AlternateDocumentID>ALT-BE-01-00010<ns2:ID>SUPP-BE-02-90002</ns2:ID>
+        </ns2:AlternateDocumentID>
+        <ns2:TransactionTypeCode>380</ns2:TransactionTypeCode>
+        <ns2:DocumentDateTime>2026-01-12</ns2:DocumentDateTime>
+        <ns2:DueDateTime>2026-01-28</ns2:DueDateTime>
+        <ns2:PaymentTerms>
+          <ns2:PaymentTermsTypeCode>NET30</ns2:PaymentTermsTypeCode>
+          <ns2:Description>BE-ERP-S10: Conflicting duplicate invoice number and out-of-sequence chronology; category EXEMPT; unique record 01-0010</ns2:Description>
+        </ns2:PaymentTerms>
+        <ns2:Currency>
+          <ns2:CurrencyCode>EUR</ns2:CurrencyCode>
+          <ns2:ExchangeRate>1.0</ns2:ExchangeRate>
+          <ns2:ExchangeRateDateTime>2026-05-17</ns2:ExchangeRateDateTime>
+        </ns2:Currency>
+        <ns2:Description>Domestic reduced VAT 6%</ns2:Description>
+        <ns2:PurchaseOrderReference>
+          <ns2:PurchaseOrderID>PO-BE-ERP-010010</ns2:PurchaseOrderID>
+          <ns2:PurchaseOrderDateTime>2026-01-11</ns2:PurchaseOrderDateTime>
+        </ns2:PurchaseOrderReference>
+      </ns2:InvoiceHeader>
+      <ns2:Supplier>
+        <ns2:PartyIDs>
+          <ns2:ID schemeName="OracleSupplierNumber">SUPP-BE-001</ns2:ID>
+          <ns2:TaxID>BE0999000101</ns2:TaxID>
+        </ns2:PartyIDs>
+        <ns2:Name>Custom ERP Belgium Issuer</ns2:Name>
+        <ns2:Location>
+          <ns2:Address>
+            <ns2:AddressLine>1 Issuer Avenue</ns2:AddressLine>
+            <ns2:CityName>Brussels</ns2:CityName>
+            <ns2:PostalCode>1000</ns2:PostalCode>
+            <ns2:CountryCode>BE</ns2:CountryCode>
+          </ns2:Address>
+          <ns2:Contact>
+            <ns2:Name>Sophie Martin</ns2:Name>
+            <ns2:EmailAddress>billing-be@erp-issuer.test</ns2:EmailAddress>
+            <ns2:Telephone>+32-2-555-1001</ns2:Telephone>
+          </ns2:Contact>
+        </ns2:Location>
+        <ns2:BankAccount>
+          <ns2:IBAN>BE68539007547034</ns2:IBAN>
+          <ns2:BIC>KREDBEBB</ns2:BIC>
+          <ns2:BankName>KBC Bank</ns2:BankName>
+        </ns2:BankAccount>
+      </ns2:Supplier>
+      <ns2:Buyer>
+        <ns2:PartyIDs>
+          <ns2:ID schemeName="OracleCustomerNumber">CUST-BE-010010</ns2:ID>
+          <ns2:TaxID>BE2010000010</ns2:TaxID>
+        </ns2:PartyIDs>
+        <ns2:Name>Belgium Unique Buyer ERP 10</ns2:Name>
+        <ns2:Location>
+          <ns2:Address>
+            <ns2:AddressLine>210 Buyer Avenue</ns2:AddressLine>
+            <ns2:CityName>Brussels</ns2:CityName>
+            <ns2:StateName>BRU</ns2:StateName>
+            <ns2:PostalCode>02010</ns2:PostalCode>
+            <ns2:CountryCode>BE</ns2:CountryCode>
+          </ns2:Address>
+          <ns2:Contact>
+            <ns2:Name>Thomas Dupont</ns2:Name>
+            <ns2:EmailAddress>buyer10-be@example.test</ns2:EmailAddress>
+            <ns2:Telephone>+32-2-555-2001</ns2:Telephone>
+          </ns2:Contact>
+        </ns2:Location>
+      </ns2:Buyer>
+      <ns2:InvoiceLine sequenceNumber="1">
+        <ns2:LineNumber>1</ns2:LineNumber>
+        <ns2:Item>
+          <ns2:ItemID schemeName="SupplierItemID">BE-ERP-ITEM-10-1</ns2:ItemID>
+          <ns2:Description>Unique ERP Belgium item 10-1</ns2:Description>
+          <ns2:Classification listAgencyName="UNSPSC">55101509</ns2:Classification>
+        </ns2:Item>
+        <ns2:Quantity unitCode="EA">11</ns2:Quantity>
+        <ns2:UnitPrice currencyID="EUR">41.00</ns2:UnitPrice>
+        <ns2:ExtendedAmount currencyID="EUR">451.00</ns2:ExtendedAmount>
+        <ns2:Tax>
+          <ns2:TaxTypeCode>EXEMPT</ns2:TaxTypeCode>
+          <ns2:Percent>6.00</ns2:Percent>
+          <ns2:TaxableAmount currencyID="EUR">451.00</ns2:TaxableAmount>
+          <ns2:TaxAmount currencyID="EUR">27.06</ns2:TaxAmount>
+        </ns2:Tax>
+        <ns2:PurchaseOrderReference>
+          <ns2:LineNumber>10</ns2:LineNumber>
+        </ns2:PurchaseOrderReference>
+      </ns2:InvoiceLine>
+      <ns2:InvoiceLine sequenceNumber="2">
+        <ns2:LineNumber>2</ns2:LineNumber>
+        <ns2:Item>
+          <ns2:ItemID schemeName="SupplierItemID">BE-ERP-ITEM-10-2</ns2:ItemID>
+          <ns2:Description>Unique ERP Belgium item 10-2</ns2:Description>
+          <ns2:Classification listAgencyName="UNSPSC">50202300</ns2:Classification>
+        </ns2:Item>
+        <ns2:Quantity unitCode="EA">12</ns2:Quantity>
+        <ns2:UnitPrice currencyID="EUR">42.00</ns2:UnitPrice>
+        <ns2:ExtendedAmount currencyID="EUR">504.00</ns2:ExtendedAmount>
+        <ns2:Tax>
+          <ns2:TaxTypeCode>EXEMPT</ns2:TaxTypeCode>
+          <ns2:Percent>6.00</ns2:Percent>
+          <ns2:TaxableAmount currencyID="EUR">504.00</ns2:TaxableAmount>
+          <ns2:TaxAmount currencyID="EUR">30.24</ns2:TaxAmount>
+        </ns2:Tax>
+        <ns2:PurchaseOrderReference>
+          <ns2:LineNumber>20</ns2:LineNumber>
+        </ns2:PurchaseOrderReference>
+      </ns2:InvoiceLine>
+      <ns2:InvoiceTotals>
+        <ns2:SubTotalAmount currencyID="EUR">955.00</ns2:SubTotalAmount>
+        <ns2:TaxAmount currencyID="EUR">57.30</ns2:TaxAmount>
+        <ns2:TotalAmount currencyID="EUR">1012.30</ns2:TotalAmount>
+        <ns2:PayableAmount currencyID="EUR">1012.30</ns2:PayableAmount>
+      </ns2:InvoiceTotals>
+    </ns2:Invoice>
+  </ns2:DataArea>
+</ns0:ProcessInvoice>

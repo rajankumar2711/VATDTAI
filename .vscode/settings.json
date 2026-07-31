@@ -1,0 +1,19 @@
+{
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "chat.mcp.autostart": "never",
+    "cucumberautocomplete.steps": [
+        "tests/step_defs/*.py"
+    ],
+    "cucumberautocomplete.syncfeatures": "tests/features/*.feature",
+    "cucumberautocomplete.gherkinDefinitionPart": "@(?:given|when|then)\\(",
+    
+    // Add this line to point to your project-level MCP config
+    "chat.mcp.configPath": "${workspaceFolder}/mcp.json",
+
+    "http.proxy": "http://proxy.company.com:8080",   // or https
+    "http.proxyStrictSSL": false
+}

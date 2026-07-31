@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "description": "Country/profile configuration passed explicitly to each agent (guide Sec 6.1). Absent configuration must yield NOT_VERIFIABLE, not speculative validation.",
+  "countries": {
+    "BE": {
+      "name": "Belgium",
+      "default_currency": "EUR",
+      "vat": {
+        "scheme": "BE-VAT",
+        "regex": "^BE0[0-9]{9}$",
+        "example": "BE0999000101",
+        "notes": "Belgian enterprise/VAT number: BE followed by 0 and 9 digits."
+      },
+      "endpoint_scheme": "0208",
+      "b2g": {
+        "government_id_scheme": "BE-KBO",
+        "routing_required": ["buyer_reference"]
+      }
+    },
+    "FR": {
+      "name": "France",
+      "default_currency": "EUR",
+      "vat": {
+        "scheme": "FR-VAT",
+        "regex": "^FR[0-9A-Z]{2}[0-9]{9}$",
+        "example": "FR12999000202",
+        "notes": "French VAT: FR + 2 key chars + 9-digit SIREN."
+      },
+      "endpoint_scheme": "0009",
+      "b2g": {
+        "government_id_scheme": "FR-SIRET",
+        "routing_required": ["buyer_reference", "service_code"]
+      }
+    },
+    "PL": {
+      "name": "Poland",
+      "default_currency": "PLN",
+      "vat": {
+        "scheme": "PL-VAT",
+        "regex": "^PL[0-9]{10}$",
+        "example": "PL9990003030",
+        "notes": "Polish NIP: PL + 10 digits."
+      },
+      "endpoint_scheme": "0190",
+      "b2g": {
+        "government_id_scheme": "PL-NIP",
+        "routing_required": ["buyer_reference"]
+      }
+    }
+  }
+}

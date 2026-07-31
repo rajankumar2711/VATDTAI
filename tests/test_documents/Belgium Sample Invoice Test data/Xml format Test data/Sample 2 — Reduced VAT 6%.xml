@@ -1,0 +1,9 @@
+<Invoice sourceSystem="SAP">
+  <InvoiceTypeCode>380</InvoiceTypeCode>
+  <Tax>
+    <CategoryCode>AA</CategoryCode>
+    <Rate>6</Rate>
+    <TaxableAmount>600.00</TaxableAmount>
+    <TaxAmount>36.00</TaxAmount>
+  </Tax>
+</Invoice>

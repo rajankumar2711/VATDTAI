@@ -1,0 +1,12 @@
+[
+  {
+    "invoice_id": "-",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  }
+]

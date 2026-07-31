@@ -1,0 +1,25 @@
+<Invoice sourceSystem="MS_D365">
+  <ID>UUID-XML-001</ID>
+  <InvoiceNumber>INV-BE-XML-001</InvoiceNumber>
+  <InvoiceTypeCode>380</InvoiceTypeCode>
+  <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+  <Seller>
+    <Name>Acme Consulting NV</Name>
+    <CountryCode>BE</CountryCode>
+    <TaxIdentifier>BE0123456789</TaxIdentifier>
+  </Seller>
+  <Buyer>
+    <Name>Client Industries SA</Name>
+    <CountryCode>BE</CountryCode>
+    <TaxIdentifier>BE0987654321</TaxIdentifier>
+  </Buyer>
+  <Tax>
+    <CategoryCode>S</CategoryCode>
+    <Rate>21</Rate>
+    <TaxableAmount>1000.00</TaxableAmount>
+    <TaxAmount>210.00</TaxAmount>
+  </Tax>
+  <Totals>
+    <TotalAmountWithTax>1210.00</TotalAmountWithTax>
+  </Totals>
+</Invoice>

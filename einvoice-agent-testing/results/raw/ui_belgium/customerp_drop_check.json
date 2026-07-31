@@ -1,0 +1,65 @@
+[
+  {
+    "invoice_number": "ERP-BE-2026-02001",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02002",
+    "in_uploaded_grid": true,
+    "uploaded_status": "Ready",
+    "in_outbound_paginate": true,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02003",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02004",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02005",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02006",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02007",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02008",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  },
+  {
+    "invoice_number": "ERP-BE-2026-02010",
+    "in_uploaded_grid": false,
+    "uploaded_status": null,
+    "in_outbound_paginate": false,
+    "in_outbound_search": false
+  }
+]

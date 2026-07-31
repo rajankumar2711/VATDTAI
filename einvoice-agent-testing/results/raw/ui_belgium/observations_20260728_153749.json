@@ -1,0 +1,64 @@
+[
+  {
+    "invoice_id": "SAP-BE-2026-01001",
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 2,
+    "anomalies": [
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01001",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01001 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01001",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01001 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      }
+    ],
+    "popup_title": "Analytics"
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01002",
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 2,
+    "anomalies": [
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01002",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01002 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01002",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01002 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ]
+      }
+    ],
+    "popup_title": "Analytics"
+  }
+]

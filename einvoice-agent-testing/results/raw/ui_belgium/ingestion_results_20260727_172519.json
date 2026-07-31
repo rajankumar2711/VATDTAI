@@ -1,0 +1,16 @@
+[
+  {
+    "file_name": "SAP_BE_01_SAP-BE-2026-01001.xml",
+    "source_system": "SAP",
+    "uploaded": true,
+    "batch_id": "BATCH_20260727115404",
+    "message": ""
+  },
+  {
+    "file_name": "SAP_BE_02_SAP-BE-2026-01002.xml",
+    "source_system": "SAP",
+    "uploaded": true,
+    "batch_id": "BATCH_20260727115517",
+    "message": ""
+  }
+]

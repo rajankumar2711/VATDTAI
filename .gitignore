@@ -1,0 +1,95 @@
+# Local python packages
+.python_packages/
+ 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode/
+build/
+dist/
+etl_templates.egg-info/
+playwright_user_data/
+archive/
+utilities/__pycache__/
+venv_31011/
+node_modules/
+reports/logs
+reports/screenshots
+reports/archive
+reports/assets
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test Reports (don't commit old reports)
+reports/allure-results_*/
+reports/allure-report_*/
+reports/*_2026*.html
+reports/traces/
+reports/videos/
+
+# Screenshots
+screenshots/
+debug_screenshots/
+
+# Logs
+*.log
+output.json
+test_results.txt
+
+# Environment files with secrets
+.env
+.envs
+configuration/config.ini
+
+# Test data outputs
+BE_SAP_MAX*.csv
+BE_SAP_MAX*.json
+BE_SAP_MAX*.xml
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Temporary files
+*.tmp
+*.bak
+.playwright-mcp/
+filter_test_debug.txt
+login_page.png
+
+# Cache
+.pytest_cache/
+.cache/
+reports/

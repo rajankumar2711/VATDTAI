@@ -1,0 +1,46 @@
+{
+  "sourceSystem": "MS_D365",
+  "id": "UUID-JS-001",
+  "InvoiceNumber": "INV-BE-JS-001",
+  "InvoiceIssueDate": "2026-03-01",
+  "PaymentDueDate": "2026-03-31",
+  "InvoiceTypeCode": "380",
+  "InvoiceNote": "Belgium domestic invoice",
+  "TaxPointDate": "2026-03-01",
+  "InvoiceCurrencyCode": "EUR",
+  "TaxAccountingCurrencyCode": "EUR",
+  "Seller": {
+    "Name": "Acme Consulting NV",
+    "CountryCode": "BE",
+    "TaxIdentifier": "BE0123456789",
+    "ElectronicAddress": "acme@peppol.eu",
+    "Address": {
+      "City": "Brussels",
+      "Postcode": "1000"
+    }
+  },
+  "Buyer": {
+    "Name": "Client Industries SA",
+    "CountryCode": "BE",
+    "TaxIdentifier": "BE0987654321",
+    "ElectronicAddress": "client@peppol.eu"
+  },
+  "Tax": {
+    "CategoryCode": "S",
+    "Rate": 21,
+    "TaxableAmount": 1000.00,
+    "TaxAmount": 210.00
+  },
+  "Totals": {
+    "NetAmount": 1000.00,
+    "TaxAmount": 210.00,
+    "GrossAmount": 1210.00
+  },
+  "InvoiceLine": {
+    "LineID": "1",
+    "Description": "Consulting service",
+    "Quantity": 1,
+    "Unit": "EA",
+    "NetPrice": 1000.00
+  }
+}
