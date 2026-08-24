@@ -17,7 +17,7 @@ Feature: VAT Tile
 
   @TC_608002 @TileLaunch @Dashboard
   Scenario: Verify DTAI VAT tile launches dashboard
-    And DTAI VAT tile description is visible
+    When DTAI VAT tile description is visible
     When User clicks the DTAI VAT tile
     Then VAT DTAI dashboard is displayed
 

@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 import tempfile
@@ -5,6 +6,65 @@ from playwright.sync_api import Page
 from pageobjects.base_page import BasePage
 
 logger = logging.getLogger(__name__)
+
+# Expected file extension(s) per user-requested export action.
+_FORMAT_EXTS = {
+    "excel": (".xlsx", ".xls"),
+    "xlsx": (".xlsx",),
+    "csv": (".csv",),
+    "json": (".json",),
+    "xml": (".xml",),
+}
+
+
+def assert_export_format(path: str, fmt: str):
+    """Strictly verify a downloaded export matches the action the user performed.
+
+    Checks BOTH the file extension and a content signature so a wrong-format export
+    (e.g. an Excel file served for a 'Download as JSON' click) is caught.
+    Returns (ok, detail).
+    """
+    key = (fmt or "").strip().lower()
+    exts = _FORMAT_EXTS.get(key)
+    if not exts:
+        return False, f"unknown export format '{fmt}'"
+    ext = os.path.splitext(path)[1].lower()
+    if ext not in exts:
+        return False, f"extension '{ext}' does not match {fmt} action (expected {exts})"
+    try:
+        with open(path, "rb") as fh:
+            head = fh.read(8)
+    except Exception as exc:
+        return False, f"could not read exported file: {exc}"
+    if not head:
+        return False, "exported file is empty"
+    if key in ("excel", "xlsx"):
+        # .xlsx is a zip (PK\x03\x04); legacy .xls is OLE2 (D0 CF 11 E0)
+        if not (head[:2] == b"PK" or head[:4] == b"\xd0\xcf\x11\xe0"):
+            return False, "content is not a valid Excel workbook signature"
+    elif key == "json":
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as fh:
+                json.load(fh)
+        except Exception as exc:
+            return False, f"content is not valid JSON: {exc}"
+    elif key == "xml":
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as fh:
+                sample = fh.read(4096).lstrip("\ufeff \t\r\n")
+        except Exception as exc:
+            return False, f"XML not readable as text: {exc}"
+        if not sample.startswith("<"):
+            return False, "content does not start with an XML tag"
+    elif key == "csv":
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as fh:
+                sample = fh.read(4096)
+        except Exception as exc:
+            return False, f"CSV not readable as text: {exc}"
+        if not sample.strip():
+            return False, "CSV file is empty"
+    return True, f"{fmt} format verified ({ext})"
 
 
 def _read_downloaded_text(path: str) -> str:
@@ -213,9 +273,21 @@ class VatEInvoiceManagementPage(BasePage):
         self.outbound_last_page_btn    = "#EimOutboundGrid button.tabulator-page[data-page='last']"
         self.outbound_active_page_btn  = "#EimOutboundGrid button.tabulator-page.active"
 
-        # -- Inbound Invoices (AP) grid --
+        # -- Inbound Invoices (AP) grid (mirrors the Outbound grid locators) --
+        self.inbound_grid_container    = "#vatdtai_eim_inbound_grid"
         self.inbound_grid_table        = "#EimInboundGrid"
         self.inbound_grid_rows         = "#EimInboundGrid .tabulator-tableHolder .tabulator-row"
+        self.inbound_row_checkboxes    = "#EimInboundGrid .tabulator-tableHolder .tabulator-row .tabulator-cell[title='Select row'] input[type='checkbox']"
+        self.inbound_download_toggle   = "[data-id='vatdtai_eim_inbound']"
+        self.inbound_invoice_link      = "#EimInboundGrid span.vatdtai-eim-invoice-link"
+        self.inbound_status_clickable  = "#EimInboundGrid span.vatdtai-status-clickable"
+        self.inbound_status_filter     = "#EimInboundGrid .tabulator-col[tabulator-field='Status'] input[type='search']"
+        self.inbound_system_filter     = "#EimInboundGrid .tabulator-col[tabulator-field='SourceSystem'] input[type='search']"
+        self.inbound_show_filters_btn  = "[data-id='btnShowFilterDiv_EimInboundGrid']"
+        self.inbound_clear_filter_btn  = "[data-id='btnClearFilterDiv_EimInboundGrid']"
+        self.inbound_reset_view_btn    = "[data-id='btnResetViewDiv_EimInboundGrid']"
+        self.inbound_page_size_select  = "#EimInboundGrid select.tabulator-page-size"
+        self.inbound_next_page_btn     = "#EimInboundGrid button.tabulator-page[data-page='next']"
 
         # -- Shared modal popups (Invoice Details / Outbound Extract / Error Details) --
         self.modal                     = ".vatdtai-sam-modal"
@@ -1423,6 +1495,100 @@ class VatEInvoiceManagementPage(BasePage):
     def outbound_visible_systems(self):
         rows = self._grid_rows(self.outbound_grid_table)
         return [self._cell_text(rows.nth(i), "SourceSystem") for i in range(rows.count())]
+
+    # ==========================================================
+    # INBOUND INVOICES (AP) GRID - mirrors the Outbound helpers
+    # ==========================================================
+    def scroll_to_inbound_section(self):
+        """Bring the Inbound Invoices (AP) section into view for better visibility
+        before interacting with the grid."""
+        for sel in (self.heading_inbound, self.inbound_grid_container, self.inbound_grid_table):
+            try:
+                el = self.page.locator(sel).first
+                if el.count() > 0:
+                    el.scroll_into_view_if_needed(timeout=4000)
+                    self.page.wait_for_timeout(400)
+                    return
+            except Exception:
+                continue
+        logger.warning("[inbound] could not scroll Inbound Invoices (AP) section into view")
+
+    def show_inbound_filters(self):
+        self._ensure_filter_visible(self.inbound_status_filter, self.inbound_show_filters_btn)
+
+    def filter_inbound_status(self, value: str) -> bool:
+        return self._type_filter(self.inbound_status_filter, self.inbound_show_filters_btn, value)
+
+    def filter_inbound_system(self, value: str) -> bool:
+        return self._type_filter(self.inbound_system_filter, self.inbound_show_filters_btn, value)
+
+    def clear_inbound_filters(self):
+        try:
+            self.page.locator(self.inbound_clear_filter_btn).first.click(timeout=4000)
+            self.page.wait_for_timeout(1500)
+        except Exception as exc:
+            logger.warning(f"[inbound] clear filters failed: {exc}")
+
+    def reset_inbound_view(self):
+        try:
+            self.page.locator(self.inbound_reset_view_btn).first.click(timeout=4000)
+            self.page.wait_for_timeout(1500)
+        except Exception as exc:
+            logger.warning(f"[inbound] reset view failed: {exc}")
+
+    def first_inbound_invoice_number(self) -> str:
+        rows = self._grid_rows(self.inbound_grid_table)
+        if rows.count() == 0:
+            return ""
+        return self._cell_text(rows.first, "InvoiceId")
+
+    def inbound_visible_statuses(self):
+        rows = self._grid_rows(self.inbound_grid_table)
+        return [self._cell_text(rows.nth(i), "Status") for i in range(rows.count())]
+
+    def inbound_visible_systems(self):
+        rows = self._grid_rows(self.inbound_grid_table)
+        return [self._cell_text(rows.nth(i), "SourceSystem") for i in range(rows.count())]
+
+    def get_inbound_column_headers(self):
+        titles = self.page.locator("#EimInboundGrid .tabulator-header .tabulator-col-title")
+        out = []
+        for i in range(titles.count()):
+            try:
+                t = (titles.nth(i).inner_text(timeout=1500) or "").strip()
+            except Exception:
+                t = ""
+            if t:
+                out.append(t)
+        return out
+
+    def download_inbound_as(self, fmt: str) -> str:
+        return self.download_grid_as(self.inbound_download_toggle, fmt)
+
+    def open_first_inbound_invoice_details(self) -> bool:
+        link = self.page.locator(self.inbound_invoice_link).first
+        if link.count() == 0:
+            return False
+        try:
+            link.scroll_into_view_if_needed(timeout=3000)
+        except Exception:
+            pass
+        link.click(timeout=5000)
+        self.page.wait_for_timeout(2000)
+        return self.modal_is_open()
+
+    def click_first_inbound_clickable_status(self) -> bool:
+        el = self.page.locator(self.inbound_status_clickable).first
+        if el.count() == 0:
+            logger.warning("[inbound] no clickable status span visible")
+            return False
+        try:
+            el.scroll_into_view_if_needed(timeout=2000)
+        except Exception:
+            pass
+        el.click(timeout=4000)
+        self.page.wait_for_timeout(2500)
+        return self.modal_is_open()
 
     # ---- Invoice Details popup (click Client Invoice Number link) ----
     def open_first_invoice_details(self) -> bool:

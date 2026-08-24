@@ -12,7 +12,11 @@ import pytest
 from playwright.sync_api import Page
 from pytest_bdd import given, scenario, then, when, parsers
 
-from pageobjects.vat_e_invoice_management_page import VatEInvoiceManagementPage, file_contains_values
+from pageobjects.vat_e_invoice_management_page import (
+    VatEInvoiceManagementPage,
+    file_contains_values,
+    assert_export_format,
+)
 from pageobjects.vat_data_ingestion_page import VatDataIngestionPage
 from pageobjects.launch_app_page import LaunchAppPage
 from utilities import einvoice_agent_e2e as agent_e2e
@@ -163,6 +167,63 @@ def test_outbound_filter_clear_reset(get_page, vat_context, im_page):
     "Verify the Pagination functionality for Outbound Invoice template in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
 )
 def test_outbound_pagination(get_page, vat_context, im_page):
+    pass
+
+
+# ---- Inbound Invoices (AP) scenarios (mirror the Outbound suite) ----
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify all columns are displayed under Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_columns(get_page, vat_context, im_page):
+    pass
+
+
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify the Status column filter and Clear Filter functionality for Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_filter_clear(get_page, vat_context, im_page):
+    pass
+
+
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify the Reset View functionality for Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_reset_view(get_page, vat_context, im_page):
+    pass
+
+
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify the export functionality for Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_export(get_page, vat_context, im_page):
+    pass
+
+
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify the application display the invoice details in Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_invoice_details(get_page, vat_context, im_page):
+    pass
+
+
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify the application display the Inbound Invoice Extract in Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_extract_popup(get_page, vat_context, im_page):
+    pass
+
+
+@scenario(
+    "../features/Vat_e_invoice_management.feature",
+    "Verify the application display the Inbound Invoice Error details in Inbound Invoices (AP) grid in Invoice Management module for Admin role under VAT DTAI app in GTP IT",
+)
+def test_inbound_error_popup(get_page, vat_context, im_page):
     pass
 
 
@@ -948,12 +1009,16 @@ def step_download_and_verify(im_page: VatEInvoiceManagementPage, vat_context: Di
     assert selected, "No records were selected before download"
     if grid == "outbound":
         path = im_page.download_outbound_as(fmt)
+    elif grid == "inbound":
+        path = im_page.download_inbound_as(fmt)
     else:
         path = im_page.download_uploaded_as(fmt)
+    fmt_ok, fmt_detail = assert_export_format(path, fmt)
+    assert fmt_ok, f"{fmt} export format mismatch: {fmt_detail} (file={path})"
     ok, missing, blob_len = file_contains_values(path, selected)
     assert blob_len > 0, f"Downloaded {fmt} file is empty: {path}"
     assert ok, f"{fmt} export is missing selected records {missing} (file={path})"
-    logger.info(f"[OK] {fmt} export contains all selected records")
+    logger.info(f"[OK] {fmt} export: {fmt_detail}; contains all selected records {selected}")
 
 
 # ---- Scenario 3: Uploaded Status column filter ----
@@ -1011,6 +1076,8 @@ def step_click_clear_filter(im_page: VatEInvoiceManagementPage, vat_context: Dic
     logger.info(f"[STEP] Clearing filters on {grid} grid")
     if grid == "outbound":
         im_page.clear_outbound_filters()
+    elif grid == "inbound":
+        im_page.clear_inbound_filters()
     else:
         im_page.clear_uploaded_filters()
 
@@ -1115,12 +1182,14 @@ def step_export_extract(im_page: VatEInvoiceManagementPage, vat_context: Dict, f
 def step_verify_extract_export(vat_context: Dict, fmt: str):
     path = vat_context.get(f"extract_export_{fmt.lower()}")
     assert path, f"No {fmt} extract export was captured"
+    fmt_ok, fmt_detail = assert_export_format(path, fmt)
+    assert fmt_ok, f"{fmt} extract export format mismatch: {fmt_detail} (file={path})"
     inv = vat_context.get("outbound_popup_invoice", "")
     ok, missing, blob_len = file_contains_values(path, [inv] if inv else [])
     assert blob_len > 0, f"{fmt} extract export is empty: {path}"
     if inv:
         assert ok, f"{fmt} extract export missing invoice '{inv}' (file={path})"
-    logger.info(f"[OK] {fmt} extract export verified")
+    logger.info(f"[OK] {fmt} extract export verified ({fmt_detail})")
 
 
 @then("Outbound Invoice Error Details pop up displayed having EY logo with Close button")
@@ -1151,12 +1220,14 @@ def step_export_error(im_page: VatEInvoiceManagementPage, vat_context: Dict):
 def step_verify_error_export(vat_context: Dict):
     path = vat_context.get("error_export_excel")
     assert path, "No Excel error-details export was captured"
+    fmt_ok, fmt_detail = assert_export_format(path, "Excel")
+    assert fmt_ok, f"Excel error-details export format mismatch: {fmt_detail} (file={path})"
     inv = vat_context.get("outbound_popup_invoice", "")
     ok, missing, blob_len = file_contains_values(path, [inv] if inv else [])
     assert blob_len > 0, f"Excel error-details export is empty: {path}"
     if inv:
         assert ok, f"Excel error-details export missing invoice '{inv}' (file={path})"
-    logger.info("[OK] Excel error-details export verified")
+    logger.info(f"[OK] Excel error-details export verified ({fmt_detail})")
 
 
 @then(parsers.parse("I click on close button to close the {popup} pop up and verify the pop up is closed."))
@@ -1231,8 +1302,13 @@ def step_verify_outbound_cleared(im_page: VatEInvoiceManagementPage):
 
 
 @then("I click on Reset View button to reset all filters applied")
-def step_outbound_reset_view(im_page: VatEInvoiceManagementPage):
-    im_page.reset_outbound_view()
+def step_reset_view(im_page: VatEInvoiceManagementPage, vat_context: Dict):
+    grid = vat_context.get("filter_grid", "outbound")
+    logger.info(f"[STEP] Reset View on {grid} grid")
+    if grid == "inbound":
+        im_page.reset_inbound_view()
+    else:
+        im_page.reset_outbound_view()
 
 
 @then("User is able to reset all filters applied and all records are displayed in Outbound Invoice template grid")
@@ -1286,3 +1362,184 @@ def step_verify_pagination(vat_context: Dict, target: str):
     elif which == "first":
         assert after == 1, f"First did not reach page 1: got {after}"
     logger.info(f"[OK] Pagination '{which}' verified ({before} -> {after} of {pages})")
+
+
+# ==================================================================
+# INBOUND INVOICES (AP) STEPS (mirror the Outbound suite)
+# ==================================================================
+def _ensure_inbound_populated(im_page: VatEInvoiceManagementPage, vat_context: Dict):
+    """Inbound (AP) grid is empty until an Invoice Issue date range is applied.
+    Also scrolls the Inbound section into view for better visibility."""
+    if im_page.inbound_row_count() == 0:
+        logger.info("[helper] Inbound grid empty - applying issue-date range")
+        im_page.apply_date_range(IM_DATE_FROM, IM_DATE_TO)
+        vat_context["applied_filters"] = {"date_from": IM_DATE_FROM, "date_to": IM_DATE_TO}
+    im_page.scroll_to_inbound_section()
+
+
+# ---- Columns ----
+@then("all columns are displayed in Inbound Invoices (AP) grid")
+def step_inbound_columns(im_page: VatEInvoiceManagementPage, vat_context: Dict):
+    _ensure_inbound_populated(im_page, vat_context)
+    headers = im_page.get_inbound_column_headers()
+    logger.info(f"[THEN] Inbound grid columns: {headers}")
+    assert headers, "Inbound Invoices (AP) grid has no column headers rendered"
+    expected = ["Client Invoice Number", "Status", "Invoice ID", "Customer Name",
+                "Invoice Total Value", "Invoice Tax Value", "System"]
+    blob = " | ".join(h.lower() for h in headers)
+    missing = [c for c in expected if c.lower() not in blob]
+    assert not missing, f"Inbound grid missing expected column(s): {missing} (present={headers})"
+    logger.info(f"[OK] Inbound grid displays all expected columns ({len(headers)} headers)")
+
+
+# ---- Show Filter ----
+@when("I click on Show Filter option in Inbound Invoices (AP) grid")
+def step_show_inbound_filters(im_page: VatEInvoiceManagementPage, vat_context: Dict):
+    logger.info("[WHEN] Showing filters on Inbound Invoices (AP) grid")
+    _ensure_inbound_populated(im_page, vat_context)
+    im_page.show_inbound_filters()
+    vat_context["filter_grid"] = "inbound"
+    vat_context["inbound_full_count"] = im_page.inbound_row_count()
+
+
+# ---- Filter by status (Ready / Error) ----
+@then(parsers.parse("User is able to filter the records with {status} status in Inbound Invoices (AP) grid"))
+def step_inbound_filter_status(im_page: VatEInvoiceManagementPage, vat_context: Dict, status: str):
+    assert im_page.filter_inbound_status(status), f"Could not filter Inbound by '{status}'"
+    st = [s for s in im_page.inbound_visible_statuses() if s]
+    vat_context["inbound_last_status"] = status
+    if not st:
+        # A status with no matching rows in the small AP grid is still a valid filter result.
+        logger.warning(f"[inbound] no rows after filtering by '{status}'")
+        return
+    assert all(status.lower() in s.lower() for s in st), f"Rows not all '{status}': {st}"
+    logger.info(f"[OK] Inbound filtered to '{status}' ({len(st)} rows)")
+
+
+@then(parsers.parse("I remove the {status} status records in Inbound Invoices (AP) grid"))
+def step_inbound_remove_status(im_page: VatEInvoiceManagementPage, status: str):
+    im_page.filter_inbound_status("")
+
+
+# ---- Clear filter / Reset view verifications ----
+@then("User is able to clear the applied filter and all records are displayed in Inbound Invoices (AP) grid")
+def step_verify_inbound_cleared(im_page: VatEInvoiceManagementPage):
+    cnt = im_page.inbound_row_count()
+    assert cnt > 0, "Inbound Invoices (AP) grid is empty after clearing the filter"
+    logger.info(f"[OK] All records displayed after clearing Inbound filter ({cnt} rows)")
+
+
+@then("User is able to reset all filters applied and all records are displayed in Inbound Invoices (AP) grid")
+def step_verify_inbound_reset(im_page: VatEInvoiceManagementPage):
+    cnt = im_page.inbound_row_count()
+    assert cnt > 0, "Inbound Invoices (AP) grid is empty after Reset View"
+    logger.info(f"[OK] All records displayed after Reset View ({cnt} rows)")
+
+
+# ---- Export ----
+@when("I select records from Inbound Invoices (AP) grid")
+def step_select_inbound_records(im_page: VatEInvoiceManagementPage, vat_context: Dict):
+    logger.info("[WHEN] Selecting records from Inbound Invoices (AP) grid")
+    _ensure_inbound_populated(im_page, vat_context)
+    selected = im_page.select_grid_records(im_page.inbound_grid_table, count=2)
+    assert selected, "Could not select any records in the Inbound Invoices (AP) grid"
+    vat_context["selected_records"] = selected
+    vat_context["download_grid"] = "inbound"
+
+
+# ---- Invoice Details popup ----
+@when("I click on any Client invoice number column from Inbound Invoices (AP) grid")
+def step_click_inbound_invoice_number(im_page: VatEInvoiceManagementPage, vat_context: Dict):
+    logger.info("[WHEN] Clicking a Client Invoice Number link in Inbound grid")
+    _ensure_inbound_populated(im_page, vat_context)
+    assert im_page.open_first_inbound_invoice_details(), "Invoice Details popup did not open (Inbound)"
+
+
+# ---- Extract / Error popups ----
+@when(parsers.parse("I Click on Status column to Filter {status} status records in Inbound Invoices (AP) grid"))
+def step_filter_inbound_status_records(im_page: VatEInvoiceManagementPage, vat_context: Dict, status: str):
+    logger.info(f"[WHEN] Filtering Inbound grid to '{status}' status")
+    _ensure_inbound_populated(im_page, vat_context)
+    im_page.show_inbound_filters()
+    assert im_page.filter_inbound_status(status), f"Could not filter Inbound by '{status}'"
+    vat_context["inbound_filter_status"] = status
+    vat_context["filter_grid"] = "inbound"
+
+
+@then(parsers.parse("I click on {status} status records from Inbound Invoices (AP) grid"))
+def step_click_inbound_status_records(im_page: VatEInvoiceManagementPage, vat_context: Dict, status: str):
+    vat_context["inbound_popup_invoice"] = im_page.first_inbound_invoice_number()
+    assert im_page.click_first_inbound_clickable_status(), \
+        f"Could not open the '{status}' status popup (Inbound)"
+    logger.info(f"[OK] Opened Inbound '{status}' status popup "
+                f"(invoice={vat_context['inbound_popup_invoice']})")
+
+
+@then("Inbound Invoice Extract pop up displayed having EY logo with Close button")
+def step_inbound_extract_popup(im_page: VatEInvoiceManagementPage):
+    assert im_page.modal_is_open(), "Inbound Invoice Extract popup is not open"
+    assert "invoice extract" in im_page.modal_text().lower(), "Inbound Extract popup heading not found"
+    assert im_page.modal_has_logo(), "EY logo not present in Inbound Extract popup"
+    assert im_page.modal_has_close_button(), "Close button not present in Inbound Extract popup"
+    logger.info("[OK] Inbound Invoice Extract popup displayed with EY logo and Close button")
+
+
+@then("I verify Client Invoice Number,Invoice ID,Customer Name,System,Status,Invoice Total Value and Invoice Tax Value columns are displayed correctly in Inbound Invoice Extract")
+def step_inbound_extract_columns(im_page: VatEInvoiceManagementPage):
+    expected = ["Client Invoice Number", "Invoice ID", "Customer Name", "System",
+                "Status", "Invoice Total Value", "Invoice Tax Value"]
+    missing = im_page.modal_missing_texts(expected)
+    assert not missing, f"Inbound Invoice Extract popup is missing label(s): {missing}"
+    logger.info("[OK] All Inbound Extract popup columns displayed")
+
+
+@then(parsers.parse("I click on {fmt} button to export Inbound extract in {fmt_again} format"))
+def step_export_inbound_extract(im_page: VatEInvoiceManagementPage, vat_context: Dict, fmt: str, fmt_again: str):
+    path = im_page.export_from_modal(fmt)
+    vat_context[f"inbound_extract_export_{fmt.lower()}"] = path
+    logger.info(f"[STEP] Exported Inbound extract as {fmt}: {path}")
+
+
+@then(parsers.parse("I verify the exported file contains the correct data in Inbound Invoice Extract in {fmt} format"))
+def step_verify_inbound_extract_export(vat_context: Dict, fmt: str):
+    path = vat_context.get(f"inbound_extract_export_{fmt.lower()}")
+    assert path, f"No {fmt} Inbound extract export was captured"
+    fmt_ok, fmt_detail = assert_export_format(path, fmt)
+    assert fmt_ok, f"{fmt} Inbound extract export format mismatch: {fmt_detail} (file={path})"
+    inv = vat_context.get("inbound_popup_invoice", "")
+    ok, missing, blob_len = file_contains_values(path, [inv] if inv else [])
+    assert blob_len > 0, f"{fmt} Inbound extract export is empty: {path}"
+    if inv:
+        assert ok, f"{fmt} Inbound extract export missing invoice '{inv}' (file={path})"
+    logger.info(f"[OK] {fmt} Inbound extract export verified ({fmt_detail})")
+
+
+@then("Inbound Invoice Error Details pop up displayed having EY logo with Close button")
+def step_inbound_error_popup(im_page: VatEInvoiceManagementPage):
+    assert im_page.modal_is_open(), "Inbound Invoice Error Details popup is not open"
+    assert "error details" in im_page.modal_text().lower(), "Inbound Error Details popup heading not found"
+    assert im_page.modal_has_logo(), "EY logo not present in Inbound Error Details popup"
+    assert im_page.modal_has_close_button(), "Close button not present in Inbound Error Details popup"
+    logger.info("[OK] Inbound Invoice Error Details popup displayed with EY logo and Close button")
+
+
+@then("I verify Client Invoice Number,Invoice ID,System and Error Detail columns are displayed in Inbound Invoice Error Details pop up.")
+def step_inbound_error_columns(im_page: VatEInvoiceManagementPage):
+    expected = ["Client Invoice Number", "Invoice ID", "System", "Error Detail"]
+    missing = im_page.modal_missing_texts(expected)
+    assert not missing, f"Inbound Error Details popup is missing label(s): {missing}"
+    logger.info("[OK] All Inbound Error Details popup columns displayed")
+
+
+@then("I verify the exported file contains the correct data in Inbound Invoice Error Details in Excel format")
+def step_verify_inbound_error_export(vat_context: Dict):
+    path = vat_context.get("error_export_excel")
+    assert path, "No Excel Inbound error-details export was captured"
+    fmt_ok, fmt_detail = assert_export_format(path, "Excel")
+    assert fmt_ok, f"Excel Inbound error-details export format mismatch: {fmt_detail} (file={path})"
+    inv = vat_context.get("inbound_popup_invoice", "")
+    ok, missing, blob_len = file_contains_values(path, [inv] if inv else [])
+    assert blob_len > 0, f"Excel Inbound error-details export is empty: {path}"
+    if inv:
+        assert ok, f"Excel Inbound error-details export missing invoice '{inv}' (file={path})"
+    logger.info(f"[OK] Excel Inbound error-details export verified ({fmt_detail})")
