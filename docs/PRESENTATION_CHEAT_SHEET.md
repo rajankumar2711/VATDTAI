@@ -9,7 +9,7 @@
 **"This saves $50K annually, catches defects 80% earlier, and enables us to deploy with confidence. Our current 70%+ pass rate means most critical features are continuously verified."**
 
 ### 3. What's automated?
-**"34 test scenarios across User Management, Data Ingestion, and DTAI Tile modules - covering login, file uploads, sorting, filtering, and data validation."**
+**"34 test scenarios across User Management, Data Ingestion, and VAT Tile modules - covering login, file uploads, sorting, filtering, and data validation."**
 
 ### 4. How do you see results?
 **"Four reports are generated automatically: Executive Summary for you, detailed technical reports for developers, and an interactive Allure dashboard with trends and charts."**
@@ -120,7 +120,7 @@ A: "We use stable 'data-id' attributes. Developers provide these IDs specificall
 ## 📅 Timeline Highlight
 
 **Q1 2026:** User Management automated (17 scenarios) ✅
-**Q2 2026:** DTAI Tile complete (3 scenarios) ✅, Data Ingestion in progress (14 scenarios) 🔄
+**Q2 2026:** VAT Tile complete (3 scenarios) ✅, Data Ingestion in progress (14 scenarios) 🔄
 **Q3 2026:** CI/CD integration, Tax Computation module 📅
 **Q4 2026:** API testing, security scenarios 📅
 **2027:** AI-powered enhancements, multi-country support 📅

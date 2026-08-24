@@ -1,0 +1,130 @@
+﻿SystemId,Invoice Date,Invoice Due Date,Invoice Number,Buyer / Seller,Buyer / Seller Tax ID,Document Type,Transaction Category,GTES Processing Status,Buyer / Seller Delivery Status,TA Delivery Status,Total Gross Amount,Total Net Amount,Total Tax Amount
+SAPSYS,2026-04-05,2026-05-05,9100045682,Global Retail Corp,US-EIN-98-7654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,2880,2400,480
+SAPSYS,2026-04-05,2026-05-05,9100045682,Acme Manufacturing GmbH,DE123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,2880,2400,480
+-,2026-06-05,2026-07-05,91600004,Benelux Industrial Systems NV,BE0689123456,380,Purchase,DocumentEnvelope Ready,Pending,Pending,0,0,0
+-,2026-06-05,2026-07-05,91600004,FOD Financiën / SPF Finances (Training),BE0899456123,380,Sales,DocumentEnvelope Ready,Pending,Pending,0,0,0
+-,2026-06-02,2026-07-02,91600001,Mechelen Office Supplies BV,BE0448123456,380,Sales,DocumentEnvelope Ready,Pending,Pending,0,0,0
+-,2026-06-02,2026-07-02,91600001,4 Healthy Pets NV,BE0550614263,380,Purchase,DocumentEnvelope Ready,Pending,Pending,0,0,0
+-,2026-05-25,2026-06-24,INV-BE-2026-10-1010,Brussels Components NV,BE0123456789,CreditNote,Purchase,DocumentEnvelope Ready,Pending,Pending,-892.9,-790,-102.9
+-,2026-05-25,2026-06-24,INV-BE-2026-10-1010,Retail Belgium SA,BE0987654321,CreditNote,Sales,DocumentEnvelope Ready,Pending,Pending,-892.9,-790,-102.9
+SAPSYS,2026-05-22,2026-06-21,94260007,Flanders Logistics NV,BE0567891234,380,Sales,DocumentEnvelope Ready,Pending,Pending,1595,1595,0
+SAPSYS,2026-05-22,2026-06-21,94260007,Antwerp Industrial BV,BE0456789123,380,Purchase,DocumentEnvelope Ready,Pending,Pending,1595,1595,0
+SAPSYS,2026-05-20,2026-06-19,94260005,Antwerp Industrial BV,BE0456789123,380,Purchase,DocumentEnvelope Ready,Pending,Pending,4000,4000,0
+SAPSYS,2026-05-20,2026-06-19,94260005,Wallonia Construction SA,BE0678912345,380,Sales,DocumentEnvelope Ready,Pending,Pending,4000,4000,0
+-,2026-05-17,2026-06-16,Oracle_Belgium_nc_1,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,1070.6,1010,60.6
+-,2026-05-17,2026-06-16,Oracle_Belgium_nc_1,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,1070.6,1010,60.6
+-,2026-04-05,2026-05-05,INV-2026-00234,Acme Manufacturing GmbH,DE123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,2880,2400,480
+-,2026-04-05,2026-05-05,INV-2026-00234,Global Retail Corp,US-EIN-98-7654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,2880,2400,480
+-,2026-05-17,2026-06-16,Rajan_oracle_Belgium_123,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,1070.6,1010,60.6
+-,2026-05-17,2026-06-16,Rajan_oracle_Belgium_123,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,1070.6,1010,60.6
+-,2026-05-18,2026-06-17,Rajan_Oracle_Belgium_256,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,2004.8,1790,214.8
+-,2026-05-18,2026-06-17,Rajan_Oracle_Belgium_256,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,2004.8,1790,214.8
+-,2026-05-22,2026-06-21,INV-BE-2026-07-1007,Dutch Wholesale BV,NL123456789B01,380,Sales,DocumentEnvelope Ready,Pending,Pending,1595,1595,0
+-,2026-05-22,2026-06-21,INV-BE-2026-07-1007,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,1595,1595,0
+-,2026-05-20,2026-06-19,INV-BE-2026-05-1005,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,4000,4000,0
+-,2026-05-20,2026-06-19,INV-BE-2026-05-1005,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,4000,4000,0
+-,2026-05-24,2026-06-23,INV-BE-2026-09-1009,Retail Belgium SA,BE0987654321,CreditNote,Sales,DocumentEnvelope Ready,Pending,Pending,-2752.75,-2275,-477.75
+-,2026-05-24,2026-06-23,INV-BE-2026-09-1009,Brussels Components NV,BE0123456789,CreditNote,Purchase,DocumentEnvelope Ready,Pending,Pending,-2752.75,-2275,-477.75
+SAPSYS,2026-04-05,2026-05-05,9100045682-nc-,Acme Manufacturing GmbH,DE123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,2880,2400,480
+SAPSYS,2026-04-05,2026-05-05,9100045682-nc-,Global Retail Corp,US-EIN-98-7654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,2880,2400,480
+Custom ERP,2026-05-23,2026-06-22,INV-BE-2026-08-1008,Atlantic Imports Inc,US-EIN-12-3456789,380,Sales,DocumentEnvelope Ready,Pending,Pending,5480,5480,0
+Custom ERP,2026-05-23,2026-06-22,INV-BE-2026-08-1008,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,5480,5480,0
+SAPSYS,2026-05-21,2026-06-20,94260006,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,9750,9750,0
+SAPSYS,2026-05-21,2026-06-20,94260006,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,9750,9750,0
+Custom ERP,2026-05-18,2026-06-17,NCTEST-ORF-BE-CASE-99-BE1,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,2004.8,1790,214.8
+Custom ERP,2026-05-18,2026-06-17,NCTEST-ORF-BE-CASE-99-BE1,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,2004.8,1790,214.8
+SAPSYS,2026-05-23,2026-06-22,94260008,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,5480,5480,0
+SAPSYS,2026-05-23,2026-06-22,94260008,Wallonia Construction SA,BE0678912345,380,Sales,DocumentEnvelope Ready,Pending,Pending,5480,5480,0
+Custom ERP,2026-05-18,2026-06-17,INV-BE-2026-03-1003,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,2004.8,1790,214.8
+Custom ERP,2026-05-18,2026-06-17,INV-BE-2026-03-1003,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,2004.8,1790,214.8
+Custom ERP,2026-05-21,2026-06-20,INV-BE-2026-06-1006,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,9750,9750,0
+Custom ERP,2026-05-21,2026-06-20,INV-BE-2026-06-1006,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,9750,9750,0
+Custom ERP,2026-05-16,2026-06-15,INV-BE-2026-01-1001,Retail Belgium SA,BE0987654321,380,Sales,DocumentEnvelope Ready,Pending,Pending,7362.85,6085,1277.85
+Custom ERP,2026-05-16,2026-06-15,INV-BE-2026-01-1001,Brussels Components NV,BE0123456789,380,Purchase,DocumentEnvelope Ready,Pending,Pending,7362.85,6085,1277.85
+SAP,2025-05-29,2025-06-28,BE-INV-00008,Person 4,-,SLF,Sales,DocumentEnvelope Extracted,Pending,Pending,234.5,193.8,40.7
+SAP,2025-05-29,2025-06-28,B6F866F7-0650-4130-AB56-3ADCB50A9F01,Acme Manufacturing GmbH,DE123456789,SLF,Purchase,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,B6F866F7-0650-4130-AB56-3ADCB50A9F01,Global Retail Corp,US-EIN-98-7654321,SLF,Sales,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,B4591830-441F-416B-A571-16EA9CA92314,Global Retail Corp,US-EIN-98-7654321,SLF,Sales,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,B4591830-441F-416B-A571-16EA9CA92314,Acme Manufacturing GmbH,DE123456789,SLF,Purchase,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,9F67CD9A-8C80-45D6-A8F6-3D8CD1DDEF3C,Acme Manufacturing GmbH,DE123456789,SLF,Purchase,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,9F67CD9A-8C80-45D6-A8F6-3D8CD1DDEF3C,Global Retail Corp,US-EIN-98-7654321,SLF,Sales,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,729ECD09-127A-4C2C-B46C-97976FCE5D8A,Global Retail Corp,US-EIN-98-7654321,SLF,Sales,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,729ECD09-127A-4C2C-B46C-97976FCE5D8A,Acme Manufacturing GmbH,DE123456789,SLF,Purchase,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,70E46426-7909-43B2-8D64-F34D1A4D2434,Acme Manufacturing GmbH,DE123456789,SLF,Purchase,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+SAP,2025-05-29,2025-06-28,70E46426-7909-43B2-8D64-F34D1A4D2434,Global Retail Corp,US-EIN-98-7654321,SLF,Sales,DocumentEnvelope Extracted,Pending,Pending,2880,2400,480
+Dynamics,2025-05-27,2025-06-26,BE-INV-00014,Company 6,VAT0006,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,291.25,240.7,50.55
+SAP,2025-05-26,2025-06-25,BE-INV-00017,Person 7,-,DBN,Sales,DocumentEnvelope Extracted,Pending,Pending,319.62,264.15,55.47
+Custom ERP,2025-05-25,2025-06-24,BE-INV-00020,Ministry of Dept 8,VAT0008,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,348,287.6,60.4
+Dynamics,2025-05-24,2025-06-23,BE-INV-00023,Company 9,VAT0009,INV,Sales,DocumentEnvelope Ready,Pending,Pending,376.37,311.05,65.32
+SAP,2025-05-23,2025-06-22,BE-INV-00026,Person 10,-,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,404.75,334.5,70.25
+Dynamics,2025-05-21,2025-06-20,BE-INV-00032,Company 12,VAT0012,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,461.49,381.4,80.09
+SAP,2025-05-20,2025-06-19,BE-INV-00035,Acme Corp,BE0123456789,INV,Sales,DocumentEnvelope Error,Pending,Pending,489.87,404.85,85.02
+Custom ERP,2025-05-19,2025-06-18,BE-INV-00038,Ministry of Dept 14,VAT0014,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,518.24,428.3,89.94
+Dynamics,2025-05-18,2025-06-17,BE-INV-00041,Ministry of Finance,BE9876543210,DBN,Sales,DocumentEnvelope Error,Pending,Pending,546.62,451.75,94.87
+SAP,2025-05-17,2025-06-16,BE-INV-00044,Person 16,-,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,574.99,475.2,99.79
+Dynamics,2025-05-15,2025-06-14,BE-INV-00050,Company 18,VAT0018,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,631.74,522.1,109.64
+SAP,2025-05-14,2025-06-13,BE-INV-00053,Person 19,-,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,660.12,545.55,114.57
+Custom ERP,2025-05-13,2025-06-12,BE-INV-00056,Ministry of Dept 20,VAT0020,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,688.49,569,119.49
+Dynamics,2025-05-12,2025-06-11,BE-INV-00059,Company 21,VAT0021,INV,Sales,DocumentEnvelope Ready,Pending,Pending,716.86,592.45,124.41
+SAP,2025-05-11,2025-06-10,BE-INV-00062,Person 22,-,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,745.24,615.9,129.34
+Custom ERP,2025-05-10,2025-06-09,BE-INV-00065,John Doe,-,DBN,Sales,DocumentEnvelope Error,Pending,Pending,773.61,639.35,134.26
+Dynamics,2025-05-09,2025-06-08,BE-INV-00068,Company 24,VAT0024,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,801.99,662.8,139.19
+SAP,2025-05-08,2025-06-07,BE-INV-00071,Person 25,-,INV,Sales,DocumentEnvelope Review Required,Pending,Pending,830.36,686.25,144.11
+Custom ERP,2025-05-07,2025-06-06,BE-INV-00074,Ministry of Dept 26,VAT0026,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,858.74,709.7,149.04
+Dynamics,2025-05-06,2025-06-05,BE-INV-00077,Company 27,VAT0027,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,887.11,733.15,153.96
+SAP,2025-05-05,2025-06-04,BE-INV-00080,Person 28,-,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,915.49,756.6,158.89
+Custom ERP,2025-05-04,2025-06-03,BE-INV-00083,TechStart BV,BE5551234567,INV,Sales,DocumentEnvelope Error,Pending,Pending,943.86,780.05,163.81
+Dynamics,2025-05-03,2025-06-02,BE-INV-00086,Company 30,VAT0030,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,972.24,803.5,168.74
+SAP,2025-04-29,2025-05-29,BE-INV-00098,Person 34,-,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,1085.73,897.3,188.43
+Custom ERP,2025-04-28,2025-05-28,FR-INV-00001,Société Générale,FR12345678901,DBN,Sales,DocumentEnvelope Error,Pending,Pending,1114.11,920.75,193.36
+SAP,2025-04-26,2025-05-26,FR-INV-00007,Marie Dupont,-,INV,Sales,DocumentEnvelope Error,Pending,Pending,1170.86,967.65,203.21
+Custom ERP,2025-04-25,2025-05-25,FR-INV-00010,Ministry of Dept 38,VAT0038,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,1199.23,991.1,208.13
+Dynamics,2025-04-24,2025-05-24,FR-INV-00013,Government Agency,FR98765432109,DBN,Sales,DocumentEnvelope Error,Pending,Pending,1227.61,1014.55,213.06
+SAP,2025-04-23,2025-05-23,FR-INV-00016,Person 40,-,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,1255.98,1038,217.98
+Custom ERP,2025-04-22,2025-05-22,FR-INV-00019,Ministry of Dept 41,VAT0041,INV,Sales,DocumentEnvelope Ready,Pending,Pending,1284.35,1061.45,222.9
+Dynamics,2025-04-21,2025-05-21,FR-INV-00022,Company 42,VAT0042,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,1312.73,1084.9,227.83
+SAP,2025-04-20,2025-05-20,FR-INV-00025,BioPharm SA,FR11223344556,DBN,Sales,DocumentEnvelope Error,Pending,Pending,1341.1,1108.35,232.75
+Custom ERP,2025-04-19,2025-05-19,FR-INV-00028,Ministry of Dept 44,VAT0044,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,1369.48,1131.8,237.68
+Custom ERP,2025-04-16,2025-05-16,FR-INV-00037,Ministry of Dept 47,VAT0047,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,1454.6,1202.15,252.45
+Dynamics,2025-04-15,2025-05-15,FR-INV-00040,LogiTrans SARL,FR66778899001,SLF,Sales,DocumentEnvelope Error,Pending,Pending,1482.98,1225.6,257.38
+SAP,2025-04-14,2025-05-14,FR-INV-00043,Person 49,-,INV,Sales,DocumentEnvelope Ready,Pending,Pending,1511.35,1249.05,262.3
+Custom ERP,2025-04-13,2025-05-13,FR-INV-00046,Pierre Martin,-,CRN,Sales,DocumentEnvelope Error,Pending,Pending,121,100,21
+SAP,2025-04-11,2025-05-11,FR-INV-00052,Person 52,-,SLF,Sales,DocumentEnvelope Error,Pending,Pending,177.75,146.9,30.85
+Dynamics,2025-04-09,2025-05-09,FR-INV-00058,Company 54,VAT0054,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,234.5,193.8,40.7
+SAP,2025-04-08,2025-05-08,FR-INV-00061,Person 55,-,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,262.87,217.25,45.62
+Dynamics,2025-04-06,2025-05-06,FR-INV-00067,Company 57,VAT0057,INV,Sales,DocumentEnvelope Ready,Pending,Pending,319.62,264.15,55.47
+SAP,2025-04-05,2025-05-05,FR-INV-00070,Person 58,-,CRN,Sales,DocumentEnvelope Error,Pending,Pending,348,287.6,60.4
+Dynamics,2025-04-03,2025-05-03,FR-INV-00076,Company 60,VAT0060,SLF,Sales,DocumentEnvelope Error,Pending,Pending,404.75,334.5,70.25
+SAP,2025-04-02,2025-05-02,FR-INV-00079,Person 61,-,INV,Sales,DocumentEnvelope Ready,Pending,Pending,433.12,357.95,75.17
+Custom ERP,2025-04-01,2025-05-01,FR-INV-00082,Ministry of Dept 62,VAT0062,CRN,Sales,DocumentEnvelope Error,Pending,Pending,461.49,381.4,80.09
+Dynamics,2025-03-31,2025-04-30,FR-INV-00085,Company 63,VAT0063,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,489.87,404.85,85.02
+SAP,2025-03-30,2025-04-29,FR-INV-00088,Person 64,-,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,518.24,428.3,89.94
+Custom ERP,2025-03-29,2025-04-28,FR-INV-00091,Ministry of Dept 65,VAT0065,INV,Sales,DocumentEnvelope Ready,Pending,Pending,546.62,451.75,94.87
+Dynamics,2025-03-28,2025-04-27,FR-INV-00094,Company 66,VAT0066,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,574.99,475.2,99.79
+SAP,2025-03-27,2025-04-26,FR-INV-00097,Person 67,-,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,603.37,498.65,104.72
+SAP,2025-03-24,2025-04-23,INV-FATAL-007,Person 70,-,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,688.49,569,119.49
+Custom ERP,2025-03-23,2025-04-22,INV-GOOD-001,Ministry of Dept 71,VAT0071,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,716.86,592.45,124.41
+Dynamics,2025-03-22,2025-04-21,INV-INPROG-006,Company 72,VAT0072,SLF,Sales,DocumentEnvelope Error,Pending,Pending,745.24,615.9,129.34
+Custom ERP,2025-03-20,2025-04-19,INV-MANUAL-003,Ministry of Dept 74,VAT0074,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,801.99,662.8,139.19
+Dynamics,2025-03-19,2025-04-18,INV-PENDING-005,Company 75,VAT0075,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,830.36,686.25,144.11
+SAP,2025-03-18,2025-04-17,INV-REJECT-004,Person 76,-,SLF,Sales,DocumentEnvelope Error,Pending,Pending,858.74,709.7,149.04
+Custom ERP,2025-03-17,2025-04-16,PL-INV-00003,Ministry of Dept 77,VAT0077,INV,Sales,DocumentEnvelope Error,Pending,Pending,887.11,733.15,153.96
+Dynamics,2025-03-16,2025-04-15,PL-INV-00006,Company 78,VAT0078,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,915.49,756.6,158.89
+Custom ERP,2025-03-14,2025-04-13,PL-INV-00012,Ministry of Dept 80,VAT0080,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,972.24,803.5,168.74
+Dynamics,2025-03-13,2025-04-12,PL-INV-00015,Company 81,VAT0081,INV,Sales,DocumentEnvelope Error,Pending,Pending,1000.61,826.95,173.66
+SAP,2025-03-12,2025-04-11,PL-INV-00018,Person 82,-,CRN,Sales,DocumentEnvelope Error,Pending,Pending,1028.98,850.4,178.58
+Custom ERP,2025-03-11,2025-04-10,PL-INV-00021,Ministry of Dept 83,VAT0083,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,1057.36,873.85,183.51
+Dynamics,2025-03-10,2025-04-09,PL-INV-00024,Company 84,VAT0084,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,1085.73,897.3,188.43
+SAP,2025-03-09,2025-04-08,PL-INV-00027,Person 85,-,INV,Sales,DocumentEnvelope Ready,Pending,Pending,1114.11,920.75,193.36
+Custom ERP,2025-03-08,2025-04-07,PL-INV-00030,Ministry of Dept 86,VAT0086,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,1142.48,944.2,198.28
+Dynamics,2025-03-07,2025-04-06,PL-INV-00033,Company 87,VAT0087,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,1170.86,967.65,203.21
+SAP,2025-03-06,2025-04-05,PL-INV-00036,Person 88,-,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,1199.23,991.1,208.13
+Custom ERP,2025-03-05,2025-04-04,PL-INV-00039,Ministry of Dept 89,VAT0089,INV,Sales,DocumentEnvelope Ready,Pending,Pending,1227.61,1014.55,213.06
+Dynamics,2025-03-04,2025-04-03,PL-INV-00042,Company 90,VAT0090,CRN,Sales,DocumentEnvelope Ready,Pending,Pending,1255.98,1038,217.98
+SAP,2025-03-03,2025-04-02,PL-INV-00045,Person 91,-,DBN,Sales,DocumentEnvelope Error,Pending,Pending,1284.35,1061.45,222.9
+Custom ERP,2025-03-02,2025-04-01,PL-INV-00048,Ministry of Dept 92,VAT0092,SLF,Sales,DocumentEnvelope Error,Pending,Pending,1312.73,1084.9,227.83
+Dynamics,2025-03-01,2025-03-31,PL-INV-00051,Company 93,VAT0093,INV,Sales,DocumentEnvelope Ready,Pending,Pending,1341.1,1108.35,232.75
+Custom ERP,2025-02-27,2025-03-29,PL-INV-00057,Ministry of Dept 95,VAT0095,DBN,Sales,DocumentEnvelope Error,Pending,Pending,1397.85,1155.25,242.6
+Dynamics,2025-02-26,2025-03-28,PL-INV-00060,Company 96,VAT0096,SLF,Sales,DocumentEnvelope Ready,Pending,Pending,1426.23,1178.7,247.53
+Custom ERP,2025-02-24,2025-03-26,PL-INV-00066,Ministry of Dept 98,VAT0098,CRN,Sales,DocumentEnvelope Error,Pending,Pending,1482.98,1225.6,257.38
+Dynamics,2025-02-23,2025-03-25,PL-INV-00069,Company 99,VAT0099,DBN,Sales,DocumentEnvelope Ready,Pending,Pending,1511.35,1249.05,262.3

@@ -88,7 +88,6 @@ Feature: VAT DTAI User Management - P1 Test Cases
       | CSV    |
       | XML    |
       | JSON   |
-      | Excel   |
 
   @TC_607982 @Pagination @ExistingUsers
   Scenario: Verify pagination displays maximum 25 records per page

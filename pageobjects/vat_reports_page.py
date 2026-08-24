@@ -1,5 +1,6 @@
 import logging
 from datetime import date
+from pathlib import Path
 from pageobjects.base_page import BasePage
 
 logger = logging.getLogger(__name__)
@@ -323,3 +324,67 @@ class VatReportsPage(BasePage):
         if "report" in body and "generate report" in body:
             return True
         return False
+
+    def get_report_column_headers(self):
+        """Return column header labels from a tabular report output, if present."""
+        try:
+            return self.page.evaluate("""() => {
+                const norm = v => (v || '').replace(/\\s+/g, ' ').trim();
+                const scopes = [
+                    document.querySelector('div.modal-dialog'),
+                    document.querySelector("[role='dialog']"),
+                    document.querySelector('div.tab-pane.active'),
+                    document.body
+                ].filter(Boolean);
+                for (const scope of scopes) {
+                    let headers = Array.from(
+                        scope.querySelectorAll('table thead th, table th, .tabulator .tabulator-col-title')
+                    ).map(el => norm(el.innerText || el.textContent)).filter(Boolean);
+                    if (headers.length) return headers;
+                }
+                return [];
+            }""")
+        except Exception:
+            return []
+
+    def _find_export_pdf_button(self):
+        selectors = [
+            "button:has-text('Export PDF')",
+            "button:has-text('Export to PDF')",
+            "a:has-text('Export PDF')",
+            "a:has-text('Export to PDF')",
+            "button[title*='PDF' i]",
+            "a[title*='PDF' i]",
+            "[aria-label*='PDF' i]",
+            "button:has-text('Export')",
+        ]
+        for sel in selectors:
+            try:
+                el = self.page.locator(sel).first
+                if el.count() > 0 and el.is_visible(timeout=1200):
+                    return el
+            except Exception:
+                continue
+        return None
+
+    def click_export_pdf(self, timeout_ms: int = 25000):
+        """Click Export PDF and capture the downloaded file. Returns a result dict."""
+        logger.info("Clicking Export PDF button")
+        self._dismiss_analytics_popup_if_present()
+        btn = self._find_export_pdf_button()
+        if btn is None:
+            return {"ok": False, "reason": "Export PDF button not found"}
+
+        downloads_dir = Path(__file__).resolve().parent.parent / "reports" / "downloads"
+        downloads_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            with self.page.expect_download(timeout=timeout_ms) as dl_info:
+                btn.click(force=True)
+            download = dl_info.value
+            suggested = download.suggested_filename
+            dest = downloads_dir / suggested
+            download.save_as(str(dest))
+            logger.info(f"Export PDF downloaded: {dest}")
+            return {"ok": True, "suggested": suggested, "path": str(dest)}
+        except Exception as e:
+            return {"ok": False, "reason": f"no download captured: {e}"}

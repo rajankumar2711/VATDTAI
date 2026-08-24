@@ -1,0 +1,346 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://example.local/YY1_GTES_SD_API('Rajan_BE_21_20260702T154101_STD21')",
+      "uri": "https://example.local/YY1_GTES_SD_API('Rajan_BE_21_20260702T154101_STD21')",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+    "CompanyCode": "BE10",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Warehouse barcode scanner",
+          "AddressID": "180020",
+          "actDelivDate": "/Date(1783036800000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Rue Neuve 45",
+          "delivAddr2": "",
+          "delivCity": "Brussels",
+          "delivPostCode": "1000",
+          "delivAddr3": "Rue Neuve 45",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Retail Belgium SA Delivery Location",
+          "DeliveryStreet": "Rue Neuve 45",
+          "DeliveryCity": "Brussels",
+          "DeliveryPostalCode": "1000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003101",
+          "OutboundDelivery": "85001000010"
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial printer labels",
+          "AddressID": "180030",
+          "actDelivDate": "/Date(1783036800000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Rue Neuve 45",
+          "delivAddr2": "",
+          "delivCity": "Brussels",
+          "delivPostCode": "1000",
+          "delivAddr3": "Rue Neuve 45",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Retail Belgium SA Delivery Location",
+          "DeliveryStreet": "Rue Neuve 45",
+          "DeliveryCity": "Brussels",
+          "DeliveryPostalCode": "1000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003101",
+          "OutboundDelivery": "85001000020"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_21_20260702T154101_STD21')",
+        "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_21_20260702T154101_STD21')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+      "CountryISOCode": "BE",
+      "invNum": "Rajan_BE_21_20260702T154101_STD21",
+      "invoice_id": "Rajan_BE_21_20260702T154101_STD21",
+      "invoice_uuid": "f495c175-f594-4019-823f-bc302fdc0138",
+      "invIssueDate": "/Date(1783036800000)/",
+      "payDueDate": "/Date(1785628800000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1783036800000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_PROD",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "PEPPOL-BIS-3.0-BE",
+      "notes": [
+        "Standard invoice for goods delivered per contract 2026-BE-STD21"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "0987654321",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "0987654321",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BE1003101",
+      "purOrdRef": "PO-BE-STD21-154101",
+      "saleOrdRef": "SO-BE-STD21-154101",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Rue Neuve 45",
+      "buyerAddr2": "",
+      "buyerCity": "Brussels",
+      "buyerPostCode": "1000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0987654321",
+      "buyerName": "Retail Belgium SA",
+      "buyerTradeName": "Retail Belgium",
+      "buyerContactTel": "+32-2-555-2001",
+      "buyerContactEmail": "ap@retailbe.be",
+      "DeliveryStreet": "Rue Neuve 45",
+      "DeliveryCity": "Brussels",
+      "DeliveryPostalCode": "1000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Net Due in 30 Days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "284.89",
+      "taxCatRate": "21.00",
+      "invTotalAmtWithTax": "1641.49",
+      "sumInvLineNetAmt": "1356.60",
+      "AllowanceTotal": "0.00",
+      "ChargeTotal": "0.00",
+      "DiscountRate": "2.00",
+      "DiscountDate": "2026-07-13",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE10",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_21_20260702T154101_STD21')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_21_20260702T154101_STD21')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": []
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "3",
+          "invoicedQtyUOM": "H87",
+          "invLineNetAmt": "1169.10",
+          "itemDesc": "Warehouse barcode scanner",
+          "sellerItemID": "SCANNER-BE-X200",
+          "sellerItemID_Text": "Warehouse barcode scanner",
+          "BuyerItemId": "WIDGET-X200",
+          "buyerItemID": "WIDGET-X200",
+          "Gtin": "5412345000011",
+          "gtin": "5412345000011",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "245.51",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783036800000)/",
+          "ShipToParty": "BE1003101",
+          "BillingQuantityUnit": "PZ",
+          "StandardItemIdentification": "5412345000011",
+          "BuyersItemIdentification": "WIDGET-X200",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000010')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000010')/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "10",
+          "invoicedQtyUOM": "XBX",
+          "invLineNetAmt": "187.50",
+          "itemDesc": "Industrial printer labels",
+          "sellerItemID": "LABEL-BE-B10",
+          "sellerItemID_Text": "Industrial printer labels",
+          "BuyerItemId": "LABEL-B10",
+          "buyerItemID": "LABEL-B10",
+          "Gtin": "5412345000012",
+          "gtin": "5412345000012",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "39.38",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783036800000)/",
+          "ShipToParty": "BE1003101",
+          "BillingQuantityUnit": "BOX",
+          "StandardItemIdentification": "5412345000012",
+          "BuyersItemIdentification": "LABEL-B10",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000020')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_21_20260702T154101_STD21',BillingDocumentItem='000020')/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": []
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_21_20260702T154101_STD21",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "21.00",
+          "taxCatTaxableAmt": "1356.60",
+          "taxCatTaxAmt": "284.89",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital Region"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "uri": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE10",
+          "HouseBank": "KBCBE",
+          "HouseBankAccount": "807E",
+          "payAccID": "BE68539007547034",
+          "Iban": "BE68539007547034",
+          "Swift": "KREDBEBB",
+          "payAccName": "KBC Bank",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "uri": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE10",
+      "sellerID": "0123456789",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Avenue Louise 120",
+      "sellerAddr2": "",
+      "sellerCity": "Brussels",
+      "sellerPostCode": "1000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Rajan Belgium Components NV",
+      "sellerTradeName": "SAP Source Billing",
+      "sellerTaxID": "BE0123456789",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE68539007547034",
+      "Swift": "KREDBEBB",
+      "ContactEmailAddress": "billing@rajan-belgium-components.be",
+      "ContactName": "Sophie Martin",
+      "ContactTelephone": "+32-2-555-1001",
+      "bank_account": [
+        {
+          "iban": "BE68539007547034",
+          "swift": "KREDBEBB",
+          "account_name": "KBC Bank"
+        }
+      ],
+      "contact": {
+        "name": "Sophie Martin",
+        "phone": "+32-2-555-1001",
+        "email": "billing@rajan-belgium-components.be"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-07-02T15:41:01+00:00",
+      "ingested_at": "2026-07-02T15:41:06+00:00",
+      "validated_at": "2026-07-02T15:41:11+00:00",
+      "transformed_at": "2026-07-02T15:41:16+00:00",
+      "source_system_id": "SAP_BE_PROD",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "7200000000000001",
+      "correlation_id": "16f8f2b0-dc32-4330-9b3f-733b1e5a5fbe",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "ERP_CANONICAL_BE_SAP_V2",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "BIS 3",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2036-12-31",
+      "archival_location": "https://archive.example.local/be/sap/Rajan_BE_21_20260702T154101_STD21",
+      "payload_hash": "be3c1badeff87c0cb8f31208a32d60687d038f3b3f1235f5d7dc24d3c0610418",
+      "source_hash": "c183e1f4a1f21155e0492045f5754a01e654413820e1c57e9f384ab7277fc7fb",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

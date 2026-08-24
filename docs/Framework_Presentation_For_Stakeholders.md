@@ -44,7 +44,7 @@ A **comprehensive, enterprise-grade test automation framework** designed specifi
 ┌─────────────────────────────────────────────────────────────┐
 │  FEATURE FILES (.feature)                                    │
 │  • Business-readable scenarios in Gherkin                    │
-│  • User Management, Data Ingestion, DTAI Tile modules        │
+│  • User Management, Data Ingestion, VAT Tile modules         │
 └─────────────────────────────────────────────────────────────┘
                             │
                             ▼
@@ -78,7 +78,7 @@ A **comprehensive, enterprise-grade test automation framework** designed specifi
 | Module | Test Scenarios | Status | Pass Rate |
 |--------|---------------|--------|-----------|
 | **User Management** | 17 scenarios | ✅ Stable | 70.6% (12/17) |
-| **DTAI Tile** | 3 scenarios | ✅ Complete | 100% (3/3) |
+| **VAT Tile** | 3 scenarios | ✅ Complete | 100% (3/3) |
 | **Data Ingestion** | 14 scenarios | 🔄 In Progress | Testing phase |
 
 ### Test Case Examples:
@@ -426,7 +426,7 @@ tests/test_documents/Belgium Sample Invoice Test data/
 ### Current Framework Performance
 
 **Test Execution Metrics:**
-- ✅ **Pass Rate:** 70.6% (User Management), 100% (DTAI Tile)
+- ✅ **Pass Rate:** 70.6% (User Management), 100% (VAT Tile)
 - ⚡ **Execution Speed:** 2-3 minutes per scenario
 - 🎯 **Locator Stability:** 95%+ (minimal flakiness)
 - 📊 **Coverage:** 34 scenarios across 3 modules
@@ -752,4 +752,4 @@ For questions or demo requests, please contact the QA Automation Team.
 **Last Updated:** May 8, 2026
 **Prepared For:** Business Stakeholders
 **Framework Version:** 1.0.0
-**Test Coverage:** 34 scenarios (User Management: 17, DTAI Tile: 3, Data Ingestion: 14)
+**Test Coverage:** 34 scenarios (User Management: 17, VAT Tile: 3, Data Ingestion: 14)

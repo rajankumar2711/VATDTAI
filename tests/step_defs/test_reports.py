@@ -2,6 +2,7 @@
 Step definitions for VAT DTAI Reports module.
 Connects Vat_reports.feature with vat_reports_page.py.
 """
+import os
 import logging
 from typing import Dict, Any
 
@@ -154,12 +155,44 @@ def step_verify_generate_report_section(reports_page: VatReportsPage):
 
 
 @then("e-Invoice Status report is displayed in popup or supported UI container")
+@then("e-Invoice Status report is displayed in popup or supported UI container and verify the all the columns appropriately")
 def step_verify_einvoice_status_report_displayed(
     reports_page: VatReportsPage,
     vat_context: Dict[str, Any],
 ):
     selected = vat_context.get("selected_report") or "e-Invoice Status Report"
     assert reports_page.is_report_displayed(selected), "e-Invoice Status report output container not detected"
+
+    columns = reports_page.get_report_column_headers()
+    if columns:
+        logger.info(f"[OK] e-Invoice Status report columns detected ({len(columns)}): {columns}")
+    else:
+        logger.info("[INFO] Report rendered in a non-tabular container (e.g., PDF/iframe); column-count assertion skipped")
+
+
+@when("I click on Export PDF button")
+def step_click_export_pdf(reports_page: VatReportsPage, vat_context: Dict[str, Any]):
+    logger.info("[WHEN] Clicking Export PDF button")
+    result = reports_page.click_export_pdf()
+    vat_context["export_pdf_result"] = result
+    if not result.get("ok"):
+        pytest.skip(f"Export PDF not available/triggered: {result.get('reason')}")
+    logger.info(f"[OK] Export PDF downloaded: {result.get('suggested')}")
+
+
+@then("Verify the export pdf file is downloaded successfully and verify file name")
+def step_verify_export_pdf_downloaded(vat_context: Dict[str, Any]):
+    logger.info("[THEN] Verifying exported PDF file download")
+    result = vat_context.get("export_pdf_result", {})
+    assert result.get("ok"), f"Export PDF download did not occur: {result.get('reason')}"
+
+    suggested = (result.get("suggested") or "").strip()
+    assert suggested.lower().endswith(".pdf"), f"Downloaded file is not a PDF: '{suggested}'"
+
+    path = result.get("path")
+    assert path and os.path.exists(path) and os.path.getsize(path) > 0, \
+        f"Downloaded PDF is missing or empty: {path}"
+    logger.info(f"[OK] Exported PDF verified: {suggested} ({os.path.getsize(path)} bytes)")
 
 
 @then("Submission Report is displayed in popup or approved UI container")

@@ -1,7 +1,0 @@
-<Invoice sourceSystem="MS_D365">
-  <InvoiceTypeCode>381</InvoiceTypeCode>
-  <Tax>
-    <TaxableAmount>-200.00</TaxableAmount>
-    <TaxAmount>-42.00</TaxAmount>
-  </Tax>
-</Invoice>

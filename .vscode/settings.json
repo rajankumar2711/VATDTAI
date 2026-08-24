@@ -6,10 +6,44 @@
     "python.testing.pytestEnabled": true,
     "chat.mcp.autostart": "never",
     "cucumberautocomplete.steps": [
-        "tests/step_defs/*.py"
+        "tests/step_defs/**/*.py"
     ],
-    "cucumberautocomplete.syncfeatures": "tests/features/*.feature",
-    "cucumberautocomplete.gherkinDefinitionPart": "@(?:given|when|then)\\(",
+    "cucumberautocomplete.syncfeatures": "tests/features/**/*.feature",
+    "cucumberautocomplete.strictGherkinCompletion": false,
+    "cucumberautocomplete.stepsInvariants": true,
+    "cucumberautocomplete.gherkinDefinitionPart": "@(?:given|when|then|step)\\((?:parsers\\.(?:parse|re|cfparse)\\()?",
+    "cucumberautocomplete.stepRegExp": "^\\s*@(?:given|when|then|step)\\((?:parsers\\.(?:parse|re|cfparse)\\()?u?[\"'](.*?)[\"']",
+
+    // pytest-bdd 7.x uses an INDENTATION-SENSITIVE parser: any step indented MORE than the
+    // first step of its block is folded into that step as one multi-line step (breaking it).
+    // The default "relative" keyword alignment right-pads keywords so step text lines up,
+    // which produces uneven step indentation and corrupts parsing. Force FIXED, EQUAL
+    // indentation for every step keyword so all steps stay left-aligned at the same column.
+    "cucumberautocomplete.onTypeFormat": false,
+    "cucumberautocomplete.formatConfOverride": {
+        "Feature": 0,
+        "Background": 1,
+        "Scenario": 1,
+        "Scenario Outline": 1,
+        "Examples": 2,
+        "Given": 2,
+        "When": 2,
+        "Then": 2,
+        "And": 2,
+        "But": 2,
+        "Step": 2
+    },
+    // Hard guard: never let the Gherkin formatter rewrite .feature files automatically.
+    "[feature]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": false,
+        "editor.formatOnPaste": false
+    },
+    "[gherkin]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": false,
+        "editor.formatOnPaste": false
+    },
     
     // Add this line to point to your project-level MCP config
     "chat.mcp.configPath": "${workspaceFolder}/mcp.json",

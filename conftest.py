@@ -25,6 +25,46 @@ logger = logging.getLogger(__name__)
 def pytest_bdd_apply_tag(tag, function):
     return getattr(pytest.mark, tag, lambda x: x)(function)
 
+
+def _step_logger():
+    """Return the shared scenario logger if initialised, else this module's logger.
+    Using the shared LogGen instance ensures step logs land in the same file that the
+    pytest-html 'Scenario Logs' attachment reads from."""
+    global _singleton_logger
+    if _singleton_logger is not None:
+        return _singleton_logger.logger
+    return logger
+
+
+# ---------------------------------------------------------------------------
+# pytest-bdd step lifecycle hooks: automatically log EVERY step (start / pass /
+# fail) so reports capture a complete, accurate execution trail without relying
+# on each step definition to log individually.
+# ---------------------------------------------------------------------------
+def pytest_bdd_before_scenario(request, feature, scenario):
+    _step_logger().info(
+        f"=== [SCENARIO START] {scenario.name} "
+        f"(feature: {Path(feature.filename).name}) ==="
+    )
+
+
+def pytest_bdd_before_step(request, feature, scenario, step, step_func):
+    _step_logger().info(f"[STEP ->] {step.keyword} {step.name}")
+
+
+def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func_args):
+    _step_logger().info(f"[STEP PASS] {step.keyword} {step.name}")
+
+
+def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
+    _step_logger().error(
+        f"[STEP FAIL] {step.keyword} {step.name} -> {type(exception).__name__}: {exception}"
+    )
+
+
+def pytest_bdd_after_scenario(request, feature, scenario):
+    _step_logger().info(f"=== [SCENARIO END] {scenario.name} ===")
+
 # This method will launch the browser
 # It will take the parameter as browser type and other details from configuration
 @pytest.fixture(scope="session")
@@ -44,6 +84,8 @@ def launch_browser(playwright: Playwright, request):
         browser = playwright.chromium.launch(channel="msedge", **launch_args)
     elif browser_type.lower() == "chrome":
         browser = playwright.chromium.launch(channel="chrome", **launch_args)
+    elif browser_type.lower() == "chromium":
+        browser = playwright.chromium.launch(**launch_args)
     elif browser_type.lower() == "firefox":
         # Firefox uses different approach
         browser = playwright.firefox.launch(headless=False, args=['--kiosk'])
@@ -111,6 +153,43 @@ def get_page(get_context):
     page = get_context.new_page()
     yield page
     page.close()
+
+
+# Session-scoped authenticated VAT DTAI session (Option B: login once for the whole run).
+# Performs login -> client selection -> Consumption Tax/DTAI navigation -> OK popup ONCE.
+# Modules opt in by overriding `get_page` to return vat_session["page"] (see test_data_ingestion.py).
+@pytest.fixture(scope="session")
+def vat_session(launch_browser, request):
+    """One-time authenticated session shared across all opted-in scenarios."""
+    from tests.step_defs.VAT_Common_Library import (
+        perform_login,
+        perform_client_selection,
+        perform_dtai_navigation,
+        dismiss_application_popup,
+    )
+
+    env = request.config.getoption("--env").lower()
+    Read_Configurations.initialize(env)
+
+    context = launch_browser.new_context(no_viewport=True, accept_downloads=True)
+    page = context.new_page()
+
+    logger.info("=== [vat_session] One-time login + navigation to DTAI dashboard ===")
+    launch_page = perform_login(page, role="Admin")
+    perform_client_selection(page, launch_page, "Client Belgium")
+    perform_dtai_navigation(page, launch_page)
+    dismiss_application_popup(page)
+    logger.info(f"=== [vat_session] Ready. Current URL: {page.url} ===")
+
+    session = {"page": page, "launch_page": launch_page}
+    yield session
+
+    logger.info("=== [vat_session] Closing shared session ===")
+    try:
+        page.close()
+        context.close()
+    except Exception:
+        pass
 
 
 # Module-scoped authenticated VAT DTAI fixture
@@ -504,7 +583,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     detailed_html_url = _to_file_url(detailed_html) if detailed_html else None
     
     # Get allure results and report directories with timestamp
-    base_reports_dir = Path(r"C:\Users\YY399YH\Playwright_Framework_QA\Playwright_Python\reports")
+    base_reports_dir = Path(__file__).resolve().parent / "reports"
     allure_source_dir = base_reports_dir / "allure-results"  # Original collection directory
     allure_results_dir = base_reports_dir / f"allure-results_{timestamp}"
     allure_report_dir = base_reports_dir / f"allure-report_{timestamp}"

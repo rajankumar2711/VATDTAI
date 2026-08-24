@@ -2,12 +2,12 @@
 Step Definitions for User Management Module
 Connects Vat_user_management.feature with vat_user_management_page.py
 
-Each test case is independent with its own browser session.
+All scenarios share a single authenticated session (Option B) via the get_page override below.
 """
 import os
 import re
+import tempfile
 import logging
-from pathlib import Path
 from typing import Dict, Any
 
 import pytest
@@ -15,17 +15,10 @@ from playwright.sync_api import Page, expect
 from pytest_bdd import given, scenario, then, when, parsers
 from pageobjects.vat_user_management_page import VatUserManagementPage
 from pageobjects.launch_app_page import LaunchAppPage
-from utilities.read_properties import Read_Configurations
 
-# Import all common navigation utilities and step definitions
-from tests.step_defs.VAT_Common_Library import (
-    ensure_home_page,
-    ensure_dtai_dashboard,
-    navigate_to_module,
-    get_current_page_state,
-)
-
-# Import common step definitions (login, client selection, DTAI navigation)
+# navigate_to_module is called directly below; the wildcard import registers the common
+# Background step definitions (login, client selection, DTAI navigation, popup dismissal).
+from tests.step_defs.VAT_Common_Library import navigate_to_module
 from tests.step_defs.VAT_Common_Library import *
 
 # Configure logger for this module
@@ -34,14 +27,22 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(name)s - %(mes
 
 
 # ==========================================
-# FIXTURES - Function-Scoped for Independence
+# FIXTURES
 # ==========================================
+
+@pytest.fixture()
+def get_page(vat_session) -> Page:
+    """Reuse the single session-scoped authenticated page across all User Management scenarios,
+    so login + client selection + DTAI navigation happen only once.
+    Overrides the function-scoped get_page from conftest for this module only."""
+    return vat_session["page"]
+
 
 @pytest.fixture()
 def vat_context(get_page: Page) -> Dict[str, Any]:
     """
-    Function-scoped context for each test.
-    Each test gets a fresh browser session.
+    Per-scenario context bag. The browser session itself is shared across scenarios
+    (see get_page override); only this lightweight state is recreated per scenario.
     """
     logger.info("Initializing VAT context for test")
     return {
@@ -60,6 +61,33 @@ def user_management_page(get_page: Page) -> VatUserManagementPage:
     """Function-scoped fixture to provide User Management page object"""
     logger.info("Creating User Management page object")
     return VatUserManagementPage(get_page)
+
+
+def _wait_for_users_grid(page: Page, um_page: VatUserManagementPage):
+    """Wait for the Existing Users grid to finish (re)loading after navigating to the module.
+
+    Scenarios share one authenticated session; re-clicking the module tab reloads the grid
+    fresh (default sort, no filters), so no manual reset is needed. We only wait for the grid
+    to settle so the first assertion in each scenario does not race the reload.
+    """
+    try:
+        page.locator(um_page.grid_existing_users).first.wait_for(state="visible", timeout=15000)
+        # Existing Users section heading renders a beat after the grid on the first navigation;
+        # wait for it so the first scenario's assertions do not race the render.
+        try:
+            page.locator(um_page.heading_existing_users).first.wait_for(state="visible", timeout=10000)
+        except Exception:
+            pass
+        page.wait_for_timeout(500)
+    except Exception as exc:
+        logger.debug(f"Users grid not confirmed visible after navigation: {exc}")
+
+
+def _column_header(page: Page, column: str):
+    """Match a grid column header by name substring, robust to the leading menu glyph and the
+    sort-direction indicator that change a header's accessible name once it becomes the sorted
+    column (the string role= selector needs an exact name and misses those)."""
+    return page.get_by_role("columnheader", name=column).first
 
 
 # ==========================================
@@ -150,26 +178,6 @@ def step_users_assigned_roles():
     pass
 
 
-@given("I navigate to User Management module")
-def step_navigate_to_user_management_given(get_page: Page, user_management_page: VatUserManagementPage):
-    """Navigate to User Management module (Given step)"""
-    logger.info("[GIVEN] Navigating to User Management module")
-    get_page.wait_for_timeout(2000)
-    
-    # Click User Management tab
-    logger.info("Clicking User Management tab")
-    tab_locator = get_page.locator(user_management_page.tab_user_management_module)
-    tab_locator.wait_for(state="visible", timeout=10000)
-    tab_locator.click()
-    get_page.wait_for_timeout(3000)
-    
-    # Verify module loaded
-    logger.info("Verifying User Management module loaded")
-    heading_locator = get_page.locator(user_management_page.heading_user_management)
-    expect(heading_locator).to_be_visible(timeout=10000)
-    logger.info("User Management module loaded successfully")
-
-
 @given("the Existing Users table has multiple user records")
 def step_table_has_multiple_records(get_page: Page, user_management_page: VatUserManagementPage, vat_context: Dict):
     """Verify table has multiple records"""
@@ -193,12 +201,8 @@ def step_apply_filters_on_name_and_role(
     """Apply filters on Name and Role columns"""
     logger.info(f"[WHEN] Applying filters: Name='{name_filter}', Role='{role_filter}'")
     
-    # Click Show Filters button first
-    logger.info("Clicking Show Filters button")
-    show_filters_btn = get_page.locator(user_management_page.btn_show_filters)
-    show_filters_btn.wait_for(state="visible", timeout=10000)
-    show_filters_btn.click(timeout=10000)
-    get_page.wait_for_timeout(2000)
+    # Reveal filter inputs using the page object's Show Filters helper (has locator fallback)
+    user_management_page.show_filters()
     
     # Apply Name filter
     logger.info(f"Applying Name filter: {name_filter}")
@@ -243,12 +247,11 @@ def step_sort_by_email_column(get_page: Page, user_management_page: VatUserManag
 # NOTE: Login, client selection, and DTAI navigation steps imported from VAT_Common_Library.py
 # Only User Management-specific @when steps are defined here
 
-@when("I access User Management module")
 @when("I navigate to User Management module")
 def step_access_user_management_module(get_page: Page, user_management_page: VatUserManagementPage, vat_context: Dict):
     """
-    Navigate to User Management module using smart navigation.
-    Ensures on DTAI dashboard first, then clicks User Management tab.
+    Navigate to User Management module using smart navigation, then wait for the Existing Users
+    grid to settle so each scenario in the shared session starts from a clean, deterministic state.
     """
     print("\n[WHEN] Accessing User Management module")
     launch_page = vat_context.get("launch_page")
@@ -256,6 +259,7 @@ def step_access_user_management_module(get_page: Page, user_management_page: Vat
         launch_page = LaunchAppPage(get_page)
         vat_context["launch_page"] = launch_page
     navigate_to_module(get_page, "User Management", launch_page)
+    _wait_for_users_grid(get_page, user_management_page)
 
 
 @when(parsers.parse("I click on {column} column header once"))
@@ -271,18 +275,9 @@ def step_click_column_header_once(
     """Click on column header to sort ascending"""
     logger.info(f"[WHEN] Clicking on '{column}' column header for sorting")
     
-    if column.lower() == "name":
-        header = get_page.locator(user_management_page.columnheader_name)
-        header.wait_for(state="visible", timeout=10000)
-        header.click(timeout=10000)
-    elif column.lower() == "email":
-        header = get_page.locator(user_management_page.columnheader_email)
-        header.wait_for(state="visible", timeout=10000)
-        header.click(timeout=10000)
-    elif column.lower() == "role":
-        header = get_page.locator(user_management_page.columnheader_role)
-        header.wait_for(state="visible", timeout=10000)
-        header.click(timeout=10000)
+    header = _column_header(get_page, column)
+    header.wait_for(state="visible", timeout=10000)
+    header.click(timeout=10000)
     
     get_page.wait_for_timeout(2000)
     vat_context["selected_column"] = column
@@ -300,18 +295,9 @@ def step_click_column_header_again(
     """Click on column header again to sort descending"""
     logger.info(f"[WHEN] Clicking on '{column}' column header again for descending sort")
     
-    if column.lower() == "name":
-        header = get_page.locator(user_management_page.columnheader_name)
-        header.wait_for(state="visible", timeout=10000)
-        header.click(timeout=10000)
-    elif column.lower() == "email":
-        header = get_page.locator(user_management_page.columnheader_email)
-        header.wait_for(state="visible", timeout=10000)
-        header.click(timeout=10000)
-    elif column.lower() == "role":
-        header = get_page.locator(user_management_page.columnheader_role)
-        header.wait_for(state="visible", timeout=10000)
-        header.click(timeout=10000)
+    header = _column_header(get_page, column)
+    header.wait_for(state="visible", timeout=10000)
+    header.click(timeout=10000)
     
     get_page.wait_for_timeout(2000)
     vat_context["sort_order"] = "descending"
@@ -373,12 +359,19 @@ def step_click_select_all_checkbox(get_page: Page, user_management_page: VatUser
 
 @when("I click Clear Filters button")
 def step_click_clear_filters_button(get_page: Page, user_management_page: VatUserManagementPage):
-    """Click Clear Filters button"""
+    """Click Clear Filters button (fall back to the title-based locator if the primary misses)"""
     logger.info("[WHEN] Clicking Clear Filters button")
-    clear_filters_btn = get_page.locator(user_management_page.btn_clear_filters)
-    clear_filters_btn.wait_for(state="visible", timeout=10000)
-    clear_filters_btn.click(timeout=10000)
-    get_page.wait_for_timeout(2000)
+    for locator in (user_management_page.btn_clear_filters, user_management_page.btn_clear_filters_alt):
+        btn = get_page.locator(locator).first
+        try:
+            btn.wait_for(state="visible", timeout=8000)
+            btn.click(timeout=10000)
+            get_page.wait_for_timeout(2000)
+            logger.info("Clear Filters button clicked successfully")
+            return
+        except Exception as exc:
+            logger.warning(f"Clear Filters locator '{locator}' failed: {exc}")
+    raise AssertionError("Clear Filters button not clickable via primary or alternative locator")
     logger.info("Clear Filters button clicked successfully")
 
 
@@ -403,19 +396,24 @@ def step_click_reset_sort_button(get_page: Page, user_management_page: VatUserMa
 
 @when("I select one or more rows using checkboxes")
 def step_select_rows_using_checkboxes(get_page: Page, user_management_page: VatUserManagementPage, vat_context: Dict):
-    """Select one or more rows by clicking checkboxes"""
+    """Select the first few rows, capturing each selected user's Name and Email so the download
+    step can later verify the exported file actually contains those records."""
     logger.info("[WHEN] Selecting rows using checkboxes")
-    # Select first 3 rows
-    for i in range(3):
-        checkbox = get_page.locator(user_management_page.checkbox_row_by_index(i))
-        if checkbox.count() > 0:
-            logger.info(f"Clicking checkbox for row {i}")
-            checkbox.wait_for(state="visible", timeout=10000)
-            checkbox.click(timeout=10000)
-            vat_context["selected_rows"].append(i)
-            logger.info(f"Checkbox {i} clicked")
+    vat_context["selected_row_data"] = []
+    checkboxes = get_page.locator(user_management_page.checkboxes_all_rows)
+    for i in range(min(3, checkboxes.count())):
+        checkbox = checkboxes.nth(i)
+        checkbox.wait_for(state="visible", timeout=10000)
+        row = checkbox.locator("xpath=ancestor::*[@role='row'][1]")
+        cells = row.locator("role=gridcell")
+        name = cells.nth(1).inner_text().strip()
+        email = cells.nth(2).inner_text().strip()
+        checkbox.click(timeout=10000)
+        vat_context["selected_rows"].append(i)
+        vat_context["selected_row_data"].append({"name": name, "email": email})
+        logger.info(f"Selected row {i}: {name} <{email}>")
     get_page.wait_for_timeout(500)
-    logger.info(f"Selected {len(vat_context['selected_rows'])} rows")
+    logger.info(f"Selected {len(vat_context['selected_row_data'])} rows")
 
 
 @when(parsers.parse("I click Download button and select {format} format"))
@@ -425,33 +423,45 @@ def step_select_rows_using_checkboxes(get_page: Page, user_management_page: VatU
 def step_click_download_and_select_format(
     get_page: Page,
     user_management_page: VatUserManagementPage,
+    vat_context: Dict,
     format: str
 ):
-    """Click Download button and select export format"""
-    logger.info(f"[WHEN] Clicking Download button for {format} format")
-    # Click Export button
-    export_btn = get_page.locator(user_management_page.btn_export)
-    export_btn.wait_for(state="visible", timeout=10000)
-    export_btn.click(timeout=10000)
-    get_page.wait_for_timeout(2000)
-    logger.info(f"Export button clicked")
+    """Open the Download dropdown, choose the requested format, and capture the resulting file."""
+    fmt = format.strip().upper()
+    logger.info(f"[WHEN] Downloading Existing Users as {fmt}")
     
-    # Note: Current implementation downloads directly to Excel
-    # If format selection menu appears, select the format
-    # This might need adjustment based on actual UI behavior
-    format_selector = get_page.get_by_text(format, exact=True)
-    if format_selector.count() > 0:
-        logger.info(f"Selecting format: {format}")
-        format_selector.click()
-        get_page.wait_for_timeout(1000)
-    logger.info(f"Download initiated for format: {format}")
+    # Open the Download dropdown
+    toggle = get_page.locator(user_management_page.btn_download_toggle).first
+    toggle.wait_for(state="visible", timeout=10000)
+    toggle.click(timeout=10000)
+    get_page.wait_for_timeout(500)
+    
+    # Select the format option (menu items are plain <a>Download as CSV/JSON/XML</a>)
+    option = get_page.locator(user_management_page.download_menu).get_by_text(f"Download as {fmt}", exact=True)
+    option.first.wait_for(state="visible", timeout=10000)
+    
+    vat_context["downloaded_file"] = None
+    vat_context["downloaded_path"] = None
+    try:
+        with get_page.expect_download(timeout=15000) as download_info:
+            option.first.click(timeout=10000)
+        download = download_info.value
+        dest = os.path.join(tempfile.gettempdir(), f"um_{fmt.lower()}_{download.suggested_filename}")
+        download.save_as(dest)
+        vat_context["downloaded_file"] = download.suggested_filename
+        vat_context["downloaded_path"] = dest
+        logger.info(f"Captured download: {download.suggested_filename} -> {dest}")
+    except Exception as exc:
+        logger.warning(f"No download event captured for {fmt}: {exc}")
+        get_page.keyboard.press("Escape")
+    get_page.wait_for_timeout(500)
 
 
 @when("I scroll vertically and horizontally")
 def step_scroll_vertically_and_horizontally(get_page: Page, user_management_page: VatUserManagementPage):
     """Scroll table vertically and horizontally"""
     logger.info("[WHEN] Scrolling table vertically and horizontally")
-    table = get_page.locator(user_management_page.grid_existing_users)
+    table = get_page.locator(user_management_page.grid_scroll_container).first
     
     # Scroll vertically
     logger.info("Scrolling vertically...")
@@ -516,9 +526,12 @@ def step_verify_country_assigned(get_page: Page, user_management_page: VatUserMa
 def step_verify_existing_users_columns(get_page: Page, user_management_page: VatUserManagementPage):
     """Verify Existing Users table with correct columns"""
     logger.info("[THEN] Verifying Existing Users table columns")
-    # Verify Existing Users header
-    heading = get_page.locator(user_management_page.heading_existing_users)
-    expect(heading).to_be_visible(timeout=10000)
+    # Verify Existing Users header (get_by_role resolves the implicit <h3> level; fall back to text)
+    heading = get_page.get_by_role("heading", name="Existing Users")
+    if heading.count() == 0:
+        logger.warning("Primary Existing Users heading locator not found, trying alternative")
+        heading = get_page.locator(user_management_page.heading_existing_users_alt).first
+    expect(heading.first).to_be_visible(timeout=10000)
     logger.info("Existing Users heading visible")
     
     # Verify table is visible
@@ -530,11 +543,11 @@ def step_verify_existing_users_columns(get_page: Page, user_management_page: Vat
     logger.info("Verifying column headers...")
     expect(get_page.locator(user_management_page.columnheader_select_all)).to_be_visible(timeout=10000)
     logger.info("Select All column visible")
-    expect(get_page.locator(user_management_page.columnheader_name)).to_be_visible(timeout=10000)
+    expect(_column_header(get_page, "Name")).to_be_visible(timeout=10000)
     logger.info("Name column visible")
-    expect(get_page.locator(user_management_page.columnheader_email)).to_be_visible(timeout=10000)
+    expect(_column_header(get_page, "Email")).to_be_visible(timeout=10000)
     logger.info("Email column visible")
-    expect(get_page.locator(user_management_page.columnheader_role)).to_be_visible(timeout=10000)
+    expect(_column_header(get_page, "Role")).to_be_visible(timeout=10000)
     logger.info("Role column visible")
     logger.info("All table columns verified successfully")
 
@@ -751,30 +764,41 @@ def step_verify_sort_reset_to_default(get_page: Page, user_management_page: VatU
 @then(parsers.parse('downloaded file contains selected user records in "{format}" format'))
 @then("downloaded file contains selected user records in <format> format")
 @then("downloaded file contains selected user records in \"<format>\" format")
-def step_verify_downloaded_file(get_page: Page, user_management_page: VatUserManagementPage, format: str):
-    """Verify download action completed without UI errors"""
-    logger.info(f"[THEN] Verifying downloaded file in {format} format")
-    get_page.wait_for_timeout(2000)
+def step_verify_downloaded_file(get_page: Page, user_management_page: VatUserManagementPage, vat_context: Dict, format: str):
+    """Verify the captured download matches the requested format AND its contents contain exactly
+    the user records that were selected before downloading."""
+    fmt = format.strip().upper()
+    logger.info(f"[THEN] Verifying downloaded file in {fmt} format")
 
-    normalized_format = format.strip().upper()
-    assert normalized_format in {"CSV", "XML", "JSON", "EXCEL", "XLSX"}, \
-        f"Unexpected download format requested: {format}"
+    expected_ext = {"CSV": ".csv", "JSON": ".json", "XML": ".xml"}.get(fmt)
+    assert expected_ext, f"Unsupported download format requested: {format}"
 
-    rows = get_page.locator(user_management_page.rows_existing_users)
-    assert rows.count() > 0, "Existing Users table has no rows during download verification"
+    downloaded = vat_context.get("downloaded_file")
+    path = vat_context.get("downloaded_path")
+    selected = vat_context.get("selected_row_data", [])
 
-    checkboxes = get_page.locator(user_management_page.checkboxes_all_rows)
-    checked_count = 0
-    for i in range(checkboxes.count()):
-        if checkboxes.nth(i).is_checked():
-            checked_count += 1
-    assert checked_count > 0, "No selected rows found during download verification"
+    assert downloaded and path, "No download was captured to verify"
+    assert downloaded.lower().endswith(expected_ext), \
+        f"Downloaded file '{downloaded}' does not match requested {fmt} format"
 
-    page_text = get_page.inner_text("body")
-    has_download_error = bool(re.search(r"download.*(fail|error)|unable to download", page_text, re.I))
-    assert not has_download_error, "Download failed, error message detected on page"
+    with open(path, "r", encoding="utf-8-sig", errors="replace") as f:
+        content = f.read()
+    assert content.strip(), f"Downloaded {fmt} file is empty"
 
-    logger.info(f"Download verification passed for format: {format}, selected rows: {checked_count}")
+    # Every selected user's Name and Email must appear in the exported file
+    assert selected, "No selected row data was captured to validate the download against"
+    for record in selected:
+        assert record["email"] in content, \
+            f"Selected email '{record['email']}' not found in downloaded {fmt} file"
+        assert record["name"] in content, \
+            f"Selected name '{record['name']}' not found in downloaded {fmt} file"
+
+    # The export must contain only the selected records (one email per record, any format)
+    emails_in_file = re.findall(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}", content)
+    assert len(emails_in_file) == len(selected), \
+        f"Expected {len(selected)} records in {fmt} file, found {len(emails_in_file)}: {emails_in_file}"
+
+    logger.info(f"Content verified: {len(selected)} selected records present in {fmt} file")
 
 
 @then("the table displays maximum 25 records per page")
@@ -833,43 +857,45 @@ def step_verify_pagination_controls(get_page: Page, user_management_page: VatUse
 
 @then("vertical and horizontal scroll bars appear as needed")
 def step_verify_scroll_bars_appear(get_page: Page, user_management_page: VatUserManagementPage):
-    """Verify scroll bars are available"""
-    logger.info("[THEN] Verifying scroll bars appear")
-    table = get_page.locator(user_management_page.grid_existing_users)
-    
-    # Check if scrollable
-    scroll_height = table.evaluate("element => element.scrollHeight")
-    client_height = table.evaluate("element => element.clientHeight")
-    scroll_width = table.evaluate("element => element.scrollWidth")
-    client_width = table.evaluate("element => element.clientWidth")
-    
-    logger.info(f"Scroll dimensions: height={scroll_height}/{client_height}, width={scroll_width}/{client_width}")
-    
-    # Verify scroll is possible (scrollHeight > clientHeight or scrollWidth > clientWidth)
-    is_scrollable = scroll_height > client_height or scroll_width > client_width
-    assert is_scrollable, \
-        f"Table is not scrollable. Heights: {scroll_height}/{client_height}, Widths: {scroll_width}/{client_width}"
-    logger.info("Table is scrollable - verified successfully")
+    """Verify the grid's scroll container is configured to show scrollbars as needed.
+
+    The Tabulator tableHolder uses overflow:auto, so scrollbars appear only when the content
+    overflows. Asserting a fixed overflow (which depends on the current data volume) is wrong;
+    instead verify the container can scroll on both axes when needed.
+    """
+    logger.info("[THEN] Verifying scroll bars appear as needed")
+    holder = get_page.locator(user_management_page.grid_scroll_container).first
+    expect(holder).to_be_visible(timeout=10000)
+    overflow = holder.evaluate(
+        "e => { const s = getComputedStyle(e); return {x: s.overflowX, y: s.overflowY}; }"
+    )
+    logger.info(f"Scroll container overflow: {overflow}")
+    scrollable = {"auto", "scroll"}
+    assert overflow["x"] in scrollable and overflow["y"] in scrollable, \
+        f"Scroll container is not configured to show scrollbars as needed: {overflow}"
+    logger.info("Scroll bars are configured to appear as needed - verified successfully")
 
 
 @then("I can scroll to view all data")
 def step_verify_can_scroll_to_view_data(get_page: Page, user_management_page: VatUserManagementPage):
-    """Verify scrolling works"""
+    """Verify scrolling works, or that all data already fits when no scroll is needed."""
     logger.info("[THEN] Verifying scroll functionality works")
-    table = get_page.locator(user_management_page.grid_existing_users)
+    holder = get_page.locator(user_management_page.grid_scroll_container).first
+    dims = holder.evaluate(
+        "e => ({sh: e.scrollHeight, ch: e.clientHeight, sw: e.scrollWidth, cw: e.clientWidth})"
+    )
+    logger.info(f"Scroll container dims: {dims}")
     
-    # Scroll and verify position changed
-    initial_scroll_top = table.evaluate("element => element.scrollTop")
-    logger.info(f"Initial scroll position: {initial_scroll_top}")
-    
-    table.evaluate("element => element.scrollTop = element.scrollHeight")
-    get_page.wait_for_timeout(500)
-    
-    final_scroll_top = table.evaluate("element => element.scrollTop")
-    logger.info(f"Final scroll position: {final_scroll_top}")
-    
-    assert final_scroll_top > initial_scroll_top, \
-        f"Vertical scroll not working. Initial: {initial_scroll_top}, Final: {final_scroll_top}"
-    logger.info("Scroll functionality verified successfully")
+    if dims["sh"] > dims["ch"]:
+        initial = holder.evaluate("e => e.scrollTop")
+        holder.evaluate("e => e.scrollTop = e.scrollHeight")
+        get_page.wait_for_timeout(500)
+        final = holder.evaluate("e => e.scrollTop")
+        assert final > initial, f"Vertical scroll not working. Initial: {initial}, Final: {final}"
+        logger.info("Vertical scroll verified successfully")
+    else:
+        rows = get_page.locator(user_management_page.rows_existing_users)
+        assert rows.count() > 0, "No rows rendered; cannot confirm data is viewable"
+        logger.info("All data fits without vertical scroll; every row is viewable")
 
 

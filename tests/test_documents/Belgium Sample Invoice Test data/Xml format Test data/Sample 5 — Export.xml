@@ -1,7 +1,0 @@
-<Invoice sourceSystem="SAP">
-  <BuyerCountry>US</BuyerCountry>
-  <Tax>
-    <CategoryCode>G</CategoryCode>
-    <Rate>0</Rate>
-  </Tax>
-</Invoice>

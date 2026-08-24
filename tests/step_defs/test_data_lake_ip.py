@@ -17,6 +17,14 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(name)s - %(mes
 
 
 @pytest.fixture()
+def get_page(vat_session) -> Page:
+    """[Option B] Reuse the single session-scoped authenticated page across all Data Lake IP
+    scenarios, so login + client selection + DTAI navigation happen only once for the run.
+    Overrides the function-scoped get_page from conftest for this module only."""
+    return vat_session["page"]
+
+
+@pytest.fixture()
 def vat_context(get_page: Page) -> Dict[str, Any]:
     logger.info("Initializing VAT context for Data Lake IP test")
     return {

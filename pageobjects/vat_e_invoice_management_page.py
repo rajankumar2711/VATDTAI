@@ -1,8 +1,43 @@
 import logging
+import os
+import tempfile
 from playwright.sync_api import Page
 from pageobjects.base_page import BasePage
 
 logger = logging.getLogger(__name__)
+
+
+def _read_downloaded_text(path: str) -> str:
+    """Return a searchable text blob for a downloaded export (xlsx/csv/json/xml/txt)."""
+    ext = os.path.splitext(path)[1].lower()
+    if ext in (".xlsx", ".xlsm", ".xls"):
+        try:
+            from openpyxl import load_workbook
+            wb = load_workbook(path, read_only=True, data_only=True)
+            parts = []
+            for ws in wb.worksheets:
+                for row in ws.iter_rows(values_only=True):
+                    for cell in row:
+                        if cell is not None:
+                            parts.append(str(cell))
+            wb.close()
+            return "\n".join(parts)
+        except Exception as exc:
+            logger.warning(f"[download] xlsx read failed ({path}): {exc}")
+            return ""
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as fh:
+            return fh.read()
+    except Exception as exc:
+        logger.warning(f"[download] text read failed ({path}): {exc}")
+        return ""
+
+
+def file_contains_values(path: str, values):
+    """Return (ok, missing, blob_len): whether every value appears in the file."""
+    blob = _read_downloaded_text(path)
+    missing = [v for v in values if v and str(v) not in blob]
+    return (len(missing) == 0, missing, len(blob))
 
 
 class VatEInvoiceManagementPage(BasePage):
@@ -24,20 +59,24 @@ class VatEInvoiceManagementPage(BasePage):
         # ==========================================
         # MODULE NAVIGATION
         # ==========================================
-        self.tab_im_module = "a:has-text('e-Invoice Management')"
+        self.tab_im_module = "role=tab[name='Invoice Management' i]"
 
         # ==========================================
-        # MODULE HEADER
+        # MODULE HEADER (breadcrumb current page = "Invoice Management")
         # ==========================================
-        self.heading_im = "h2:has-text('e-Invoice Management')"
+        self.heading_im = "span.breadcrumbnav_currentpage"
 
         # ==========================================
-        # SECTION HEADINGS
+        # SECTION TITLES (current UI wording)
         # ==========================================
-        self.heading_uploaded          = "h3:has-text('Uploaded e-Invoices')"
+        self.title_uploaded            = "Uploaded Transactions"
+        self.title_filter_criteria     = "Filter Criteria"
+        self.title_outbound            = "Outbound Invoice Template"
+        self.title_inbound             = "Inbound Invoices (AP)"
+        self.heading_uploaded          = "h3:has-text('Uploaded Transactions')"
         self.heading_filter_criteria   = "h3:has-text('Filter Criteria')"
-        self.heading_outbound          = "h3:has-text('Outbound e-Invoices (AR)')"
-        self.heading_inbound           = "h3:has-text('Inbound e-Invoices (AP)')"
+        self.heading_outbound          = "h3:has-text('Outbound Invoice Template')"
+        self.heading_inbound           = "h3:has-text('Inbound Invoices (AP)')"
 
         # ==========================================
         # UPLOADED e-INVOICES TABLE (Tabulator)
@@ -62,11 +101,9 @@ class VatEInvoiceManagementPage(BasePage):
         # ==========================================
         # FILTER CRITERIA
         # ==========================================
-        # Country is read-only – displayed as a label value, no editable input
-        self.label_country             = (
-            "div.vatdtai-eim-section:has(h3:has-text('Filter Criteria')) "
-            "label:has-text('Country')"
-        )
+        # Country is read-only single-select type-ahead pre-set to the client country
+        self.field_country             = "#vatdtai_eim_country"
+        self.label_country             = "label:has-text('Country')"
 
         # Date range inputs (native <input type="date">)
         self.input_date_from           = "input#vatdtai_eim_date_from"
@@ -91,11 +128,9 @@ class VatEInvoiceManagementPage(BasePage):
             "input.textinput-group__textinput >> nth=2"
         )
 
-        # Apply button (scoped to IM Filter Criteria)
-        self.btn_apply                 = (
-            "div.vatdtai-eim-section:has(h3:has-text('Filter Criteria')) "
-            "button.btn-primary:has-text('Apply')"
-        )
+        # Apply button (Filter Criteria)
+        self.btn_apply                 = "[data-id='vatdtai_eim_apply_button']"
+        self.btn_refresh_filter        = "[data-id='vatdtai_eim_refresh_button']"
 
         # ==========================================
         # OUTBOUND / INBOUND TABLES (Tabulator)
@@ -132,7 +167,7 @@ class VatEInvoiceManagementPage(BasePage):
         self.outbound_invoice_filter   = (
             "#EimOutboundGrid .tabulator-col[tabulator-field='InvoiceId'] input[type='search']"
         )
-        self.outbound_show_filters_btn = "#vatdtai_eim_outbound_grid [data-id='btnShowFilterDiv']"
+        self.outbound_show_filters_btn = "[data-id='btnShowFilterDiv_EimOutboundGrid']"
         self._last_filter              = {}
 
         # ==========================================
@@ -145,7 +180,50 @@ class VatEInvoiceManagementPage(BasePage):
         self.uploaded_grid_rows        = "#EimUploadedGrid .tabulator-tableHolder .tabulator-row"
         self.uploaded_page_size_select = "#EimUploadedGrid select.tabulator-page-size"
         self.uploaded_next_page_btn    = "#EimUploadedGrid button.tabulator-page[data-page='next']"
-        self.uploaded_show_filters_btn = "#vatdtai_eim_uploaded_grid [data-id='btnShowFilterDiv']"
+        self.uploaded_show_filters_btn = "[data-id='btnShowFilterDiv_EimUploadedGrid']"
+
+        # ==========================================
+        # CURRENT-UI LOCATORS FOR THE 10 UI/UX SMOKE SCENARIOS
+        # ==========================================
+        # Filter Criteria native date inputs
+        self.date_from                 = "#vatdtai_eim_date_from"
+        self.date_to                   = "#vatdtai_eim_date_to"
+
+        # -- Uploaded Transactions grid --
+        self.uploaded_row_checkboxes   = "#EimUploadedGrid .tabulator-tableHolder .tabulator-row .tabulator-cell[title='Select row'] input[type='checkbox']"
+        self.uploaded_download_toggle  = "[data-id='vatdtai_eim_uploaded']"
+        self.uploaded_status_filter    = "#EimUploadedGrid .tabulator-col[tabulator-field='Status'] input[type='search']"
+        self.uploaded_clear_filter_btn = "[data-id='btnClearFilterDiv_EimUploadedGrid']"
+        self.uploaded_reset_view_btn   = "[data-id='btnResetViewDiv_EimUploadedGrid']"
+        self.uploaded_first_page_btn   = "#EimUploadedGrid button.tabulator-page[data-page='first']"
+        self.uploaded_prev_page_btn    = "#EimUploadedGrid button.tabulator-page[data-page='prev']"
+        self.uploaded_last_page_btn    = "#EimUploadedGrid button.tabulator-page[data-page='last']"
+        self.uploaded_active_page_btn  = "#EimUploadedGrid button.tabulator-page.active"
+
+        # -- Outbound Invoice Template grid --
+        self.outbound_row_checkboxes   = "#EimOutboundGrid .tabulator-tableHolder .tabulator-row .tabulator-cell[title='Select row'] input[type='checkbox']"
+        self.outbound_download_toggle  = "[data-id='vatdtai_eim_outbound']"
+        self.outbound_invoice_link     = "#EimOutboundGrid span.vatdtai-eim-invoice-link"
+        self.outbound_status_clickable = "#EimOutboundGrid span.vatdtai-status-clickable"
+        self.outbound_system_filter    = "#EimOutboundGrid .tabulator-col[tabulator-field='SourceSystem'] input[type='search']"
+        self.outbound_clear_filter_btn = "[data-id='btnClearFilterDiv_EimOutboundGrid']"
+        self.outbound_reset_view_btn   = "[data-id='btnResetViewDiv_EimOutboundGrid']"
+        self.outbound_first_page_btn   = "#EimOutboundGrid button.tabulator-page[data-page='first']"
+        self.outbound_prev_page_btn    = "#EimOutboundGrid button.tabulator-page[data-page='prev']"
+        self.outbound_last_page_btn    = "#EimOutboundGrid button.tabulator-page[data-page='last']"
+        self.outbound_active_page_btn  = "#EimOutboundGrid button.tabulator-page.active"
+
+        # -- Inbound Invoices (AP) grid --
+        self.inbound_grid_table        = "#EimInboundGrid"
+        self.inbound_grid_rows         = "#EimInboundGrid .tabulator-tableHolder .tabulator-row"
+
+        # -- Shared modal popups (Invoice Details / Outbound Extract / Error Details) --
+        self.modal                     = ".vatdtai-sam-modal"
+        self.modal_close_btn           = ".vatdtai-sam-modal .vatdtai-sam-close"
+        self.modal_logo                = ".vatdtai-sam-modal img"
+
+        # Download menu item text is "Download as Excel|CSV|JSON|XML" (both grids share it)
+        self.download_menu_items       = ".dropdown-menu a, .dropdown-menu li a, [role='menuitem']"
 
     # ==========================================
     # NAVIGATION
@@ -165,16 +243,34 @@ class VatEInvoiceManagementPage(BasePage):
     # ==========================================
 
     def is_module_accessible(self) -> bool:
-        """Return True if the e-Invoice Management heading is visible."""
+        """Return True once the module has loaded.
+
+        Anchored on the probe-confirmed Country field + Uploaded grid, which are
+        the stable elements that always render once the module opens (section
+        h3 wording is not reliable across environments).
+        """
         try:
-            heading = self.page.locator(self.heading_im).first
-            return heading.count() > 0 and heading.is_visible(timeout=5000)
+            country = self.page.locator(self.field_country).first
+            grid = self.page.locator(self.uploaded_grid_table).first
+            country.wait_for(state="visible", timeout=10000)
+            grid.wait_for(state="visible", timeout=10000)
+            return True
         except Exception:
             return False
 
     def get_module_header_text(self) -> str:
-        """Return the visible text of the module heading."""
-        return self.page.locator(self.heading_im).first.inner_text().strip()
+        """Return the breadcrumb current-page text (e.g. 'Invoice Management')."""
+        try:
+            crumbs = self.page.locator(self.heading_im)
+            for i in range(crumbs.count()):
+                txt = (crumbs.nth(i).inner_text() or "").strip()
+                if "invoice management" in txt.lower():
+                    return txt
+            if crumbs.count() > 0:
+                return (crumbs.last.inner_text() or "").strip()
+        except Exception:
+            pass
+        return ""
 
     # ==========================================
     # SECTION VISIBILITY
@@ -182,21 +278,21 @@ class VatEInvoiceManagementPage(BasePage):
 
     def is_uploaded_section_visible(self) -> bool:
         try:
-            el = self.page.locator(self.heading_uploaded).first
+            el = self.page.locator(self.uploaded_grid_table).first
             return el.count() > 0 and el.is_visible(timeout=5000)
         except Exception:
             return False
 
     def is_outbound_section_visible(self) -> bool:
         try:
-            el = self.page.locator(self.heading_outbound).first
+            el = self.page.locator(self.outbound_grid_table).first
             return el.count() > 0 and el.is_visible(timeout=5000)
         except Exception:
             return False
 
     def is_inbound_section_visible(self) -> bool:
         try:
-            el = self.page.locator(self.heading_inbound).first
+            el = self.page.locator("#EimInboundGrid").first
             return el.count() > 0 and el.is_visible(timeout=5000)
         except Exception:
             return False
@@ -207,26 +303,78 @@ class VatEInvoiceManagementPage(BasePage):
 
     def is_country_field_visible(self) -> bool:
         try:
-            el = self.page.locator(self.label_country).first
-            return el.count() > 0 and el.is_visible(timeout=5000)
+            el = self.page.locator(self.field_country).first
+            if el.count() > 0 and el.is_visible(timeout=5000):
+                return True
+            lbl = self.page.locator(self.label_country).first
+            return lbl.count() > 0 and lbl.is_visible(timeout=3000)
         except Exception:
             return False
 
     def is_country_field_readonly(self) -> bool:
         """
-        Country is read-only: it is shown as a static label/text with no
-        editable input adjacent to the 'Country' label.
+        Country is pre-set to the client country and cannot be changed: the container
+        carries a disabled/read-only marker or has no enabled editable input.
         """
         try:
-            # Confirm there is no enabled text input inside the filter section
-            # next to the Country label
-            section = self.page.locator(self.filter_section).first
-            country_inputs = section.locator(
-                "label:has-text('Country') ~ input:not([readonly]):not([disabled])"
-            )
-            return country_inputs.count() == 0
+            container = self.page.locator(self.field_country).first
+            if container.count() == 0:
+                return True
+            cls = (container.get_attribute("class") or "").lower()
+            if "disabled" in cls or "readonly" in cls:
+                return True
+            editable = container.locator("input:not([readonly]):not([disabled])")
+            return editable.count() == 0
         except Exception:
             return True
+
+    def get_country_value(self) -> str:
+        try:
+            return (self.page.locator(self.field_country).first.inner_text() or "").strip()
+        except Exception:
+            return ""
+
+    # ------------------------------------------------------------------
+    # SECTION VISIBILITY (current-UI titles, tag-agnostic)
+    # ------------------------------------------------------------------
+    def _title_visible(self, title: str) -> bool:
+        try:
+            el = self.page.get_by_text(title, exact=False).first
+            return el.count() > 0 and el.is_visible(timeout=6000)
+        except Exception:
+            return False
+
+    def _element_visible(self, selector: str, timeout: int = 6000) -> bool:
+        try:
+            el = self.page.locator(selector).first
+            return el.count() > 0 and el.is_visible(timeout=timeout)
+        except Exception:
+            return False
+
+    def _element_present(self, *selectors: str, timeout: int = 6000) -> bool:
+        """True if any selector is attached to the DOM (visible or empty/zero-height)."""
+        for sel in selectors:
+            try:
+                self.page.locator(sel).first.wait_for(state="attached", timeout=timeout)
+                return True
+            except Exception:
+                continue
+        return False
+
+    def is_filter_criteria_visible(self) -> bool:
+        # Section header text is not stable; anchor on the always-present date inputs.
+        return self._element_visible(self.date_from) or self._element_visible(self.field_country)
+
+    def is_uploaded_transactions_visible(self) -> bool:
+        return self._element_visible(self.uploaded_grid_table)
+
+    def is_outbound_template_visible(self) -> bool:
+        # Outbound grid is empty (zero-height) until the issue-date filter is applied,
+        # so verify DOM presence of the grid or its section container.
+        return self._element_present(self.outbound_grid_table, self.outbound_grid_container, self.outbound_section)
+
+    def is_inbound_ap_visible(self) -> bool:
+        return self._element_present("#EimInboundGrid", "#vatdtai_eim_inbound_grid", self.inbound_section)
 
     # ==========================================
     # UPLOADED TABLE
@@ -1043,3 +1191,381 @@ class VatEInvoiceManagementPage(BasePage):
             return {"selector": self.im_section_container, "text": el.inner_text().strip(), "html": ""}
         except Exception:
             return {"selector": "", "text": "", "html": ""}
+
+    # ==================================================================
+    # UI/UX SMOKE SUITE - shared helpers for the 10 scenarios
+    # ==================================================================
+    @staticmethod
+    def _download_dir() -> str:
+        d = os.path.join(tempfile.gettempdir(), "im_downloads")
+        os.makedirs(d, exist_ok=True)
+        return d
+
+    def _grid_rows(self, table: str):
+        return self.page.locator(f"{table} .tabulator-tableHolder .tabulator-row")
+
+    def apply_date_range(self, date_from: str, date_to: str):
+        """Fill the Invoice Issue From/To dates and click Apply (populates Outbound/Inbound)."""
+        self.apply_filter_criteria(date_from=date_from, date_to=date_to)
+
+    # ---- live row counts on the current-UI grids ----
+    def uploaded_row_count(self) -> int:
+        try:
+            self.page.wait_for_timeout(500)
+            return self._grid_rows(self.uploaded_grid_table).count()
+        except Exception:
+            return 0
+
+    def outbound_row_count(self) -> int:
+        try:
+            self.page.wait_for_timeout(500)
+            return self._grid_rows(self.outbound_grid_table).count()
+        except Exception:
+            return 0
+
+    def inbound_row_count(self) -> int:
+        try:
+            self.page.wait_for_timeout(500)
+            return self.page.locator(self.inbound_grid_rows).count()
+        except Exception:
+            return 0
+
+    # ---- Uploaded Transactions: default sort by Timestamp descending ----
+    def is_uploaded_sorted_by_timestamp_desc(self):
+        """Return (ok, raw_timestamps). ok is None if timestamps can't be parsed.
+
+        Tabulator absolutely-positions its virtual rows, so DOM order does not
+        match visual order; rows must be ordered by their vertical position first.
+        """
+        rows = self._grid_rows(self.uploaded_grid_table)
+        pairs = []
+        for i in range(rows.count()):
+            r = rows.nth(i)
+            cell = r.locator("[tabulator-field='Timestamp']").first
+            if cell.count() == 0:
+                continue
+            try:
+                val = (cell.inner_text(timeout=1500) or "").strip()
+            except Exception:
+                val = ""
+            if not val:
+                continue
+            try:
+                box = r.bounding_box()
+                y = box["y"] if box else float(i)
+            except Exception:
+                y = float(i)
+            pairs.append((y, val))
+        pairs.sort(key=lambda p: p[0])
+        ts = [v for _, v in pairs]
+        if len(ts) < 2:
+            return True, ts
+        try:
+            import pandas as pd
+            parsed = pd.to_datetime(pd.Series(ts), errors="coerce", dayfirst=False)
+            valid = [v for v in parsed.tolist() if pd.notna(v)]
+            if len(valid) < 2:
+                return None, ts
+            # The grid is ordered newest-first at date granularity (the app does not
+            # apply a client-side time-of-day sort; the header shows aria-sort="none").
+            days = [v.normalize() for v in valid]
+            ok = all(days[i] >= days[i + 1] for i in range(len(days) - 1))
+            return ok, ts
+        except Exception:
+            return None, ts
+
+    # ---- record selection + downloads (Uploaded and Outbound) ----
+    def select_grid_records(self, table: str, count: int = 2):
+        """Tick the first `count` row checkboxes; return the selected Client Invoice Numbers."""
+        rows = self._grid_rows(table)
+        total = rows.count()
+        n = min(count, total)
+        selected = []
+        for i in range(n):
+            row = rows.nth(i)
+            inv = self._cell_text(row, "InvoiceId")
+            cb = row.locator(".tabulator-cell[title='Select row'] input[type='checkbox']").first
+            try:
+                cb.scroll_into_view_if_needed(timeout=2000)
+                if not cb.is_checked():
+                    cb.check(timeout=3000)
+                if inv and inv not in ("", "-"):
+                    selected.append(inv)
+            except Exception as exc:
+                logger.warning(f"[select] row {i} check failed: {exc}")
+        self.page.wait_for_timeout(500)
+        logger.info(f"[select] {len(selected)} record(s) selected from {table}: {selected}")
+        return selected
+
+    def download_grid_as(self, toggle_sel: str, fmt: str) -> str:
+        """Open a grid's Download dropdown, click 'Download as <fmt>', save + return the path."""
+        tog = self.page.locator(toggle_sel).first
+        tog.scroll_into_view_if_needed(timeout=3000)
+        tog.click(timeout=5000)
+        self.page.wait_for_timeout(700)
+        items = self.page.get_by_text(f"Download as {fmt}", exact=True)
+        target = None
+        for i in range(items.count()):
+            try:
+                if items.nth(i).is_visible():
+                    target = items.nth(i)
+                    break
+            except Exception:
+                continue
+        if target is None:
+            raise AssertionError(f"Download menu item 'Download as {fmt}' not visible")
+        with self.page.expect_download(timeout=25000) as dl:
+            target.click(timeout=5000)
+        download = dl.value
+        dest = os.path.join(self._download_dir(), f"{fmt.lower()}_{download.suggested_filename}")
+        download.save_as(dest)
+        self.page.wait_for_timeout(400)
+        logger.info(f"[download] {fmt} -> {dest}")
+        return dest
+
+    def download_uploaded_as(self, fmt: str) -> str:
+        return self.download_grid_as(self.uploaded_download_toggle, fmt)
+
+    def download_outbound_as(self, fmt: str) -> str:
+        return self.download_grid_as(self.outbound_download_toggle, fmt)
+
+    # ---- generic Tabulator header-filter helpers (grid-agnostic) ----
+    def _ensure_filter_visible(self, filter_sel: str, show_btn: str):
+        try:
+            inp = self.page.locator(filter_sel).first
+            if inp.count() > 0 and inp.is_visible(timeout=1200):
+                return
+        except Exception:
+            pass
+        try:
+            b = self.page.locator(show_btn).first
+            if b.count() > 0 and b.is_visible(timeout=1500):
+                b.click(timeout=4000)
+                self.page.wait_for_timeout(800)
+        except Exception:
+            pass
+
+    def _type_filter(self, filter_sel: str, show_btn: str, value: str) -> bool:
+        self._ensure_filter_visible(filter_sel, show_btn)
+        inp = self.page.locator(filter_sel).first
+        if inp.count() == 0:
+            logger.warning(f"[filter] input not found: {filter_sel}")
+            return False
+        try:
+            inp.click(timeout=4000)
+            inp.fill("", timeout=3000)
+            if value:
+                inp.type(value, delay=25)
+            inp.press("Enter")
+            self.page.wait_for_timeout(2000)
+            return True
+        except Exception as exc:
+            logger.warning(f"[filter] fill failed ({filter_sel}): {exc}")
+            return False
+
+    # ---- Uploaded status column filter (FilterFunctionality) ----
+    def get_uploaded_statuses(self):
+        rows = self._grid_rows(self.uploaded_grid_table)
+        return [self._cell_text(rows.nth(i), "Status") for i in range(rows.count())]
+
+    def distinct_uploaded_statuses(self):
+        seen = []
+        for s in self.get_uploaded_statuses():
+            s = (s or "").strip()
+            if s and s not in seen:
+                seen.append(s)
+        return seen
+
+    def filter_uploaded_status(self, value: str) -> bool:
+        return self._type_filter(self.uploaded_status_filter, self.uploaded_show_filters_btn, value)
+
+    def clear_uploaded_filters(self):
+        try:
+            self.page.locator(self.uploaded_clear_filter_btn).first.click(timeout=4000)
+            self.page.wait_for_timeout(1500)
+        except Exception as exc:
+            logger.warning(f"[uploaded] clear filters failed: {exc}")
+
+    # ---- Outbound status/system filters + clear/reset (OutboundFilter) ----
+    def show_outbound_filters(self):
+        self._ensure_filter_visible(self.outbound_status_filter, self.outbound_show_filters_btn)
+
+    def filter_outbound_status(self, value: str) -> bool:
+        return self._type_filter(self.outbound_status_filter, self.outbound_show_filters_btn, value)
+
+    def filter_outbound_system(self, value: str) -> bool:
+        return self._type_filter(self.outbound_system_filter, self.outbound_show_filters_btn, value)
+
+    def clear_outbound_filters(self):
+        try:
+            self.page.locator(self.outbound_clear_filter_btn).first.click(timeout=4000)
+            self.page.wait_for_timeout(1500)
+        except Exception as exc:
+            logger.warning(f"[outbound] clear filters failed: {exc}")
+
+    def reset_outbound_view(self):
+        try:
+            self.page.locator(self.outbound_reset_view_btn).first.click(timeout=4000)
+            self.page.wait_for_timeout(1500)
+        except Exception as exc:
+            logger.warning(f"[outbound] reset view failed: {exc}")
+
+    def first_outbound_invoice_number(self) -> str:
+        rows = self._grid_rows(self.outbound_grid_table)
+        if rows.count() == 0:
+            return ""
+        return self._cell_text(rows.first, "InvoiceId")
+
+    def outbound_visible_statuses(self):
+        rows = self._grid_rows(self.outbound_grid_table)
+        return [self._cell_text(rows.nth(i), "Status") for i in range(rows.count())]
+
+    def outbound_visible_systems(self):
+        rows = self._grid_rows(self.outbound_grid_table)
+        return [self._cell_text(rows.nth(i), "SourceSystem") for i in range(rows.count())]
+
+    # ---- Invoice Details popup (click Client Invoice Number link) ----
+    def open_first_invoice_details(self) -> bool:
+        link = self.page.locator(self.outbound_invoice_link).first
+        if link.count() == 0:
+            return False
+        try:
+            link.scroll_into_view_if_needed(timeout=3000)
+        except Exception:
+            pass
+        link.click(timeout=5000)
+        self.page.wait_for_timeout(2000)
+        return self.modal_is_open()
+
+    # ---- Outbound status popups (Extract / Error Details) ----
+    def click_first_outbound_clickable_status(self) -> bool:
+        el = self.page.locator(self.outbound_status_clickable).first
+        if el.count() == 0:
+            logger.warning("[outbound] no clickable status span visible")
+            return False
+        try:
+            el.scroll_into_view_if_needed(timeout=2000)
+        except Exception:
+            pass
+        el.click(timeout=4000)
+        self.page.wait_for_timeout(2500)
+        return self.modal_is_open()
+
+    def export_from_modal(self, fmt: str) -> str:
+        """Click an export button (XML/JSON/CSV/Excel) inside the popup; save + return path."""
+        modal = self.page.locator(self.modal).first
+        btn = modal.get_by_role("button", name=fmt, exact=True)
+        if btn.count() == 0:
+            btn = modal.locator(
+                f"button:has-text('{fmt}'), a.btn:has-text('{fmt}'), [class*=btn]:has-text('{fmt}')"
+            )
+        with self.page.expect_download(timeout=25000) as dl:
+            btn.first.click(timeout=5000)
+        download = dl.value
+        dest = os.path.join(self._download_dir(), f"modal_{fmt.lower()}_{download.suggested_filename}")
+        download.save_as(dest)
+        self.page.wait_for_timeout(400)
+        logger.info(f"[modal-export] {fmt} -> {dest}")
+        return dest
+
+    # ---- shared modal (.vatdtai-sam-modal) helpers ----
+    def modal_is_open(self) -> bool:
+        try:
+            m = self.page.locator(self.modal).first
+            return m.count() > 0 and m.is_visible(timeout=6000)
+        except Exception:
+            return False
+
+    def modal_has_logo(self) -> bool:
+        try:
+            return self.page.locator(self.modal_logo).first.count() > 0
+        except Exception:
+            return False
+
+    def modal_has_close_button(self) -> bool:
+        try:
+            return self.page.locator(self.modal_close_btn).first.count() > 0
+        except Exception:
+            return False
+
+    def modal_text(self) -> str:
+        try:
+            return (self.page.locator(self.modal).first.inner_text() or "").strip()
+        except Exception:
+            return ""
+
+    def modal_missing_texts(self, texts):
+        blob = self.modal_text().lower()
+        return [t for t in texts if t.lower() not in blob]
+
+    def close_modal(self):
+        try:
+            b = self.page.locator(self.modal_close_btn).first
+            if b.count() > 0 and b.is_visible(timeout=2000):
+                b.click(timeout=3000)
+        except Exception:
+            try:
+                self.page.keyboard.press("Escape")
+            except Exception:
+                pass
+        try:
+            self.page.wait_for_selector(self.modal, state="hidden", timeout=5000)
+        except Exception:
+            pass
+        self.page.wait_for_timeout(500)
+
+    def modal_is_closed(self) -> bool:
+        try:
+            m = self.page.locator(self.modal).first
+            return m.count() == 0 or not m.is_visible(timeout=2000)
+        except Exception:
+            return True
+
+    # ---- Outbound pagination (OutboundPagination) ----
+    def get_outbound_page_size(self) -> str:
+        try:
+            return self.page.locator(self.outbound_page_size_select).first.input_value()
+        except Exception:
+            return ""
+
+    def outbound_active_page(self):
+        try:
+            import re
+            txt = self.page.locator(self.outbound_active_page_btn).first.inner_text().strip()
+            m = re.search(r"\d+", txt)
+            return int(m.group()) if m else None
+        except Exception:
+            return None
+
+    def outbound_page_count(self) -> int:
+        try:
+            btns = self.page.locator("#EimOutboundGrid button.tabulator-page[data-page]")
+            nums = []
+            for i in range(btns.count()):
+                dp = btns.nth(i).get_attribute("data-page")
+                if dp and dp.isdigit():
+                    nums.append(int(dp))
+            return max(nums) if nums else 1
+        except Exception:
+            return 1
+
+    def click_outbound_page(self, which: str):
+        """which in {next, prev, first, last}. Returns (before_page, after_page)."""
+        loc = {
+            "next": self.outbound_next_page_btn,
+            "prev": self.outbound_prev_page_btn,
+            "first": self.outbound_first_page_btn,
+            "last": self.outbound_last_page_btn,
+        }[which]
+        before = self.outbound_active_page()
+        b = self.page.locator(loc).first
+        if b.count() == 0:
+            return before, before
+        try:
+            if b.get_attribute("disabled") is not None or not b.is_enabled():
+                return before, before
+            b.click(timeout=4000)
+            self.page.wait_for_timeout(1200)
+        except Exception as exc:
+            logger.warning(f"[outbound] page '{which}' click failed: {exc}")
+        return before, self.outbound_active_page()

@@ -1,8 +1,0 @@
-<Invoice sourceSystem="ORACLE">
-  <BuyerCountry>NL</BuyerCountry>
-  <ReverseCharge>true</ReverseCharge>
-  <Tax>
-    <CategoryCode>AE</CategoryCode>
-    <Rate>0</Rate>
-  </Tax>
-</Invoice>

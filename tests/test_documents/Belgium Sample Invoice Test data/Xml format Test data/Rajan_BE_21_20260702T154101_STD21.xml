@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>7000000000000001</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPBE1</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>SAP_BE_PROD</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>BE-CUST-02001</RCVPRN>
+      <CREDAT>20260702</CREDAT>
+      <CRETIM>154101</CRETIM>
+      <SERIAL>20260702T154101</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>EUR</CURCY>
+      <HWAER>EUR</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>BE30</ZTERM>
+      <BELNR>Rajan_BE_21_20260702T154101_STD21</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>F2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260703</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260802</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-BE-STD21-154101</BELNR>
+      <DATUM>20260623</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>BE-VEND-01001</LIFNR>
+      <NAME1>Rajan Belgium Components NV</NAME1>
+      <NAME2>SAP Source Billing</NAME2>
+      <STRAS>Avenue Louise 120</STRAS>
+      <ORT01>Brussels</ORT01>
+      <PSTLZ>1000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0123456789</STCD1>
+      <TELF1>+32-2-555-1001</TELF1>
+      <SMTP_ADDR>billing@rajan-belgium-components.be</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>BE-CUST-02001</KUNNR>
+      <NAME1>Retail Belgium SA</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>Rue Neuve 45</STRAS>
+      <ORT01>Brussels</ORT01>
+      <PSTLZ>1000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0987654321</STCD1>
+      <TELF1>+32-2-555-2001</TELF1>
+      <SMTP_ADDR>ap@retailbe.be</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>BE-CUST-02001-SHIP</KUNNR>
+      <NAME1>Retail Belgium SA Delivery Location</NAME1>
+      <NAME2>Receiving Dock</NAME2>
+      <STRAS>Rue Neuve 45</STRAS>
+      <ORT01>Brussels</ORT01>
+      <PSTLZ>1000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0987654321</STCD1>
+      <TELF1>+32-2-555-2001</TELF1>
+      <SMTP_ADDR>ap@retailbe.be</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BESTD21</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Standard invoice for goods delivered per contract 2026-BE-STD21</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>SCANNER-BE-X200</MATNR>
+      <MENGE>3.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>1169.10</NETWR>
+      <MWSBT>245.51</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>BE</TXJCD>
+      <VPREI>389.70</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>3.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>SCANNER-BE-X200</IDTNR>
+        <KTEXT>Warehouse barcode scanner</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000011</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>WIDGET-X200</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>LABEL-BE-B10</MATNR>
+      <MENGE>10.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>187.50</NETWR>
+      <MWSBT>39.38</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>BE</TXJCD>
+      <VPREI>18.75</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>10.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>LABEL-BE-B10</IDTNR>
+        <KTEXT>Industrial printer labels</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000012</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>LABEL-B10</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>1356.60</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>284.89</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>1641.49</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

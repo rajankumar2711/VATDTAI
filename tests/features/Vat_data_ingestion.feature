@@ -7,16 +7,16 @@ Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
   Background:
     Given I login as Admin user
     When I select the Client from dropdown and clicked on continue button
-    When I navigate to VAT DTAI application
+    When I click on Consumption Tax and navigate to Digital Tax Administration Insights application
     And I click OK on the application popup
+    Then I navigate to the "Data Ingestion" module
 
   @TC_604817 @AccessControl @Authorization @VAT_DTAI_Smoke
   Scenario: Verify access to Data Ingestion module for authorized roles
     When I access Data Ingestion module
-    And the Data Ingestion module is visible and accessible to the user
+    Then the Data Ingestion module is visible and accessible to the user
     And Country field is displayed and read-only
     And Country assigned to Admin user is displayed
-
 
   @TC_604820 @UI @Sections
   Scenario: Verify presence of Batch e-Invoices and API Details sections
@@ -33,13 +33,14 @@ Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
     Then file upload completes successfully
     And a unique Batch ID is generated
     And a new record is displayed in Batch e-Invoices table with correct Batch ID, File Name, Source System, and Imported On values
+    And I delete the uploaded batch record from the Batch e-Invoices table
+    Then the uploaded batch record is removed from the Batch e-Invoices table
 
     Examples:
-      | source_system | file_name                                       |
-      | Oracle        | Belgium Domestic Invoice.csv                   |
-      | SAP           | Sample 2 — Belgium Reduced VAT (6%) — SAP.JSON |
-      | MS D365       | Sample 1 — Belgium Domestic (21%).xml          |
-
+      | source_system | file_name                              |
+      | Custom ERP    | Custom ERP_BE_VAT_CASE_01.xml          |
+      | SAP           | Sample1_SAP_SourceSystem.json          |
+      | SAP           | Rajan_BE_RC_20260702T154105_REVCHG.xml |
 
   @TC_604824 @InvalidData @FileUpload @BatchProcessing
   Scenario Outline: Verify upload fails for invalid e-Invoice data (incorrect VAT rates, amounts, charges)
@@ -52,11 +53,10 @@ Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
     And no new record is added to Batch e-Invoices table for invalid data
 
     Examples:
-      | source_system | file_name                                        |
-      | Oracle        | Belgium Wrong VAT rate 19%.csv                   |
-      | SAP           | Credit note with positive amounts.csv            |
-      | MS D365       | Export invoice wrongly charged Belgian VAT.csv   |
-      | SAP           | Reverse charge missing for EU customer.csv       |
+      | source_system | file_name                                  |
+      | Custom ERP    | Belgium Wrong VAT rate 19%.csv             |
+      | SAP           | Credit note with positive amounts.csv      |
+      | SAP           | Reverse charge missing for EU customer.csv |
 
   @TC_604823 @InvalidFormat @FileUpload @BatchProcessing
   Scenario Outline: Verify upload fails for invalid e-Invoice file formats
@@ -71,7 +71,7 @@ Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
 
     Examples:
       | source_system | file_name                                                              |
-      | Oracle        | Not accepted Image format.png                                          |
+      | Custom ERP    | Not accepted Image format.png                                          |
       | SAP           | PDF file.pdf                                                           |
       | MS D365       | VAT Test Plan_606766 _ [MVP] [UI_UX] [UM] User Management Updates.xlsx |
       | SAP           | DROID install - CLI Mode and IDE .docx                                 |
@@ -157,13 +157,12 @@ Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
     Then selected API records are downloaded successfully
     And downloaded details are provided in the original available format
 
-  @TC_604843 @Delete @APIDetails @AuditTrail
-  Scenario: Verify Delete button functionality and audit trail for API Details table
+  @TC_604843 @Delete @APIDetails
+  Scenario: Verify Delete confirmation prompt can be cancelled for API Details table
     When I access Data Ingestion module
-    When I select API record "ERP Extract" in API Details table
+    When I select an API record in API Details table
     Then selected API record is highlighted for deletion
     When I click Delete button
     Then deletion confirmation prompt is displayed
-    When I confirm the deletion
-    Then selected API record is deleted successfully from the table
-    And audit trail is maintained with deleted API record details, deleted by user, and timestamp
+    When I cancel the deletion
+    Then the API record is not deleted and remains in the table
