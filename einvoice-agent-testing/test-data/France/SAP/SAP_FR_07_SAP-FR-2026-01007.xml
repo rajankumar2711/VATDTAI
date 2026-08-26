@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>2000000000000007</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPFR1</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>SAP_FR_QA</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>FR-CUST-02007</RCVPRN>
+      <CREDAT>20260207</CREDAT>
+      <CRETIM>150715</CRETIM>
+      <SERIAL>20260207T150715</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>EUR</CURCY>
+      <HWAER>EUR</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>FR27</ZTERM>
+      <BELNR>SAP-FR-2026-01007</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>F2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260207</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260227</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-FR-02-0007</BELNR>
+      <DATUM>20260206</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>FR-VEND-001</LIFNR>
+      <NAME1>SAP France Issuer NV</NAME1>
+      <NAME2>FR AR Billing</NAME2>
+      <STRAS>1 Issuer Avenue</STRAS>
+      <ORT01>Paris</ORT01>
+      <PSTLZ>75001</PSTLZ>
+      <LAND1>FR</LAND1>
+      <STCD1>FR12999000202</STCD1>
+      <TELF1>+32-2-555-1001</TELF1>
+      <SMTP_ADDR>billing-fr@sap-issuer.test</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>FR-CUS-020007</KUNNR>
+      <NAME1>France Buyer — SAP ✅​07</NAME1>
+      <NAME2>Accounts Payable FR-07</NAME2>
+      <STRAS>107 Buyer Street</STRAS>
+      <ORT01>Paris</ORT01>
+      <PSTLZ>75008</PSTLZ>
+      <LAND1>FR</LAND1>
+      <STCD1>FR1020000007</STCD1>
+      <TELF1>+32-3-555-2103</TELF1>
+      <SMTP_ADDR>buyer07-fr@example.test</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>FR-CUS-020007S</KUNNR>
+      <NAME1>France Buyer — SAP ✅​07 Delivery</NAME1>
+      <NAME2>Accounts Payable FR-07</NAME2>
+      <STRAS>107 Buyer Street</STRAS>
+      <ORT01>Paris</ORT01>
+      <PSTLZ>75008</PSTLZ>
+      <LAND1>FR</LAND1>
+      <STCD1>FR1020000007</STCD1>
+      <TELF1>+32-3-555-2103</TELF1>
+      <SMTP_ADDR>buyer07-fr@example.test</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BERED6</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Text safety anomalies and identifier scheme ambiguity; unique SAP FR text 07</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>FR-SAP-ITEM-07-1</MATNR>
+      <MENGE>8.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>416.00</NETWR>
+      <MWSBT>24.96</MWSBT>
+      <MWSKZ>V9</MWSKZ>
+      <TXJCD>FR</TXJCD>
+      <VPREI>52.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>8.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>FR-SAP-07-1</IDTNR>
+        <KTEXT>Premium service — package ✅​</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000031</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BOOK-TECH-BUYER</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>FR-SAP-ITEM-07-2</MATNR>
+      <MENGE>9.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>477.00</NETWR>
+      <MWSBT>28.62</MWSBT>
+      <MWSKZ>V9</MWSKZ>
+      <TXJCD>FR</TXJCD>
+      <VPREI>53.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>9.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>FR-SAP-07-2</IDTNR>
+        <KTEXT>Unique SAP France item 07-2</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000032</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>FOOD-CANTEEN-BUYER</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>893.00</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>53.58</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>946.58</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

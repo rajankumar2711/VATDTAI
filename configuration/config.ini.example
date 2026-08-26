@@ -1,0 +1,42 @@
+# Copy this file to config.ini and fill in real values locally.
+# config.ini is gitignored and must never be committed (contains secrets).
+[VAT Digital Tax adminstrative Insights QA]
+appid = ""
+browser = chrome
+headless = false
+slowMotion = 500
+channel = chrome
+VAT_DTAI_URL = https://<your-vat-dtai-qa-host>/
+VAT_DTAI_USERNAME = <your-qa-username>
+VAT_DTAI_PASSWORD = <your-qa-password>
+VAT_DTAI_BROWSER = chrome
+VAT_DTAI_POST_LOGIN_WAIT_MS = 25000
+
+# config.ini is gitignored and must never be committed (contains secrets).
+[VAT Digital Tax adminstrative Insights UAT]
+appid = ""
+browser = chrome
+headless = false
+slowMotion = 500
+channel = chrome
+VAT_DTAI_URL = https://<your-vat-dtai-uat-host>/
+VAT_DTAI_USERNAME = <your-uat-username>
+VAT_DTAI_PASSWORD = <your-uat-password>
+VAT_DTAI_BROWSER = chrome
+VAT_DTAI_POST_LOGIN_WAIT_MS = 25000
+
+
+eyq_incubator_api_key = <your-api-key>
+eyq_incubator_endpoint = https://eyq-incubator.america.fabric.ey.com/eyq/us/api
+
+client_id =""
+client_secret = ""
+resource = ""
+token_url = ""
+microsoft_token_url = ""
+microsoft_url = ""
+
+mde_api_key = ""
+mde_endpoint = ""
+transformer_id =""
+prompt_transformer_id = ""

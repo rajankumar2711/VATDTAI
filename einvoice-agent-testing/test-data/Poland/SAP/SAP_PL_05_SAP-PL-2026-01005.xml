@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>3000000000000005</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPPL1</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>SAP_PL_QA</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>PL-CUST-03005</RCVPRN>
+      <CREDAT>20260305</CREDAT>
+      <CRETIM>130515</CRETIM>
+      <SERIAL>20260305T130515</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>PLN</CURCY>
+      <HWAER>PLN</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>PL25</ZTERM>
+      <BELNR>SAP-PL-2026-01005</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>F2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260305</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260325</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-PL-03-0005</BELNR>
+      <DATUM>20260304</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>PL-VEND-001</LIFNR>
+      <NAME1>SAP Poland Issuer NV</NAME1>
+      <NAME2>PL AR Billing</NAME2>
+      <STRAS>1 Issuer Avenue</STRAS>
+      <ORT01>Warsaw</ORT01>
+      <PSTLZ>00-001</PSTLZ>
+      <LAND1>PL</LAND1>
+      <STCD1>PL9990003030</STCD1>
+      <TELF1>+32-2-555-1001</TELF1>
+      <SMTP_ADDR>billing-pl@sap-issuer.test</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>PL-CUS-030005</KUNNR>
+      <NAME1>Poland Unique Buyer SAP 05</NAME1>
+      <NAME2>Accounts Payable PL-05</NAME2>
+      <STRAS>105 Buyer Street</STRAS>
+      <ORT01>Warsaw</ORT01>
+      <PSTLZ>00006</PSTLZ>
+      <LAND1>PL</LAND1>
+      <STCD1>PL1030000005</STCD1>
+      <TELF1>+32-3-555-2103</TELF1>
+      <SMTP_ADDR>buyer05-pl@example.test</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>PL-CUS-030005S</KUNNR>
+      <NAME1>Poland Unique Buyer SAP 05 Delivery</NAME1>
+      <NAME2>Accounts Payable PL-05</NAME2>
+      <STRAS>105 Buyer Street</STRAS>
+      <ORT01>Warsaw</ORT01>
+      <PSTLZ>00006</PSTLZ>
+      <LAND1>PL</LAND1>
+      <STCD1>PL1030000005</STCD1>
+      <TELF1>+32-3-555-2103</TELF1>
+      <SMTP_ADDR>buyer05-pl@example.test</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BERED6</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Combined line, VAT, net and gross calculation mismatch; unique SAP PL text 05</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>PL-SAP-ITEM-05-1</MATNR>
+      <MENGE>6.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>301.00</NETWR>
+      <MWSBT>66.96</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>PL</TXJCD>
+      <VPREI>46.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>6.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>PL-SAP-05-1</IDTNR>
+        <KTEXT>Unique SAP Poland item 05-1</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000031</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BOOK-TECH-BUYER</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>PL-SAP-ITEM-05-2</MATNR>
+      <MENGE>7.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>329.00</NETWR>
+      <MWSBT>69.09</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>PL</TXJCD>
+      <VPREI>47.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>7.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>PL-SAP-05-2</IDTNR>
+        <KTEXT>Unique SAP Poland item 05-2</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000032</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>FOOD-CANTEEN-BUYER</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>594.00</SUMME>
+      <SUNIT>PLN</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>120.05</SUMME>
+      <SUNIT>PLN</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>712.05</SUMME>
+      <SUNIT>PLN</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "description": "Versioned map of source-system XML locations to canonical invoice fields. In raw-XML mode this is supplied to the agent as context and used for evidence anchoring; it does not rewrite source values (guide Sec 6.1).",
+  "SAP": {
+    "format": "INVOIC02",
+    "invoice_id": "E1EDK01/BELNR",
+    "document_number_field": "E1EDK01/BELNR",
+    "idoc_control_number": "EDI_DC40/DOCNUM",
+    "currency_code": "E1EDK01/CURCY",
+    "document_type_code": "E1EDK01/BSART",
+    "issue_date": "E1EDK03[IDDAT=012]/DATUM",
+    "due_date": "E1EDK03[IDDAT=026]/DATUM",
+    "po_reference": "E1EDK02[QUALF=001]/BELNR",
+    "seller": {"party_role": "E1EDKA1[PARVW=LF]", "name": "NAME1", "vat": "STCD1", "country": "LAND1"},
+    "buyer": {"party_role": "E1EDKA1[PARVW=RE]", "name": "NAME1", "vat": "STCD1", "country": "LAND1"},
+    "ship_to": {"party_role": "E1EDKA1[PARVW=WE]"},
+    "free_text": "E1EDKT1/E1EDKT2/TDLINE",
+    "line": {
+      "container": "E1EDP01",
+      "line_id": "POSEX",
+      "material": "MATNR",
+      "quantity": "MENGE",
+      "unit_price": "VPREI",
+      "price_base_quantity": "PEINH",
+      "line_extension_amount": "NETWR",
+      "line_tax_amount": "MWSBT",
+      "tax_category": "MWSKZ",
+      "item_description": "E1EDP19[QUALF=001]/KTEXT"
+    },
+    "totals": {
+      "container": "E1EDS01",
+      "line_extension_total": "SUMID=211/SUMME",
+      "tax_total": "SUMID=212/SUMME",
+      "gross_total": "SUMID=010/SUMME"
+    },
+    "tax_categories": ["A0", "V0", "V9", "RC"]
+  },
+  "CustomERP": {
+    "format": "Oracle/OAGIS ProcessInvoice",
+    "invoice_id": "InvoiceHeader/DocumentID/ID",
+    "alternate_document_id": "InvoiceHeader/AlternateDocumentID",
+    "document_type_code": "InvoiceHeader/TransactionTypeCode",
+    "issue_date": "InvoiceHeader/DocumentDateTime",
+    "due_date": "InvoiceHeader/DueDateTime",
+    "currency_code": "InvoiceHeader/Currency/CurrencyCode",
+    "payment_terms": "InvoiceHeader/PaymentTerms/Description",
+    "header_description": "InvoiceHeader/Description",
+    "po_reference": "InvoiceHeader/PurchaseOrderReference/PurchaseOrderID",
+    "seller": {"container": "Supplier", "name": "Name", "vat": "PartyIDs/TaxID", "country": "Location/Address/CountryCode", "iban": "BankAccount/IBAN"},
+    "buyer": {"container": "Buyer", "name": "Name", "vat": "PartyIDs/TaxID", "country": "Location/Address/CountryCode", "state": "Location/Address/StateName"},
+    "line": {
+      "container": "InvoiceLine",
+      "line_id": "LineNumber",
+      "item_id": "Item/ItemID",
+      "item_description": "Item/Description",
+      "classification": "Item/Classification",
+      "quantity": "Quantity",
+      "unit_price": "UnitPrice",
+      "line_extension_amount": "ExtendedAmount",
+      "tax_type": "Tax/TaxTypeCode",
+      "tax_percent": "Tax/Percent",
+      "taxable_amount": "Tax/TaxableAmount",
+      "line_tax_amount": "Tax/TaxAmount",
+      "line_currency": "ExtendedAmount@currencyID"
+    },
+    "totals": {
+      "container": "InvoiceTotals",
+      "sub_total": "SubTotalAmount",
+      "tax_total": "TaxAmount",
+      "total": "TotalAmount",
+      "payable": "PayableAmount"
+    },
+    "tax_categories": ["VAT", "GST", "EXEMPT", "REVERSE"]
+  }
+}

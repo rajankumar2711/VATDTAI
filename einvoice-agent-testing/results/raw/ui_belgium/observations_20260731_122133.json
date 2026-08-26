@@ -1,0 +1,325 @@
+[
+  {
+    "invoice_id": "SAP-BE-2026-01001",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 2,
+    "anomalies": [
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01001",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01001 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ],
+        "buttons": [
+          {
+            "text": "Save",
+            "cls": "vatdtai-anomaly-save-btn",
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01001",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01001 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ],
+        "buttons": [
+          {
+            "text": "Save",
+            "cls": "vatdtai-anomaly-save-btn",
+            "disabled": false
+          }
+        ]
+      }
+    ],
+    "popup_title": "Analytics"
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01001",
+    "occurrence": 2,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 2,
+    "anomalies": [
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01001",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01001 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ],
+        "buttons": [
+          {
+            "text": "Save",
+            "cls": "vatdtai-anomaly-save-btn",
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "rule": "Numbering Integrity — Detect Missing Invoice Number, Duplicates, and Field Conflicts",
+        "field": "InvoiceId",
+        "current": "SAP-BE-2026-01001",
+        "suggested": "Unique business invoice number",
+        "details": [
+          "Field: InvoiceId | Current: SAP-BE-2026-01001 | Suggested: Unique business invoice number",
+          "InvoiceId must be unique. Multiple rows with the same InvoiceId indicate a duplicate. Ensure only one authoritative document exists or cancel/replace correctly."
+        ],
+        "buttons": [
+          {
+            "text": "Save",
+            "cls": "vatdtai-anomaly-save-btn",
+            "disabled": false
+          }
+        ]
+      }
+    ],
+    "popup_title": "Analytics"
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01002",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01003",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01004",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Error",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01005",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Review Required",
+    "observed_review": true,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01006",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01007",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01008",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01010",
+    "occurrence": 1,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01010",
+    "occurrence": 2,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "SAP-BE-2026-01010",
+    "occurrence": 3,
+    "source_system": "SAP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02001",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02002",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02003",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02004",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02005",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02006",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02007",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02008",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02010",
+    "occurrence": 1,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02010",
+    "occurrence": 2,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02010",
+    "occurrence": 3,
+    "source_system": "Custom ERP",
+    "found": true,
+    "observed_status": "Ready",
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  }
+]

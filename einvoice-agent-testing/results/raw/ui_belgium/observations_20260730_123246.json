@@ -1,0 +1,92 @@
+[
+  {
+    "invoice_id": "ERP-BE-2026-02001",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02002",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02003",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02004",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02005",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02006",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02007",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02008",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  },
+  {
+    "invoice_id": "ERP-BE-2026-02010",
+    "source_system": null,
+    "found": false,
+    "observed_status": null,
+    "observed_review": false,
+    "anomaly_count": 0,
+    "anomalies": [],
+    "popup_title": ""
+  }
+]

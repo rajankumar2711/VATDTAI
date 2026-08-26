@@ -1,0 +1,346 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://example.local/YY1_GTES_SD_API('Rajan_BE_0_20260702T154104_ZERO0')",
+      "uri": "https://example.local/YY1_GTES_SD_API('Rajan_BE_0_20260702T154104_ZERO0')",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+    "CompanyCode": "BE10",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Industrial module intra-community supply",
+          "AddressID": "180050",
+          "actDelivDate": "/Date(1783296000000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Korenmarkt 12",
+          "delivAddr2": "",
+          "delivCity": "Ghent",
+          "delivPostCode": "9000",
+          "delivAddr3": "Korenmarkt 12",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Ghent Healthcare Network Delivery Location",
+          "DeliveryStreet": "Korenmarkt 12",
+          "DeliveryCity": "Ghent",
+          "DeliveryPostalCode": "9000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003104",
+          "OutboundDelivery": "85004000010"
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Sensor kit intra-community supply",
+          "AddressID": "180060",
+          "actDelivDate": "/Date(1783296000000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Korenmarkt 12",
+          "delivAddr2": "",
+          "delivCity": "Ghent",
+          "delivPostCode": "9000",
+          "delivAddr3": "Korenmarkt 12",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Ghent Healthcare Network Delivery Location",
+          "DeliveryStreet": "Korenmarkt 12",
+          "DeliveryCity": "Ghent",
+          "DeliveryPostalCode": "9000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003104",
+          "OutboundDelivery": "85004000020"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_0_20260702T154104_ZERO0')",
+        "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_0_20260702T154104_ZERO0')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+      "CountryISOCode": "BE",
+      "invNum": "Rajan_BE_0_20260702T154104_ZERO0",
+      "invoice_id": "Rajan_BE_0_20260702T154104_ZERO0",
+      "invoice_uuid": "2a3362e9-c3dc-458f-9cda-70dba5d5573c",
+      "invIssueDate": "/Date(1783296000000)/",
+      "payDueDate": "/Date(1785888000000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1783296000000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_PROD",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "PEPPOL-BIS-3.0-BE",
+      "notes": [
+        "Zero-rated Belgium invoice for intra-community supply under VAT exemption rules"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "0544788991",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "0544788991",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BE1003104",
+      "purOrdRef": "PO-BE-ZERO0-154104",
+      "saleOrdRef": "SO-BE-ZERO0-154104",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Korenmarkt 12",
+      "buyerAddr2": "",
+      "buyerCity": "Ghent",
+      "buyerPostCode": "9000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0544788991",
+      "buyerName": "Ghent Healthcare Network",
+      "buyerTradeName": "Ghent Healthcare",
+      "buyerContactTel": "+32-9-555-2204",
+      "buyerContactEmail": "ap@ghent-health.be",
+      "DeliveryStreet": "Korenmarkt 12",
+      "DeliveryCity": "Ghent",
+      "DeliveryPostalCode": "9000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Net Due in 30 Days",
+      "taxCatCode": "V0",
+      "CanonicalTaxCategoryCode": "Z",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "3340.00",
+      "sumInvLineNetAmt": "3340.00",
+      "AllowanceTotal": "0.00",
+      "ChargeTotal": "0.00",
+      "DiscountRate": "0.00",
+      "DiscountDate": "2026-07-16",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE10",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_0_20260702T154104_ZERO0')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_0_20260702T154104_ZERO0')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": []
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "6",
+          "invoicedQtyUOM": "XBX",
+          "invLineNetAmt": "1860.00",
+          "itemDesc": "Industrial module intra-community supply",
+          "sellerItemID": "EU-MODULE-BE",
+          "sellerItemID_Text": "Industrial module intra-community supply",
+          "BuyerItemId": "EU-MODULE-BUYER",
+          "buyerItemID": "EU-MODULE-BUYER",
+          "Gtin": "5412345000041",
+          "gtin": "5412345000041",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783296000000)/",
+          "ShipToParty": "BE1003104",
+          "BillingQuantityUnit": "BOX",
+          "StandardItemIdentification": "5412345000041",
+          "BuyersItemIdentification": "EU-MODULE-BUYER",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000010')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000010')/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "8",
+          "invoicedQtyUOM": "XBX",
+          "invLineNetAmt": "1480.00",
+          "itemDesc": "Sensor kit intra-community supply",
+          "sellerItemID": "EU-SENSOR-BE",
+          "sellerItemID_Text": "Sensor kit intra-community supply",
+          "BuyerItemId": "EU-SENSOR-BUYER",
+          "buyerItemID": "EU-SENSOR-BUYER",
+          "Gtin": "5412345000042",
+          "gtin": "5412345000042",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783296000000)/",
+          "ShipToParty": "BE1003104",
+          "BillingQuantityUnit": "BOX",
+          "StandardItemIdentification": "5412345000042",
+          "BuyersItemIdentification": "EU-SENSOR-BUYER",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000020')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_0_20260702T154104_ZERO0',BillingDocumentItem='000020')/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": []
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_0_20260702T154104_ZERO0",
+          "taxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "3340.00",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "VATEX-EU-IC",
+          "exemption_reason_text": "Intra-community supply exempt / zero-rated under EU VAT rules",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Flemish Region"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "uri": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE10",
+          "HouseBank": "KBCBE",
+          "HouseBankAccount": "807E",
+          "payAccID": "BE68539007547034",
+          "Iban": "BE68539007547034",
+          "Swift": "KREDBEBB",
+          "payAccName": "KBC Bank",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "uri": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE10",
+      "sellerID": "0123456789",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Avenue Louise 120",
+      "sellerAddr2": "",
+      "sellerCity": "Brussels",
+      "sellerPostCode": "1000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Rajan Belgium Components NV",
+      "sellerTradeName": "SAP Source Billing",
+      "sellerTaxID": "BE0123456789",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE68539007547034",
+      "Swift": "KREDBEBB",
+      "ContactEmailAddress": "billing@rajan-belgium-components.be",
+      "ContactName": "Sophie Martin",
+      "ContactTelephone": "+32-2-555-1001",
+      "bank_account": [
+        {
+          "iban": "BE68539007547034",
+          "swift": "KREDBEBB",
+          "account_name": "KBC Bank"
+        }
+      ],
+      "contact": {
+        "name": "Sophie Martin",
+        "phone": "+32-2-555-1001",
+        "email": "billing@rajan-belgium-components.be"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-07-02T15:41:04+00:00",
+      "ingested_at": "2026-07-02T15:41:09+00:00",
+      "validated_at": "2026-07-02T15:41:14+00:00",
+      "transformed_at": "2026-07-02T15:41:19+00:00",
+      "source_system_id": "SAP_BE_PROD",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "7200000000000004",
+      "correlation_id": "f56d58d8-d339-45af-8fa4-ba416c502318",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "ERP_CANONICAL_BE_SAP_V2",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "BIS 3",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2036-12-31",
+      "archival_location": "https://archive.example.local/be/sap/Rajan_BE_0_20260702T154104_ZERO0",
+      "payload_hash": "19da469215f50fbc9d3fba0d443fde0a35485a2685008d4eb01d646a143cc971",
+      "source_hash": "c6838b14d53dd5d9f90bee5fd4160e290b68fcb93e80910448b9036719f7e4b9",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

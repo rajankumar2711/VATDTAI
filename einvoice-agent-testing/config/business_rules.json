@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "description": "Maps each business rule to its prompt file, agent label (as used in the master workbook), execution scope, and the configured allowed issue types. Section 7.3 fails any result that uses an issue type outside this list.",
+  "common_issue_types": [
+    "COUNTRY_NOT_DETERMINED",
+    "INCOMPLETE_VALIDATION_SCOPE"
+  ],
+  "rules": {
+    "BR-1": {
+      "agent_label": "XML Readiness",
+      "name": "Invoice Completeness and XML Readiness",
+      "prompt_file": "Business_Rule_1_Invoice_Completeness_and_XML_Readiness_Prompt.txt",
+      "execution_scope": "invoice",
+      "allowed_issue_types": [
+        "MISSING_HEADER_DATA",
+        "MISSING_SELLER_DATA",
+        "MISSING_BUYER_DATA",
+        "MISSING_LINE_ITEMS",
+        "INVALID_FIELD_FORMAT",
+        "BROKEN_STRUCTURE",
+        "LOGICAL_INCONSISTENCY",
+        "HIERARCHY_ISSUE",
+        "MISSING_CONDITIONAL_SECTION",
+        "CONFLICTING_REPEATED_VALUES",
+        "XML_MAPPING_RISK",
+        "COUNTRY_NOT_DETERMINED"
+      ]
+    },
+    "BR-4": {
+      "agent_label": "Text Safety",
+      "name": "Free-Text and XML Character Safety",
+      "prompt_file": "Business_Rule_4_Free-Text_and_XML_Character_Safety_Prompt.txt",
+      "execution_scope": "invoice",
+      "allowed_issue_types": [
+        "NULL_OR_EMPTY_TEXT",
+        "INVALID_XML_CHARACTER",
+        "UNESCAPED_XML_RESERVED_CHARACTER",
+        "INVALID_CONTROL_CHARACTER",
+        "ENCODING_CORRUPTION",
+        "RISKY_UNICODE_SYMBOL",
+        "ZERO_WIDTH_OR_INVISIBLE_CHARACTER",
+        "NON_BREAKING_SPACE",
+        "INCONSISTENT_TEXT_NORMALIZATION",
+        "COUNTRY_NOT_DETERMINED"
+      ]
+    },
+    "BR-6": {
+      "agent_label": "Totals",
+      "name": "Invoice Totals and Mathematical Integrity",
+      "prompt_file": "Business_Rule_6_Invoice_Totals_and_Mathematical_Integrity_Prompt.txt",
+      "execution_scope": "invoice",
+      "allowed_issue_types": [
+        "MISSING_CRITICAL_AMOUNT",
+        "INVALID_NUMERIC_VALUE",
+        "NET_TOTAL_MISMATCH",
+        "VAT_TOTAL_MISMATCH",
+        "GROSS_TOTAL_MISMATCH",
+        "PAYABLE_MISMATCH",
+        "LINE_AMOUNT_MISMATCH",
+        "LINE_TAX_MISMATCH",
+        "TAX_SUMMARY_MISMATCH",
+        "ROUNDING_DIFFERENCE",
+        "CONFLICTING_REPEATED_TOTALS",
+        "CONFLICTING_DUPLICATE_LINE",
+        "POTENTIAL_DUPLICATE_LINE",
+        "INCOMPLETE_VALIDATION_SCOPE",
+        "LOGICAL_INCONSISTENCY",
+        "COUNTRY_NOT_DETERMINED"
+      ]
+    },
+    "BR-7": {
+      "agent_label": "Invoice Type",
+      "name": "Invoice Type Classification",
+      "prompt_file": "Business_Rule_7_Invoice_Type_Classification_Prompt.txt",
+      "execution_scope": "invoice",
+      "allowed_issue_types": [
+        "COUNTRY_NOT_DETERMINED",
+        "COUNTRY_PROFILE_NOT_CONFIGURED",
+        "CONFLICTING_PROFILE_CONTEXT",
+        "INVOICE_TYPE_CODE_MISSING",
+        "INVALID_OR_UNSUPPORTED_TYPE_CODE",
+        "INVOICE_TYPE_CODE_MISMATCH",
+        "INVOICE_TYPE_CODE_LABEL_CONFLICT",
+        "CONFLICTING_TYPE_SIGNALS",
+        "INSUFFICIENT_CLASSIFICATION_EVIDENCE",
+        "STANDARD_INVOICE_BEHAVIOR_MISMATCH",
+        "CREDIT_NOTE_BEHAVIOR_MISMATCH",
+        "CORRECTION_BEHAVIOR_MISMATCH",
+        "PREPAYMENT_BEHAVIOR_MISMATCH",
+        "TAX_INVOICE_BEHAVIOR_MISMATCH",
+        "CONFLICTING_REPEATED_TYPE_VALUES",
+        "RELATED_DOCUMENT_REFERENCE_MISSING",
+        "CONTRADICTORY_FINANCIAL_BEHAVIOR",
+        "PROFILE_ELIGIBILITY_NOT_VERIFIABLE",
+        "UNSUPPORTED_OR_UNMAPPED_DOCUMENT_TYPE",
+        "HISTORICAL_MAPPING_CONFLICT"
+      ]
+    },
+    "BR-12": {
+      "agent_label": "Customer Type",
+      "name": "Customer Type Classification",
+      "prompt_file": "Business_Rule_12_Customer_Type_Classification_Prompt.txt",
+      "execution_scope": "invoice",
+      "allowed_issue_types": [
+        "COUNTRY_NOT_DETERMINED",
+        "COUNTRY_CONTEXT_CONFLICT",
+        "COUNTRY_PROFILE_NOT_CONFIGURED",
+        "CONFLICTING_PROFILE_CONTEXT",
+        "CUSTOMER_TYPE_UNDETERMINED",
+        "CUSTOMER_TYPE_MISMATCH",
+        "CONFLICTING_CUSTOMER_SIGNALS",
+        "CONFLICTING_REPEATED_CUSTOMER_FIELDS",
+        "PLACEHOLDER_OR_DUMMY_IDENTIFIER",
+        "MISSING_BUYER_IDENTIFIER",
+        "INVALID_BUYER_VAT_FORMAT",
+        "INVALID_BUYER_IDENTIFIER_FORMAT",
+        "IDENTIFIER_SCHEME_MISSING",
+        "IDENTIFIER_VALUE_MISSING",
+        "IDENTIFIER_SCHEME_MISMATCH",
+        "IDENTIFIER_SCHEME_NOT_CONFIGURED",
+        "IDENTIFIER_COUNTRY_MISMATCH",
+        "INSUFFICIENT_GOVERNMENT_EVIDENCE",
+        "MISSING_GOVERNMENT_ROUTING_FIELD",
+        "POSSIBLE_BUYER_SELLER_IDENTIFIER_COLLISION",
+        "B2B_STRUCTURE_MISMATCH",
+        "B2G_STRUCTURE_MISMATCH",
+        "B2C_STRUCTURE_MISMATCH",
+        "VAT_TREATMENT_MISMATCH",
+        "INCOMPLETE_VALIDATION_SCOPE"
+      ]
+    },
+    "BR-13": {
+      "agent_label": "Number Sequence",
+      "name": "Invoice Number Sequence Monitoring",
+      "prompt_file": "Business_Rule_13_Invoice_Number_Sequence_Monitoring_Prompt.txt",
+      "execution_scope": "population",
+      "population_scope_keys": ["country", "source_system", "seller_id", "series"],
+      "allowed_issue_types": [
+        "COUNTRY_NOT_DETERMINED",
+        "COUNTRY_PROFILE_NOT_CONFIGURED",
+        "MISSING_INVOICE_NUMBER",
+        "INVALID_INVOICE_NUMBER",
+        "INVOICE_NUMBER_FIELD_CONFLICT",
+        "DUPLICATE_INVOICE_NUMBER",
+        "DUPLICATE_INVOICE_NUMBER_CONFLICT",
+        "REPEATED_SUBMISSION_EVENT",
+        "POSSIBLE_INVOICE_NUMBER_REUSE",
+        "SEQUENCE_GAP",
+        "POSSIBLE_SEQUENCE_GAP",
+        "DOCUMENTED_SEQUENCE_GAP",
+        "OUT_OF_SEQUENCE_DOCUMENT",
+        "UNEXPLAINED_SEQUENCE_RESET",
+        "SERIES_BOUNDARY_UNCLEAR",
+        "SERIES_PATTERN_CONFLICT",
+        "UNEXPLAINED_PATTERN_CHANGE",
+        "CONFLICTING_REPEATED_NUMBERING_DATA",
+        "INCOMPLETE_VALIDATION_SCOPE"
+      ]
+    }
+  }
+}

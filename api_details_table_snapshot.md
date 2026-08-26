@@ -1,0 +1,494 @@
+- generic [active] [ref=e1] [box=0,-1500,1031,2272]:
+  - generic [ref=e2] [box=0,-1500,1031,2272]:
+    - generic [ref=e20] [box=0,0,1031,62]:
+      - button "Hamburger menu" [expanded] [ref=e124] [cursor=pointer] [box=1,1,59,60]:
+        - generic [ref=e125] [box=22,20,17,20]: 
+      - text:                   
+      - banner [ref=e23] [box=60,1,970,55]:
+        - generic [ref=e24] [box=45,1,985,55]:
+          - generic [ref=e25] [box=45,9,82,42]:
+            - link "Ey Logo" [box=65,9,0,0]:
+              - /url: "#"
+              - img "Ey Logo" [ref=e26] [cursor=pointer] [box=65,9,42,42]
+          - generic [ref=e641] [box=269,6,280,59]:
+            - generic "dropdownlist" [ref=e642] [box=270,6,280,59]:
+              - combobox "dropdown" [ref=e643] [box=270,6,280,47]: Client A Belgium
+              - generic [ref=e644] [cursor=pointer] [box=279,23,37,12]: 
+              - generic [ref=e645] [cursor=pointer] [box=520,25,24,12]: 
+              - generic [box=270,64,280,0]: 
+            - text:   
+          - text:   
+          - generic [ref=e134] [box=710,1,310,60]:
+            - text: 
+            - text:  
+            - text: 
+            - text:  
+            - button "Admin Tools" [ref=e138] [cursor=pointer] [box=713,1,60,60]:
+              - button "Admin Tools" [ref=e139] [box=713,13,60,36]:
+                - generic [ref=e140] [box=733,18,20,26]: 
+              - text:      
+            - generic [ref=e141] [cursor=pointer] [box=778,1,60,60]:
+              - button "Help menu" [ref=e142] [box=778,13,60,36]: 
+              - text:          
+            - button "" [ref=e144] [cursor=pointer] [box=839,1,60,60]
+            - generic "Connection Quality" [ref=e145] [cursor=pointer] [box=899,1,60,60]:
+              - generic [ref=e146] [box=918,20,22,22]: 
+            - text: 
+            - generic [ref=e148] [cursor=pointer] [box=960,1,60,60]:
+              - button "My contact" [ref=e149] [box=970,12,40,38]:
+                - generic [ref=e150] [box=981,24,19,14]: RK
+              - text:    
+    - list [ref=e610] [box=21,-1438,990,46]:
+      - listitem [ref=e611] [box=21,-1438,46,46]:
+        - link "Home" [ref=e612] [cursor=pointer] [box=21,-1423,36,16]
+      - listitem [ref=e613] [box=67,-1438,79,46]:
+        - link "DTAI VAT" [ref=e614] [cursor=pointer] [box=67,-1423,69,16]
+      - listitem [ref=e615] [box=146,-1438,96,46]:
+        - link "Data Import" [disabled] [ref=e616] [box=146,-1423,86,16]
+    - text:  
+    - generic [ref=e7] [box=35,-1392,961,1958]:
+      - text: Loading
+      - main [ref=e84] [box=35,-1392,961,1958]:
+        - generic [ref=e582] [box=55,-1392,961,1958]:
+          - generic [ref=e584] [box=55,-1382,941,52]:
+            - heading "Digital Tax Administration Insights" [level=3] [ref=e585] [box=55,-1382,941,40]
+            - separator [ref=e586] [box=55,-1332,941,1]
+            - separator [ref=e587] [box=55,-1331,941,1]
+          - generic [ref=e590] [box=55,-1330,941,1896]:
+            - tablist [ref=e591] [box=55,-1330,941,80]:
+              - tab "Dashboards" [ref=e592] [cursor=pointer] [box=60,-1330,100,41]
+              - tab "Data Lake IP" [ref=e593] [cursor=pointer] [box=160,-1330,106,41]
+              - tab "Data Ingestion" [ref=e594] [box=266,-1330,118,41]
+              - tab "e-Invoice Management" [ref=e595] [cursor=pointer] [box=384,-1330,170,41]
+              - tab "Detect and Suggest" [ref=e596] [cursor=pointer] [box=554,-1330,151,41]
+              - tab "Reconciliation" [ref=e597] [cursor=pointer] [box=705,-1330,116,41]
+              - tab "Reports" [ref=e598] [cursor=pointer] [box=821,-1330,76,41]
+              - tab "User Management" [ref=e599] [cursor=pointer] [box=60,-1290,142,41]
+            - tabpanel [ref=e618] [box=55,-1240,941,1806]:
+              - generic [ref=e619] [box=55,-1240,941,1806]:
+                - heading "Data Ingestion" [level=2] [ref=e620] [box=55,-1230,926,40]
+                - generic [ref=e621] [box=55,-1150,926,20]: Country - Belgium
+                - generic [ref=e622] [box=55,-1106,991,433]:
+                  - heading "Upload e-Invoices" [level=3] [ref=e623] [box=80,-1081,941,40]
+                  - generic [ref=e625] [box=80,-1017,941,277]:
+                    - generic [ref=e626] [box=80,-840,320,100]:
+                      - heading "Select Source System" [level=6] [ref=e646] [box=80,-830,320,20]
+                      - generic [ref=e648] [box=79,-794,320,44]:
+                        - generic "dropdownlist" [ref=e649] [box=80,-794,319,44]:
+                          - combobox "dropdown" [ref=e650] [box=80,-786,319,44]: Nothing selected
+                          - generic [ref=e651] [cursor=pointer] [box=369,-765,24,12]: 
+                          - generic [box=80,-750,319,0]: 
+                        - text:    
+                    - generic [ref=e627] [box=424,-1017,413,277]:
+                      - heading "Upload e-Invoice Transaction Report" [level=6] [ref=e652] [box=424,-1007,413,20]
+                      - generic [ref=e629] [cursor=pointer] [box=472,-933,317,176]:
+                        - generic [ref=e630] [box=492,-883,277,32]: 
+                        - generic [ref=e631] [box=492,-821,277,20]: Drop file here or click to browse
+                        - generic [ref=e632] [box=492,-797,277,20]: "Accepted formats: CSV, XML, JSON (one file at a time)"
+                    - button "Upload" [disabled] [ref=e655] [box=861,-784,107,44]
+                  - paragraph [ref=e633] [box=80,-728,941,20]:
+                    - generic [ref=e634] [box=180,-725,10,12]: 
+                    - text: "Upload e-invoice transaction reports to be processed. Only one file can be uploaded at a time. Accepted formats: CSV, XML, JSON."
+                - generic [ref=e635] [box=55,-653,941,1179]:
+                  - generic [ref=e636] [box=55,-653,975,716]:
+                    - heading "Batch e-Invoices" [level=3] [ref=e637] [box=72,-636,941,40]
+                    - generic [ref=e658] [box=72,-584,941,616]:
+                      - generic [ref=e659] [box=72,-579,941,36]:
+                        - generic "Export" [ref=e660] [box=72,-579,58,36]:
+                          - button "" [ref=e661] [cursor=pointer] [box=72,-579,58,36]:
+                            - generic [ref=e662] [box=93,-568,12,14]: 
+                        - generic "Refresh" [ref=e1239] [box=135,-579,58,36]:
+                          - button "" [ref=e1240] [cursor=pointer] [box=135,-579,58,36]:
+                            - generic [ref=e1241] [box=155,-568,12,14]: 
+                        - generic "Show Filters" [ref=e666] [box=197,-579,59,36]:
+                          - button "" [ref=e667] [cursor=pointer] [box=197,-579,59,36]:
+                            - generic [ref=e668] [box=218,-568,13,14]: 
+                        - generic "Clear Filters" [ref=e669] [box=261,-579,61,36]:
+                          - button "" [disabled] [ref=e670] [box=261,-579,61,36]:
+                            - generic [ref=e671] [box=282,-568,15,14]: 
+                        - generic "Reset View" [ref=e672] [box=327,-579,58,36]:
+                          - button "" [ref=e673] [cursor=pointer] [box=327,-579,58,36]:
+                            - generic [ref=e674] [box=348,-568,12,14]: 
+                      - grid [ref=e675] [box=72,-538,941,570]:
+                        - generic [ref=e677] [box=113,-537,900,48]:
+                          - columnheader "Select all on this page" [ref=e678] [box=73,-537,40,48]:
+                            - checkbox [ref=e682] [cursor=pointer] [box=77,-523,21,21]
+                          - columnheader "⋮ Batch ID " [ref=e684] [box=113,-537,127,48]:
+                            - generic [ref=e686] [box=117,-522,119,18]:
+                              - generic [ref=e687] [box=117,-522,119,18]:
+                                - generic [ref=e688] [box=189,-522,22,18]: ⋮
+                                - text: Batch ID
+                              - generic [ref=e690] [box=226,-520,6,14]: 
+                          - columnheader "⋮ File Name" [ref=e693] [box=240,-537,200,48]:
+                            - generic [ref=e695] [box=244,-522,192,17]:
+                              - generic [ref=e696] [box=244,-522,192,17]:
+                                - generic [ref=e697] [box=389,-522,22,17]: ⋮
+                                - text: File Name
+                              - generic [box=432,-522,0,17]: 
+                          - columnheader "⋮ Source System" [ref=e700] [box=440,-537,168,48]:
+                            - generic [ref=e702] [box=444,-522,160,18]:
+                              - generic [ref=e703] [box=444,-522,160,18]:
+                                - generic [ref=e704] [box=557,-522,22,18]: ⋮
+                                - text: Source System
+                              - generic [box=600,-522,0,18]: 
+                          - columnheader "⋮ Status" [ref=e707] [box=608,-537,116,48]:
+                            - generic [ref=e709] [box=612,-522,108,18]:
+                              - generic [ref=e710] [box=612,-522,108,18]:
+                                - generic [ref=e711] [box=673,-522,22,18]: ⋮
+                                - text: Status
+                              - generic [box=716,-522,0,18]: 
+                          - columnheader "⋮ Imported On" [ref=e714] [box=724,-537,153,48]:
+                            - generic [ref=e716] [box=728,-522,145,18]:
+                              - generic [ref=e717] [box=728,-522,145,18]:
+                                - generic [ref=e718] [box=826,-522,22,18]: ⋮
+                                - text: Imported On
+                              - generic [box=869,-522,0,18]: 
+                          - columnheader "Actions" [ref=e721] [box=877,-537,116,48]:
+                            - generic [ref=e724] [box=881,-522,108,18]: Actions
+                        - generic [ref=e728] [box=73,-488,922,450]:
+                          - row "BATCH-RD-003  Invoices_RD_03.xml D365  Ready 05/13/2026 04:14 " [ref=e729] [box=73,-488,922,45]:
+                            - gridcell "Select row" [ref=e730] [box=73,-482,40,33]:
+                              - checkbox [ref=e731] [cursor=pointer] [box=77,-475,21,21]
+                            - gridcell "BATCH-RD-003" [ref=e733] [box=113,-482,127,33]: BATCH-RD-003
+                            - gridcell " Invoices_RD_03.xml" [ref=e736] [box=240,-482,200,33]:
+                              - generic [ref=e737] [box=244,-475,12,14]: 
+                              - text: Invoices_RD_03.xml
+                            - gridcell "D365" [ref=e740] [box=440,-482,168,33]: D365
+                            - gridcell " Ready" [ref=e743] [box=608,-482,116,33]:
+                              - generic [ref=e744] [box=612,-477,56,18]:
+                                - generic [ref=e745] [box=616,-474,10,12]: 
+                                - text: Ready
+                            - gridcell "05/13/2026 04:14" [ref=e748] [box=724,-482,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e751] [box=877,-482,116,33]:
+                              - generic "Delete" [ref=e752] [cursor=pointer] [box=928,-478,14,17]:
+                                - generic [ref=e753] [box=928,-475,14,14]: 
+                          - row "BATCH-RD-002  Invoices_RD_02.xml Oracle  Ready 05/13/2026 04:14 " [ref=e756] [box=73,-443,922,45]:
+                            - gridcell "Select row" [ref=e757] [box=73,-437,40,33]:
+                              - checkbox [ref=e758] [cursor=pointer] [box=77,-430,21,21]
+                            - gridcell "BATCH-RD-002" [ref=e760] [box=113,-437,127,33]: BATCH-RD-002
+                            - gridcell " Invoices_RD_02.xml" [ref=e763] [box=240,-437,200,33]:
+                              - generic [ref=e764] [box=244,-430,12,14]: 
+                              - text: Invoices_RD_02.xml
+                            - gridcell "Oracle" [ref=e767] [box=440,-437,168,33]: Oracle
+                            - gridcell " Ready" [ref=e770] [box=608,-437,116,33]:
+                              - generic [ref=e771] [box=612,-432,56,18]:
+                                - generic [ref=e772] [box=616,-429,10,12]: 
+                                - text: Ready
+                            - gridcell "05/13/2026 04:14" [ref=e775] [box=724,-437,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e778] [box=877,-437,116,33]:
+                              - generic "Delete" [ref=e779] [cursor=pointer] [box=928,-433,14,17]:
+                                - generic [ref=e780] [box=928,-430,14,14]: 
+                          - row "BATCH-RD-001  Invoices_RD_01.xml SAP  Ready 05/13/2026 04:14 " [ref=e783] [box=73,-398,922,45]:
+                            - gridcell "Select row" [ref=e784] [box=73,-392,40,33]:
+                              - checkbox [ref=e785] [cursor=pointer] [box=77,-385,21,21]
+                            - gridcell "BATCH-RD-001" [ref=e787] [box=113,-392,127,33]: BATCH-RD-001
+                            - gridcell " Invoices_RD_01.xml" [ref=e790] [box=240,-392,200,33]:
+                              - generic [ref=e791] [box=244,-385,12,14]: 
+                              - text: Invoices_RD_01.xml
+                            - gridcell "SAP" [ref=e794] [box=440,-392,168,33]: SAP
+                            - gridcell " Ready" [ref=e797] [box=608,-392,116,33]:
+                              - generic [ref=e798] [box=612,-387,56,18]:
+                                - generic [ref=e799] [box=616,-384,10,12]: 
+                                - text: Ready
+                            - gridcell "05/13/2026 04:14" [ref=e802] [box=724,-392,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e805] [box=877,-392,116,33]:
+                              - generic "Delete" [ref=e806] [cursor=pointer] [box=928,-388,14,17]:
+                                - generic [ref=e807] [box=928,-385,14,14]: 
+                          - row "BATCH-IP-003  Invoices_IP_03.xml D365  In Progress 05/13/2026 04:14 " [ref=e810] [box=73,-353,922,45]:
+                            - gridcell "Select row" [ref=e811] [box=73,-347,40,33]:
+                              - checkbox [ref=e812] [cursor=pointer] [box=77,-340,21,21]
+                            - gridcell "BATCH-IP-003" [ref=e814] [box=113,-347,127,33]: BATCH-IP-003
+                            - gridcell " Invoices_IP_03.xml" [ref=e817] [box=240,-347,200,33]:
+                              - generic [ref=e818] [box=244,-340,12,14]: 
+                              - text: Invoices_IP_03.xml
+                            - gridcell "D365" [ref=e821] [box=440,-347,168,33]: D365
+                            - gridcell " In Progress" [ref=e824] [box=608,-347,116,33]:
+                              - generic [ref=e825] [box=612,-342,85,18]:
+                                - generic [ref=e826] [box=615,-340,12,14]: 
+                                - text: In Progress
+                            - gridcell "05/13/2026 04:14" [ref=e829] [box=724,-347,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e832] [box=877,-347,116,33]:
+                              - generic "Delete" [ref=e833] [cursor=pointer] [box=928,-343,14,17]:
+                                - generic [ref=e834] [box=928,-340,14,14]: 
+                          - row "BATCH-IP-002  Invoices_IP_02.xml Oracle  In Progress 05/13/2026 04:14 " [ref=e837] [box=73,-308,922,45]:
+                            - gridcell "Select row" [ref=e838] [box=73,-302,40,33]:
+                              - checkbox [ref=e839] [cursor=pointer] [box=77,-295,21,21]
+                            - gridcell "BATCH-IP-002" [ref=e841] [box=113,-302,127,33]: BATCH-IP-002
+                            - gridcell " Invoices_IP_02.xml" [ref=e844] [box=240,-302,200,33]:
+                              - generic [ref=e845] [box=244,-295,12,14]: 
+                              - text: Invoices_IP_02.xml
+                            - gridcell "Oracle" [ref=e848] [box=440,-302,168,33]: Oracle
+                            - gridcell " In Progress" [ref=e851] [box=608,-302,116,33]:
+                              - generic [ref=e852] [box=612,-297,85,18]:
+                                - generic [ref=e853] [box=615,-295,12,14]: 
+                                - text: In Progress
+                            - gridcell "05/13/2026 04:14" [ref=e856] [box=724,-302,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e859] [box=877,-302,116,33]:
+                              - generic "Delete" [ref=e860] [cursor=pointer] [box=928,-298,14,17]:
+                                - generic [ref=e861] [box=928,-295,14,14]: 
+                          - row "BATCH-IP-001  Invoices_IP_01.xml SAP  In Progress 05/13/2026 04:14 " [ref=e864] [box=73,-263,922,45]:
+                            - gridcell "Select row" [ref=e865] [box=73,-257,40,33]:
+                              - checkbox [ref=e866] [cursor=pointer] [box=77,-250,21,21]
+                            - gridcell "BATCH-IP-001" [ref=e868] [box=113,-257,127,33]: BATCH-IP-001
+                            - gridcell " Invoices_IP_01.xml" [ref=e871] [box=240,-257,200,33]:
+                              - generic [ref=e872] [box=244,-250,12,14]: 
+                              - text: Invoices_IP_01.xml
+                            - gridcell "SAP" [ref=e875] [box=440,-257,168,33]: SAP
+                            - gridcell " In Progress" [ref=e878] [box=608,-257,116,33]:
+                              - generic [ref=e879] [box=612,-252,85,18]:
+                                - generic [ref=e880] [box=615,-250,12,14]: 
+                                - text: In Progress
+                            - gridcell "05/13/2026 04:14" [ref=e883] [box=724,-257,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e886] [box=877,-257,116,33]:
+                              - generic "Delete" [ref=e887] [cursor=pointer] [box=928,-253,14,17]:
+                                - generic [ref=e888] [box=928,-250,14,14]: 
+                          - row "BATCH-ER-003  Invoices_ER_03.xml D365  Failed 05/13/2026 04:14 " [ref=e891] [box=73,-218,922,45]:
+                            - gridcell "Select row" [ref=e892] [box=73,-212,40,33]:
+                              - checkbox [ref=e893] [cursor=pointer] [box=77,-205,21,21]
+                            - gridcell "BATCH-ER-003" [ref=e895] [box=113,-212,127,33]: BATCH-ER-003
+                            - gridcell " Invoices_ER_03.xml" [ref=e898] [box=240,-212,200,33]:
+                              - generic [ref=e899] [box=244,-205,12,14]: 
+                              - text: Invoices_ER_03.xml
+                            - gridcell "D365" [ref=e902] [box=440,-212,168,33]: D365
+                            - gridcell " Failed" [ref=e905] [box=608,-212,116,33]:
+                              - generic [ref=e906] [box=612,-207,54,18]:
+                                - generic [ref=e907] [box=616,-204,10,12]: 
+                                - text: Failed
+                            - gridcell "05/13/2026 04:14" [ref=e910] [box=724,-212,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e913] [box=877,-212,116,33]:
+                              - generic "Delete" [ref=e914] [cursor=pointer] [box=928,-208,14,17]:
+                                - generic [ref=e915] [box=928,-205,14,14]: 
+                          - row "BATCH-ER-002  Invoices_ER_02.xml Oracle  Failed 05/13/2026 04:14 " [ref=e918] [box=73,-173,922,45]:
+                            - gridcell "Select row" [ref=e919] [box=73,-167,40,33]:
+                              - checkbox [ref=e920] [cursor=pointer] [box=77,-160,21,21]
+                            - gridcell "BATCH-ER-002" [ref=e922] [box=113,-167,127,33]: BATCH-ER-002
+                            - gridcell " Invoices_ER_02.xml" [ref=e925] [box=240,-167,200,33]:
+                              - generic [ref=e926] [box=244,-160,12,14]: 
+                              - text: Invoices_ER_02.xml
+                            - gridcell "Oracle" [ref=e929] [box=440,-167,168,33]: Oracle
+                            - gridcell " Failed" [ref=e932] [box=608,-167,116,33]:
+                              - generic [ref=e933] [box=612,-162,54,18]:
+                                - generic [ref=e934] [box=616,-159,10,12]: 
+                                - text: Failed
+                            - gridcell "05/13/2026 04:14" [ref=e937] [box=724,-167,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e940] [box=877,-167,116,33]:
+                              - generic "Delete" [ref=e941] [cursor=pointer] [box=928,-163,14,17]:
+                                - generic [ref=e942] [box=928,-160,14,14]: 
+                          - row "BATCH-ER-001  Invoices_ER_01.xml SAP  Failed 05/13/2026 04:14 " [ref=e945] [box=73,-128,922,45]:
+                            - gridcell "Select row" [ref=e946] [box=73,-122,40,33]:
+                              - checkbox [ref=e947] [cursor=pointer] [box=77,-115,21,21]
+                            - gridcell "BATCH-ER-001" [ref=e949] [box=113,-122,127,33]: BATCH-ER-001
+                            - gridcell " Invoices_ER_01.xml" [ref=e952] [box=240,-122,200,33]:
+                              - generic [ref=e953] [box=244,-115,12,14]: 
+                              - text: Invoices_ER_01.xml
+                            - gridcell "SAP" [ref=e956] [box=440,-122,168,33]: SAP
+                            - gridcell " Failed" [ref=e959] [box=608,-122,116,33]:
+                              - generic [ref=e960] [box=612,-117,54,18]:
+                                - generic [ref=e961] [box=616,-114,10,12]: 
+                                - text: Failed
+                            - gridcell "05/13/2026 04:14" [ref=e964] [box=724,-122,153,33]: 05/13/2026 04:14
+                            - gridcell "" [ref=e967] [box=877,-122,116,33]:
+                              - generic "Delete" [ref=e968] [cursor=pointer] [box=928,-118,14,17]:
+                                - generic [ref=e969] [box=928,-115,14,14]: 
+                          - row "BATCH-0010  Invoice_Ingest_BATCH-0010.xml SAP  Ready 05/13/2026 23:20 " [ref=e972] [box=73,-83,922,45]:
+                            - gridcell "Select row" [ref=e973] [box=73,-77,40,33]:
+                              - checkbox [ref=e974] [cursor=pointer] [box=77,-70,21,21]
+                            - gridcell "BATCH-0010" [ref=e976] [box=113,-77,127,33]: BATCH-0010
+                            - gridcell " Invoice_Ingest_BATCH-0010.xml" [ref=e979] [box=240,-77,200,33]:
+                              - generic [ref=e980] [box=244,-70,12,14]: 
+                              - text: Invoice_Ingest_BATCH-0010.xml
+                            - gridcell "SAP" [ref=e983] [box=440,-77,168,33]: SAP
+                            - gridcell " Ready" [ref=e986] [box=608,-77,116,33]:
+                              - generic [ref=e987] [box=612,-72,56,18]:
+                                - generic [ref=e988] [box=616,-69,10,12]: 
+                                - text: Ready
+                            - gridcell "05/13/2026 23:20" [ref=e991] [box=724,-77,153,33]: 05/13/2026 23:20
+                            - gridcell "" [ref=e994] [box=877,-77,116,33]:
+                              - generic "Delete" [ref=e995] [cursor=pointer] [box=928,-73,14,17]:
+                                - generic [ref=e996] [box=928,-70,14,14]: 
+                        - generic [ref=e1000] [box=394,-32,296,58]:
+                          - combobox [ref=e1001] [cursor=pointer] [box=399,-20,100,30]:
+                            - option "Show 10" [selected] [box=0,0,0,0]
+                            - option "Show 25" [box=0,0,0,0]
+                            - option "Show 50" [box=0,0,0,0]
+                            - option "Show 100" [box=0,0,0,0]
+                          - button "First Page" [disabled] [ref=e1002] [cursor=pointer] [box=521,-27,24,53]:
+                            - img [ref=e1004] [box=521,-17,24,24]
+                          - button "Prev Page" [disabled] [ref=e1006] [cursor=pointer] [box=549,-27,24,53]:
+                            - img [ref=e1008] [box=549,-17,24,24]
+                          - button "Show Page 1" [ref=e1011] [cursor=pointer] [box=584,-26,41,44]: 1 / 13
+                          - button "Next Page" [ref=e1012] [cursor=pointer] [box=636,-27,24,53]:
+                            - img [ref=e1014] [box=636,-17,24,24]
+                          - button "Last Page" [ref=e1016] [cursor=pointer] [box=664,-27,24,53]:
+                            - img [ref=e1018] [box=664,-17,24,24]
+                  - generic [ref=e638] [box=55,79,975,446]:
+                    - heading "API Details" [level=3] [ref=e639] [box=72,96,941,40]
+                    - generic [ref=e1022] [box=72,148,941,346]:
+                      - generic [ref=e1023] [box=72,153,941,36]:
+                        - generic "Export" [ref=e1024] [box=72,153,58,36]:
+                          - button "" [ref=e1025] [cursor=pointer] [box=72,153,58,36]:
+                            - generic [ref=e1026] [box=93,164,12,14]: 
+                        - generic "Refresh" [ref=e1242] [box=135,153,58,36]:
+                          - button "" [ref=e1243] [cursor=pointer] [box=135,153,58,36]:
+                            - generic [ref=e1244] [box=155,164,12,14]: 
+                        - generic "Show Filters" [ref=e1030] [box=197,153,59,36]:
+                          - button "" [ref=e1031] [cursor=pointer] [box=197,153,59,36]:
+                            - generic [ref=e1032] [box=218,164,13,14]: 
+                        - generic "Clear Filters" [ref=e1033] [box=261,153,61,36]:
+                          - button "" [disabled] [ref=e1034] [box=261,153,61,36]:
+                            - generic [ref=e1035] [box=282,164,15,14]: 
+                        - generic "Reset View" [ref=e1036] [box=327,153,58,36]:
+                          - button "" [ref=e1037] [cursor=pointer] [box=327,153,58,36]:
+                            - generic [ref=e1038] [box=348,164,12,14]: 
+                      - grid [ref=e1039] [box=72,194,941,300]:
+                        - generic [ref=e1041] [box=113,195,900,48]:
+                          - columnheader "Select all on this page" [ref=e1042] [box=73,195,40,48]:
+                            - checkbox [ref=e1046] [cursor=pointer] [box=77,210,21,21]
+                          - columnheader "⋮ Source System" [ref=e1048] [box=113,195,152,48]:
+                            - generic [ref=e1050] [box=117,210,144,18]:
+                              - generic [ref=e1051] [box=117,210,144,18]:
+                                - generic [ref=e1052] [box=214,210,22,18]: ⋮
+                                - text: Source System
+                              - generic [box=257,210,0,18]: 
+                          - columnheader "⋮ Type" [ref=e1055] [box=265,195,100,48]:
+                            - generic [ref=e1057] [box=269,210,92,18]:
+                              - generic [ref=e1058] [box=269,210,92,18]:
+                                - generic [ref=e1059] [box=314,210,22,18]: ⋮
+                                - text: Type
+                              - generic [box=357,210,0,18]: 
+                          - columnheader "⋮ REST API Actions" [ref=e1062] [box=365,195,171,48]:
+                            - generic [ref=e1064] [box=369,210,163,18]:
+                              - generic [ref=e1065] [box=369,210,163,18]:
+                                - generic [ref=e1066] [box=485,210,22,18]: ⋮
+                                - text: REST API Actions
+                              - generic [box=528,210,0,18]: 
+                          - columnheader "⋮ Status" [ref=e1069] [box=536,195,100,48]:
+                            - generic [ref=e1071] [box=540,210,92,18]:
+                              - generic [ref=e1072] [box=540,210,92,18]:
+                                - generic [ref=e1073] [box=585,210,22,18]: ⋮
+                                - text: Status
+                              - generic [box=628,210,0,18]: 
+                          - columnheader "⋮ Created By" [ref=e1076] [box=636,195,127,48]:
+                            - generic [ref=e1078] [box=640,210,119,18]:
+                              - generic [ref=e1079] [box=640,210,119,18]:
+                                - generic [ref=e1080] [box=712,210,22,18]: ⋮
+                                - text: Created By
+                              - generic [box=755,210,0,18]: 
+                          - columnheader "⋮ Created On" [ref=e1083] [box=763,195,134,48]:
+                            - generic [ref=e1085] [box=767,210,126,18]:
+                              - generic [ref=e1086] [box=767,210,126,18]:
+                                - generic [ref=e1087] [box=846,210,22,18]: ⋮
+                                - text: Created On
+                              - generic [box=889,210,0,18]: 
+                          - columnheader "Actions" [ref=e1090] [box=897,195,100,48]:
+                            - generic [ref=e1093] [box=901,210,92,18]: Actions
+                        - generic [ref=e1097] [box=73,245,926,180]:
+                          - row "ABC Repository Internal  Post API  Active Agustin De Armas 04/23/2026 00:49 " [ref=e1098] [box=73,245,926,45]:
+                            - gridcell "Select row" [ref=e1099] [box=73,251,40,33]:
+                              - checkbox [ref=e1100] [cursor=pointer] [box=77,257,21,21]
+                            - gridcell "ABC Repository" [ref=e1102] [box=113,251,152,33]: ABC Repository
+                            - gridcell "Internal" [ref=e1105] [box=265,251,100,33]: Internal
+                            - gridcell " Post API" [ref=e1108] [box=365,251,171,33]:
+                              - generic [ref=e1109] [box=369,257,15,14]: 
+                              - text: Post API
+                            - gridcell " Active" [ref=e1112] [box=536,251,100,33]:
+                              - generic [ref=e1113] [box=540,256,57,18]:
+                                - generic [ref=e1114] [box=544,259,10,12]: 
+                                - text: Active
+                            - gridcell "Agustin De Armas" [ref=e1117] [box=636,251,127,33]: Agustin De Armas
+                            - gridcell "04/23/2026 00:49" [ref=e1120] [box=763,251,134,33]: 04/23/2026 00:49
+                            - gridcell "" [ref=e1123] [box=897,251,100,33]:
+                              - generic "Delete" [ref=e1124] [cursor=pointer] [box=940,255,14,17]:
+                                - generic [ref=e1125] [box=940,257,14,14]: 
+                          - row "ERP Extract Internal  Get API  Active Agustin De Armas 04/23/2026 00:49 " [ref=e1128] [box=73,290,926,45]:
+                            - gridcell "Select row" [ref=e1129] [box=73,296,40,33]:
+                              - checkbox [ref=e1130] [cursor=pointer] [box=77,302,21,21]
+                            - gridcell "ERP Extract" [ref=e1132] [box=113,296,152,33]: ERP Extract
+                            - gridcell "Internal" [ref=e1135] [box=265,296,100,33]: Internal
+                            - gridcell " Get API" [ref=e1138] [box=365,296,171,33]:
+                              - generic [ref=e1139] [box=369,302,15,14]: 
+                              - text: Get API
+                            - gridcell " Active" [ref=e1142] [box=536,296,100,33]:
+                              - generic [ref=e1143] [box=540,301,57,18]:
+                                - generic [ref=e1144] [box=544,304,10,12]: 
+                                - text: Active
+                            - gridcell "Agustin De Armas" [ref=e1147] [box=636,296,127,33]: Agustin De Armas
+                            - gridcell "04/23/2026 00:49" [ref=e1150] [box=763,296,134,33]: 04/23/2026 00:49
+                            - gridcell "" [ref=e1153] [box=897,296,100,33]:
+                              - generic "Delete" [ref=e1154] [cursor=pointer] [box=940,300,14,17]:
+                                - generic [ref=e1155] [box=940,302,14,14]: 
+                          - row "KSeF API Gov API  Get API  Active Agustin De Armas 04/23/2026 00:49 " [ref=e1158] [box=73,335,926,45]:
+                            - gridcell "Select row" [ref=e1159] [box=73,341,40,33]:
+                              - checkbox [ref=e1160] [cursor=pointer] [box=77,347,21,21]
+                            - gridcell "KSeF API" [ref=e1162] [box=113,341,152,33]: KSeF API
+                            - gridcell "Gov API" [ref=e1165] [box=265,341,100,33]: Gov API
+                            - gridcell " Get API" [ref=e1168] [box=365,341,171,33]:
+                              - generic [ref=e1169] [box=369,347,15,14]: 
+                              - text: Get API
+                            - gridcell " Active" [ref=e1172] [box=536,341,100,33]:
+                              - generic [ref=e1173] [box=540,346,57,18]:
+                                - generic [ref=e1174] [box=544,349,10,12]: 
+                                - text: Active
+                            - gridcell "Agustin De Armas" [ref=e1177] [box=636,341,127,33]: Agustin De Armas
+                            - gridcell "04/23/2026 00:49" [ref=e1180] [box=763,341,134,33]: 04/23/2026 00:49
+                            - gridcell "" [ref=e1183] [box=897,341,100,33]:
+                              - generic "Delete" [ref=e1184] [cursor=pointer] [box=940,345,14,17]:
+                                - generic [ref=e1185] [box=940,347,14,14]: 
+                          - row "Peppol Network  Post API  Active Agustin De Armas 04/23/2026 00:49 " [ref=e1188] [box=73,380,926,45]:
+                            - gridcell "Select row" [ref=e1189] [box=73,386,40,33]:
+                              - checkbox [ref=e1190] [cursor=pointer] [box=77,392,21,21]
+                            - gridcell "Peppol" [ref=e1192] [box=113,386,152,33]: Peppol
+                            - gridcell "Network" [ref=e1195] [box=265,386,100,33]: Network
+                            - gridcell " Post API" [ref=e1198] [box=365,386,171,33]:
+                              - generic [ref=e1199] [box=369,392,15,14]: 
+                              - text: Post API
+                            - gridcell " Active" [ref=e1202] [box=536,386,100,33]:
+                              - generic [ref=e1203] [box=540,391,57,18]:
+                                - generic [ref=e1204] [box=544,394,10,12]: 
+                                - text: Active
+                            - gridcell "Agustin De Armas" [ref=e1207] [box=636,386,127,33]: Agustin De Armas
+                            - gridcell "04/23/2026 00:49" [ref=e1210] [box=763,386,134,33]: 04/23/2026 00:49
+                            - gridcell "" [ref=e1213] [box=897,386,100,33]:
+                              - generic "Delete" [ref=e1214] [cursor=pointer] [box=940,390,14,17]:
+                                - generic [ref=e1215] [box=940,392,14,14]: 
+                        - generic [ref=e1219] [box=399,430,287,58]:
+                          - combobox [ref=e1220] [cursor=pointer] [box=404,443,100,30]:
+                            - option "Show 10" [selected] [box=0,0,0,0]
+                            - option "Show 25" [box=0,0,0,0]
+                            - option "Show 50" [box=0,0,0,0]
+                            - option "Show 100" [box=0,0,0,0]
+                          - button "First Page" [disabled] [ref=e1221] [cursor=pointer] [box=526,435,24,53]:
+                            - img [ref=e1223] [box=526,445,24,24]
+                          - button "Prev Page" [disabled] [ref=e1225] [cursor=pointer] [box=554,435,24,53]:
+                            - img [ref=e1227] [box=554,445,24,24]
+                          - button "Show Page 1" [ref=e1230] [cursor=pointer] [box=589,437,32,44]: 1 / 1
+                          - button "Next Page" [disabled] [ref=e1231] [cursor=pointer] [box=632,435,24,53]:
+                            - img [ref=e1233] [box=632,445,24,24]
+                          - button "Last Page" [disabled] [ref=e1235] [cursor=pointer] [box=660,435,24,53]:
+                            - img [ref=e1237] [box=660,445,24,24]
+    - generic [ref=e33] [box=0,566,1031,206]:
+      - separator [ref=e34] [box=0,566,1031,1]
+      - contentinfo [ref=e35] [box=0,567,1031,205]:
+        - generic [ref=e36] [box=37,579,958,182]:
+          - img "Footer EY Logo" [ref=e38] [box=37,566,144,65]
+          - generic [ref=e40] [box=37,654,880,107]:
+            - generic [ref=e41] [box=290,657,12,13]: 
+            - generic [ref=e42] [box=306,656,30,14]: "2026"
+            - text: Ernst & Young LLP | All Rights Reserved | Version
+            - text: 4.129.9638.18681 5/22/2026 10:22 AM
+            - text: "| Release 1"
+            - text: Content within this application is confidential and meant for EY staff and EY clients only.
+            - generic [ref=e427] [box=465,693,451,20]:
+              - text: Please review the
+              - link "Privacy Statement" [ref=e428] [cursor=pointer] [box=566,695,103,14]:
+                - /url: /Assets/Legal/Privacy_TEAMS.pdf
+              - text: and
+              - link "Terms of Use" [ref=e429] [cursor=pointer] [box=696,695,72,14]:
+                - /url: /Assets/Legal/TOU_TEAMS.pdf
+              - text: for additional information.
+            - generic [ref=e43] [box=37,713,880,48]: Please do not enter any unnecessary personal information or any sensitive personal data (including government identifiers such as tax file numbers or social security numbers), client confidential information, audit secrets, state secrets, commercial secrets , or anything that would violate professional secrecy or confidentiality rules or that would be considered abusive/irrelevant. Dashboards are intended to be summary in nature and provided for general informational purposes only. Accordingly, the information contained in dashboards is not intended to be relied upon as accounting, tax, or other professional advice, and does not provide any tax opinion or a level of confidence regarding any transaction or filing position.
+    - button "back to top" [ref=e558] [cursor=pointer] [box=954,591,52,46]:
+      - generic [ref=e559] [box=970,603,20,20]: 
+    - text: 
+  - log [ref=e45] [box=-1,771,1,1]
+  - text:                          

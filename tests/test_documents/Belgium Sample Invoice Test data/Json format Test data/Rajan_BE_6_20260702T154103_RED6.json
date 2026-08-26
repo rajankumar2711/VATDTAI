@@ -1,0 +1,354 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://example.local/YY1_GTES_SD_API('Rajan_BE_6_20260702T154103_RED6')",
+      "uri": "https://example.local/YY1_GTES_SD_API('Rajan_BE_6_20260702T154103_RED6')",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+    "CompanyCode": "BE10",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Technical manuals VAT 6 percent",
+          "AddressID": "180040",
+          "actDelivDate": "/Date(1783209600000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Grote Markt 1",
+          "delivAddr2": "",
+          "delivCity": "Antwerp",
+          "delivPostCode": "2000",
+          "delivAddr3": "Grote Markt 1",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Antwerp Public Services Delivery Location",
+          "DeliveryStreet": "Grote Markt 1",
+          "DeliveryCity": "Antwerp",
+          "DeliveryPostalCode": "2000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003103",
+          "OutboundDelivery": "85003000010"
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Canteen supplies VAT 6 percent",
+          "AddressID": "180050",
+          "actDelivDate": "/Date(1783209600000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Grote Markt 1",
+          "delivAddr2": "",
+          "delivCity": "Antwerp",
+          "delivPostCode": "2000",
+          "delivAddr3": "Grote Markt 1",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Antwerp Public Services Delivery Location",
+          "DeliveryStreet": "Grote Markt 1",
+          "DeliveryCity": "Antwerp",
+          "DeliveryPostalCode": "2000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003103",
+          "OutboundDelivery": "85003000020"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_6_20260702T154103_RED6')",
+        "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_6_20260702T154103_RED6')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+      "CountryISOCode": "BE",
+      "invNum": "Rajan_BE_6_20260702T154103_RED6",
+      "invoice_id": "Rajan_BE_6_20260702T154103_RED6",
+      "invoice_uuid": "e6a5af78-7714-4645-a94e-dd708973c475",
+      "invIssueDate": "/Date(1783209600000)/",
+      "payDueDate": "/Date(1785801600000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1783209600000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_PROD",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "PEPPOL-BIS-3.0-BE",
+      "notes": [
+        "Reduced VAT 6 percent invoice for books and food supplies"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "0678123456",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "0678123456",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BE1003103",
+      "purOrdRef": "PO-BE-RED6-154103",
+      "saleOrdRef": "SO-BE-RED6-154103",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Grote Markt 1",
+      "buyerAddr2": "",
+      "buyerCity": "Antwerp",
+      "buyerPostCode": "2000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0678123456",
+      "buyerName": "Antwerp Public Services",
+      "buyerTradeName": "Antwerp Public",
+      "buyerContactTel": "+32-3-555-2103",
+      "buyerContactEmail": "invoices@antwerp-services.be",
+      "DeliveryStreet": "Grote Markt 1",
+      "DeliveryCity": "Antwerp",
+      "DeliveryPostalCode": "2000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Net Due in 30 Days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "60.30",
+      "taxCatRate": "6.00",
+      "invTotalAmtWithTax": "1065.25",
+      "sumInvLineNetAmt": "1004.95",
+      "AllowanceTotal": "5.05",
+      "ChargeTotal": "0.00",
+      "DiscountRate": "1.00",
+      "DiscountDate": "2026-07-15",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE10",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_6_20260702T154103_RED6')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_6_20260702T154103_RED6')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": []
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "30",
+          "invoicedQtyUOM": "XBX",
+          "invLineNetAmt": "750.00",
+          "itemDesc": "Technical manuals VAT 6 percent",
+          "sellerItemID": "BOOK-TECH-01",
+          "sellerItemID_Text": "Technical manuals VAT 6 percent",
+          "BuyerItemId": "BOOK-TECH-BUYER",
+          "buyerItemID": "BOOK-TECH-BUYER",
+          "Gtin": "5412345000031",
+          "gtin": "5412345000031",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "6.00",
+          "payDueDate": "",
+          "TaxAmount": "45.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783209600000)/",
+          "ShipToParty": "BE1003103",
+          "BillingQuantityUnit": "BOX",
+          "StandardItemIdentification": "5412345000031",
+          "BuyersItemIdentification": "BOOK-TECH-BUYER",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000010')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000010')/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "40",
+          "invoicedQtyUOM": "H87",
+          "invLineNetAmt": "260.00",
+          "itemDesc": "Canteen supplies VAT 6 percent",
+          "sellerItemID": "FOOD-CANTEEN",
+          "sellerItemID_Text": "Canteen supplies VAT 6 percent",
+          "BuyerItemId": "FOOD-CANTEEN-BUYER",
+          "buyerItemID": "FOOD-CANTEEN-BUYER",
+          "Gtin": "5412345000032",
+          "gtin": "5412345000032",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "6.00",
+          "payDueDate": "",
+          "TaxAmount": "15.60",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783209600000)/",
+          "ShipToParty": "BE1003103",
+          "BillingQuantityUnit": "PZ",
+          "StandardItemIdentification": "5412345000032",
+          "BuyersItemIdentification": "FOOD-CANTEEN-BUYER",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000020')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_6_20260702T154103_RED6',BillingDocumentItem='000020')/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+          "AllowanceAmount": "5.05",
+          "AllowancePercent": "0.50",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Document level allowance for ingestion testing"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_6_20260702T154103_RED6",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "6.00",
+          "taxCatTaxableAmt": "1004.95",
+          "taxCatTaxAmt": "60.30",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Flemish Region"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "uri": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE10",
+          "HouseBank": "KBCBE",
+          "HouseBankAccount": "807E",
+          "payAccID": "BE68539007547034",
+          "Iban": "BE68539007547034",
+          "Swift": "KREDBEBB",
+          "payAccName": "KBC Bank",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "uri": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE10",
+      "sellerID": "0123456789",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Avenue Louise 120",
+      "sellerAddr2": "",
+      "sellerCity": "Brussels",
+      "sellerPostCode": "1000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Rajan Belgium Components NV",
+      "sellerTradeName": "SAP Source Billing",
+      "sellerTaxID": "BE0123456789",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE68539007547034",
+      "Swift": "KREDBEBB",
+      "ContactEmailAddress": "billing@rajan-belgium-components.be",
+      "ContactName": "Sophie Martin",
+      "ContactTelephone": "+32-2-555-1001",
+      "bank_account": [
+        {
+          "iban": "BE68539007547034",
+          "swift": "KREDBEBB",
+          "account_name": "KBC Bank"
+        }
+      ],
+      "contact": {
+        "name": "Sophie Martin",
+        "phone": "+32-2-555-1001",
+        "email": "billing@rajan-belgium-components.be"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-07-02T15:41:03+00:00",
+      "ingested_at": "2026-07-02T15:41:08+00:00",
+      "validated_at": "2026-07-02T15:41:13+00:00",
+      "transformed_at": "2026-07-02T15:41:18+00:00",
+      "source_system_id": "SAP_BE_PROD",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "7200000000000003",
+      "correlation_id": "ea58f17c-f242-4bf4-92e5-9dfbee5fdd47",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "ERP_CANONICAL_BE_SAP_V2",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "BIS 3",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2036-12-31",
+      "archival_location": "https://archive.example.local/be/sap/Rajan_BE_6_20260702T154103_RED6",
+      "payload_hash": "b8441faadddc5ca36e4d2f907caa66e26f5ee9022ad2d544a1e5297e536f22d3",
+      "source_hash": "9326ae032d1f0e835e3cd15666c38fc7f054b4a9dfec596bce80b13a67b638d5",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

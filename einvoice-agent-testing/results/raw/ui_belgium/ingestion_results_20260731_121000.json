@@ -1,0 +1,182 @@
+[
+  {
+    "file_name": "SAP_BE_01_SAP-BE-2026-01001.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01001",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_02_SAP-BE-2026-01002.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01002",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_03_SAP-BE-2026-01003.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01003",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_04_SAP-BE-2026-01004.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01004",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_05_SAP-BE-2026-01005.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01005",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_06_SAP-BE-2026-01006.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01006",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_07_SAP-BE-2026-01007.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01007",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_08_SAP-BE-2026-01008.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01008",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "SAP_BE_09_SAP-BE-2026-01010.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01010",
+    "uploaded": true,
+    "skipped_already_present": false,
+    "batch_id": "BATCH_20260731063626",
+    "message": ""
+  },
+  {
+    "file_name": "SAP_BE_10_SAP-BE-2026-01010.xml",
+    "source_system": "SAP",
+    "invoice_number": "SAP-BE-2026-01010",
+    "uploaded": true,
+    "skipped_already_present": false,
+    "batch_id": "BATCH_20260731063736",
+    "message": ""
+  },
+  {
+    "file_name": "CustomERP_BE_01_ERP-BE-2026-02001.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02001",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_02_ERP-BE-2026-02002.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02002",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_03_ERP-BE-2026-02003.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02003",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_04_ERP-BE-2026-02004.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02004",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_05_ERP-BE-2026-02005.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02005",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_06_ERP-BE-2026-02006.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02006",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_07_ERP-BE-2026-02007.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02007",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_08_ERP-BE-2026-02008.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02008",
+    "uploaded": false,
+    "skipped_already_present": true,
+    "batch_id": null,
+    "message": "already dropped (present in Uploaded grid)"
+  },
+  {
+    "file_name": "CustomERP_BE_09_ERP-BE-2026-02010.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02010",
+    "uploaded": true,
+    "skipped_already_present": false,
+    "batch_id": "BATCH_20260731063846",
+    "message": ""
+  },
+  {
+    "file_name": "CustomERP_BE_10_ERP-BE-2026-02010.xml",
+    "source_system": "Custom ERP",
+    "invoice_number": "ERP-BE-2026-02010",
+    "uploaded": true,
+    "skipped_already_present": false,
+    "batch_id": "BATCH_20260731063957",
+    "message": ""
+  }
+]

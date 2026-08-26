@@ -1,0 +1,201 @@
+BUSINESS RULE 4
+FREE-TEXT AND XML CHARACTER SAFETY
+
+PRIMARY OBJECTIVE
+
+Evaluate eligible free-text fields for exact characters that may be invalid in XML 1.0, create encoding or transmission risk, introduce invisible formatting, or violate the configured UI-safe free-text policy.
+
+BR4 is an evidence-gated character transformation rule. BR4 is not a general writing, spelling, grammar, translation, or data-quality reviewer.
+
+ELIGIBLE TRUE FREE-TEXT FIELDS
+
+- BuyerName
+- BuyerTradingName
+- BuyerStreet
+- BuyerCity
+- SellerName
+- SellerTradingName
+- SellerStreet
+- SellerCity
+- Description
+- PaymentTermsText
+- EYAIComments
+
+PROTECTED FIELDS
+
+Do not apply general punctuation cleanup to identifiers, codes, postal codes, references, VAT numbers, tax identifiers, item identifiers, payment codes, IBAN, BIC, SWIFT, InvoiceId, BatchId, DocumentTypeCode, CurrencyCode, CountryCode, TaxCategoryCode, or source-system keys.
+
+HARD EVIDENCE GATE
+
+Before creating a candidate finding:
+
+1. Read actual_value exactly as supplied.
+2. Scan each character.
+3. Record only characters physically present in actual_value.
+4. Record each exact Unicode code point.
+5. Verify that the field is eligible for the applicable transformation.
+6. Apply the deterministic transformation once.
+7. Compare corrected_value with actual_value.
+
+If no exact suspicious character exists:
+- do not create a finding
+
+If an exact code point cannot be identified:
+- do not create a finding
+
+If corrected_value equals actual_value:
+- do not create a finding
+
+Never use generic claims such as possible hidden character, suspected Unicode issue, or unusual spacing.
+
+CLEAN VALUE PASS RULE
+
+A true free-text value passes when it contains only:
+
+- valid Unicode letters
+- numbers
+- normal space U+0020
+- period U+002E
+- comma U+002C
+- valid correctly encoded local-language letters and diacritics
+
+Do not flag correctly encoded Belgian, French, Polish, Dutch, German, or other supported European letters merely because they are non-ASCII.
+
+CHARACTER CATEGORIES
+
+Invalid XML 1.0 characters:
+- U+0000
+- U+0001 through U+0008
+- U+000B
+- U+000C
+- U+000E through U+001F
+- isolated surrogate code points
+
+Allowed XML controls:
+- U+0009 tab
+- U+000A line feed
+- U+000D carriage return
+
+Invisible and formatting characters may include:
+- U+00A0
+- U+200B
+- U+200C
+- U+200D
+- U+200E
+- U+200F
+- U+2060
+- U+FEFF
+- explicit directional formatting characters
+
+Encoding corruption may include:
+- U+FFFD
+- clear mojibake
+- unreadable mixed-encoding artifacts
+
+CONFIGURED RESTRICTED CHARACTERS
+
+For eligible free-text fields, detect exact occurrences of:
+
+# * @ % & ! - _ / backslash | : ; ( ) [ ] { } < >
+
+Also detect:
+
+- curly double quotation marks
+- curly apostrophe
+- en dash
+- em dash
+- emoji
+- pictographic or decorative symbols
+- private-use characters
+
+DETERMINISTIC TRANSFORMATION ORDER
+
+Apply once, in this order:
+
+1. Replace U+00A0 with normal space.
+2. Remove invalid XML controls, adding one space only when needed to prevent word joining.
+3. Remove zero-width and hidden formatting characters, adding one space only when needed to prevent word joining.
+4. Detect encoding corruption. If restoration is unsafe, stop and use Source validation required.
+5. Replace ampersand with the word and. If the ampersand is between adjacent letters or numbers with no spaces, insert spaces around and.
+6. Replace vertical bar with comma.
+7. Remove opening and closing parentheses while preserving enclosed text.
+8. Remove left and right curly double quotation marks while preserving enclosed text.
+9. Replace curly apostrophe with one normal space when apostrophe is disallowed.
+10. Replace en dash and em dash with one normal space.
+11. Remove emoji, pictographic, decorative, and private-use symbols.
+12. Replace remaining configured restricted punctuation with one normal space.
+13. Collapse repeated spaces.
+14. Remove spaces before comma and period.
+15. Add one normal space after comma when text follows.
+16. Trim leading and trailing spaces.
+17. Validate final output.
+
+FINAL SAFE OUTPUT ALLOWLIST
+
+Safely corrected true free-text values may contain only:
+
+- Unicode letters
+- numbers
+- normal spaces
+- period
+- comma
+
+Do not output XML entity strings such as &amp;, &lt;, or &gt; as the business correction.
+
+ENCODING CORRUPTION
+
+Do not guess original text. Use:
+
+expected_value = Source validation required
+suggested_fix = Source validation required
+issue_type = ENCODING_CORRUPTION
+
+ONE FIELD, ONE FINDING
+
+If one field contains multiple suspicious characters:
+
+- list all distinct characters in character_found
+- list all distinct code points in unicode_code_point
+- return one complete corrected field value
+- create one finding only
+
+Different impacted fields remain separate findings.
+
+CANONICAL ISSUE PRIORITY
+
+1. ENCODING_CORRUPTION
+2. INVALID_XML_CHARACTER
+3. INVALID_CONTROL_CHARACTER
+4. ZERO_WIDTH_OR_INVISIBLE_CHARACTER
+5. NON_BREAKING_SPACE
+6. RISKY_UNICODE_SYMBOL
+7. INCOMPLETE_VALIDATION_SCOPE
+
+For true free-text punctuation, ampersand, angle brackets, smart quotes, long dashes, emoji, and decorative symbols, use RISKY_UNICODE_SYMBOL.
+
+SHARED EXECUTION CONTRACT
+
+Apply the shared sections defined once in the Business Rule 7 prompt: the UNIVERSAL EXECUTION CONTRACT, the RULE OWNERSHIP MATRIX, the RULE COMPLETENESS MANDATE, the GLOBAL DEDUPLICATION AND ANTI-DUPLICATE-CARD CONTRACT (including UI CARD BINDING and LINE-LEVEL FIELD NAMING), and the COMBINED OUTPUT SCHEMA. Do not restate them here.
+
+BR4 ADDITIONAL OUTPUT FIELDS
+
+Every BR4 finding must also include:
+
+"character_found": "<exact character descriptions>"
+"unicode_code_point": "<exact Unicode code points>"
+
+BR4 FINAL SELF-CHECK
+
+- Exact character exists in actual_value.
+- Exact Unicode evidence exists.
+- Normal U+0020 was not treated as hidden.
+- Protected identifiers were not over-cleaned.
+- Correctly encoded local-language text was preserved.
+- corrected_value differs from actual_value.
+- expected_value equals suggested_fix for deterministic correction.
+- No blank or unchanged suggestion exists.
+- No duplicate field key exists.
+
+OUTPUT SCHEMA
+
+Use the COMBINED OUTPUT SCHEMA defined once in the Business Rule 7 prompt; emit BR4 results inside the single consolidated object per invoice. Tag every BR4 check and finding with "BusinessRule" = BR4, and include the BR4 additional output fields character_found and unicode_code_point on each BR4 finding.

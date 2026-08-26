@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "description": "Runtime options for the agent runner. Provider is selected at run time; mock is the default so scoring/metrics can be validated with no LLM spend (live behind a flag).",
+  "provider": {
+    "default": "mock",
+    "available": ["mock", "azure_openai"],
+    "azure_openai": {
+      "endpoint_env": "AZURE_OPENAI_ENDPOINT",
+      "api_key_env": "AZURE_OPENAI_API_KEY",
+      "deployment_env": "AZURE_OPENAI_DEPLOYMENT",
+      "api_version_env": "AZURE_OPENAI_API_VERSION",
+      "api_version_default": "2024-02-01",
+      "temperature": 0.0,
+      "max_retries": 2,
+      "timeout_seconds": 120
+    },
+    "mock": {
+      "fixtures_dir": "tests/fixtures/mock_responses"
+    }
+  },
+  "runtime_options": {
+    "strict_json": true,
+    "include_all_checks": true,
+    "include_evidence": true,
+    "input_mode": "raw_xml"
+  },
+  "tolerances": {
+    "per_line_amount": 0.01,
+    "per_line_tax": 0.01,
+    "invoice_header": 0.02,
+    "tax_summary": 0.02,
+    "tax_rate_percentage_points": 0.01
+  },
+  "release_gates": {
+    "critical_false_negatives_max": 0,
+    "critical_false_positives_max": 0,
+    "json_compliance_rate_min": 1.0,
+    "required_field_output_completeness_min": 1.0,
+    "prompt_version_traceability_min": 1.0
+  }
+}

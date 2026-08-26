@@ -1,0 +1,361 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://example.local/YY1_GTES_SD_API('Rajan_BE_12_20260702T154102_RED12')",
+      "uri": "https://example.local/YY1_GTES_SD_API('Rajan_BE_12_20260702T154102_RED12')",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+    "CompanyCode": "BE10",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Restaurant service package",
+          "AddressID": "180030",
+          "actDelivDate": "/Date(1783123200000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Nijverheidslaan 15",
+          "delivAddr2": "",
+          "delivCity": "Mechelen",
+          "delivPostCode": "2800",
+          "delivAddr3": "Nijverheidslaan 15",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Mechelen Office Supplies BV Delivery Location",
+          "DeliveryStreet": "Nijverheidslaan 15",
+          "DeliveryCity": "Mechelen",
+          "DeliveryPostalCode": "2800",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003102",
+          "OutboundDelivery": "85002000010"
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_ShippingDelivery(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Social housing materials",
+          "AddressID": "180040",
+          "actDelivDate": "/Date(1783123200000)/",
+          "delLocID": "",
+          "delivLocIDScheme": "",
+          "delivAddr1": "Nijverheidslaan 15",
+          "delivAddr2": "",
+          "delivCity": "Mechelen",
+          "delivPostCode": "2800",
+          "delivAddr3": "Nijverheidslaan 15",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Mechelen Office Supplies BV Delivery Location",
+          "DeliveryStreet": "Nijverheidslaan 15",
+          "DeliveryCity": "Mechelen",
+          "DeliveryPostalCode": "2800",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BE1003102",
+          "OutboundDelivery": "85002000020"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_12_20260702T154102_RED12')",
+        "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_12_20260702T154102_RED12')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+      "CountryISOCode": "BE",
+      "invNum": "Rajan_BE_12_20260702T154102_RED12",
+      "invoice_id": "Rajan_BE_12_20260702T154102_RED12",
+      "invoice_uuid": "e2b75e93-02f4-4198-8220-cc8cad227358",
+      "invIssueDate": "/Date(1783123200000)/",
+      "payDueDate": "/Date(1785715200000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1783123200000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_PROD",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "PEPPOL-BIS-3.0-BE",
+      "notes": [
+        "Reduced VAT 12 percent invoice for Belgium restaurant and social housing services"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "0448123456",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "0448123456",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BE1003102",
+      "purOrdRef": "PO-BE-RED12-154102",
+      "saleOrdRef": "SO-BE-RED12-154102",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Nijverheidslaan 15",
+      "buyerAddr2": "",
+      "buyerCity": "Mechelen",
+      "buyerPostCode": "2800",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0448123456",
+      "buyerName": "Mechelen Office Supplies BV",
+      "buyerTradeName": "Mechelen Office",
+      "buyerContactTel": "+32-15-555-0101",
+      "buyerContactEmail": "ap@mechelenoffice.be",
+      "DeliveryStreet": "Nijverheidslaan 15",
+      "DeliveryCity": "Mechelen",
+      "DeliveryPostalCode": "2800",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Net Due in 30 Days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "213.73",
+      "taxCatRate": "12.00",
+      "invTotalAmtWithTax": "1994.78",
+      "sumInvLineNetAmt": "1781.05",
+      "AllowanceTotal": "17.90",
+      "ChargeTotal": "8.95",
+      "DiscountRate": "1.50",
+      "DiscountDate": "2026-07-14",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE10",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_12_20260702T154102_RED12')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://example.local/YY1_GTES_SD_Header('Rajan_BE_12_20260702T154102_RED12')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "ChargeAmount": "8.95",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Freight / service charge for ingestion testing"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000010')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000010')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "H87",
+          "invLineNetAmt": "1250.00",
+          "itemDesc": "Restaurant service package",
+          "sellerItemID": "RESTO-SVC",
+          "sellerItemID_Text": "Restaurant service package",
+          "BuyerItemId": "MEAL-SVC-12",
+          "buyerItemID": "MEAL-SVC-12",
+          "Gtin": "5412345000021",
+          "gtin": "5412345000021",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "12.00",
+          "payDueDate": "",
+          "TaxAmount": "150.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783123200000)/",
+          "ShipToParty": "BE1003102",
+          "BillingQuantityUnit": "PZ",
+          "StandardItemIdentification": "5412345000021",
+          "BuyersItemIdentification": "MEAL-SVC-12",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000010')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000010')/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000020')",
+            "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000020')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "12",
+          "invoicedQtyUOM": "H87",
+          "invLineNetAmt": "540.00",
+          "itemDesc": "Social housing materials",
+          "sellerItemID": "SOC-HOUSING",
+          "sellerItemID_Text": "Social housing materials",
+          "BuyerItemId": "HOUSING-MAT-12",
+          "buyerItemID": "HOUSING-MAT-12",
+          "Gtin": "5412345000022",
+          "gtin": "5412345000022",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "12.00",
+          "payDueDate": "",
+          "TaxAmount": "64.80",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1783123200000)/",
+          "ShipToParty": "BE1003102",
+          "BillingQuantityUnit": "PZ",
+          "StandardItemIdentification": "5412345000022",
+          "BuyersItemIdentification": "HOUSING-MAT-12",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000020')/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://example.local/YY1_GTES_SD_Lines(BillingDocument='Rajan_BE_12_20260702T154102_RED12',BillingDocumentItem='000020')/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "AllowanceAmount": "17.90",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Document level allowance for ingestion testing"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "Rajan_BE_12_20260702T154102_RED12",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "12.00",
+          "taxCatTaxableAmt": "1781.05",
+          "taxCatTaxAmt": "213.73",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Flemish Region"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "uri": "https://example.local/YY1_GTESPayMeans(CompanyCode='BE10',HouseBank='KBCBE',HouseBankAccount='807E')",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE10",
+          "HouseBank": "KBCBE",
+          "HouseBankAccount": "807E",
+          "payAccID": "BE68539007547034",
+          "Iban": "BE68539007547034",
+          "Swift": "KREDBEBB",
+          "payAccName": "KBC Bank",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "uri": "https://example.local/YY1_GTESCompanyCodeDetail('BE10')",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE10",
+      "sellerID": "0123456789",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Avenue Louise 120",
+      "sellerAddr2": "",
+      "sellerCity": "Brussels",
+      "sellerPostCode": "1000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Rajan Belgium Components NV",
+      "sellerTradeName": "SAP Source Billing",
+      "sellerTaxID": "BE0123456789",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE68539007547034",
+      "Swift": "KREDBEBB",
+      "ContactEmailAddress": "billing@rajan-belgium-components.be",
+      "ContactName": "Sophie Martin",
+      "ContactTelephone": "+32-2-555-1001",
+      "bank_account": [
+        {
+          "iban": "BE68539007547034",
+          "swift": "KREDBEBB",
+          "account_name": "KBC Bank"
+        }
+      ],
+      "contact": {
+        "name": "Sophie Martin",
+        "phone": "+32-2-555-1001",
+        "email": "billing@rajan-belgium-components.be"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-07-02T15:41:02+00:00",
+      "ingested_at": "2026-07-02T15:41:07+00:00",
+      "validated_at": "2026-07-02T15:41:12+00:00",
+      "transformed_at": "2026-07-02T15:41:17+00:00",
+      "source_system_id": "SAP_BE_PROD",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "7200000000000002",
+      "correlation_id": "267bf90d-9f14-412e-b7fb-e8f208de51d6",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "ERP_CANONICAL_BE_SAP_V2",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "BIS 3",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2036-12-31",
+      "archival_location": "https://archive.example.local/be/sap/Rajan_BE_12_20260702T154102_RED12",
+      "payload_hash": "d2db4e3ad1316d96bc124077d0fde794c7c1e7f2171f8ca01859365a27873918",
+      "source_hash": "31e43676e4b1cd209304044dc8201be9725a2798dc5d4fdaaacda02bc1d7dc06",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

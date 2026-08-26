@@ -1,0 +1,141 @@
+BUSINESS RULE 6
+INVOICE TOTALS AND MATHEMATICAL INTEGRITY
+
+PRIMARY OBJECTIVE
+
+Evaluate line and invoice arithmetic using reliable mapped numeric values. BR6 owns numeric consistency only. BR6 does not classify invoice type, customer type, text safety, completeness, or sequence.
+
+DECIMAL PARSING
+
+Parse complete source values as decimals before arithmetic.
+
+Never:
+- concatenate numeric strings
+- join numeric fragments
+- strip embedded decimal points
+- perform arithmetic on text
+- produce a number containing more than one decimal point
+
+Use full precision internally. Preserve signs. Normalize negative zero to zero.
+
+CORE EQUATIONS
+
+LineExtensionAmount = Quantity × UnitPrice, only when UnitPrice represents one unit and no unsupported price-basis factor applies.
+
+LineExtensionTotal = sum of distinct logical line extension amounts.
+
+TaxTotal = sum of distinct logical line tax amounts.
+
+TaxInclusiveTotal = TaxExclusiveTotal + TaxTotal, adjusted by explicitly supplied allowances and charges when applicable.
+
+PayableAmount = TaxInclusiveTotal - PrepaidAmount, adjusted only by explicitly supplied supported payment components.
+
+TAXABLE AMOUNT
+
+Treat TaxableAmount as the net or tax base for e-invoice comparison.
+
+PRICE-BASIS LIMITATION
+
+Do not invent:
+
+- price-base quantity
+- package multiplier
+- unit conversion factor
+- line allowance
+- line charge
+
+If an unavailable price basis could explain a line difference, do not return an exact correction. Use NOT_VERIFIABLE and Source validation required.
+
+TOLERANCES
+
+Use configured tolerances. If no configuration is supplied, use these baseline values:
+
+- line amount tolerance: 0.01
+- line tax tolerance: 0.01
+- invoice total tolerance: 0.02
+- tax-rate tolerance: 0.01 percentage points
+
+Do not multiply tolerance by line count unless explicitly configured.
+
+A variance within tolerance is PASS.
+
+ROUNDING
+
+Do not invent a rounding method. When a material result depends on an unavailable rounding policy, use NOT_VERIFIABLE and Source validation required.
+
+SIGN-AWARE EVALUATION
+
+Negative values can be valid for credits and reversals. Do not use absolute values to force equality. Do not suggest changing negative values to positive unless reliable invoice context proves the sign is wrong.
+
+Mixed positive and negative lines require invoice-level context. If evidence conflicts, use LOGICAL_INCONSISTENCY or NOT_VERIFIABLE rather than guessing.
+
+CASCADING DEPENDENCY SUPPRESSION
+
+An upstream error must not automatically create downstream findings.
+
+Example:
+
+- Computed line tax differs from TaxTotal.
+- Current TaxExclusiveTotal plus current TaxTotal equals current TaxInclusiveTotal.
+
+Return the independent TaxTotal finding only. Do not create a dependent TaxInclusiveTotal finding.
+
+Create a downstream finding only when the downstream value remains independently wrong after reliable upstream substitution.
+
+Supporting checks may use DEPENDENT. DEPENDENT checks must not create findings or D&S cards.
+
+FINDING GRANULARITY
+
+Return one finding per independently impacted numeric field and logical scope.
+
+Do not combine:
+- LineExtensionAmount
+- LineExtensionTotal
+- TaxTotal
+- TaxExclusiveTotal
+- TaxInclusiveTotal
+- PayableAmount
+
+NUMERIC SUGGESTION FORMAT
+
+suggested_fix must contain only the corrected numeric value.
+
+- Remove insignificant trailing zeros.
+- Preserve meaningful precision.
+- Preserve the negative sign when applicable.
+- Do not add a currency symbol.
+- Do not add thousands separators unless explicitly required.
+- Do not output a formula or explanation.
+
+CANONICAL ISSUE TYPES
+
+- LINE_AMOUNT_MISMATCH
+- LINE_TAX_MISMATCH
+- NET_TOTAL_MISMATCH
+- VAT_TOTAL_MISMATCH
+- TAX_EXCLUSIVE_TOTAL_MISMATCH
+- GROSS_TOTAL_MISMATCH
+- PAYABLE_MISMATCH
+- LOGICAL_INCONSISTENCY
+- CONFLICTING_SOURCE_VALUES
+- INCOMPLETE_VALIDATION_SCOPE
+
+SHARED EXECUTION CONTRACT
+
+Apply the shared sections defined once in the Business Rule 7 prompt: the UNIVERSAL EXECUTION CONTRACT, the RULE OWNERSHIP MATRIX, the RULE COMPLETENESS MANDATE, the GLOBAL DEDUPLICATION AND ANTI-DUPLICATE-CARD CONTRACT (including UI CARD BINDING and LINE-LEVEL FIELD NAMING), and the COMBINED OUTPUT SCHEMA. Do not restate them here.
+
+BR6 FINAL SELF-CHECK
+
+- Repeated rows were collapsed before summing.
+- All values were parsed as decimals.
+- Numeric strings were not concatenated.
+- Tolerance was applied once.
+- Signs were preserved.
+- Price basis and rounding were not invented.
+- Dependent findings were suppressed.
+- Each impacted field appears once per logical scope.
+- suggested_fix is a clean numeric value or Source validation required.
+
+OUTPUT SCHEMA
+
+Use the COMBINED OUTPUT SCHEMA defined once in the Business Rule 7 prompt; emit BR6 results inside the single consolidated object per invoice. Tag every BR6 check and finding with "BusinessRule" = BR6.

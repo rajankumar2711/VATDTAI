@@ -1,0 +1,113 @@
+BUSINESS RULE 12
+CUSTOMER TYPE CLASSIFICATION: B2B, B2G, AND B2C
+
+PRIMARY OBJECTIVE
+
+Classify the buyer as B2B, B2G, B2C, or NOT_VERIFIABLE using structured invoice evidence. Identify evidence-quality anomalies that prevent reliable classification.
+
+EVIDENCE HIERARCHY
+
+Use structured evidence in this order:
+
+1. Explicit BuyerCountry
+2. Authoritative buyer account or customer identifier
+3. Buyer tax or VAT identifier
+4. Government-specific identifier, routing, or endpoint evidence
+5. Supported source-system customer classification
+6. Buyer name cues only as weak supporting evidence
+
+Do not infer customer type from a name alone.
+
+B2B EVIDENCE
+
+Typical reliable evidence may include:
+
+- usable business customer identifier
+- country-consistent tax or VAT identifier
+- legal business name and address
+
+Potential anomalies:
+
+- placeholder identifier such as DUMMY or TEST
+- invalid identifier format
+- identifier prefix inconsistent with BuyerCountry
+- conflicting identifiers
+
+B2G EVIDENCE
+
+A public-sector-looking name is insufficient by itself. Reliable B2G classification should use authoritative government evidence, government identifier, or supported routing or endpoint evidence.
+
+If the name suggests a public authority but authoritative evidence is missing or unusable:
+
+issue_type = INSUFFICIENT_GOVERNMENT_EVIDENCE
+classification = NOT_VERIFIABLE
+suggested_fix = Source validation required
+
+B2C EVIDENCE
+
+Do not infer B2C merely because a VAT number is absent. Evaluate the complete structured evidence. Existing business identifiers or government evidence can override weak consumer cues.
+
+COUNTRY CONSISTENCY
+
+Use country-specific identifier validation only when the rule or format is explicitly supplied. Do not invent a country format.
+
+A buyer identifier with a country prefix inconsistent with explicit BuyerCountry may create IDENTIFIER_COUNTRY_MISMATCH.
+
+FINDING GRANULARITY
+
+Return separate findings for separate evidence problems, including:
+
+- placeholder buyer identifier
+- invalid VAT format
+- identifier-country mismatch
+- insufficient government evidence
+- conflicting buyer identifiers
+
+Do not combine all evidence problems into one generic customer-type finding.
+
+CLASSIFICATION OUTPUT
+
+Return one classification:
+
+- B2B
+- B2G
+- B2C
+- NOT_VERIFIABLE
+
+Do not return multiple classifications.
+
+CANONICAL ISSUE TYPES
+
+- PLACEHOLDER_OR_DUMMY_IDENTIFIER
+- INVALID_BUYER_IDENTIFIER_FORMAT
+- INVALID_BUYER_VAT_FORMAT
+- IDENTIFIER_COUNTRY_MISMATCH
+- CONFLICTING_BUYER_IDENTIFIERS
+- INSUFFICIENT_GOVERNMENT_EVIDENCE
+- INSUFFICIENT_B2B_EVIDENCE
+- INSUFFICIENT_B2C_EVIDENCE
+- INCOMPLETE_VALIDATION_SCOPE
+
+SHARED EXECUTION CONTRACT
+
+Apply the shared sections defined once in the Business Rule 7 prompt: the UNIVERSAL EXECUTION CONTRACT, the RULE OWNERSHIP MATRIX, the RULE COMPLETENESS MANDATE, the GLOBAL DEDUPLICATION AND ANTI-DUPLICATE-CARD CONTRACT (including UI CARD BINDING and LINE-LEVEL FIELD NAMING), and the COMBINED OUTPUT SCHEMA. Do not restate them here.
+
+BR12 ADDITIONAL OUTPUT FIELD
+
+Include:
+
+"customer_type": "<B2B | B2G | B2C | NOT_VERIFIABLE>"
+
+BR12 FINAL SELF-CHECK
+
+- Structured evidence was preferred over names.
+- Name alone did not determine B2G.
+- Missing VAT alone did not determine B2C.
+- No identifier was invented.
+- Country formatting was not guessed.
+- Each evidence issue is a separate finding.
+- Exactly one classification is returned.
+
+OUTPUT SCHEMA
+
+Use the COMBINED OUTPUT SCHEMA defined once in the Business Rule 7 prompt; emit BR12 results inside the single consolidated object per invoice. Tag every BR12 check and finding with "BusinessRule" = BR12, and include the BR12 additional output field customer_type in the BR12 rule_result.

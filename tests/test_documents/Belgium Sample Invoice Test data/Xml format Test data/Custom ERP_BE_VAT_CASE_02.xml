@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProcessInvoice xmlns:oa="http://www.openapplications.org/oagis/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/" xsi:schemaLocation="http://www.openapplications.org/oagis/10 Invoice.xsd" releaseID="10.1" languageCode="en-US">
+  <oa:ApplicationArea>
+    <oa:Sender>
+      <oa:LogicalID>Oracle-ERP-PROD</oa:LogicalID>
+      <oa:ComponentID>Receivables</oa:ComponentID>
+      <oa:TaskID>GenerateInvoice</oa:TaskID>
+      <oa:ReferenceID>ORF-BE-CASE-02-00002</oa:ReferenceID>
+      <oa:AuthorizationID>SYSADM</oa:AuthorizationID>
+    </oa:Sender>
+    <oa:CreationDateTime>2026-05-17T09:15:00Z</oa:CreationDateTime>
+    <oa:BODID>urn:oracle:oagis:10:ORF-BE-CASE-02-00002</oa:BODID>
+  </oa:ApplicationArea>
+  <oa:DataArea>
+    <oa:Invoice>
+      <oa:InvoiceHeader>
+        <oa:DocumentID>
+          <oa:ID schemeVersionID="1.0">INV-BE-2026-02-1002</oa:ID>
+        </oa:DocumentID>
+        <oa:AlternateDocumentID>
+          <oa:ID>SUPP-BE-02-90002</oa:ID>
+        </oa:AlternateDocumentID>
+        <oa:TransactionTypeCode>Standard</oa:TransactionTypeCode>
+        <oa:DocumentDateTime>2026-05-17</oa:DocumentDateTime>
+        <oa:DueDateTime>2026-06-16</oa:DueDateTime>
+        <oa:PaymentTerms>
+          <oa:PaymentTermsTypeCode>Net30</oa:PaymentTermsTypeCode>
+          <oa:Description>Net 30 days</oa:Description>
+        </oa:PaymentTerms>
+        <oa:Currency>
+          <oa:CurrencyCode>EUR</oa:CurrencyCode>
+          <oa:ExchangeRate>1.0</oa:ExchangeRate>
+          <oa:ExchangeRateDateTime>2026-05-17</oa:ExchangeRateDateTime>
+        </oa:Currency>
+        <oa:Description>Domestic reduced VAT 6%</oa:Description>
+        <oa:PurchaseOrderReference>
+          <oa:PurchaseOrderID>PO-BE-CASE-02-70002</oa:PurchaseOrderID>
+          <oa:PurchaseOrderDateTime>2026-05-01</oa:PurchaseOrderDateTime>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceHeader>
+      <oa:Supplier>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleSupplierNumber">SUPP-BE-01001</oa:ID>
+          <oa:TaxID>BE0123456789</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Brussels Components NV</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>Avenue Louise 120</oa:AddressLine>
+            <oa:CityName>Brussels</oa:CityName>
+            <oa:PostalCode>1000</oa:PostalCode>
+            <oa:CountryCode>BE</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Sophie Martin</oa:Name>
+            <oa:EmailAddress>billing@brusselscomponents.be</oa:EmailAddress>
+            <oa:Telephone>+32-2-555-1001</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+        <oa:BankAccount>
+          <oa:IBAN>BE68539007547034</oa:IBAN>
+          <oa:BIC>KREDBEBB</oa:BIC>
+          <oa:BankName>KBC Bank</oa:BankName>
+        </oa:BankAccount>
+      </oa:Supplier>
+      <oa:Buyer>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleCustomerNumber">CUST-BE-02001</oa:ID>
+          <oa:TaxID>BE0987654321</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Retail Belgium SA</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>Rue Neuve 45</oa:AddressLine>
+            <oa:CityName>Brussels</oa:CityName>
+            <oa:StateName>BRU</oa:StateName>
+            <oa:PostalCode>1000</oa:PostalCode>
+            <oa:CountryCode>BE</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Thomas Dupont</oa:Name>
+            <oa:EmailAddress>ap@retailbe.be</oa:EmailAddress>
+            <oa:Telephone>+32-2-555-2001</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+      </oa:Buyer>
+      <oa:InvoiceLine sequenceNumber="1">
+        <oa:LineNumber>1</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">BOOK-TECH-01</oa:ItemID>
+          <oa:Description>Technical manuals (VAT 6%)</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">55101509</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">30</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">25.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">750.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>VAT</oa:TaxTypeCode>
+          <oa:Percent>6.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">750.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">45.00</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>10</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceLine sequenceNumber="2">
+        <oa:LineNumber>2</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">FOOD-CANTEEN</oa:ItemID>
+          <oa:Description>Canteen supplies (VAT 6%)</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">50202300</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">40</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">6.50</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">260.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>VAT</oa:TaxTypeCode>
+          <oa:Percent>6.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">260.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">15.60</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>20</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceTotals>
+        <oa:SubTotalAmount currencyID="EUR">1010.00</oa:SubTotalAmount>
+        <oa:TaxAmount currencyID="EUR">60.60</oa:TaxAmount>
+        <oa:TotalAmount currencyID="EUR">1070.60</oa:TotalAmount>
+        <oa:PayableAmount currencyID="EUR">1070.60</oa:PayableAmount>
+      </oa:InvoiceTotals>
+    </oa:Invoice>
+  </oa:DataArea>
+</ProcessInvoice>

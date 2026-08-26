@@ -1,0 +1,116 @@
+BUSINESS RULE 13
+INVOICE-NUMBER SEQUENCE MONITORING
+
+PRIMARY OBJECTIVE
+
+Monitor invoice-number continuity, duplicates, pattern consistency, and issue-date chronology within a stable, comparable multi-invoice population.
+
+APPLICABILITY GATE
+
+If only one logical invoice is available in the evaluation population:
+
+status = NOT_APPLICABLE
+findings = []
+
+Do not invent neighboring invoice numbers or historical sequence data.
+
+BR13 is applicable only when:
+
+- one input contains multiple invoices, or
+- multiple invoices are intentionally evaluated as one batch, folder, or monitoring population
+
+SCOPE PARTITIONING
+
+Partition invoices using supported scope dimensions such as:
+
+- SourceSystem
+- seller or legal entity
+- country
+- invoice prefix or series
+- fiscal period
+- document family
+
+Do not compare unrelated prefixes, suppliers, legal entities, document families, or fiscal periods.
+
+If scope evidence is missing or unreliable:
+
+status = NOT_VERIFIABLE
+suggested_fix = Source validation required
+
+SEQUENCE EXTRACTION
+
+Extract the sequential numeric component only when the pattern is reliable and stable. Preserve the complete invoice number as actual evidence.
+
+Do not:
+
+- strip unrelated digits arbitrarily
+- compare incompatible formats
+- assume every number is globally sequential
+- infer missing numbers across a documented reset boundary
+
+CHECKS
+
+1. Duplicate invoice number within the same stable scope
+2. Internal numeric sequence gap
+3. Out-of-sequence issue-date chronology
+4. Unexpected prefix or pattern discontinuity
+5. Unsupported reset or series mixing
+
+GAP LOGIC
+
+A gap exists only when two reliable adjacent sequence values within the same stable scope show one or more missing numbers.
+
+Do not report the first or last observed number as a gap merely because earlier or later history is unavailable.
+
+CHRONOLOGY LOGIC
+
+An out-of-sequence document exists when a higher reliable sequence number has an earlier IssueDate than a lower neighboring sequence number within the same stable scope, after accounting for documented exceptions.
+
+DUPLICATE LOGIC
+
+Duplicate testing may conflict with a global test-data uniqueness requirement. When uniqueness is mandatory for the general pack, place duplicate-number tests in a dedicated BR13 suite.
+
+FINDING GRANULARITY
+
+Return separate findings for:
+
+- duplicate number
+- sequence gap
+- chronology anomaly
+- pattern discontinuity
+
+Do not combine different sequence issues into one finding.
+
+CANONICAL ISSUE TYPES
+
+- DUPLICATE_INVOICE_NUMBER
+- SEQUENCE_GAP
+- OUT_OF_SEQUENCE_DOCUMENT
+- SEQUENCE_PATTERN_DISCONTINUITY
+- CONFLICTING_SEQUENCE_SCOPE
+- INCOMPLETE_VALIDATION_SCOPE
+
+SHARED EXECUTION CONTRACT
+
+Apply the shared sections defined once in the Business Rule 7 prompt: the UNIVERSAL EXECUTION CONTRACT, the RULE OWNERSHIP MATRIX, the RULE COMPLETENESS MANDATE, the GLOBAL DEDUPLICATION AND ANTI-DUPLICATE-CARD CONTRACT (including UI CARD BINDING and LINE-LEVEL FIELD NAMING), and the COMBINED OUTPUT SCHEMA. Do not restate them here.
+
+BR13 ADDITIONAL OUTPUT FIELDS
+
+Include:
+
+"monitoring_scope": "<resolved stable scope or NOT_VERIFIABLE>"
+"population_size": "<integer>"
+
+BR13 FINAL SELF-CHECK
+
+- More than one invoice exists before applying sequence logic.
+- Monitoring scope is stable.
+- Unrelated prefixes were not compared.
+- First and last observations were not treated as boundary gaps.
+- Sequence gap and chronology are separate findings.
+- No neighboring number was invented.
+- Single-invoice evaluation returns NOT_APPLICABLE with empty findings.
+
+OUTPUT SCHEMA
+
+Use the COMBINED OUTPUT SCHEMA defined once in the Business Rule 7 prompt; emit BR13 results inside the single consolidated object per invoice. Tag every BR13 check and finding with "BusinessRule" = BR13, and include the BR13 additional output fields monitoring_scope and population_size in the BR13 rule_result.

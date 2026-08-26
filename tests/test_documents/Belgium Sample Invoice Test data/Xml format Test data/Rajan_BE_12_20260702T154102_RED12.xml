@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>7000000000000002</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPBE1</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>SAP_BE_PROD</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>BE-CUST-02002</RCVPRN>
+      <CREDAT>20260702</CREDAT>
+      <CRETIM>154102</CRETIM>
+      <SERIAL>20260702T154102</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>EUR</CURCY>
+      <HWAER>EUR</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>BE30</ZTERM>
+      <BELNR>Rajan_BE_12_20260702T154102_RED12</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>F2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260704</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260803</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-BE-RED12-154102</BELNR>
+      <DATUM>20260624</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>BE-VEND-01001</LIFNR>
+      <NAME1>Rajan Belgium Components NV</NAME1>
+      <NAME2>SAP Source Billing</NAME2>
+      <STRAS>Avenue Louise 120</STRAS>
+      <ORT01>Brussels</ORT01>
+      <PSTLZ>1000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0123456789</STCD1>
+      <TELF1>+32-2-555-1001</TELF1>
+      <SMTP_ADDR>billing@rajan-belgium-components.be</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>BE-CUST-02002</KUNNR>
+      <NAME1>Mechelen Office Supplies BV</NAME1>
+      <NAME2>Finance Team</NAME2>
+      <STRAS>Nijverheidslaan 15</STRAS>
+      <ORT01>Mechelen</ORT01>
+      <PSTLZ>2800</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0448123456</STCD1>
+      <TELF1>+32-15-555-0101</TELF1>
+      <SMTP_ADDR>ap@mechelenoffice.be</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>BE-CUST-02002-SHIP</KUNNR>
+      <NAME1>Mechelen Office Supplies BV Delivery Location</NAME1>
+      <NAME2>Receiving Dock</NAME2>
+      <STRAS>Nijverheidslaan 15</STRAS>
+      <ORT01>Mechelen</ORT01>
+      <PSTLZ>2800</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0448123456</STCD1>
+      <TELF1>+32-15-555-0101</TELF1>
+      <SMTP_ADDR>ap@mechelenoffice.be</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BERED12</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Reduced VAT 12 percent invoice for Belgium restaurant and social housing services</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>RESTO-SVC</MATNR>
+      <MENGE>1.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>1250.00</NETWR>
+      <MWSBT>150.00</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>BE</TXJCD>
+      <VPREI>1250.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>1.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>RESTO-SVC</IDTNR>
+        <KTEXT>Restaurant service package</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000021</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>MEAL-SVC-12</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>SOC-HOUSING</MATNR>
+      <MENGE>12.000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>540.00</NETWR>
+      <MWSBT>64.80</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>BE</TXJCD>
+      <VPREI>45.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>12.000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>SOC-HOUSING</IDTNR>
+        <KTEXT>Social housing materials</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>5412345000022</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>HOUSING-MAT-12</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>1790.00</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>214.80</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>2004.80</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

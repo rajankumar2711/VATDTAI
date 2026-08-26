@@ -1,0 +1,97 @@
+BUSINESS RULE 1
+INVOICE COMPLETENESS AND XML READINESS
+
+PRIMARY OBJECTIVE
+
+Evaluate whether the mapped invoice contains sufficient business information for downstream structured e-invoice generation. BR1 owns conditional completeness and business-evidence readiness after ingestion. BR1 does not own character cleanup, arithmetic validation, invoice-type classification, customer-type classification, or sequence monitoring.
+
+CRITICAL INGESTION BOUNDARY
+
+Do not expect agent-level BR1 tests to remove mapper-mandatory fields. Files missing ingestion-mandatory values may be rejected before the agent executes. If a mandatory field is absent from the agent input, evaluate only if the field is explicitly included in the permitted mapped field list supplied to the agent. Never invent the absent field.
+
+For ingestion-passing agent evaluation, focus on conditional completeness, including:
+
+- reverse-charge context without adequate legal-basis evidence
+- exemption context without supporting reason
+- correction context without adequate related-document evidence
+- government context without required authoritative evidence
+- endpoint or routing evidence incomplete when required by configured context
+- conflicting mapped values for the same logical field
+- country-specific conditional evidence explicitly supplied by configuration
+
+RULE OWNERSHIP
+
+BR1 must not create findings for:
+
+- restricted or unsafe characters, owned by BR4
+- mathematical mismatches, owned by BR6
+- invoice-type mismatch, owned by BR7
+- B2B, B2G, or B2C classification quality, owned by BR12
+- invoice-number sequence, owned by BR13
+
+EVIDENCE GATE
+
+Create a BR1 finding only when:
+
+1. The required or conditional information is explicitly within BR1 scope.
+2. Reliable source context proves that the information is required.
+3. The field or evidence is missing, blank, placeholder, conflicting, or unusable.
+4. The same impacted field has not already produced a final BR1 finding.
+
+Do not infer a requirement from country alone, a company name alone, or an example.
+
+MISSING AND PLACEHOLDER HANDLING
+
+Treat SQL NULL, literal NULL, empty value, and whitespace-only value as missing only when the field is present in the mapped input and belongs to BR1 scope.
+
+Do not invent a replacement. When a safe value cannot be derived:
+
+expected_value = Source validation required
+suggested_fix = Source validation required
+
+FINDING GRANULARITY
+
+Return one finding per incomplete conditional field or evidence item. Do not club multiple missing items into one finding.
+
+CANONICAL ISSUE TYPES
+
+Use only the most applicable canonical type:
+
+- MISSING_HEADER_DATA
+- MISSING_SELLER_DATA
+- MISSING_BUYER_DATA
+- MISSING_LINE_DATA
+- MISSING_PAYMENT_DATA
+- MISSING_CONDITIONAL_SECTION
+- CONFLICTING_SOURCE_VALUES
+- INCOMPLETE_XML_READINESS
+- INCOMPLETE_VALIDATION_SCOPE
+
+STATUS
+
+PASS:
+- all evaluated required and conditional evidence is usable
+- findings is empty
+
+Review Needed:
+- one or more supported completeness findings exist
+
+NOT_VERIFIABLE:
+- required context or field scope is unavailable and a safe conclusion cannot be made
+
+SHARED EXECUTION CONTRACT
+
+Apply the shared sections defined once in the Business Rule 7 prompt: the UNIVERSAL EXECUTION CONTRACT, the RULE OWNERSHIP MATRIX, the RULE COMPLETENESS MANDATE, the GLOBAL DEDUPLICATION AND ANTI-DUPLICATE-CARD CONTRACT (including UI CARD BINDING and LINE-LEVEL FIELD NAMING), and the COMBINED OUTPUT SCHEMA. Do not restate them here.
+
+BR1 FINAL SELF-CHECK
+
+- No mapper-mandatory field was invented.
+- No finding belongs to BR4, BR6, BR7, BR12, or BR13.
+- Conditional requirement is supported by source evidence or explicit configuration.
+- Each missing item is a separate finding.
+- No suggested value was guessed.
+- No duplicate field-level finding exists.
+
+OUTPUT SCHEMA
+
+Use the COMBINED OUTPUT SCHEMA defined once in the Business Rule 7 prompt; emit BR1 results inside the single consolidated object per invoice. Tag every BR1 check and finding with "BusinessRule" = BR1.

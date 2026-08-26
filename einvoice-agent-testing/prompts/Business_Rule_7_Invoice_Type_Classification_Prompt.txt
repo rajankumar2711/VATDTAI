@@ -1,0 +1,252 @@
+BUSINESS RULE 7
+INVOICE TYPE CLASSIFICATION AND SUGGESTION
+
+PRIMARY OBJECTIVE
+
+Determine whether the declared invoice type matches reliable invoice-level financial behavior and supported source-system context. BR7 normally has one actionable target: the mapped document-type field.
+
+SOURCE MAPPING
+
+Use only the document-type mapping explicitly supplied for the source system and schema version.
+
+Do not mix code systems such as:
+
+- semantic codes 380, 381, and 388
+- SAP source values such as F2 and G2
+- Custom ERP labels such as Standard and CreditMemo
+
+If the mapping is unavailable, do not guess a target code.
+
+EVIDENCE QUALITY
+
+Confident classification requires at least two reliable primary financial indicators, including at least one of:
+
+- TaxExclusiveTotal
+- TaxInclusiveTotal
+- PayableAmount
+
+Additional evidence may include:
+
+- line-extension total
+- quantity and line signs
+- tax-total sign
+- prepaid amount
+- related-document reference
+- correction or cancellation context
+
+Do not determine type from:
+
+- TaxTotal alone
+- one line amount
+- one negative adjustment
+- quantity alone
+- UnitPrice alone
+- country alone
+- free-text description alone
+
+EDGE CASES
+
+Full prepayment:
+A positive invoice can have PayableAmount equal to zero when PrepaidAmount equals gross total. Do not classify it as a credit note solely because payable is zero.
+
+Zero tax:
+Zero tax can occur for zero-rated, exempt, or reverse-charge transactions. Zero tax alone does not determine invoice type.
+
+Mixed lines:
+A standard invoice can contain a negative adjustment line. A credit note can contain a positive adjustment line. Invoice-level totals are stronger evidence than one line.
+
+Conflicting repeated type codes:
+Do not choose the first or most frequent code. Return one conflict or source-validation finding and stop classification.
+
+SINGLE-FINDING CONTRACT
+
+For one logical invoice, return:
+
+- zero BR7 findings when type and behavior align
+- exactly one BR7 type finding when a reliable mismatch exists
+- exactly one source-validation finding when classification is unsafe
+
+Do not return multiple document-type findings under different issue names.
+
+SUGGESTION RULE
+
+When the source mapping and financial evidence are reliable:
+
+- field_name = exact mapped document-type field
+- actual_value = exact declared source value
+- expected_value = supported mapped type code
+- suggested_fix = expected_value
+
+When mapping or evidence is insufficient:
+
+- expected_value = Source validation required
+- suggested_fix = Source validation required
+
+CANONICAL ISSUE TYPES
+
+- DOCUMENT_TYPE_MISMATCH
+- CREDIT_NOTE_BEHAVIOR_MISMATCH
+- STANDARD_INVOICE_BEHAVIOR_MISMATCH
+- TAX_INVOICE_BEHAVIOR_MISMATCH
+- CONFLICTING_DOCUMENT_TYPE
+- INCOMPLETE_VALIDATION_SCOPE
+
+UNIVERSAL EXECUTION CONTRACT (SHARED - APPLIES TO EVERY RULE, EXECUTE ONCE)
+
+1. Use only fields physically present in the supplied mapped invoice data and explicitly permitted by the relevant rule.
+2. Never invent a field, source value, country rule, calculation input, identifier, mapping, or correction.
+3. Group source rows into one logical invoice BEFORE any rule runs. Perform grouping and collapse exactly once, then evaluate every rule on the same collapsed dataset.
+4. Collapse exact repeated physical rows and repeated invoice-level values before scanning or calculating.
+5. Identify logical lines using stable LineItemId, then LineId, then the source-system line key. Count each logical line once.
+6. Never generate one finding per SQL row or repeated joined row.
+7. If repeated values for the same logical field conflict, do not choose the first, last, minimum, maximum, or most frequent value. Return one source-validation finding, owned by the rule the conflicting field belongs to.
+8. Prompt examples are illustrative only. Never build an exact-match allowlist or denylist from examples.
+9. When evidence is insufficient, use NOT_VERIFIABLE and Source validation required. Do not guess.
+10. checks are diagnostic only. findings are actionable only. Only findings may create D&S anomaly cards.
+11. Return one finding per impacted field and logical entity. Do not combine different fields into one finding.
+12. Group the invoice once, run each of the six rules exactly once on the collapsed invoice, then deduplicate final findings across all rules before output (see GLOBAL DEDUPLICATION below).
+13. actual_value must be the exact source value.
+14. expected_value must be the complete expected value or Source validation required.
+15. suggested_fix must be non-empty and must equal expected_value when a deterministic correction exists.
+16. Never place SQL, XML, database commands, formulas, code, or explanatory prose in suggested_fix.
+17. If findings is empty, no check may have FAIL status.
+18. Return valid JSON only, with no markdown outside the JSON object.
+
+RULE OWNERSHIP MATRIX (NO CROSS-RULE DUPLICATION)
+
+- BR1 owns conditional completeness and business-evidence readiness.
+- BR4 owns free-text and XML character safety.
+- BR6 owns numeric and mathematical integrity.
+- BR7 owns invoice-type (document-type) classification.
+- BR12 owns customer-type classification (B2B, B2G, B2C).
+- BR13 owns invoice-number sequence monitoring across a multi-invoice population.
+
+A finding that belongs to one rule must never be re-emitted by another rule under a different name.
+
+RULE COMPLETENESS MANDATE (EVALUATE ALL SIX, NEVER STOP EARLY)
+
+- Evaluate all six rules on every invoice. A PASS, a finding, or a NOT_VERIFIABLE result in one rule NEVER stops, skips, or short-circuits any other rule.
+- Do not stop after the first finding. Continue until all six rules have been assessed independently.
+- rule_results MUST contain exactly one entry for each of BR1, BR4, BR6, BR7, BR12, BR13, even when the status is PASS or NOT_APPLICABLE.
+- One invoice may accumulate any number of findings across different rules. There is no cap on total findings per invoice; the only limit is one finding per unique fingerprint.
+- The per-rule single-finding constraints (for example BR7 returning at most one document-type finding) apply WITHIN that rule only. They never limit findings produced by the other rules.
+
+GLOBAL DEDUPLICATION AND ANTI-DUPLICATE-CARD CONTRACT
+
+Return ONE consolidated result object per logical invoice. Do not return one object per rule. Do not repeat a rule.
+
+Every finding and every check MUST carry a "BusinessRule" tag (BR1, BR4, BR6, BR7, BR12, or BR13).
+
+Global finding fingerprint:
+InvoiceId + BusinessRule + level + line_key + field_name
+
+Rules:
+- Emit each fingerprint AT MOST ONCE in the entire response.
+- A single impacted field, for a single rule, on a single logical line or the invoice header, produces exactly one finding, hence exactly one D&S card.
+- Run each rule once per invoice; never once per source row and never twice for the same rule.
+- If two candidate findings share the same fingerprint, keep one: retain the highest severity, the most reliable expected_value, merge supporting evidence, and discard the rest.
+- If candidates for the same fingerprint have conflicting corrections, return one finding with issue_type = CONFLICTING_SOURCE_VALUES and suggested_fix = Source validation required.
+
+UI CARD BINDING (ONE FINDING = ONE ANOMALY CARD)
+
+Each emitted finding renders as exactly one D&S anomaly card. The card binds directly to these finding fields:
+- field_name    -> card field label (data-field)
+- actual_value  -> card current value (data-current)
+- suggested_fix -> card suggested value (data-suggested)
+- BusinessRule + result_reason -> card title and detail text
+Because the card key is field_name + actual_value + suggested_fix, two findings that share those three values collapse into one visual card. To keep every real anomaly visible and every duplicate suppressed, field_name MUST be unique per impacted logical entity.
+
+LINE-LEVEL FIELD NAMING (REQUIRED FOR UNIQUE CARDS)
+
+- Header, Buyer, Seller, Payment, and Invoice level findings: field_name = the bare canonical field (for example TaxInclusiveTotal, BuyerName, DocumentTypeCode).
+- Line level findings: field_name MUST be line-qualified as Line[<line_key>].<FieldName>, where <line_key> is the stable line key from rule 5 (for example Line[10].LineExtensionAmount, Line[20].Description).
+- The line_key attribute must still be populated with the same stable key. Never emit two line findings with an identical field_name for different logical lines; the line qualifier guarantees a distinct card per line.
+- Never invent or renumber line keys. If a stable line key is unavailable, use the source-system line key exactly; if none exists, set line_key = null and status = NOT_VERIFIABLE.
+
+BR13 POPULATION SCOPE
+
+BR13 is a population-level rule. When only one logical invoice is available, BR13 contributes status = NOT_APPLICABLE and no findings. When multiple invoices are evaluated as one population, apply BR13 once per stable monitoring scope.
+
+BR7 FINAL SELF-CHECK
+
+- Source-system type mapping is explicit.
+- At least two reliable primary indicators support the conclusion.
+- Full prepayment and zero-tax behavior were handled correctly.
+- One isolated line did not determine the type.
+- At most one final BR7 finding exists.
+- suggested_fix contains only the supported mapped type or Source validation required.
+
+COMBINED OUTPUT SCHEMA (ONE OBJECT PER LOGICAL INVOICE - SHARED, DEFINED ONCE)
+
+Return exactly one JSON object per logical invoice. All six rules report inside this single object. Do not emit one object per rule.
+
+{
+  "DocumentEnvelopeId": "<source value or null>",
+  "BatchId": "<source value or null>",
+  "InvoiceId": "<exact invoice identifier>",
+  "SourceSystem": "<SAP | Custom ERP | source value>",
+  "Country": "<BE | FR | PL | NOT_VERIFIABLE>",
+  "overall_status": "<PASS | Review Needed | NOT_APPLICABLE | NOT_VERIFIABLE>",
+  "summary": "<concise cross-rule evidence-based result>",
+  "rule_results": [
+    {
+      "BusinessRule": "<BR1 | BR4 | BR6 | BR7 | BR12 | BR13>",
+      "status": "<PASS | Review Needed | NOT_APPLICABLE | NOT_VERIFIABLE>",
+      "customer_type": "<B2B | B2G | B2C | NOT_VERIFIABLE, BR12 only, else omit>",
+      "monitoring_scope": "<BR13 only, else omit>",
+      "population_size": "<BR13 only, else omit>"
+    }
+  ],
+  "checks": [
+    {
+      "BusinessRule": "<BR1 | BR4 | BR6 | BR7 | BR12 | BR13>",
+      "check_name": "<diagnostic check>",
+      "status": "<PASS | FAIL | NOT_APPLICABLE | NOT_VERIFIABLE | DEPENDENT>",
+      "fields_used": ["<exact input fields>"],
+      "actual_value": "<exact source or concise diagnostic value>",
+      "expected_value": "<expected condition or complete corrected value>",
+      "result_reason": "<evidence-based explanation>"
+    }
+  ],
+  "findings": [
+    {
+      "BusinessRule": "<BR1 | BR4 | BR6 | BR7 | BR12 | BR13>",
+      "level": "<Header | Buyer | Seller | Line | Payment | Invoice>",
+      "line_key": "<stable line key or null>",
+      "field_name": "<bare field for non-line levels; Line[<line_key>].<Field> for Line level>",
+      "actual_value": "<exact source value; binds to the card current value>",
+      "expected_value": "<complete expected value | Source validation required>",
+      "issue_type": "<canonical issue type for the owning rule>",
+      "severity": "<Critical | Medium | Warning>",
+      "suggested_fix": "<complete corrected value | Source validation required>",
+      "result_reason": "<concise supporting evidence>",
+      "blocking_impact": "<blocking or review impact>",
+      "character_found": "<BR4 findings only, else omit>",
+      "unicode_code_point": "<BR4 findings only, else omit>"
+    }
+  ]
+}
+
+overall_status resolution:
+- Review Needed if any rule_result is Review Needed.
+- else NOT_VERIFIABLE if any evaluated rule is NOT_VERIFIABLE and none is Review Needed.
+- else PASS.
+- NOT_APPLICABLE applies per rule (for example BR13 on a single invoice); it does not by itself set overall_status.
+
+FINAL GLOBAL SELF-CHECK (BEFORE RETURNING OUTPUT)
+
+- The invoice was grouped and collapsed once; no finding was generated per source row.
+- All six rules were evaluated; no rule was skipped because another rule produced a finding.
+- Each of the six rules ran exactly once; no rule was repeated.
+- rule_results contains exactly one entry per rule (BR1, BR4, BR6, BR7, BR12, BR13).
+- Exactly one consolidated JSON object was produced for the invoice.
+- Every finding and check carries a BusinessRule tag.
+- No two findings share the fingerprint InvoiceId + BusinessRule + level + line_key + field_name.
+- Line-level findings use Line[<line_key>].<Field> field_name; non-line findings use the bare field.
+- No two findings share the same field_name + actual_value + suggested_fix (no duplicate anomaly card).
+- No finding owned by one rule was re-emitted by another rule.
+- Each rule-specific self-check passed.
+- BR4 findings include character_found and unicode_code_point; other rules omit them.
+- BR12 reports customer_type; BR13 reports monitoring_scope and population_size.
+- suggested_fix is never blank and contains no SQL, XML, formula, code, or prose.
+- Output is valid JSON with no markdown outside the JSON object.
