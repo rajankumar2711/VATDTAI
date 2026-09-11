@@ -1,0 +1,577 @@
+Act as a Senior QA Automation Architect and Automation Framework Expert.
+
+You are working on a new automation task for the Report module. Your immediate responsibility is to analyze the existing automation framework, review similar implementations, prepare a technical roadmap, and create or update the required Gherkin feature file.
+
+IMPORTANT REVIEW GATE:
+
+For this phase, work only on:
+1. Repository and framework analysis
+2. Impact analysis
+3. Automation roadmap
+4. Test scenario design
+5. Feature file creation or modification
+
+Do not create or modify:
+- Page Objects
+- Step Definitions
+- Hooks
+- Utility classes
+- Test data files
+- Framework configuration
+- Logger implementation
+- Reporting implementation
+- Download validation code
+
+First show me the proposed roadmap and complete feature file. I will review them. You may work on Page Objects and Step Definitions only after I explicitly approve the feature file.
+
+Do not assume that review of the feature file means approval to proceed. Wait for an explicit approval message.
+
+==================================================
+1. FRAMEWORK ANALYSIS INSTRUCTIONS
+==================================================
+
+Before proposing any automation changes, inspect the existing repository and identify:
+
+1. Existing feature files for reports or similar modules.
+2. Existing Page Object Model structure.
+3. Existing step-definition patterns.
+4. Existing naming conventions for:
+   - Features
+   - Scenarios
+   - Scenario Outlines
+   - Tags
+   - Step definitions
+   - Page Objects
+   - Locators
+   - Test data
+5. Existing authentication and navigation steps that can be reused.
+6. Existing dropdown-handling utilities.
+7. Existing date and date-range utilities.
+8. Existing explicit wait and synchronization utilities.
+9. Existing file-download utilities.
+10. Existing Excel, PDF, CSV and XML validation utilities.
+11. Existing logger implementation.
+12. Existing test-reporting implementation.
+13. Existing assertion strategy, including hard and soft assertions.
+14. Existing screenshot and failure-evidence handling.
+15. Existing browser download-directory configuration.
+16. Existing test-data and environment configuration patterns.
+17. Existing country, client and entity setup.
+18. Existing timezone and timestamp validation utilities.
+
+Follow the current framework style. Do not introduce a new architecture, library, naming convention or coding pattern unless the current framework cannot support the requirement.
+
+Reuse existing components wherever possible. Avoid duplicate steps, duplicate methods and overly UI-specific Gherkin.
+
+If there are multiple existing patterns, use the most recent and consistently adopted pattern.
+
+==================================================
+2. REQUIRED OUTPUT FOR THIS PHASE
+==================================================
+
+Provide the following sections in this exact order:
+
+A. Requirement Understanding
+B. Assumptions and Open Questions
+C. Existing Framework Components Reviewed
+D. Reusable Components Identified
+E. Automation Impact Analysis
+F. Proposed Automation Roadmap
+G. Test Coverage Matrix
+H. Proposed Feature File
+I. Risks and Mitigations
+J. Explicit Review Gate
+
+For every existing component you reference, provide its repository path.
+
+If a component does not exist, clearly state:
+
+"Not found in the existing framework. A new implementation may be required after feature-file approval."
+
+Do not claim that a component exists unless you have inspected it.
+
+==================================================
+3. BUSINESS REQUIREMENTS
+==================================================
+
+Automate the Report module for the following report types:
+
+1. Invoice Status Report
+2. Submission Report
+3. Reconciliation Report
+
+The automation must validate the Generate Report page, report generation, report metadata, displayed columns, export options and Close functionality.
+
+--------------------------------------------------
+Requirement 1: Default Report Page Validation
+--------------------------------------------------
+
+Verify that the Report module displays the following:
+
+Header:
+- Generate Report
+
+Select Report dropdown:
+- Invoice Status Report
+- Submission Report
+- Reconciliation Report
+
+Country:
+- The Country field must display the country associated with the logged-in client user.
+- Example: If the user belongs to a Belgium client, the field should display "Belgium".
+- Do not hard-code Belgium unless the scenario explicitly uses Belgium test data.
+- The expected country should come from the existing client or test-data configuration.
+
+Entity:
+- The default selected value must be "ALL" or the exact UI casing used by the application.
+- Validate the actual product requirement if the UI displays "All" instead of "ALL".
+
+Date or Date Range:
+- The date inputs must display the placeholder "mm/dd/yyyy".
+- If the application has separate start-date and end-date fields, validate both placeholders.
+- If it uses a single date-range component, validate the placeholder according to the actual UI design.
+
+Generate button:
+- The Generate button must be disabled in the initial state.
+
+--------------------------------------------------
+Requirement 2: Generate Button State
+--------------------------------------------------
+
+Verify that the Generate button is enabled only after all mandatory inputs have valid values.
+
+Mandatory values for applicable reports:
+
+- Report type
+- Entity
+- Valid start date
+- Valid end date
+- Submission Platform, only for Submission Report
+
+Example valid input:
+
+- Report Type: Invoice Status Report
+- Entity: ALL
+- Start Date: 01/01/2025
+- End Date: 10/10/2026
+
+The feature should validate that the Generate button remains disabled when any mandatory field is missing or invalid.
+
+At minimum, cover:
+
+1. No report type selected.
+2. Start date is missing.
+3. End date is missing.
+4. Date range is invalid because the start date is after the end date.
+5. Submission Report is selected but Submission Platform is not selected.
+6. All mandatory fields contain valid values.
+
+Do not include unsupported negative cases if the application intentionally handles them differently. Clearly identify such cases as open questions.
+
+--------------------------------------------------
+Requirement 3: Invoice Status Report Generation
+--------------------------------------------------
+
+Verify that the Invoice Status Report is generated successfully.
+
+Validate:
+
+1. Report title is "Invoice Status Report".
+2. Country is displayed correctly.
+3. Entity is displayed correctly.
+4. Date Range matches the range entered on the Generate Report page.
+5. Generated On is displayed.
+6. Generated On represents the report-generation time.
+7. The timestamp follows the application's expected format.
+8. The timezone is displayed correctly.
+
+Example report metadata:
+
+Country: BE | Entity: All
+Date Range: 2026-01-24 - 2026-08-29
+Generated On: 08/24/2026 04:03 PM GMT+5
+
+Important date-handling rules:
+
+- Input dates may use MM/dd/yyyy.
+- Report metadata may display dates as yyyy-MM-dd.
+- Convert and compare dates semantically instead of comparing unprocessed strings.
+- Do not hard-code the Generated On timestamp.
+- Capture the time immediately before and immediately after clicking Generate.
+- Validate that the displayed timestamp falls within an acceptable tolerance of the captured execution time.
+- Use the application's configured timezone.
+- Do not assume the timezone is always GMT+5.
+- If the product displays a UTC offset instead of an IANA timezone, validate according to the current product behavior.
+- Account for execution near a minute boundary.
+- Reuse any existing framework date and timezone utilities.
+
+Country display may differ between the form and generated report:
+
+- Form example: Belgium
+- Report example: BE
+
+If this is expected, use existing country-name-to-country-code configuration. Do not create an unexplained hard-coded mapping.
+
+--------------------------------------------------
+Requirement 4: Report Column Validation
+--------------------------------------------------
+
+Verify that all expected columns:
+
+1. Are displayed in the generated report.
+2. Use the expected labels.
+3. Appear in the expected order, where ordering is part of the requirement.
+4. Are visible and not duplicated.
+5. Are present in the exported file.
+6. Match between the UI report and each supported export type.
+
+Do not invent column names.
+
+Determine expected columns from one of the following approved sources:
+
+1. Existing feature files
+2. Existing test cases
+3. Existing requirements
+4. Existing Page Objects
+5. Product configuration
+6. An approved report-column specification
+
+If column definitions are unavailable, add a clearly marked placeholder and list the missing information under "Assumptions and Open Questions".
+
+Keep expected columns externalized using the existing framework's preferred pattern, if applicable.
+
+--------------------------------------------------
+Requirement 5: Invoice Status Export and Close
+--------------------------------------------------
+
+Verify the Export control is available for the Invoice Status Report.
+
+Validate these export options:
+
+- Excel
+- PDF
+- CSV
+- XML
+
+For every export type, verify:
+
+1. The correct export option is visible.
+2. The option can be selected.
+3. The download starts successfully.
+4. Download completion is handled using polling or the existing wait mechanism.
+5. The file is created in the configured download directory.
+6. The filename follows the expected convention, if defined.
+7. The file extension is correct.
+8. The file is not empty.
+9. The file can be opened or parsed.
+10. Expected column headers are present.
+11. Exported column headers match the UI report.
+12. Relevant report metadata matches the generated report.
+13. No stale file from a previous execution is incorrectly validated.
+
+Do not validate only the existence of the downloaded file.
+
+Use the existing download and file-parsing utilities. Do not use fixed sleeps if the framework supports explicit polling.
+
+PDF validation:
+- Use the project's existing PDF parser.
+- Validate extractable headers and metadata where technically possible.
+- If the PDF is image-based, identify the limitation instead of silently skipping content validation.
+
+XML validation:
+- Parse the XML.
+- Do not validate XML only through plain-text matching.
+
+Excel validation:
+- Use the framework's existing Excel reader.
+- Validate the correct worksheet if the workbook contains multiple sheets.
+
+CSV validation:
+- Use the correct delimiter and text encoding.
+- Handle quoted values appropriately.
+
+Close button:
+- Verify the Close button is displayed and enabled.
+- Click Close.
+- Verify the report view, modal or panel closes.
+- Verify the user returns to the expected Report page state.
+- Do not assume whether the previous input values are retained or cleared. Inspect the current behavior or list it as an open question.
+
+--------------------------------------------------
+Requirement 6: Submission Report
+--------------------------------------------------
+
+Create equivalent generation, metadata, column, export and Close scenarios for the Submission Report.
+
+When "Submission Report" is selected, an additional mandatory field must be displayed:
+
+Field:
+- Submission Platform *
+
+Options:
+- GTES
+- Pagero
+
+Validate:
+
+1. Submission Platform is not displayed for Invoice Status Report.
+2. Submission Platform is displayed for Submission Report.
+3. The mandatory indicator is displayed.
+4. The available options are GTES and Pagero.
+5. The field is mandatory.
+6. The Generate button remains disabled until a platform is selected.
+7. The report can be generated for GTES.
+8. The report can be generated for Pagero.
+9. The selected platform is reflected in the generated report if required by the application.
+10. Switching from Submission Report to another report type hides the field.
+11. A previously selected platform does not incorrectly affect another report type.
+12. Switching back to Submission Report is handled according to the product's expected state-retention behavior.
+
+Use a Scenario Outline for GTES and Pagero if this matches the existing framework style.
+
+Do not duplicate all implementation steps if reusable, parameterized report steps are consistent with the existing project.
+
+--------------------------------------------------
+Requirement 7: Reconciliation Report
+--------------------------------------------------
+
+Create equivalent generation, metadata, column, export and Close scenarios for the Reconciliation Report.
+
+Validate:
+
+1. Report title.
+2. Country.
+3. Entity.
+4. Selected date range.
+5. Generated On timestamp.
+6. Expected UI columns.
+7. Exported columns.
+8. Excel export.
+9. PDF export.
+10. CSV export.
+11. XML export.
+12. Close functionality.
+
+==================================================
+4. FEATURE-FILE DESIGN GUIDELINES
+==================================================
+
+Create or modify the feature file according to the existing repository pattern.
+
+The feature file must:
+
+1. Use valid Gherkin syntax.
+2. Use the project's existing Gherkin language.
+3. Use the current tag strategy.
+4. Reuse existing login and navigation steps.
+5. Avoid implementation details such as locators, XPath or Java method names.
+6. Keep steps business-readable.
+7. Avoid duplicate step wording.
+8. Use Scenario Outlines only where they improve maintainability.
+9. Use DataTables where they improve readability.
+10. Use Background only for common prerequisites that apply to every scenario.
+11. Keep scenarios independently executable.
+12. Avoid dependencies between scenarios.
+13. Avoid phrases such as "all fields are correct" without listing or parameterizing the required validations.
+14. Use deterministic test data.
+15. Keep expected values separate from actual values.
+16. Use report-type parameters where this is consistent with the existing framework.
+17. Keep report-specific behavior explicit, especially Submission Platform.
+18. Avoid combining too many unrelated validations into one scenario if it would make failures difficult to diagnose.
+
+Propose coverage for:
+
+- Smoke tests
+- Regression tests
+- UI validation
+- Functional validation
+- Negative validation
+- Export validation
+- Report metadata validation
+- Report column validation
+
+Do not automatically add all tags listed above. Follow the project's actual tag conventions and explain the selected tags.
+
+==================================================
+5. PROPOSED SCENARIO COVERAGE
+==================================================
+
+At minimum, evaluate and include scenarios for:
+
+1. Verify default Generate Report page UI.
+2. Verify report-type dropdown options.
+3. Verify country is populated from the logged-in client.
+4. Verify Entity defaults to ALL.
+5. Verify date placeholders.
+6. Verify Generate is disabled initially.
+7. Verify Generate remains disabled with incomplete mandatory inputs.
+8. Verify Generate remains disabled for an invalid date range.
+9. Verify Generate becomes enabled with valid mandatory inputs.
+10. Generate Invoice Status Report.
+11. Validate Invoice Status Report metadata.
+12. Validate Invoice Status Report columns.
+13. Export Invoice Status Report as Excel.
+14. Export Invoice Status Report as PDF.
+15. Export Invoice Status Report as CSV.
+16. Export Invoice Status Report as XML.
+17. Verify Invoice Status Report Close functionality.
+18. Verify Submission Platform conditional visibility.
+19. Verify Submission Platform options.
+20. Verify Submission Platform is mandatory.
+21. Generate Submission Report for GTES.
+22. Generate Submission Report for Pagero.
+23. Validate Submission Report metadata and columns.
+24. Validate all Submission Report export formats.
+25. Verify Submission Report Close functionality.
+26. Generate Reconciliation Report.
+27. Validate Reconciliation Report metadata and columns.
+28. Validate all Reconciliation Report export formats.
+29. Verify Reconciliation Report Close functionality.
+
+Consolidate scenarios through Scenario Outlines only when:
+- Readability is preserved.
+- Failure reporting remains clear.
+- The existing framework supports the pattern.
+- Report-specific behavior is not hidden.
+
+==================================================
+6. LOGGING AND TEST-REPORTING EXPECTATIONS
+==================================================
+
+For the later implementation phase, document how the current framework will be used for:
+
+- Logging business actions.
+- Logging expected and actual values.
+- Recording report generation.
+- Recording export initiation and completion.
+- Recording downloaded filename and path.
+- Recording file-content validation.
+- Capturing screenshots on failure.
+- Attaching screenshots to the test report.
+- Attaching relevant export-validation evidence.
+- Reporting assertion failures clearly.
+- Cleaning up downloaded files.
+- Avoiding the exposure of credentials or sensitive report data in logs.
+
+Do not implement these items yet.
+
+In the roadmap, identify:
+- Existing logger class and path.
+- Existing reporting class or integration and path.
+- Existing screenshot utility and path.
+- How each will be reused.
+
+==================================================
+7. ROADMAP EXPECTATIONS
+==================================================
+
+Provide a phased roadmap.
+
+Phase 1: Repository Analysis
+- Review similar features and framework components.
+- Identify reusable steps and utilities.
+- Identify missing requirements.
+
+Phase 2: Feature File Proposal
+- Add or modify scenarios.
+- Check syntax and tags.
+- Check for duplicate step wording.
+- Present the complete feature file for review.
+
+Phase 3: Page Object Design, only after approval
+- Identify existing locators and methods.
+- Propose reusable page methods.
+- Handle conditional Submission Platform behavior.
+- Follow the existing locator and wait strategy.
+
+Phase 4: Step Definition Design, only after approval
+- Reuse existing steps.
+- Add parameterized report steps where appropriate.
+- Keep assertions out of Page Objects if this is the existing pattern.
+- Follow dependency-injection or object-creation patterns already used by the framework.
+
+Phase 5: Export Validation, only after approval
+- Implement reliable download synchronization.
+- Parse Excel, PDF, CSV and XML.
+- Compare metadata and headers.
+- Clean up execution-specific files.
+
+Phase 6: Logging and Reporting, only after approval
+- Add framework-compliant logs.
+- Add screenshots and attachments.
+- Report actionable assertion differences.
+
+Phase 7: Execution and Stabilization, only after approval
+- Execute targeted scenarios.
+- Run smoke and regression suites as applicable.
+- Investigate flaky waits and dynamic-data issues.
+- Provide execution evidence.
+
+Include:
+- Estimated files to add or modify.
+- Repository paths.
+- Dependencies.
+- Risks.
+- Open questions.
+- Definition of Done.
+
+Do not provide unsupported time estimates. If estimates are requested later, base them on the repository analysis.
+
+==================================================
+8. QUALITY AND SAFETY RULES
+==================================================
+
+Follow these rules throughout the task:
+
+1. Do not hard-code dynamic timestamps.
+2. Do not hard-code environment-specific client data.
+3. Do not use Thread.sleep or fixed waits unless the current framework requires it and no reliable alternative exists.
+4. Do not create duplicate steps or utilities.
+5. Do not change unrelated files.
+6. Do not refactor unrelated framework components.
+7. Do not add new dependencies without explaining why they are needed.
+8. Do not weaken existing assertions.
+9. Do not validate only file existence for exports.
+10. Do not assume report columns that are not documented.
+11. Do not expose client data in logs or reports.
+12. Keep scenarios independent and repeatable.
+13. Preserve backward compatibility.
+14. Ensure test isolation and downloaded-file cleanup.
+15. Make date, time and timezone assertions tolerant but meaningful.
+16. Follow the framework's existing casing and terminology.
+17. Run a Gherkin syntax check if the repository provides one.
+18. List every file proposed for modification before changing it.
+19. Do not write implementation code during this phase.
+20. Stop after presenting the roadmap and feature file.
+
+==================================================
+9. QUESTIONS TO FLAG, NOT BLOCK ON
+==================================================
+
+Inspect the repository first. If the answers are not available, list these as open questions:
+
+1. What are the exact expected columns for each report?
+2. Is the visible entity value "ALL" or "All"?
+3. Are there separate start and end date inputs or one date-range field?
+4. What timezone should Generated On use?
+5. What timestamp tolerance is acceptable?
+6. Does the report show a country name or country code?
+7. Does Submission Report display the selected platform in its metadata?
+8. What are the export filename conventions?
+9. Should Close preserve or clear previously entered values?
+10. Should downloaded report data be compared row by row with UI data, or are metadata and column-header comparisons sufficient?
+11. Is an empty report a valid result for the selected test data?
+12. Are future end dates allowed by the application?
+13. Is the example end date 10/10/2026 valid in the target environment?
+14. Are Excel, PDF, CSV and XML available for every report type?
+15. Are report generation and downloads asynchronous?
+
+Do not invent answers. Make reasonable, clearly labelled assumptions only where needed to draft the feature file.
+
+==================================================
+10. FINAL REVIEW GATE
+==================================================
+
+End your response with:
+
+"Roadmap and feature file are ready for review. No Page Object, Step Definition, Hook, utility or implementation code has been created or modified. I will wait for explicit approval before proceeding to the implementation phase."

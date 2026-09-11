@@ -1,5 +1,5 @@
-﻿"""
-Common Step Definitions and Navigation Utilities for VAT DTAI Tests
+"""
+Common Step Definitions and Navigation Utilities for Global Insights And Data Enrichment For e-Invoicing Tests
 - Configuration helpers
 - Page state detection functions
 - Navigation utility functions  
@@ -44,6 +44,13 @@ def get_vat_config_value(key: str, default=None):
     return default
 
 
+def env_has_powerbi_dashboard() -> bool:
+    """Capability flag: does the active environment ship the PowerBI dashboard?
+    Driven by HAS_POWERBI_DASHBOARD in the env's config section (UAT=true, QA=false)."""
+    val = get_vat_config_value("HAS_POWERBI_DASHBOARD", "false")
+    return str(val).strip().lower() in ("1", "true", "yes", "on")
+
+
 def get_post_login_wait_ms() -> int:
     """Get post-login wait time in milliseconds"""
     value = get_vat_config_value("VAT_DTAI_POST_LOGIN_WAIT_MS", str(DEFAULT_POST_LOGIN_WAIT_MS))
@@ -58,26 +65,36 @@ def get_post_login_wait_ms() -> int:
 # ==========================================
 
 def is_on_login_page(page: Page) -> bool:
-    """Check if currently on login page"""
+    """Check if currently on a login page (env-agnostic).
+    QA: Microsoft/text login. UAT: EY SSO landing (/sso, 'I am EY employee') then Microsoft."""
     try:
-        url = page.url
-        # URL hex-encodes page names: PageSelectClient = 5061676553656c656374436c69656e74
-        return "5061676553656c656374436c69656e74" in url or "login.microsoftonline.com" in url
+        url = (page.url or "").lower()
+        if ("login.microsoftonline.com" in url or "/sso" in url
+                or "login.ey.com" in url or "adfs" in url or "saml2" in url):
+            return True
+        # DOM fallbacks for the UAT EY SSO account-type page / Microsoft email step.
+        if page.locator("text=I am EY employee").count() > 0:
+            return True
+        if page.locator("input[type='email'], input[name='loginfmt'], #i0116").count() > 0:
+            return True
     except Exception:
-        return False
+        pass
+    return False
 
 
 def is_on_home_page(page: Page) -> bool:
-    """Check if currently on VAT DTAI home page"""
+    """Check if currently on Global Insights And Data Enrichment For e-Invoicing home page"""
     try:
-        url = page.url
-        return "PageTEAMSStartup" in url or "PageFW" in url
+        url = page.url or ""
+        # URL hex-encodes page names: PageTEAMSStartup = 506167655445414d5353746172747570
+        return ("PageTEAMSStartup" in url or "PageFW" in url
+                or "506167655445414d5353746172747570" in url)
     except Exception:
         return False
 
 
 def is_on_dtai_dashboard(page: Page) -> bool:
-    """Check if currently on DTAI VAT dashboard"""
+    """Check if currently on Global Insights And Data Enrichment For e-Invoicing dashboard"""
     try:
         url = page.url
         # Check for DTAI dashboard indicators
@@ -105,7 +122,7 @@ def is_authenticated(page: Page) -> bool:
         if page.locator("role=tab[name='Data Ingestion' i]").count() > 0:
             return True
         body = page.inner_text("body")
-        if re.search(r"Digital\s+Tax\s+Administration\s+Insights", body, re.I) and "Welcome to the" not in body:
+        if re.search(r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing", body, re.I) and "Welcome to the" not in body:
             return True
     except Exception:
         pass
@@ -118,16 +135,22 @@ def get_current_page_state(page: Page) -> str:
     Returns: 'login', 'client_selection', 'home', 'dtai_dashboard', or 'unknown'
     """
     try:
-        url = page.url
-        if "login.microsoftonline.com" in url:
-            return "login"
-        # URL hex-encodes page names: PageSelectClient = 5061676553656c656374436c69656e74
+        url = (page.url or "").lower()
+        # Client selection first (its URL would otherwise be caught by broad login checks).
         if "5061676553656c656374436c69656e74" in url:
             return "client_selection"
+        if ("login.microsoftonline.com" in url or "/sso" in url
+                or "login.ey.com" in url or "adfs" in url or "saml2" in url):
+            return "login"
         if is_on_dtai_dashboard(page):
             return "dtai_dashboard"
         if is_on_home_page(page):
             return "home"
+        # DOM fallback: EY SSO account-type page or Microsoft email step.
+        if page.locator("text=I am EY employee").count() > 0:
+            return "login"
+        if page.locator("input[type='email'], input[name='loginfmt'], #i0116").count() > 0:
+            return "login"
     except Exception:
         pass
     return "unknown"
@@ -148,17 +171,30 @@ def wait_for_ready_state(page: Page, timeout_ms: int = 120000) -> str:
     """
     elapsed = 0
     while elapsed < timeout_ms:
-        # Check if login page
-        login_inputs = page.locator("input[type='text']:visible")
-        sign_in = page.get_by_role("button", name=re.compile(r"^Sign In$", re.I))
-        if login_inputs.count() >= 2 and sign_in.count() > 0:
-            return "login"
+        # Login detection (env-agnostic): UAT EY SSO landing / Microsoft, or QA text form.
+        try:
+            url = (page.url or "").lower()
+            if ("login.microsoftonline.com" in url or "/sso" in url
+                    or "login.ey.com" in url or "adfs" in url or "saml2" in url):
+                return "login"
+            if page.locator("text=I am EY employee").count() > 0:
+                return "login"
+            if page.locator("input[type='email'], input[name='loginfmt'], #i0116").count() > 0:
+                return "login"
+            login_inputs = page.locator("input[type='text']:visible")
+            sign_in = page.get_by_role("button", name=re.compile(r"^Sign In$", re.I))
+            if login_inputs.count() >= 2 and sign_in.count() > 0:
+                return "login"
+        except Exception:
+            pass
 
-        # Check if home page (after client selection)
-        page_text = page.inner_text("body")
-        has_dtai = bool(re.search(r"Digital\s+Tax\s+Administration\s+Insights", page_text, re.I))
-        if has_dtai:
-            return "home"
+        # Home page (after client selection)
+        try:
+            page_text = page.inner_text("body")
+            if re.search(r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing", page_text, re.I):
+                return "home"
+        except Exception:
+            pass
 
         page.wait_for_timeout(1000)
         elapsed += 1000
@@ -175,15 +211,20 @@ def wait_for_home(page: Page, timeout_ms: int = 120000) -> None:
     elapsed = 0
     while elapsed < timeout_ms:
         # URL hex-encodes page names: PageSelectClient = 5061676553656c656374436c69656e74
-        if "5061676553656c656374436c69656e74" in page.url:
+        if "5061676553656c656374436c69656e74" in (page.url or ""):
             page.wait_for_timeout(1000)
             elapsed += 1000
             continue
-        page_text = page.inner_text("body")
-        # Check if reached home page with DTAI content
-        has_dtai = bool(re.search(r"Digital\s+Tax\s+Administration\s+Insights", page_text, re.I))
-        if has_dtai:
+        # UAT lands on the GTP startup/home page (DTAI tile only appears after choosing a
+        # category); QA's default view already shows the DTAI content. Accept either.
+        if is_on_home_page(page):
             return
+        try:
+            page_text = page.inner_text("body")
+            if re.search(r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing", page_text, re.I):
+                return
+        except Exception:
+            pass
         page.wait_for_timeout(1000)
         elapsed += 1000
     raise AssertionError("Home page was not found after login and client selection.")
@@ -225,7 +266,7 @@ def wait_for_post_login_ready(page: Page, timeout_ms: int = None) -> str:
 
 def perform_login(page: Page, role: str = "Admin") -> LaunchAppPage:
     """
-    Complete login flow to VAT DTAI application
+    Complete login flow to Global Insights And Data Enrichment For e-Invoicing application
     
     Args:
         page: Playwright Page object
@@ -313,7 +354,7 @@ def perform_client_selection(page: Page, launch_page: LaunchAppPage, workspace_n
     else:
         logger.info("Already past client selection page or on home page")
         # Verify we're on home page
-        dtai_present = bool(re.search(r"Digital\s+Tax\s+Administration\s+Insights", page_text, re.I))
+        dtai_present = bool(re.search(r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing", page_text, re.I))
         if not dtai_present:
             # Still need to wait for home page
             logger.info("Waiting for home page to be ready...")
@@ -325,8 +366,8 @@ def perform_client_selection(page: Page, launch_page: LaunchAppPage, workspace_n
 
 def perform_dtai_navigation(page: Page, launch_page: LaunchAppPage):
     """
-    Navigate to DTAI VAT application dashboard
-    Flow: Click Consumption Tax → Locate DTAI section → Click DTAI VAT app
+    Navigate to Global Insights And Data Enrichment For e-Invoicing application dashboard
+    Flow: Click Consumption Tax → Locate DTAI section → Click Global Insights And Data Enrichment For e-Invoicing app
     
     Args:
         page: Playwright Page object
@@ -371,7 +412,7 @@ def perform_complete_navigation_flow(page: Page, role: str = "Admin", workspace:
     3. Click Continue
     4. Navigate to home page
     5. Click Consumption Tax
-    6. Click DTAI VAT app
+    6. Click Global Insights And Data Enrichment For e-Invoicing app
     7. Reach DTAI dashboard
     
     Args:
@@ -629,7 +670,7 @@ def ensure_on_module(page: Page, module_name: str, launch_page: LaunchAppPage = 
 def vat_context() -> Dict[str, Any]:
     """
     Shared context for storing test state across steps
-    Use this fixture in all VAT DTAI test modules
+    Use this fixture in all Global Insights And Data Enrichment For e-Invoicing test modules
     """
     return {
         "launch_page": None,
@@ -694,12 +735,12 @@ def step_select_client_and_continue(get_page: Page, vat_context: Dict):
     perform_client_selection(get_page, launch_page, workspace)
 
 
-@when("I navigate to VAT DTAI application")
+@when("I navigate to Global Insights And Data Enrichment For e-Invoicing application")
 def step_navigate_to_vat_dtai(get_page: Page, vat_context: Dict):
     """
-    Navigate to VAT DTAI application by clicking through:
+    Navigate to Global Insights And Data Enrichment For e-Invoicing application by clicking through:
     - Consumption Tax category
-    - Digital Tax Administration Insights - VAT app
+    - Global Insights And Data Enrichment For e-Invoicing app
     """
     launch_page = vat_context.get("launch_page")
     if not launch_page:
@@ -711,9 +752,9 @@ def step_navigate_to_vat_dtai(get_page: Page, vat_context: Dict):
     perform_dtai_navigation(get_page, launch_page)
 
 
-@when("User clicks the DTAI VAT tile")
+@when("User clicks the Global Insights And Data Enrichment For e-Invoicing tile")
 def step_click_dtai_tile(get_page: Page, vat_context: Dict):
-    """Click the DTAI VAT tile to launch the application"""
+    """Click the Global Insights And Data Enrichment For e-Invoicing tile to launch the application"""
     step_navigate_to_vat_dtai(get_page, vat_context)
 
 
@@ -724,11 +765,11 @@ def step_dismiss_application_popup(get_page: Page):
     dismiss_application_popup(get_page)
 
 
-# New consolidated navigation step (Consumption Tax -> DTAI VAT app), idempotent.
-@given("I click on Consumption Tax and navigate to Digital Tax Administration Insights application")
-@when("I click on Consumption Tax and navigate to Digital Tax Administration Insights application")
+# New consolidated navigation step (Consumption Tax -> Global Insights And Data Enrichment For e-Invoicing app), idempotent.
+@given("I click on Consumption Tax and navigate to Global Insights And Data Enrichment For e-Invoicing application")
+@when("I click on Consumption Tax and navigate to Global Insights And Data Enrichment For e-Invoicing application")
 def step_consumption_tax_to_dtai(get_page: Page, vat_context: Dict):
-    """Navigate from the home page (Consumption Tax) into the DTAI VAT application.
+    """Navigate from the home page (Consumption Tax) into the Global Insights And Data Enrichment For e-Invoicing application.
     Idempotent: no-op when already on the DTAI dashboard (shared session)."""
     launch_page = ensure_dtai_dashboard(get_page, vat_context.get("launch_page"))
     vat_context["launch_page"] = launch_page

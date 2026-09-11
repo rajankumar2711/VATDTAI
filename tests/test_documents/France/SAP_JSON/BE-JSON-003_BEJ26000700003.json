@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700003",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700003",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700003",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700003/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700003",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Conveyor alignment and testing service",
+          "AddressID": "BE670031",
+          "actDelivDate": "/Date(1767744000000)/",
+          "delLocID": "BELOC88003",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue du Progrès 43",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Mons",
+          "delivPostCode": "7000",
+          "delivAddr3": "Rue du Progrès 43",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Erasmus Operations Partners NV Receiving Centre",
+          "DeliveryStreet": "Rue du Progrès 43",
+          "DeliveryCity": "Mons",
+          "DeliveryPostalCode": "7000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92003",
+          "OutboundDelivery": "86000000031"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700003/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700003",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Quarterly application support subscription",
+          "AddressID": "BE670032",
+          "actDelivDate": "/Date(1767744000000)/",
+          "delLocID": "BELOC88003",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue du Progrès 43",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Mons",
+          "delivPostCode": "7000",
+          "delivAddr3": "Rue du Progrès 43",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Erasmus Operations Partners NV Receiving Centre",
+          "DeliveryStreet": "Rue du Progrès 43",
+          "DeliveryCity": "Mons",
+          "DeliveryPostalCode": "7000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92003",
+          "OutboundDelivery": "86000000032"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700003/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700003",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700003",
+      "invoice_id": "BEJ26000700003",
+      "invoice_uuid": "012c798a-8cdc-5cf2-a7ab-cffd35b54796",
+      "invIssueDate": "/Date(1767744000000)/",
+      "payDueDate": "/Date(1768953600000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1767744000000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Domestic taxable supply",
+        "Standard domestic supply subject to VAT"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000003",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "BE83000003",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83003",
+      "purOrdRef": "PO-BE-26-30003",
+      "saleOrdRef": "SO-BE-26-50003",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Rue du Progrès 43",
+      "buyerAddr2": "Building D",
+      "buyerCity": "Mons",
+      "buyerPostCode": "7000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "FR740000003",
+      "buyerName": "Erasmus Operations Partners NV",
+      "buyerTradeName": "Erasmus Operations",
+      "buyerContactTel": "+32 000 100 0003",
+      "buyerContactEmail": "payables003@be-buyer.example",
+      "DeliveryStreet": "Rue du Progrès 43",
+      "DeliveryCity": "Mons",
+      "DeliveryPostalCode": "7000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "482.05",
+      "taxCatRate": "21.00",
+      "invTotalAmtWithTax": "2786.79",
+      "sumInvLineNetAmt": "2303.00",
+      "AllowanceTotal": "23.03",
+      "ChargeTotal": "15.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700003')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700003')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700003",
+          "ChargeAmount": "15.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700003",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "935.00",
+          "itemDesc": "Conveyor alignment and testing service",
+          "sellerItemID": "BE-SRV-CONV-003",
+          "sellerItemID_Text": "Conveyor alignment and testing service",
+          "BuyerItemId": "BE-CAT-003-1",
+          "buyerItemID": "BE-CAT-003-1",
+          "Gtin": "5400000000031",
+          "gtin": "5400000000031",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "196.35",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1767744000000)/",
+          "ShipToParty": "BESHIP92003",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000031",
+          "BuyersItemIdentification": "BE-CAT-003-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700003",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "6",
+          "invoicedQtyUOM": "MON",
+          "invLineNetAmt": "1368.00",
+          "itemDesc": "Quarterly application support subscription",
+          "sellerItemID": "BE-SRV-APP-003",
+          "sellerItemID_Text": "Quarterly application support subscription",
+          "BuyerItemId": "BE-CAT-003-2",
+          "buyerItemID": "BE-CAT-003-2",
+          "Gtin": "5400000000032",
+          "gtin": "5400000000032",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "287.28",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1767744000000)/",
+          "ShipToParty": "BESHIP92003",
+          "BillingQuantityUnit": "MON",
+          "StandardItemIdentification": "5400000000032",
+          "BuyersItemIdentification": "BE-CAT-003-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700003",
+          "AllowanceAmount": "23.03",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700003",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "21.00",
+          "taxCatTaxableAmt": "2295.47",
+          "taxCatTaxAmt": "482.05",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700003/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0703",
+          "payAccID": "BE50112500000321",
+          "Iban": "BE50112500000321",
+          "Swift": "LTBKBEB1",
+          "payAccName": "Cedar Process Engineering BV",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700003/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700003/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000003",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Avenue des Mélèzes 23",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Namur",
+      "sellerPostCode": "5000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Cedar Process Engineering BV",
+      "sellerTradeName": "Cedar Industrial",
+      "sellerTaxID": "BE0520000003",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE50112500000321",
+      "Swift": "LTBKBEB1",
+      "ContactEmailAddress": "billing003@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0003",
+      "bank_account": [
+        {
+          "iban": "BE50112500000321",
+          "swift": "LTBKBEB1",
+          "account_name": "Cedar Process Engineering BV",
+          "bank_name": "Lowlands Trade Bank"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0003",
+        "email": "billing003@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-01-07T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000003",
+      "correlation_id": "d58aa743-b639-5e5c-bee6-1bac9fa3fedf",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700003",
+      "payload_hash": "d245e130c2417d6c21008aa3ea88a6d2443b4f97fdad3e557bb2320fcd569c95",
+      "source_hash": "b048e7cf255e6848c2bdd6dc93c8ae8706e7f4984136889bb0f441adfeab90c8",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

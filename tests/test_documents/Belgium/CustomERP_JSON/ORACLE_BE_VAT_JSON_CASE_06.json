@@ -1,0 +1,210 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-06-80006",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-07T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-06-80006"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7006"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98006"
+          },
+          "oa:TransactionTypeCode": "Standard",
+          "oa:DocumentDateTime": "2026-06-07",
+          "oa:DueDateTime": "2026-07-07",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-07"
+          },
+          "oa:Description": "Intra-community supply - VAT 0%, customer accounts by reverse charge.",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-06-90006",
+            "oa:PurchaseOrderDateTime": "2026-05-24"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01001"
+            },
+            "oa:TaxID": "BE0550614263"
+          },
+          "oa:Name": "4 Healthy Pets NV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Spinnerijstraat 101 Box 23",
+              "oa:CityName": "Kortrijk",
+              "oa:PostalCode": "8500",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Annelies De Smet",
+              "oa:EmailAddress": "billing@4healthypets.be",
+              "oa:Telephone": "+32-56-555-2201"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE74685884701807",
+            "oa:BIC": "BOFABE3X",
+            "oa:BankName": "Bank of America, National Association"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-06-00006"
+            },
+            "oa:TaxID": "NL123456789B01"
+          },
+          "oa:Name": "Dutch Wholesale Partners BV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Damrak 50",
+              "oa:CityName": "Amsterdam",
+              "oa:StateName": "NA",
+              "oa:PostalCode": "1012LM",
+              "oa:CountryCode": "NL"
+            },
+            "oa:Contact": {
+              "oa:Name": "Dutch Wholesale Partners BV",
+              "oa:EmailAddress": "ap@dutchwholesalepartners.nl",
+              "oa:Telephone": "+31-20-555-0107"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "6000001"
+              },
+              "oa:Description": "Bulk pet nutrition export carton",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "10121804"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "24"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "16.40"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "393.60"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "393.60"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "6000002"
+              },
+              "oa:Description": "Private-label can assortment",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "10121804"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "18"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "22.75"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "409.50"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "409.50"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "803.10"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "0.00"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "803.10"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "803.10"
+          }
+        }
+      }
+    }
+  }
+}

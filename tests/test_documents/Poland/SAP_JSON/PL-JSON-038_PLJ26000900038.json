@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/pl/PLJ26000900038",
+      "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "PLJ26000900038",
+    "CompanyCode": "PL20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900038",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Motor protection circuit component",
+          "AddressID": "PL670381",
+          "actDelivDate": "/Date(1770768000000)/",
+          "delLocID": "PLLOC88038",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Srebrna 78",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Lublin",
+          "delivPostCode": "20-001",
+          "delivAddr3": "ul. Srebrna 78",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Energia Logistyka Biznesowa Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "ul. Srebrna 78",
+          "DeliveryCity": "Lublin",
+          "DeliveryPostalCode": "20-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92038",
+          "OutboundDelivery": "86000200381"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900038",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Technical compliance configuration workshop",
+          "AddressID": "PL670382",
+          "actDelivDate": "/Date(1770768000000)/",
+          "delLocID": "PLLOC88038",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Srebrna 78",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Lublin",
+          "delivPostCode": "20-001",
+          "delivAddr3": "ul. Srebrna 78",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Energia Logistyka Biznesowa Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "ul. Srebrna 78",
+          "DeliveryCity": "Lublin",
+          "DeliveryPostalCode": "20-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92038",
+          "OutboundDelivery": "86000200382"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/header",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "PLJ26000900038",
+      "CountryISOCode": "PL",
+      "invNum": "PLJ26000900038",
+      "invoice_id": "PLJ26000900038",
+      "invoice_uuid": "de42bde8-38ce-588a-b638-4bab23966636",
+      "invIssueDate": "/Date(1770768000000)/",
+      "payDueDate": "/Date(1774656000000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1770768000000)/",
+      "invCurrCode": "PLN",
+      "taxAccCurr": "PLN",
+      "source_system": "SAP_PL_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-PL-JSON",
+      "notes": [
+        "Qualifying zero-rated supply",
+        "Zero-rated treatment under configured source mapping"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "PL83000038",
+      "buyerEndpointIdScheme": "9945",
+      "buyerID": "PL83000038",
+      "buyerIDScheme": "9945",
+      "BuyRef": "PLBUY83038",
+      "purOrdRef": "PO-PL-26-30038",
+      "saleOrdRef": "SO-PL-26-50038",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "ul. Srebrna 78",
+      "buyerAddr2": "Building D",
+      "buyerCity": "Lublin",
+      "buyerPostCode": "20-001",
+      "buyerCountry": "PL",
+      "buyerTaxID": "FR740000038",
+      "buyerName": "Energia Logistyka Biznesowa Sp. z o.o.",
+      "buyerTradeName": "Energia Operations",
+      "buyerContactTel": "+48 000 100 0038",
+      "buyerContactEmail": "payables038@pl-buyer.example",
+      "DeliveryStreet": "ul. Srebrna 78",
+      "DeliveryCity": "Lublin",
+      "DeliveryPostalCode": "20-001",
+      "DeliveryCountryCode": "PL",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "V0",
+      "CanonicalTaxCategoryCode": "Z",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "1705.79",
+      "sumInvLineNetAmt": "1698.00",
+      "AllowanceTotal": "16.98",
+      "ChargeTotal": "15.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "PL20",
+      "TransactionCurrency": "PLN",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900038')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900038')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900038",
+          "ChargeAmount": "15.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900038",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "660.00",
+          "itemDesc": "Motor protection circuit component",
+          "sellerItemID": "PL-MAT-MOTOR-038",
+          "sellerItemID_Text": "Motor protection circuit component",
+          "BuyerItemId": "PL-CAT-038-1",
+          "buyerItemID": "PL-CAT-038-1",
+          "Gtin": "5400000200381",
+          "gtin": "5400000200381",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1770768000000)/",
+          "ShipToParty": "PLSHIP92038",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000200381",
+          "BuyersItemIdentification": "PL-CAT-038-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900038",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "6",
+          "invoicedQtyUOM": "DAY",
+          "invLineNetAmt": "1038.00",
+          "itemDesc": "Technical compliance configuration workshop",
+          "sellerItemID": "PL-SRV-COMP-038",
+          "sellerItemID_Text": "Technical compliance configuration workshop",
+          "BuyerItemId": "PL-CAT-038-2",
+          "buyerItemID": "PL-CAT-038-2",
+          "Gtin": "5400000200382",
+          "gtin": "5400000200382",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1770768000000)/",
+          "ShipToParty": "PLSHIP92038",
+          "BillingQuantityUnit": "DAY",
+          "StandardItemIdentification": "5400000200382",
+          "BuyersItemIdentification": "PL-CAT-038-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900038",
+          "AllowanceAmount": "16.98",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900038",
+          "taxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "1696.52",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "PL",
+          "jurisdiction_region": "Mazowieckie"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/payment",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "PL20",
+          "HouseBank": "UATPL",
+          "HouseBankAccount": "0738",
+          "payAccID": "PL39010901037000000000000038",
+          "Iban": "PL39010901037000000000000038",
+          "Swift": "BRREPLP1",
+          "payAccName": "Cedro Serwis Techniczny Sp. z o.o.",
+          "BankCountry": "PL",
+          "BankCountry_Text": "Poland"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900038/seller",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900038/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "PL20",
+      "sellerID": "PL72000038",
+      "sellerEndPointIDScheme": "9945",
+      "sellerAddr1": "ul. Chorzowska 58",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Katowice",
+      "sellerPostCode": "40-001",
+      "sellerCountryCode": "PL",
+      "sellerName": "Cedro Serwis Techniczny Sp. z o.o.",
+      "sellerTradeName": "Cedro Industrial",
+      "sellerTaxID": "PL6200000038",
+      "sellerTaxScheme": "VAT",
+      "Iban": "PL39010901037000000000000038",
+      "Swift": "BRREPLP1",
+      "ContactEmailAddress": "billing038@pl-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+48 000 200 0038",
+      "bank_account": [
+        {
+          "iban": "PL39010901037000000000000038",
+          "swift": "BRREPLP1",
+          "account_name": "Cedro Serwis Techniczny Sp. z o.o.",
+          "bank_name": "Bank Rozwoju Regionalnego"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+48 000 200 0038",
+        "email": "billing038@pl-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-02-11T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_PL_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000002038",
+      "correlation_id": "7070a7f9-d012-521a-b6c2-86e97b7a40e4",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_PL_SAP_JSON_V1",
+      "target_platform": "KSeF Poland",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / KSeF",
+      "tax_authority_id": "Krajowa Administracja Skarbowa",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/pl/sap-json/PLJ26000900038",
+      "payload_hash": "c47056ad84a29eff840d93dd1a61f5c030656f19a3da1e66411675066236a42f",
+      "source_hash": "f88fba484278b3b3d7dafcdab7ce8634c5cb67941720cd057b438b993c818377",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

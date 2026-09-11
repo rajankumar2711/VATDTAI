@@ -1,0 +1,361 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700097",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700097",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700097",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700097/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700097",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Servo drive commissioning service",
+          "AddressID": "BE670971",
+          "actDelivDate": "/Date(1796515200000)/",
+          "delLocID": "BELOC88097",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard Initialis 137",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Kortrijk",
+          "delivPostCode": "8500",
+          "delivAddr3": "Boulevard Initialis 137",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Helix Operations Partners NV Receiving Centre",
+          "DeliveryStreet": "Boulevard Initialis 137",
+          "DeliveryCity": "Kortrijk",
+          "DeliveryPostalCode": "8500",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92097",
+          "OutboundDelivery": "86000000971"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700097/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700097",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial sensor replacement kit",
+          "AddressID": "BE670972",
+          "actDelivDate": "/Date(1796515200000)/",
+          "delLocID": "BELOC88097",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard Initialis 137",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Kortrijk",
+          "delivPostCode": "8500",
+          "delivAddr3": "Boulevard Initialis 137",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Helix Operations Partners NV Receiving Centre",
+          "DeliveryStreet": "Boulevard Initialis 137",
+          "DeliveryCity": "Kortrijk",
+          "DeliveryPostalCode": "8500",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92097",
+          "OutboundDelivery": "86000000972"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700097/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700097",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700097",
+      "invoice_id": "BEJ26000700097",
+      "invoice_uuid": "3a8ab39e-89ab-5a4c-a65a-59f63355a266",
+      "invIssueDate": "/Date(1796515200000)/",
+      "payDueDate": "/Date(1799107200000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1796515200000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Scheduled maintenance and replacement components"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000097",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "BE83000097",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83097",
+      "purOrdRef": "PO-BE-26-30097",
+      "saleOrdRef": "SO-BE-26-50097",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Boulevard Initialis 137",
+      "buyerAddr2": "Building C",
+      "buyerCity": "Kortrijk",
+      "buyerPostCode": "8500",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0520000197",
+      "buyerName": "Helix Operations Partners NV & Regional | Centre",
+      "buyerTradeName": "Helix Operations",
+      "buyerContactTel": "+32 000 100 0097",
+      "buyerContactEmail": "payables097@be-buyer.example",
+      "DeliveryStreet": "Boulevard Initialis 137",
+      "DeliveryCity": "Kortrijk",
+      "DeliveryPostalCode": "8500",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within thirty days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "1549.40",
+      "sumInvLineNetAmt": "1537.00",
+      "AllowanceTotal": "15.37",
+      "ChargeTotal": "18.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700097')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700097')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700097",
+          "ChargeAmount": "18.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700097",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "485.00",
+          "itemDesc": "Servo drive commissioning service",
+          "sellerItemID": "BE-SRV-DRIVE-097",
+          "sellerItemID_Text": "Servo drive commissioning service",
+          "BuyerItemId": "BE-CAT-097-1",
+          "buyerItemID": "BE-CAT-097-1",
+          "Gtin": "5400000000971",
+          "gtin": "5400000000971",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1796515200000)/",
+          "ShipToParty": "BESHIP92097",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000971",
+          "BuyersItemIdentification": "BE-CAT-097-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700097",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "2",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "1052.00",
+          "itemDesc": "Industrial sensor replacement kit",
+          "sellerItemID": "BE-KIT-SENSOR-097",
+          "sellerItemID_Text": "Industrial sensor replacement kit",
+          "BuyerItemId": "BE-CAT-097-2",
+          "buyerItemID": "BE-CAT-097-2",
+          "Gtin": "5400000000972",
+          "gtin": "5400000000972",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1796515200000)/",
+          "ShipToParty": "BESHIP92097",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000000972",
+          "BuyersItemIdentification": "BE-CAT-097-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700097",
+          "AllowanceAmount": "15.37",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700097",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "1540.13",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "VATEX-EU-AE",
+          "exemption_reason_text": "VAT accounted for by the customer",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700097/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0797",
+          "payAccID": "BE12000000000000",
+          "Iban": "BE12000000000000",
+          "Swift": "UTSTBEBB",
+          "payAccName": "Synthetic Non Payable Account",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700097/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700097/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000097",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Kempische Steenweg 117",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Hasselt",
+      "sellerPostCode": "3500",
+      "sellerCountryCode": "BE",
+      "sellerName": "Valmera Technical Systems SRL",
+      "sellerTradeName": "Valmera Industrial",
+      "sellerTaxID": "BE0520000097",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE12000000000000",
+      "Swift": "UTSTBEBB",
+      "ContactEmailAddress": "billing097@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0097",
+      "bank_account": [
+        {
+          "iban": "BE12000000000000",
+          "swift": "UTSTBEBB",
+          "account_name": "Synthetic Non Payable Account"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0097",
+        "email": "billing097@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-12-06T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000097",
+      "correlation_id": "44dbb7e1-f252-5657-87c7-2e10c5f425ac",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-12-31",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700097",
+      "payload_hash": "58d8578f532a46b7e6dcc95c4e7e9c821a7f980f33b56b417dd15d17f0ee4f3d",
+      "source_hash": "2137bcec88956adb3361b2835309ddd9fd1cb4a7b87393e13e7a1e20bd54cf01",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

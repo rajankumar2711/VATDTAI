@@ -1,0 +1,7 @@
+/* Hide the pytest-html "Show all details / Hide all details" toggle.
+   It has no relevance for this suite's report consumption. */
+.collapse,
+#show_all_details,
+#hide_all_details {
+  display: none !important;
+}

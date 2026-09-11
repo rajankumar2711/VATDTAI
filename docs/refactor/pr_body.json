@@ -1,0 +1,6 @@
+{
+  "title": "Implement Invoice Management module and add shared-session functionality (Data Lake, Tile, Invoice Management)",
+  "head": "Rajan_AI_VAT_automation",
+  "base": "main",
+  "body": "## Summary\n- Implement Invoice Management (e-Invoice) UI/UX automation: 10 smoke scenarios, refreshed page object, and step definitions\n- Roll out a single shared authenticated session (get_page override) across Data Lake IP, Tile, and Invoice Management\n- Rename Tile feature/steps (DTAI_Tile -> Vat_tile) and update supporting modules and common library\n- Add reconciliation page object/step defs and reorganize Belgium/France/Poland test data\n- Scrub config.ini.example back to placeholders (QA + UAT sections)\n"
+}

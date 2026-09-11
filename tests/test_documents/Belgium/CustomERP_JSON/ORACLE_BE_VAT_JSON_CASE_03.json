@@ -1,0 +1,210 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-03-80003",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-04T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-03-80003"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7003"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98003"
+          },
+          "oa:TransactionTypeCode": "Standard",
+          "oa:DocumentDateTime": "2026-06-04",
+          "oa:DueDateTime": "2026-07-04",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-04"
+          },
+          "oa:Description": "Belgium domestic sale - reduced VAT 12%.",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-03-90003",
+            "oa:PurchaseOrderDateTime": "2026-05-21"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01002"
+            },
+            "oa:TaxID": "BE0723456789"
+          },
+          "oa:Name": "Brussels Mobility Services SA",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Avenue des Arts 12",
+              "oa:CityName": "Bruxelles",
+              "oa:PostalCode": "1000",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Claire Dubois",
+              "oa:EmailAddress": "billing@brusselsmobility.be",
+              "oa:Telephone": "+32-2-555-2202"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE62551007547061",
+            "oa:BIC": "KREDBEBB",
+            "oa:BankName": "KBC Bank NV"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-03-00003"
+            },
+            "oa:TaxID": "BE0711555002"
+          },
+          "oa:Name": "Ghent City Catering Services (Training)",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Ottergemsesteenweg 460",
+              "oa:CityName": "Ghent",
+              "oa:StateName": "VOV",
+              "oa:PostalCode": "9000",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Ghent City Catering Services (Training)",
+              "oa:EmailAddress": "ap@ghentcatering-training.be",
+              "oa:Telephone": "+32-9-555-0110"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "3001201"
+              },
+              "oa:Description": "Catering meal package",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "90101603"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "35"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "12.20"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "427.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "12.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "427.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "51.24"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "3001202"
+              },
+              "oa:Description": "Social housing maintenance kit",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "72101500"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "4"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "44.75"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "179.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "12.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "179.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "21.48"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "606.00"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "72.72"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "678.72"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "678.72"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 """
-Step definitions for VAT DTAI Reconciliation module.
+Step definitions for Global Insights And Data Enrichment For e-Invoicing Reconciliation module.
 Connects Vat_reconciliation.feature with vat_reconciliation_page.py.
 Uses common navigation/login steps from VAT_Common_Library.py.
 """
@@ -45,7 +45,7 @@ def reconciliation_page(get_page: Page) -> VatReconciliationPage:
 
 @scenario(
     "../features/Vat_reconciliation.feature",
-    "Verify authorized VAT DTAI user can access Reconciliation module and reach batch reconciliation workflow",
+    "Verify authorized Global Insights And Data Enrichment For e-Invoicing user can access Reconciliation module and reach batch reconciliation workflow",
 )
 def test_reconciliation_module_access(get_page, vat_context, reconciliation_page):
     pass

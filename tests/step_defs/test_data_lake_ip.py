@@ -1,5 +1,5 @@
 """
-Step definitions for VAT DTAI Data Lake IP module.
+Step definitions for Global Insights And Data Enrichment For e-Invoicing Data Lake IP module.
 Connects Vat_Data_Lake_IP.feature with vat_data_lake_ip_page.py.
 """
 import logging
@@ -39,7 +39,7 @@ def data_lake_ip_page(get_page: Page) -> VatDataLakeIPPage:
 
 @scenario(
     "../features/Vat_Data_Lake_IP.feature",
-    "Verify authorized VAT DTAI user can navigate to Data Lake IP tab and all mandatory page sections render successfully",
+    "Verify authorized Global Insights And Data Enrichment For e-Invoicing user can navigate to Data Lake IP tab and all mandatory page sections render successfully",
 )
 def test_data_lake_ip_module_access(get_page, vat_context, data_lake_ip_page):
     pass

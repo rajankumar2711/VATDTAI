@@ -11,8 +11,13 @@
     "cucumberautocomplete.syncfeatures": "tests/features/**/*.feature",
     "cucumberautocomplete.strictGherkinCompletion": false,
     "cucumberautocomplete.stepsInvariants": true,
-    "cucumberautocomplete.gherkinDefinitionPart": "@(?:given|when|then|step)\\((?:parsers\\.(?:parse|re|cfparse)\\()?",
-    "cucumberautocomplete.stepRegExp": "^\\s*@(?:given|when|then|step)\\((?:parsers\\.(?:parse|re|cfparse)\\()?u?[\"'](.*?)[\"']",
+    // Step text is captured up to the closing quote that precedes a ',' or ')'. This tolerates
+    // pytest-bdd steps whose outer parser string is single-quoted but embeds double-quoted
+    // "{params}" (e.g. parsers.parse('the user selects "{report_type}" as the report type')) and
+    // plain steps containing an apostrophe (e.g. "the logged-in client's country"). A naive
+    // ["'](.*?)["'] truncated those at the first inner quote and mis-flagged them as undefined.
+    "cucumberautocomplete.gherkinDefinitionPart": "@(?:given|when|then|step)\\(\\s*(?:parsers\\.(?:parse|re|cfparse)\\(\\s*)?[rbu]?",
+    "cucumberautocomplete.stepRegExp": "^\\s*@(?:given|when|then|step)\\(\\s*(?:parsers\\.(?:parse|re|cfparse)\\(\\s*)?[rbu]?[\"'](.+?)[\"']\\s*[,)]",
 
     // pytest-bdd 7.x uses an INDENTATION-SENSITIVE parser: any step indented MORE than the
     // first step of its block is folded into that step as one multi-line step (breaking it).
@@ -33,13 +38,17 @@
         "But": 2,
         "Step": 2
     },
-    // Hard guard: never let the Gherkin formatter rewrite .feature files automatically.
+    // Hard guard: never let a Gherkin formatter/beautifier rewrite .feature files automatically.
+    // defaultFormatter:null unbinds any registered formatter so Format-on-Save / Format Document
+    // do nothing for these languages (in addition to the formatOn* flags being off).
     "[feature]": {
+        "editor.defaultFormatter": null,
         "editor.formatOnSave": false,
         "editor.formatOnType": false,
         "editor.formatOnPaste": false
     },
     "[gherkin]": {
+        "editor.defaultFormatter": null,
         "editor.formatOnSave": false,
         "editor.formatOnType": false,
         "editor.formatOnPaste": false

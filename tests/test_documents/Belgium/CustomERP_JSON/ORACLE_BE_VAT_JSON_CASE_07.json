@@ -1,0 +1,210 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-07-80007",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-08T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-07-80007"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7007"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98007"
+          },
+          "oa:TransactionTypeCode": "Standard",
+          "oa:DocumentDateTime": "2026-06-08",
+          "oa:DueDateTime": "2026-07-08",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-08"
+          },
+          "oa:Description": "Export outside EU - VAT 0% (zero-rated export).",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-07-90007",
+            "oa:PurchaseOrderDateTime": "2026-05-25"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01001"
+            },
+            "oa:TaxID": "BE0550614263"
+          },
+          "oa:Name": "4 Healthy Pets NV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Spinnerijstraat 101 Box 23",
+              "oa:CityName": "Kortrijk",
+              "oa:PostalCode": "8500",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Annelies De Smet",
+              "oa:EmailAddress": "billing@4healthypets.be",
+              "oa:Telephone": "+32-56-555-2201"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE74685884701807",
+            "oa:BIC": "BOFABE3X",
+            "oa:BankName": "Bank of America, National Association"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-07-00007"
+            },
+            "oa:TaxID": "GB123456789"
+          },
+          "oa:Name": "Atlantic Import Solutions Ltd",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "1 Canada Square",
+              "oa:CityName": "London",
+              "oa:StateName": "NA",
+              "oa:PostalCode": "E14 5AB",
+              "oa:CountryCode": "GB"
+            },
+            "oa:Contact": {
+              "oa:Name": "Atlantic Import Solutions Ltd",
+              "oa:EmailAddress": "ap@atlanticimport.co.uk",
+              "oa:Telephone": "+44-20-555-0108"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "7000001"
+              },
+              "oa:Description": "Export palletised goods",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "78121603"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "30"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "31.25"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "937.50"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "937.50"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "7000002"
+              },
+              "oa:Description": "International freight surcharge",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "78102203"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "1"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "215.00"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "215.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "215.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "1152.50"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "0.00"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "1152.50"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "1152.50"
+          }
+        }
+      }
+    }
+  }
+}

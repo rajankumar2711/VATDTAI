@@ -1,0 +1,210 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-08-80008",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-09T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-08-80008"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7008"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98008"
+          },
+          "oa:TransactionTypeCode": "CreditNote",
+          "oa:DocumentDateTime": "2026-06-09",
+          "oa:DueDateTime": "2026-07-09",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-09"
+          },
+          "oa:Description": "Credit note for returned goods - standard VAT 21%.",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-08-90008",
+            "oa:PurchaseOrderDateTime": "2026-05-26"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01001"
+            },
+            "oa:TaxID": "BE0550614263"
+          },
+          "oa:Name": "4 Healthy Pets NV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Spinnerijstraat 101 Box 23",
+              "oa:CityName": "Kortrijk",
+              "oa:PostalCode": "8500",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Annelies De Smet",
+              "oa:EmailAddress": "billing@4healthypets.be",
+              "oa:Telephone": "+32-56-555-2201"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE74685884701807",
+            "oa:BIC": "BOFABE3X",
+            "oa:BankName": "Bank of America, National Association"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-08-00008"
+            },
+            "oa:TaxID": "BE0677312456"
+          },
+          "oa:Name": "Port Logistics Antwerp NV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Lange Nieuwstraat 50",
+              "oa:CityName": "Antwerp",
+              "oa:StateName": "VAN",
+              "oa:PostalCode": "2000",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Port Logistics Antwerp NV",
+              "oa:EmailAddress": "ap@portlogisticsantwerp.be",
+              "oa:Telephone": "+32-3-555-0105"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "1005401"
+              },
+              "oa:Description": "Credit - Warehouse barcode scanner",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "43211711"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "1"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "129.90"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "-129.90"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "21.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "-129.90"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "-27.28"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "1005403"
+              },
+              "oa:Description": "Credit - Docking station USB-C",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "43211617"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "2"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "72.50"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "-145.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "21.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "-145.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "-30.45"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "-274.90"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "-57.73"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "-332.63"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "-332.63"
+          }
+        }
+      }
+    }
+  }
+}

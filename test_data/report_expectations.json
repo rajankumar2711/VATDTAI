@@ -1,0 +1,100 @@
+{
+  "_notes": [
+    "Externalized expectations for the Reports module.",
+    "country_map: logged-in client workspace/country name -> code shown in report metadata.",
+    "report_columns: exact column headers, IN ORDER, per report type label as it appears in the Select Report dropdown.",
+    "Leave a report_columns list EMPTY to fall back to a non-empty presence check until the",
+    "authoritative column set is confirmed with the product team (see Open Question #2).",
+    "Entity is a MULTISELECT: the default 'All' is not committed until the dropdown is opened",
+    "and 'All' is clicked, after which the field displays 'N of N selected' (e.g. '211 of 211",
+    "selected') and Generate becomes enabled once a date range is also provided.",
+    "report_config: per-type generate inputs. date_mode 'range' fills From/To; 'single' fills",
+    "the Date field. platform_required types default the Submission Platform to GTES.",
+    "The report opens in a NEW WINDOW rendered from a generic vatdtai-report-* template;",
+    "meta formats: 'Country: BE | Entity: All', 'Date Range: MM/DD/YYYY to MM/DD/YYYY',",
+    "'Generated On: MM/DD/YYYY hh:mm AM/PM GMT<offset>'.",
+    "output_format: 'table' reports render table.vatdtai-report-table with report_columns;",
+    "'json' reports (Submission) render a .vatdtai-report-json-view <pre> (no tabular columns)",
+    "and add 'Platform: <GTES|Pagero>' to the meta line."
+  ],
+  "country_map": {
+    "Belgium": "BE",
+    "France": "FR",
+    "Poland": "PL"
+  },
+  "entity_default_label": "All",
+  "entity_report_label": "All",
+  "entity_selected_pattern": "\\d+ of \\d+ selected",
+  "generated_on_tolerance_minutes": 15,
+  "export_formats": ["xlsx", "pdf", "csv", "xml"],
+  "report_config": {
+    "Invoice Status Report": {"date_mode": "range", "platform_required": false, "output_format": "table"},
+    "Submission Report": {"date_mode": "range", "platform_required": true, "default_platform": "GTES", "output_format": "json"},
+    "Reconciliation Report": {"date_mode": "range", "platform_required": false, "output_format": "table"}
+  },
+  "report_columns": {
+    "Invoice Status Report": [
+      "SystemId",
+      "Invoice Date",
+      "Invoice Due Date",
+      "Invoice Number",
+      "Buyer / Seller",
+      "Buyer / Seller Tax ID",
+      "Document Type",
+      "Transaction Category",
+      "GTES Processing Status",
+      "Buyer / Seller Delivery Status",
+      "TA Delivery Status",
+      "Total Gross Amount",
+      "Total Net Amount",
+      "Total Tax Amount"
+    ],
+    "Submission Report": [],
+    "Reconciliation Report": [
+      "Reconciliation Outcome",
+      "ERP Transactional Data",
+      "GL Data",
+      "Invoicing Data",
+      "AP/AR",
+      "Doc #",
+      "ERP Invoice #",
+      "Taxable Amount",
+      "Tax Amount",
+      "AP/AR/Other",
+      "Doc #",
+      "ERP Invoice #",
+      "Taxable Amount",
+      "Tax Amount",
+      "AP/AR",
+      "Doc #",
+      "Invoice #",
+      "ERP Invoice #",
+      "Taxable Amount",
+      "Tax Amount"
+    ]
+  },
+  "export_ignore_columns": {
+    "Reconciliation Report": [
+      "ERP Transactional Data",
+      "GL Data",
+      "Invoicing Data"
+    ]
+  },
+  "report_json_fields": {
+    "Submission Report": [
+      "invNum",
+      "invTypeCode",
+      "invIssueDate",
+      "payDueDate",
+      "invCurrCode",
+      "sellerTaxID",
+      "sellerName",
+      "buyerTaxID",
+      "buyerName",
+      "invTotalAmtNoTax",
+      "invTotalTaxAmt",
+      "invTotalAmtWithTax",
+      "lines"
+    ]
+  }
+}

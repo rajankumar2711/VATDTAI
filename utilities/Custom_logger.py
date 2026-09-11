@@ -9,26 +9,32 @@ class LogGen:
     _instance = None
     _initialized = False
 
-    def __new__(cls):
+    def __new__(cls, log_dir=None, log_name=None):
         if cls._instance is None:
             cls._instance = super(LogGen, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self):
+    def __init__(self, log_dir=None, log_name=None):
         if LogGen._initialized:
             return
         LogGen._initialized = True
 
-        test_name = get_current_test_method_name()
         self.logger = logging.getLogger("CatalystLogger")
         self.logger.setLevel(logging.DEBUG)
 
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        current_file_path = os.path.abspath(__file__)
-        base_directory = os.path.dirname(os.path.dirname(current_file_path))
-        log_directory = os.path.join(base_directory, 'reports/logs')
+        if log_dir:
+            log_directory = str(log_dir)
+        else:
+            current_file_path = os.path.abspath(__file__)
+            base_directory = os.path.dirname(os.path.dirname(current_file_path))
+            log_directory = os.path.join(base_directory, 'reports/logs')
         os.makedirs(log_directory, exist_ok=True)
-        log_file = f'{log_directory}/{test_name}_{timestamp}.log'
+        if log_name:
+            base_name = log_name
+        else:
+            base_name = f'{get_current_test_method_name()}_{timestamp}'
+        log_file = f'{log_directory}/{base_name}.log'
 
         # Prevent duplicate handlers
         if not any(isinstance(h, logging.FileHandler) and h.baseFilename == os.path.abspath(log_file) for h in self.logger.handlers):

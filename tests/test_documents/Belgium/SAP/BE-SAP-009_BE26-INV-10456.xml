@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>8700000000000009</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPBEUAT</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>BESUP41009</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>BECUS48009</RCVPRN>
+      <CREDAT>20260509</CREDAT>
+      <CRETIM>170900</CRETIM>
+      <SERIAL>20260509T120000</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>EUR</CURCY>
+      <HWAER>EUR</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>BE01</ZTERM>
+      <BELNR>BE26-INV-10456</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>F2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260509</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260609</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-BE-26-06209</BELNR>
+      <DATUM>20260509</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>BEVOPS0001</LIFNR>
+      <NAME1>Brabant Automation Partners Advanced SRL</NAME1>
+      <NAME2>Accounts Receivable</NAME2>
+      <STRAS>Industrieweg 19</STRAS>
+      <ORT01>Leuven</ORT01>
+      <PSTLZ>3000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0400000009</STCD1>
+      <TELF1>+32 000 000 1009</TELF1>
+      <SMTP_ADDR>billing@be-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>BEOPSCUST0001</KUNNR>
+      <NAME1>Leuven Technical Procurement Advanced BV &amp; Logistics | Hub</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>Rue des Ateliers 19</STRAS>
+      <ORT01>Liège</ORT01>
+      <PSTLZ>4000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>FR900000009</STCD1>
+      <TELF1>+32 000 000 1009</TELF1>
+      <SMTP_ADDR>invoices@be-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>BEOPSCUST0001S</KUNNR>
+      <NAME1>Leuven Technical Procurement Advanced BV Distribution</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>Koning Albertlaan 59</STRAS>
+      <ORT01>Liège</ORT01>
+      <PSTLZ>4000</PSTLZ>
+      <LAND1>BE</LAND1>
+      <STCD1>BE0400000209</STCD1>
+      <TELF1>+32 000 000 1009</TELF1>
+      <SMTP_ADDR>invoices@be-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BERED6</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Belgium OPS maintenance services</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>BESRV0091</MATNR>
+      <MENGE>1.0000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>836.00</NETWR>
+      <MWSBT>175.56</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>BE</TXJCD>
+      <VPREI>836.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>1.0000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>BESERVICE0091</IDTNR>
+        <KTEXT>Annual preventive maintenance for packaging line</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>54123650000011</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BESAPOPSBUY0011</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>BESRV0092</MATNR>
+      <MENGE>2.0000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>1838.00</NETWR>
+      <MWSBT>385.98</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>BE</TXJCD>
+      <VPREI>919.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>2.0000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>BESERVICE0092</IDTNR>
+        <KTEXT>Calibration of production measurement equipment</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>54123650000012</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BESAPOPSBUY0012</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>2674.00</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>561.54</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>3235.54</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

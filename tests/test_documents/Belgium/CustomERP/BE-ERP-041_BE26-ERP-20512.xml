@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ProcessInvoice xmlns="http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/" xmlns:oa="http://www.openapplications.org/oagis/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openapplications.org/oagis/10 Invoice.xsd" releaseID="10.1" languageCode="en-US">
+  <oa:ApplicationArea>
+    <oa:Sender>
+      <oa:LogicalID>ERPBEUAT</oa:LogicalID>
+      <oa:ComponentID>Receivables</oa:ComponentID>
+      <oa:TaskID>GenerateInvoice</oa:TaskID>
+      <oa:ReferenceID>REF-BE-26-00041</oa:ReferenceID>
+      <oa:AuthorizationID>SYSADM</oa:AuthorizationID>
+    </oa:Sender>
+    <oa:CreationDateTime>2026-08-13T10:30:00Z</oa:CreationDateTime>
+    <oa:BODID>urn:dtai:be:invoice:000041</oa:BODID>
+  </oa:ApplicationArea>
+  <oa:DataArea>
+    <oa:Invoice>
+      <oa:InvoiceHeader>
+        <oa:DocumentID>
+          <oa:ID schemeVersionID="1.0">BE26-ERP-20512</oa:ID>
+        </oa:DocumentID>
+        <oa:AlternateDocumentID>
+          <oa:ID>ALT-BE-05441</oa:ID>
+        </oa:AlternateDocumentID>
+        <oa:TransactionTypeCode>380</oa:TransactionTypeCode>
+        <oa:DocumentDateTime>2026-08-13</oa:DocumentDateTime>
+        <oa:DueDateTime>2026-09-13</oa:DueDateTime>
+        <oa:PaymentTerms>
+          <oa:PaymentTermsTypeCode>NET02</oa:PaymentTermsTypeCode>
+          <oa:Description>Customer accounts for VAT under contractual terms</oa:Description>
+        </oa:PaymentTerms>
+        <oa:Currency>
+          <oa:CurrencyCode>EUR</oa:CurrencyCode>
+          <oa:ExchangeRate>1.0</oa:ExchangeRate>
+          <oa:ExchangeRateDateTime>2026-05-17</oa:ExchangeRateDateTime>
+        </oa:Currency>
+        <oa:Description>Belgium ERP OPS technical services</oa:Description>
+        <oa:PurchaseOrderReference>
+          <oa:PurchaseOrderID>PO-BE-26-07141</oa:PurchaseOrderID>
+          <oa:PurchaseOrderDateTime>2026-08-13</oa:PurchaseOrderDateTime>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceHeader>
+      <oa:Supplier>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleSupplierNumber">BESUP41041</oa:ID>
+          <oa:TaxID>BE0400000041</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Meuse Technical Services Modern SA</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>Avenue du Port 53</oa:AddressLine>
+            <oa:CityName>Gent</oa:CityName>
+            <oa:PostalCode>9000</oa:PostalCode>
+            <oa:CountryCode>BE</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Billing Operations</oa:Name>
+            <oa:EmailAddress>billing@be-services.example</oa:EmailAddress>
+            <oa:Telephone>+32 000 000 2041</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+        <oa:BankAccount>
+          <oa:IBAN>BE00000000000000</oa:IBAN>
+          <oa:BIC>NPYBEBB0</oa:BIC>
+          <oa:BankName>NON-PAYABLE SYNTHETIC BANK</oa:BankName>
+        </oa:BankAccount>
+      </oa:Supplier>
+      <oa:Buyer>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleCustomerNumber">BECUS41041</oa:ID>
+          <oa:TaxID>PL8000000041</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Hainaut Distribution Services Modern SA</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>Chaussée du Parc 53</oa:AddressLine>
+            <oa:CityName>Leuven</oa:CityName>
+            <oa:StateName>BRU</oa:StateName>
+            <oa:PostalCode>3000</oa:PostalCode>
+            <oa:CountryCode>BE</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Billing Operations</oa:Name>
+            <oa:EmailAddress>payables@be-services.example</oa:EmailAddress>
+            <oa:Telephone>+32 000 000 2041</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+      </oa:Buyer>
+      <oa:InvoiceLine sequenceNumber="1">
+        <oa:LineNumber>1</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">BEERPITEM0411</oa:ItemID>
+          <oa:Description>Quarterly equipment inspection service</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">5700021</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">1.0000</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">840.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">840.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>REVERSE</oa:TaxTypeCode>
+          <oa:Percent>0.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">840.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">0.00</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>10</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceLine sequenceNumber="2">
+        <oa:LineNumber>2</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">BEERPITEM0412</oa:ItemID>
+          <oa:Description>Replacement sensor installation service</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">5700022</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">2.0000</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">911.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">1822.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>REVERSE</oa:TaxTypeCode>
+          <oa:Percent>0.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">1822.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">0.00</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>20</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceTotals>
+        <oa:SubTotalAmount currencyID="EUR">2662.00</oa:SubTotalAmount>
+        <oa:TaxAmount currencyID="EUR">0.00</oa:TaxAmount>
+        <oa:TotalAmount currencyID="EUR">2662.00</oa:TotalAmount>
+        <oa:PayableAmount currencyID="EUR">2662.00</oa:PayableAmount>
+      </oa:InvoiceTotals>
+    </oa:Invoice>
+  </oa:DataArea>
+</ProcessInvoice>

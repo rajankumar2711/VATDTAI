@@ -1,0 +1,210 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-02-80002",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-03T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-02-80002"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7002"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98002"
+          },
+          "oa:TransactionTypeCode": "Standard",
+          "oa:DocumentDateTime": "2026-06-03",
+          "oa:DueDateTime": "2026-07-03",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-03"
+          },
+          "oa:Description": "Belgium domestic sale - reduced VAT 6%.",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-02-90002",
+            "oa:PurchaseOrderDateTime": "2026-05-20"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01002"
+            },
+            "oa:TaxID": "BE0723456789"
+          },
+          "oa:Name": "Brussels Mobility Services SA",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Avenue des Arts 12",
+              "oa:CityName": "Bruxelles",
+              "oa:PostalCode": "1000",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Claire Dubois",
+              "oa:EmailAddress": "billing@brusselsmobility.be",
+              "oa:Telephone": "+32-2-555-2202"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE62551007547061",
+            "oa:BIC": "KREDBEBB",
+            "oa:BankName": "KBC Bank NV"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-02-00002"
+            },
+            "oa:TaxID": "BE0788654321"
+          },
+          "oa:Name": "KU Leuven Procurement Services (Training)",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Technologielaan 5",
+              "oa:CityName": "Leuven",
+              "oa:StateName": "VBR",
+              "oa:PostalCode": "3001",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "KU Leuven Procurement Services (Training)",
+              "oa:EmailAddress": "accounts.payable@kuleuven-training.be",
+              "oa:Telephone": "+32-16-555-0104"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "2006101"
+              },
+              "oa:Description": "Printed training manuals",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "55101518"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "8"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "24.50"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "196.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "6.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "196.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "11.76"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "2006102"
+              },
+              "oa:Description": "Rehabilitation support item",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "42192209"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "2"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "89.00"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "178.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "6.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "178.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "10.68"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "374.00"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "22.44"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "396.44"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "396.44"
+          }
+        }
+      }
+    }
+  }
+}

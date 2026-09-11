@@ -1,0 +1,361 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700030",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700030",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700030",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700030/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700030",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Servo drive commissioning service",
+          "AddressID": "BE670301",
+          "actDelivDate": "/Date(1790726400000)/",
+          "delLocID": "BELOC88030",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Avenue des Mélèzes 70",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Hasselt",
+          "delivPostCode": "3500",
+          "delivAddr3": "Avenue des Mélèzes 70",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Meridian Workplace Solutions BV Receiving Centre",
+          "DeliveryStreet": "Avenue des Mélèzes 70",
+          "DeliveryCity": "Hasselt",
+          "DeliveryPostalCode": "3500",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92030",
+          "OutboundDelivery": "86000000301"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700030/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700030",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial sensor replacement kit",
+          "AddressID": "BE670302",
+          "actDelivDate": "/Date(1790726400000)/",
+          "delLocID": "BELOC88030",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Avenue des Mélèzes 70",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Hasselt",
+          "delivPostCode": "3500",
+          "delivAddr3": "Avenue des Mélèzes 70",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Meridian Workplace Solutions BV Receiving Centre",
+          "DeliveryStreet": "Avenue des Mélèzes 70",
+          "DeliveryCity": "Hasselt",
+          "DeliveryPostalCode": "3500",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92030",
+          "OutboundDelivery": "86000000302"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700030/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700030",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700030",
+      "invoice_id": "BEJ26000700030",
+      "invoice_uuid": "bc37a398-0f81-5391-a605-aef3e07a5daf",
+      "invIssueDate": "/Date(1790726400000)/",
+      "payDueDate": "/Date(1791936000000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1790726400000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Technical support services supplied under annual agreement"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000030",
+      "buyerEndpointIdScheme": "",
+      "buyerID": "BE83000030",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83030",
+      "purOrdRef": "PO-BE-26-30030",
+      "saleOrdRef": "SO-BE-26-50030",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Avenue des Mélèzes 70",
+      "buyerAddr2": "Building A",
+      "buyerCity": "Hasselt",
+      "buyerPostCode": "3500",
+      "buyerCountry": "BE",
+      "buyerTaxID": "FR740000030",
+      "buyerName": "Meridian Workplace Solutions BV",
+      "buyerTradeName": "Meridian Operations",
+      "buyerContactTel": "+32 000 100 0030",
+      "buyerContactEmail": "payables030@be-buyer.example",
+      "DeliveryStreet": "Avenue des Mélèzes 70",
+      "DeliveryCity": "Hasselt",
+      "DeliveryPostalCode": "3500",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "V0",
+      "CanonicalTaxCategoryCode": "Z",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "5982.58",
+      "sumInvLineNetAmt": "6019.00",
+      "AllowanceTotal": "60.19",
+      "ChargeTotal": "14.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700030')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700030')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700030",
+          "ChargeAmount": "14.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700030",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "2584.00",
+          "itemDesc": "Servo drive commissioning service",
+          "sellerItemID": "BE-SRV-DRIVE-030",
+          "sellerItemID_Text": "Servo drive commissioning service",
+          "BuyerItemId": "BE-CAT-030-1",
+          "buyerItemID": "BE-CAT-030-1",
+          "Gtin": "5400000000301",
+          "gtin": "5400000000301",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1790726400000)/",
+          "ShipToParty": "BESHIP92030",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000301",
+          "BuyersItemIdentification": "BE-CAT-030-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700030",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "3435.00",
+          "itemDesc": "Industrial sensor replacement kit",
+          "sellerItemID": "BE-KIT-SENSOR-030",
+          "sellerItemID_Text": "Industrial sensor replacement kit",
+          "BuyerItemId": "BE-CAT-030-2",
+          "buyerItemID": "BE-CAT-030-2",
+          "Gtin": "5400000000302",
+          "gtin": "5400000000302",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1790726400000)/",
+          "ShipToParty": "BESHIP92030",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000000302",
+          "BuyersItemIdentification": "BE-CAT-030-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700030",
+          "AllowanceAmount": "60.19",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700030",
+          "taxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "5973.31",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700030/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0730",
+          "payAccID": "BE12000000000000",
+          "Iban": "BE12000000000000",
+          "Swift": "UTSTBEBB",
+          "payAccName": "Synthetic Non Payable Account",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700030/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700030/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000030",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Boulevard Initialis 50",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Mons",
+      "sellerPostCode": "7000",
+      "sellerCountryCode": "BE",
+      "sellerName": "TerraNova Facility Technologies NV",
+      "sellerTradeName": "TerraNova Industrial",
+      "sellerTaxID": "BE0520000030",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE12000000000000",
+      "Swift": "UTSTBEBB",
+      "ContactEmailAddress": "billing030@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0030",
+      "bank_account": [
+        {
+          "iban": "BE12000000000000",
+          "swift": "UTSTBEBB",
+          "account_name": "Synthetic Non Payable Account"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0030",
+        "email": "billing030@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-09-30T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000030",
+      "correlation_id": "075293eb-c2ed-5e5e-886e-9051d99f2430",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-12-31",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700030",
+      "payload_hash": "132d62ad805a74e30cd24f57d60a39a3495dcca3d7ba1e6bce02223a0ede105c",
+      "source_hash": "c32b82846ee8e19c16d9be57f0b3000cec69563fad287ecbd403691f4a7093e5",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

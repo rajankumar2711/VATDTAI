@@ -1,17 +1,17 @@
 @UserStory_595077 @MVP @UI_UX @DataIngestion @DI @P1
 Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
-  As a VAT DTAI authorized user
+  As a Global Insights And Data Enrichment For e-Invoicing authorized user
   I want to access and interact with the Data Ingestion module
   So that I can manage e-Invoice uploads and API details efficiently
 
   Background:
     Given I login as Admin user
     When I select the Client from dropdown and clicked on continue button
-    When I click on Consumption Tax and navigate to Digital Tax Administration Insights application
+    When I click on Consumption Tax and navigate to Global Insights And Data Enrichment For e-Invoicing application
     And I click OK on the application popup
     Then I navigate to the "Data Ingestion" module
 
-  @TC_604817 @AccessControl @Authorization @VAT_DTAI_Smoke
+  @TC_604817 @AccessControl @Authorization @GIDEI_Smoke
   Scenario: Verify access to Data Ingestion module for authorized roles
     When I access Data Ingestion module
     Then the Data Ingestion module is visible and accessible to the user
@@ -24,7 +24,7 @@ Feature: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
     Then the Batch e-Invoices section is displayed
     And the API Details section is displayed as a separate section
 
-  @TC_604822 @FileUpload @BatchProcessing @VAT_DTAI_Smoke
+  @TC_604822 @FileUpload @BatchProcessing @GIDEI_Smoke
   Scenario Outline: Verify successful upload of valid e-Invoice transaction report
     When I access Data Ingestion module
     When I select Source System "<source_system>" from dropdown

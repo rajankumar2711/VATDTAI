@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/pl/PLJ26000900099",
+      "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "PLJ26000900099",
+    "CompanyCode": "PL20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900099",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Emergency lighting control inspection",
+          "AddressID": "PL670991",
+          "actDelivDate": "/Date(1776038400000)/",
+          "delLocID": "PLLOC88099",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Piotrkowska 139",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Warszawa",
+          "delivPostCode": "02-001",
+          "delivAddr3": "ul. Piotrkowska 139",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Alto Usługi Administracyjne Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "ul. Piotrkowska 139",
+          "DeliveryCity": "Warszawa",
+          "DeliveryPostalCode": "02-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92099",
+          "OutboundDelivery": "86000200991"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900099",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial barcode scanner unit",
+          "AddressID": "PL670992",
+          "actDelivDate": "/Date(1776038400000)/",
+          "delLocID": "PLLOC88099",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Piotrkowska 139",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Warszawa",
+          "delivPostCode": "02-001",
+          "delivAddr3": "ul. Piotrkowska 139",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Alto Usługi Administracyjne Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "ul. Piotrkowska 139",
+          "DeliveryCity": "Warszawa",
+          "DeliveryPostalCode": "02-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92099",
+          "OutboundDelivery": "86000200992"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/header",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "PLJ26000900099",
+      "CountryISOCode": "PL",
+      "invNum": "PLJ26000900099",
+      "invoice_id": "PLJ26000900099",
+      "invoice_uuid": "7b8a8fe3-de2d-5f48-b42a-c424a122949a",
+      "invIssueDate": "/Date(1776038400000)/",
+      "payDueDate": "/Date(1777248000000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1776038400000)/",
+      "invCurrCode": "PLN",
+      "taxAccCurr": "PLN",
+      "source_system": "SAP_PL_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-PL-JSON",
+      "notes": [
+        "Business-to-business reverse-charge service",
+        "VAT accounted for by the customer under reverse charge"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "PL83000099",
+      "buyerEndpointIdScheme": "9945",
+      "buyerID": "PL83000099",
+      "buyerIDScheme": "9945",
+      "BuyRef": "PLBUY83099",
+      "purOrdRef": "PO-PL-26-30099",
+      "saleOrdRef": "SO-PL-26-50099",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "ul. Piotrkowska 139",
+      "buyerAddr2": "Building E",
+      "buyerCity": "Warszawa",
+      "buyerPostCode": "02-001",
+      "buyerCountry": "PL",
+      "buyerTaxID": "FR740000099",
+      "buyerName": "Alto Usługi Administracyjne Sp. z o.o. & Regional | Centre",
+      "buyerTradeName": "Alto Operations",
+      "buyerContactTel": "+48 000 100 0099",
+      "buyerContactEmail": "payables099@pl-buyer.example",
+      "DeliveryStreet": "ul. Piotrkowska 139",
+      "DeliveryCity": "Warszawa",
+      "DeliveryPostalCode": "02-001",
+      "DeliveryCountryCode": "PL",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "3772.53",
+      "sumInvLineNetAmt": "3797.00",
+      "AllowanceTotal": "37.97",
+      "ChargeTotal": "13.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "PL20",
+      "TransactionCurrency": "PLN",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900099')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900099')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900099",
+          "ChargeAmount": "13.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900099",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "3",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1557.00",
+          "itemDesc": "Emergency lighting control inspection",
+          "sellerItemID": "PL-SRV-LIGHT-099",
+          "sellerItemID_Text": "Emergency lighting control inspection",
+          "BuyerItemId": "PL-CAT-099-1",
+          "buyerItemID": "PL-CAT-099-1",
+          "Gtin": "5400000200991",
+          "gtin": "5400000200991",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1776038400000)/",
+          "ShipToParty": "PLSHIP92099",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000200991",
+          "BuyersItemIdentification": "PL-CAT-099-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900099",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "2240.00",
+          "itemDesc": "Industrial barcode scanner unit",
+          "sellerItemID": "PL-MAT-SCAN-099",
+          "sellerItemID_Text": "Industrial barcode scanner unit",
+          "BuyerItemId": "PL-CAT-099-2",
+          "buyerItemID": "PL-CAT-099-2",
+          "Gtin": "5400000200992",
+          "gtin": "5400000200992",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1776038400000)/",
+          "ShipToParty": "PLSHIP92099",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000200992",
+          "BuyersItemIdentification": "PL-CAT-099-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900099",
+          "AllowanceAmount": "37.97",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900099",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "3772.53",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "PL",
+          "jurisdiction_region": "Mazowieckie"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/payment",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "PL20",
+          "HouseBank": "UATPL",
+          "HouseBankAccount": "0799",
+          "payAccID": "PL16010901047000000000000099",
+          "Iban": "PL16010901047000000000000099",
+          "Swift": "PBTEPLP1",
+          "payAccName": "Dunaj Technologie Utrzymania S.A.",
+          "BankCountry": "PL",
+          "BankCountry_Text": "Poland"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900099/seller",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900099/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "PL20",
+      "sellerID": "PL72000099",
+      "sellerEndPointIDScheme": "9945",
+      "sellerAddr1": "al. Wyzwolenia 119",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Szczecin",
+      "sellerPostCode": "70-001",
+      "sellerCountryCode": "PL",
+      "sellerName": "Dunaj Technologie Utrzymania S.A.",
+      "sellerTradeName": "Dunaj Industrial",
+      "sellerTaxID": "PL6200000099",
+      "sellerTaxScheme": "VAT",
+      "Iban": "PL16010901047000000000000099",
+      "Swift": "PBTEPLP1",
+      "ContactEmailAddress": "billing099@pl-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+48 000 200 0099",
+      "bank_account": [
+        {
+          "iban": "PL16010901047000000000000099",
+          "swift": "PBTEPLP1",
+          "account_name": "Dunaj Technologie Utrzymania S.A.",
+          "bank_name": "Polski Bank Techniczny"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+48 000 200 0099",
+        "email": "billing099@pl-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-04-13T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_PL_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000002099",
+      "correlation_id": "5ea608b3-87d1-5ca2-bcae-d816c2cd1fce",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_PL_SAP_JSON_V1",
+      "target_platform": "KSeF Poland",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / KSeF",
+      "tax_authority_id": "Krajowa Administracja Skarbowa",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/pl/sap-json/PLJ26000900099",
+      "payload_hash": "e28c89c5e0311c35a65719e1a3915b188a56afc20068695b373826af57323ffc",
+      "source_hash": "f00b9767b1e276f89a50f42bc6d6993e9066f4d1cd34b088619229870e12ba13",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

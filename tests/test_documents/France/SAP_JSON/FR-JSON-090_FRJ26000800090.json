@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800090",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800090",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800090",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Industrial enclosure cooling unit",
+          "AddressID": "FR670901",
+          "actDelivDate": "/Date(1775260800000)/",
+          "delLocID": "FRLOC88090",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard de la Liberté 130",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Toulouse",
+          "delivPostCode": "31000",
+          "delivAddr3": "Boulevard de la Liberté 130",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Bastide Approvisionnement Industriel SARL Receiving Centre",
+          "DeliveryStreet": "Boulevard de la Liberté 130",
+          "DeliveryCity": "Toulouse",
+          "DeliveryPostalCode": "31000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92090",
+          "OutboundDelivery": "86000100901"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800090",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Variable frequency drive replacement unit",
+          "AddressID": "FR670902",
+          "actDelivDate": "/Date(1775260800000)/",
+          "delLocID": "FRLOC88090",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard de la Liberté 130",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Toulouse",
+          "delivPostCode": "31000",
+          "delivAddr3": "Boulevard de la Liberté 130",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Bastide Approvisionnement Industriel SARL Receiving Centre",
+          "DeliveryStreet": "Boulevard de la Liberté 130",
+          "DeliveryCity": "Toulouse",
+          "DeliveryPostalCode": "31000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92090",
+          "OutboundDelivery": "86000100902"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800090",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800090",
+      "invoice_id": "FRJ26000800090",
+      "invoice_uuid": "88d7fb51-0c28-5605-93f3-6f54d3d2fda6",
+      "invIssueDate": "/Date(1775260800000)/",
+      "payDueDate": "/Date(1776470400000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1775260800000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Business-to-business reverse-charge service",
+        "VAT accounted for by the customer under reverse charge"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000090",
+      "buyerEndpointIdScheme": "0002",
+      "buyerID": "FR83000090",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83090",
+      "purOrdRef": "PO-FR-26-30090",
+      "saleOrdRef": "SO-FR-26-50090",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Boulevard de la Liberté 130",
+      "buyerAddr2": "Building A",
+      "buyerCity": "Toulouse",
+      "buyerPostCode": "31000",
+      "buyerCountry": "FR",
+      "buyerTaxID": "PL740000090",
+      "buyerName": "Bastide Approvisionnement Industriel SARL",
+      "buyerTradeName": "Bastide Operations",
+      "buyerContactTel": "+33 000 100 0090",
+      "buyerContactEmail": "payables090@fr-buyer.example",
+      "DeliveryStreet": "Boulevard de la Liberté 130",
+      "DeliveryCity": "Toulouse",
+      "DeliveryPostalCode": "31000",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "1195.97",
+      "sumInvLineNetAmt": "1180.00",
+      "AllowanceTotal": "11.80",
+      "ChargeTotal": "18.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800090')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800090')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800090",
+          "ChargeAmount": "18.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800090",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "366.00",
+          "itemDesc": "Industrial enclosure cooling unit",
+          "sellerItemID": "FR-MAT-COOL-090",
+          "sellerItemID_Text": "Industrial enclosure cooling unit",
+          "BuyerItemId": "FR-CAT-090-1",
+          "buyerItemID": "FR-CAT-090-1",
+          "Gtin": "5400000100901",
+          "gtin": "5400000100901",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1775260800000)/",
+          "ShipToParty": "FRSHIP92090",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000100901",
+          "BuyersItemIdentification": "FR-CAT-090-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800090",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "2",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "814.00",
+          "itemDesc": "Variable frequency drive replacement unit",
+          "sellerItemID": "FR-MAT-VFD-090",
+          "sellerItemID_Text": "Variable frequency drive replacement unit",
+          "BuyerItemId": "FR-CAT-090-2",
+          "buyerItemID": "FR-CAT-090-2",
+          "Gtin": "5400000100902",
+          "gtin": "5400000100902",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1775260800000)/",
+          "ShipToParty": "FRSHIP92090",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000100902",
+          "BuyersItemIdentification": "FR-CAT-090-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800090",
+          "AllowanceAmount": "11.80",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800090",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "1186.70",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0790",
+          "payAccID": "FR4830014200047000000009076",
+          "Iban": "FR4830014200047000000009076",
+          "Swift": "BAIIFRP1",
+          "payAccName": "Estuaire Maintenance Énergétique SARL",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800090/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800090/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000090",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Cours Berriat 110",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Grenoble",
+      "sellerPostCode": "38000",
+      "sellerCountryCode": "FR",
+      "sellerName": "Estuaire Maintenance Énergétique SARL",
+      "sellerTradeName": "Estuaire Industrial",
+      "sellerTaxID": "FR40410000090",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR4830014200047000000009076",
+      "Swift": "BAIIFRP1",
+      "ContactEmailAddress": "billing090@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0090",
+      "bank_account": [
+        {
+          "iban": "FR4830014200047000000009076",
+          "swift": "BAIIFRP1",
+          "account_name": "Estuaire Maintenance Énergétique SARL",
+          "bank_name": "Banque des Activités Industrielles"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0090",
+        "email": "billing090@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-04-04T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001090",
+      "correlation_id": "5a657edc-9629-5a7e-866c-bcc706ba1356",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800090",
+      "payload_hash": "d653aa9d0de03414dc3f7651be34d1b2fe4039c9edb5ea6b071ff7d4e499d5d0",
+      "source_hash": "2fe014fdf89df6f77c9276fd873955b798f92217be60964e7d51952c148cb875",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

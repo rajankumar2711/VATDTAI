@@ -1,0 +1,166 @@
+{
+  "title": "GIDEI Test Automation Framework - Capability Overview",
+  "metadata": {
+    "title": "GIDEI Test Automation Framework - Capability Overview",
+    "subject": "QA Forum - Framework capabilities, tools, architecture and reusability",
+    "creator": "TTT QA",
+    "description": "Brief overview of the GIDEI/VAT DTAI test automation framework for a QA forum recording",
+    "keywords": "QA,automation,Playwright,Python,pytest-bdd,MCP,framework"
+  },
+  "page": {
+    "orientation": "portrait",
+    "margins": { "top": 1, "right": 1, "bottom": 1, "left": 1 }
+  },
+  "sections": [
+    {
+      "children": [
+        { "type": "heading", "level": 1, "text": "GIDEI Test Automation Framework" },
+        { "type": "paragraph", "alignment": "left", "runs": [
+          { "text": "Capability Overview for the QA Forum", "bold": true, "size": 13, "color": "#2E2E9E" }
+        ]},
+        { "type": "paragraph", "runs": [
+          { "text": "A concise walkthrough of the framework: what it tests, the tools behind it, its architecture, how it scales and reuses, its reporting, CI/CD direction, and how quickly it adapts to a new web application.", "italic": true }
+        ]},
+
+        { "type": "heading", "level": 2, "text": "1. Application Overview" },
+        { "type": "paragraph", "text": "GIDEI (Global Insights and Data Enrichment for e-Invoicing) is a module of EY's VAT DTAI (Digital Tax Administration Insights) platform. It is a multi-client, multi-country web application that supports global e-invoicing compliance end to end: ingesting invoice transactions, applying AI-driven detection and suggestions, reconciling data, and surfacing insights through interactive dashboards and reports." },
+        { "type": "paragraph", "text": "Key business modules covered by automation:" },
+        { "type": "paragraph", "text": "Dashboards - interactive PowerBI insights and KPIs.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Data Ingestion and Data Lake - uploading and staging invoice transactions.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Invoice Management - outbound (AR) and inbound (AP) invoice handling.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Detect and Suggest - AI outcomes on invoices with drill-through to detail.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Reconciliation, Reports, and User Management.", "list": { "type": "bullet" } },
+
+        { "type": "heading", "level": 2, "text": "2. Tools and Technology Used" },
+        { "type": "paragraph", "text": "The framework combines a small set of proven, industry-standard tools. Brief descriptions are included for those new to them." },
+        { "type": "table", "widthPercent": 100, "rows": [
+          [ { "text": "Tool / Technology", "shading": "#2E2E9E" }, { "text": "What it is and why we use it", "shading": "#2E2E9E" } ],
+          [ { "text": "Python" }, { "text": "A popular, easy-to-read programming language. It is the core of the framework and brings a very rich library ecosystem (web, API, data, AI), which makes the framework easy to extend." } ],
+          [ { "text": "Playwright" }, { "text": "A modern browser automation tool from Microsoft. It reliably drives Chrome, Edge, Firefox and WebKit, waits for elements automatically, and works well with dynamic apps and embedded content such as PowerBI reports." } ],
+          [ { "text": "pytest + pytest-bdd" }, { "text": "pytest is Python's leading test runner. pytest-bdd adds BDD, so tests are written as plain-English Gherkin (Given / When / Then) that business and QA can read without code knowledge." } ],
+          [ { "text": "Page Object Model (POM)" }, { "text": "A design pattern that keeps each screen's locators and actions in its own class. Tests stay clean and maintenance is minimal when the UI changes." } ],
+          [ { "text": "Allure + custom HTML reports" }, { "text": "Interactive, stakeholder-friendly reports with step detail, screenshots and trends, plus a custom executive summary." } ],
+          [ { "text": "MCP (Model Context Protocol)" }, { "text": "An open standard that lets AI coding assistants securely connect to external tools such as a Playwright browser server. We use MCP tools to accelerate the creation of new test scripts, automatically drafting Page classes, feature files and step definitions that follow the framework's conventions, which the QA engineer then reviews and finalizes." } ],
+          [ { "text": "Supporting libraries" }, { "text": "requests (API testing), pyodbc (backend / database validation), pandas and openpyxl (data-driven testing and Excel output), Jinja2 (report templating)." } ],
+          [ { "text": "Git / GitHub" }, { "text": "Version control and collaboration. The framework is maintained in the TTT QA repository." } ]
+        ]},
+
+        { "type": "heading", "level": 3, "text": "A closer look at Playwright" },
+        { "type": "paragraph", "text": "Playwright is a modern, open-source browser automation tool from Microsoft that powers all UI interactions in the framework. It is fast, reliable, and well suited to today's dynamic web applications. Its key capabilities include:" },
+        { "type": "paragraph", "runs": [ { "text": "Cross-browser and cross-platform: ", "bold": true }, { "text": "one API drives Chromium (Chrome, Edge), Firefox and WebKit on Windows, macOS and Linux." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Auto-waiting: ", "bold": true }, { "text": "it automatically waits for elements to be ready before acting, which sharply reduces flaky tests and manual sleeps." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Resilient locators: ", "bold": true }, { "text": "role, text and label based locators (get_by_role, get_by_text) that stay stable as the UI evolves." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Handles complex UIs: ", "bold": true }, { "text": "iframes, shadow DOM and embedded content such as PowerBI reports, including drill-through navigation." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Rich evidence: ", "bold": true }, { "text": "built-in screenshots, video recording and a trace viewer for fast root-cause analysis of failures." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Network control: ", "bold": true }, { "text": "can intercept, mock and inspect network requests to support API and hybrid checks." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Speed and scale: ", "bold": true }, { "text": "isolated browser contexts, headless execution and parallel runs for fast feedback in CI." } ], "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [ { "text": "Faster authoring: ", "bold": true }, { "text": "a code generator (codegen) records actions into starter scripts, accelerating new test creation." } ], "list": { "type": "bullet" } },
+
+        { "type": "heading", "level": 2, "text": "3. Framework Architecture, Key Features and Capabilities" },
+        { "type": "paragraph", "text": "The framework is layered so that business intent, test logic, and UI details stay cleanly separated." },
+        { "type": "table", "widthPercent": 100, "rows": [
+          [ { "text": "Layer", "shading": "#2E2E9E" }, { "text": "Responsibility", "shading": "#2E2E9E" } ],
+          [ { "text": "Feature layer (.feature)" }, { "text": "Business-readable Gherkin scenarios describing behavior." } ],
+          [ { "text": "Step definitions" }, { "text": "Thin glue that binds each scenario step to page-object actions." } ],
+          [ { "text": "Page Objects (extend BasePage)" }, { "text": "Locators and reusable action wrappers for each screen or module." } ],
+          [ { "text": "Core (conftest)" }, { "text": "Fixtures, browser lifecycle, shared authenticated session, tag-to-marker mapping, screenshot-on-failure, and report hooks." } ],
+          [ { "text": "Configuration" }, { "text": "Externalized settings per environment (QA / UAT / PROD). No hardcoded URLs or secrets." } ],
+          [ { "text": "Utilities and Reports" }, { "text": "Logging, config reader, evidence capture, report generation and cleanup." } ]
+        ]},
+        { "type": "paragraph", "runs": [ { "text": "Key features and capabilities:", "bold": true } ] },
+        { "type": "paragraph", "text": "Human-readable BDD scenarios that double as living documentation.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Low-maintenance POM with role and text based, resilient locators.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Multi-environment execution via a single --env flag, with environment-aware auto-skips (for example UAT-only scenarios).", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Cross-browser support (Chrome, Edge, Firefox, WebKit).", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Shared login session (authenticate once, reuse) to speed up suites.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Tag and marker based selective runs (smoke, regression, priority, module).", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Parallel execution for faster feedback.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Automatic screenshots on failure, per-run logs, video and trace capture.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Handles complex embedded content, including PowerBI dashboards and drill-through navigation.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [
+          { "text": "AI-assisted authoring: ", "bold": true },
+          { "text": "MCP tools help generate new Page classes, feature files and step definitions to the framework's standards, speeding up script creation while the QA engineer stays in control." }
+        ], "list": { "type": "bullet" } },
+
+        { "type": "heading", "level": 2, "text": "4. Scalability and Reusability" },
+        { "type": "paragraph", "runs": [ { "text": "Available today - one framework, three validation types:", "bold": true } ] },
+        { "type": "paragraph", "text": "UI automation - end-to-end browser flows across all modules.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "API automation - service-level checks using requests.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Backend validation - direct database verification using pyodbc.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Test data management - data-driven testing using a dedicated test data folder.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "runs": [
+          { "text": "Why it scales: ", "bold": true },
+          { "text": "the framework is built on Python, which offers a very rich library ecosystem. This means new capabilities can be added within the same framework rather than adopting separate tools, and existing assets (fixtures, base page, reporting) are reused throughout." }
+        ]},
+        { "type": "paragraph", "runs": [
+          { "text": "Reusability is built in: ", "bold": true },
+          { "text": "new modules are added by reusing the shared base page, common steps, fixtures and reporting. Adding coverage is mostly configuration plus a new page object and feature file, so teams onboard quickly and consistently." }
+        ]},
+
+        { "type": "heading", "level": 3, "text": "Future Roadmap" },
+        { "type": "paragraph", "text": "Because Python underpins the framework, the following extensions can be delivered on the same foundation:" },
+        { "type": "table", "widthPercent": 100, "rows": [
+          [ { "text": "Roadmap item", "shading": "#2E2E9E" }, { "text": "Value", "shading": "#2E2E9E" } ],
+          [ { "text": "AI agent validation (deep evaluation)" }, { "text": "Validate AI-driven features and agents for correctness, groundedness, hallucination and consistency, not just UI and data." } ],
+          [ { "text": "RAG evaluation" }, { "text": "Assess retrieval-augmented generation quality (context relevance, faithfulness, answer accuracy) using libraries such as ragas." } ],
+          [ { "text": "CI/CD and scheduled runs" }, { "text": "Complete pipeline integration for automatic runs on every build and nightly regression, with dashboards." } ],
+          [ { "text": "Performance and API load testing" }, { "text": "Add load and response-time checks reusing existing API assets (for example with Python load-testing libraries)." } ],
+          [ { "text": "Accessibility (a11y) checks" }, { "text": "Automated WCAG checks to support inclusive, compliant UIs." } ],
+          [ { "text": "Containerized and cloud-grid execution" }, { "text": "Docker-based, portable runs and cloud browser grids for large-scale parallel execution." } ],
+          [ { "text": "Self-healing and AI-assisted maintenance" }, { "text": "Reduce locator flakiness and maintenance effort using AI-assisted suggestions." } ],
+          [ { "text": "Test management and defect integration" }, { "text": "Link results to tools such as Azure DevOps for traceability and reporting." } ]
+        ]},
+
+        { "type": "heading", "level": 2, "text": "5. Automation Reports" },
+        { "type": "paragraph", "text": "Every run produces clear, shareable evidence:" },
+        { "type": "paragraph", "text": "Allure interactive report with step-by-step detail and trends.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "A consolidated per-run folder containing the report, screenshots, logs, and video.", "list": { "type": "bullet" } },
+        { "type": "paragraph", "text": "Automatic screenshots on failure and gated debug evidence, plus a retention and cleanup utility to keep storage tidy.", "list": { "type": "bullet" } },
+
+        { "type": "heading", "level": 3, "text": "Enterprise Test Report (stakeholder-ready)" },
+        { "type": "paragraph", "runs": [
+          { "text": "The highlight of our reporting is the Enterprise Test Report", "bold": true },
+          { "text": " - a single, polished HTML document written for stakeholders. It presents an executive view of quality alongside module-wise results and full execution detail, so both leadership and QA get what they need from one report. It is organized into ten clear sections:" }
+        ]},
+        { "type": "table", "widthPercent": 100, "rows": [
+          [ { "text": "Section", "shading": "#2E2E9E" }, { "text": "What it shows", "shading": "#2E2E9E" } ],
+          [ { "text": "1. Executive Summary" }, { "text": "Overall pass rate, quality assessment and key highlights at a glance." } ],
+          [ { "text": "2. Scope of Testing" }, { "text": "Application under test, test coverage and exclusions." } ],
+          [ { "text": "3. Test Environment Details" }, { "text": "Environment (QA / UAT), browser and run configuration." } ],
+          [ { "text": "4. Framework and Tooling Overview" }, { "text": "Architecture, key technologies and locator strategy." } ],
+          [ { "text": "5. Test Execution Summary" }, { "text": "Totals of passed / failed / skipped, duration and execution timeline." } ],
+          [ { "text": "6. Module-wise Test Results" }, { "text": "Per-module breakdown with scenario-level pass or fail detail." } ],
+          [ { "text": "7. Failed Test Case Analysis" }, { "text": "Details of any failures to speed up triage." } ],
+          [ { "text": "8. Evidence and Artifacts" }, { "text": "Screenshots, video and generated artifacts with the capture strategy." } ],
+          [ { "text": "9. Logging and Debugging Details" }, { "text": "Logging configuration and per-run logs for root-cause analysis." } ],
+          [ { "text": "10. Recommendations and Next Steps" }, { "text": "Actionable follow-ups and improvement suggestions." } ]
+        ]},
+
+        { "type": "heading", "level": 2, "text": "6. CI/CD and DevOps Integration" },
+        { "type": "paragraph", "text": "The framework is CI-ready by design: it runs headless, selects environments via the --env flag, filters by markers, executes in parallel, and emits machine-readable Allure results for pipeline dashboards." },
+        { "type": "paragraph", "runs": [
+          { "text": "Status: ", "bold": true },
+          { "text": "CI/CD pipeline integration is in progress.", "color": "#B26B00" }
+        ]},
+
+        { "type": "heading", "level": 2, "text": "7. Effort to Customize for a New Web Application" },
+        { "type": "paragraph", "runs": [
+          { "text": "There is very minimal effort to customize the framework for a new web application. ", "bold": true },
+          { "text": "The core (fixtures, base page, utilities, configuration and reporting) is reused unchanged; teams only add a config section, page objects, feature files and step definitions for the new app." }
+        ]},
+        { "type": "paragraph", "text": "There are two ways to adopt it:" },
+        { "type": "paragraph", "runs": [
+          { "text": "Traditional approach: ", "bold": true },
+          { "text": "clone the repository from the TTT QA repo and adapt it to the new application." }
+        ], "list": { "type": "numbered" } },
+        { "type": "paragraph", "runs": [
+          { "text": "Spec-driven approach: ", "bold": true },
+          { "text": "build the project by executing the REUSABLE_FRAMEWORK_AGENT specification file with an AI coding agent. The spec contains only the reusable architecture and templates (no application data), and generates the full framework skeleton automatically." }
+        ], "list": { "type": "numbered" } },
+
+        { "type": "heading", "level": 2, "text": "Summary" },
+        { "type": "paragraph", "text": "The GIDEI framework pairs business-readable BDD with a maintainable Page Object design on top of Playwright and Python. It already covers UI, API and backend validation, produces rich reports, is ready for CI/CD, and is fast to reuse for any new web application either by cloning the TTT QA repo or by generating it from the reusable spec. With Python at its core, it is positioned to grow into AI-agent and RAG evaluation as our testing needs evolve." }
+      ]
+    }
+  ]
+}

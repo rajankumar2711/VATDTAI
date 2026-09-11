@@ -1,6 +1,5 @@
 import logging
 from pageobjects.base_page import BasePage
-from conftest import get_page
 
 # Configure logger for this module
 logger = logging.getLogger(__name__)
@@ -8,8 +7,8 @@ logger = logging.getLogger(__name__)
 
 class VatUserManagementPage(BasePage):
     """
-    Page Object Model for VAT DTAI User Management Module
-    Based on Feature: VAT DTAI User Management - P1 Test Cases
+    Page Object Model for Global Insights And Data Enrichment For e-Invoicing User Management Module
+    Based on Feature: Global Insights And Data Enrichment For e-Invoicing User Management - P1 Test Cases
     Supports role-based access for Admin and Country Owner
     """
     
@@ -75,17 +74,22 @@ class VatUserManagementPage(BasePage):
         self.btn_download_toggle = "[data-id='vatdtai_um_download'] >> button.dropdown-toggle"
         self.download_menu = "[data-id='vatdtai_um_download'] .dropdown-menu"
         
-        # Show Filters button - toggle filters visibility (uses data-id attribute)
-        self.btn_show_filters = "[data-id='btnShowFilterDiv'] >> button"
-        self.btn_show_filters_alt = "[title='Show Filters'] >> button"
+        # Toolbar buttons. The title-based locators are the PRIMARY ones because run analysis
+        # (2026-08-25) showed the data-id wrappers are not present in the live DOM: every
+        # data-id primary click timed out (30s/8s/10s) before falling back to the title
+        # locator that actually works. The data-id form is kept as a defensive fallback in
+        # case a future build restores those wrappers.
+        # Show Filters button - toggle filters visibility.
+        self.btn_show_filters = "[title='Show Filters'] >> button"
+        self.btn_show_filters_alt = "[data-id='btnShowFilterDiv'] >> button"
         
-        # Clear Filters button - clears all filter values (uses data-id attribute)
-        self.btn_clear_filters = "[data-id='btnClearFilterDiv'] >> button"
-        self.btn_clear_filters_alt = "[title='Clear Filters'] >> button"
+        # Clear Filters button - clears all filter values.
+        self.btn_clear_filters = "[title='Clear Filters'] >> button"
+        self.btn_clear_filters_alt = "[data-id='btnClearFilterDiv'] >> button"
         
-        # Reset View button - resets sorting and filters (uses data-id attribute)
-        self.btn_reset_view = "[data-id='btnResetViewDiv'] >> button"
-        self.btn_reset_view_alt = "[title='Reset View'] >> button"
+        # Reset View button - resets sorting and filters.
+        self.btn_reset_view = "[title='Reset View'] >> button"
+        self.btn_reset_view_alt = "[data-id='btnResetViewDiv'] >> button"
         
         # ==========================================
         # PAGINATION CONTROLS

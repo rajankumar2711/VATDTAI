@@ -172,7 +172,7 @@ def step_users_configured_in_gtpit():
     pass
 
 
-@given("users are assigned specific roles in VAT DTAI User Management")
+@given("users are assigned specific roles in Global Insights And Data Enrichment For e-Invoicing User Management")
 def step_users_assigned_roles():
     """Background step: Users have assigned roles"""
     pass
@@ -190,7 +190,6 @@ def step_table_has_multiple_records(get_page: Page, user_management_page: VatUse
 @when("I apply default Name and Role filters")
 @when(parsers.parse("I apply filters on Name {name_filter} and Role {role_filter}"))
 @when(parsers.parse('I apply filters on Name "{name_filter}" and Role "{role_filter}"'))
-@when("I apply filters on Name \"Rajan\" and Role \"Admin\"")
 def step_apply_filters_on_name_and_role(
     get_page: Page,
     user_management_page: VatUserManagementPage,
@@ -264,8 +263,6 @@ def step_access_user_management_module(get_page: Page, user_management_page: Vat
 
 @when(parsers.parse("I click on {column} column header once"))
 @when(parsers.parse('I click on "{column}" column header once'))
-@when("I click on <column> column header once")
-@when("I click on \"<column>\" column header once")
 def step_click_column_header_once(
     get_page: Page,
     user_management_page: VatUserManagementPage,
@@ -304,9 +301,7 @@ def step_click_column_header_again(
     logger.info(f"Column '{column}' clicked for descending sort")
 
 
-@when("I search for <search_value> in <column>")
 @when(parsers.parse("I search for {search_value} in {column}"))
-@when("I enter search criteria <search_value> in <column> field")
 @when(parsers.parse("I enter search criteria {search_value} in {column} field"))
 def step_enter_filter_criteria(
     get_page: Page,
@@ -372,7 +367,6 @@ def step_click_clear_filters_button(get_page: Page, user_management_page: VatUse
         except Exception as exc:
             logger.warning(f"Clear Filters locator '{locator}' failed: {exc}")
     raise AssertionError("Clear Filters button not clickable via primary or alternative locator")
-    logger.info("Clear Filters button clicked successfully")
 
 
 @when("I click Reset Sort button")
@@ -418,8 +412,6 @@ def step_select_rows_using_checkboxes(get_page: Page, user_management_page: VatU
 
 @when(parsers.parse("I click Download button and select {format} format"))
 @when(parsers.parse('I click Download button and select "{format}" format'))
-@when("I click Download button and select <format> format")
-@when("I click Download button and select \"<format>\" format")
 def step_click_download_and_select_format(
     get_page: Page,
     user_management_page: VatUserManagementPage,
@@ -577,8 +569,6 @@ def step_verify_default_sort_by_name(get_page: Page, user_management_page: VatUs
 
 @then(parsers.parse("the table sorts by {column} in ascending order"))
 @then(parsers.parse('the table sorts by "{column}" in ascending order'))
-@then("the table sorts by <column> in ascending order")
-@then("the table sorts by \"<column>\" in ascending order")
 def step_verify_sort_ascending(get_page: Page, user_management_page: VatUserManagementPage, column: str):
     """Verify table is sorted in ascending order by column"""
     logger.info(f"[THEN] Verifying table is sorted by '{column}' in ascending order")
@@ -638,8 +628,6 @@ def step_verify_sort_descending(get_page: Page, user_management_page: VatUserMan
 
 @then(parsers.parse("the table displays only records matching the filter criteria for {column}"))
 @then(parsers.parse('the table displays only records matching the filter criteria for "{column}"'))
-@then("the table displays only records matching the filter criteria for <column>")
-@then("the table displays only records matching the filter criteria for \"<column>\"")
 def step_verify_filter_results(
     get_page: Page,
     user_management_page: VatUserManagementPage,
@@ -762,8 +750,6 @@ def step_verify_sort_reset_to_default(get_page: Page, user_management_page: VatU
 
 @then(parsers.parse("downloaded file contains selected user records in {format} format"))
 @then(parsers.parse('downloaded file contains selected user records in "{format}" format'))
-@then("downloaded file contains selected user records in <format> format")
-@then("downloaded file contains selected user records in \"<format>\" format")
 def step_verify_downloaded_file(get_page: Page, user_management_page: VatUserManagementPage, vat_context: Dict, format: str):
     """Verify the captured download matches the requested format AND its contents contain exactly
     the user records that were selected before downloading."""
