@@ -48,23 +48,23 @@ def vat_context(get_page: Page) -> Dict[str, Any]:
 # SCENARIO DEFINITIONS
 # ==========================================
 
-@scenario("../features/Vat_tile.feature", "Verify DTAI VAT tile is visible under VAT Section")
+@scenario("../features/Vat_tile.feature", "Verify Global Insights And Data Enrichment For e-Invoicing tile is visible under VAT Section")
 def test_smoke_vat_dtai_tile_is_visible():
-    """Verify DTAI VAT tile is visible under VAT Section"""
+    """Verify Global Insights And Data Enrichment For e-Invoicing tile is visible under VAT Section"""
     logger.info("[TEST START] test_smoke_vat_dtai_tile_is_visible")
     pass
 
 
-@scenario("../features/Vat_tile.feature", "Verify DTAI VAT tile launches dashboard")
+@scenario("../features/Vat_tile.feature", "Verify Global Insights And Data Enrichment For e-Invoicing tile launches dashboard")
 def test_smoke_vat_dtai_tile_launches_dashboard():
-    """Verify DTAI VAT tile launches dashboard"""
+    """Verify Global Insights And Data Enrichment For e-Invoicing tile launches dashboard"""
     logger.info("[TEST START] test_smoke_vat_dtai_tile_launches_dashboard")
     pass
 
 
-@scenario("../features/Vat_tile.feature", "Verify user can navigate back to GTP IT homepage from VAT DTAI")
+@scenario("../features/Vat_tile.feature", "Verify user can navigate back to GTP IT homepage from Global Insights And Data Enrichment For e-Invoicing")
 def test_smoke_vat_dtai_back_to_homepage():
-    """Verify user can navigate back to GTP IT homepage from VAT DTAI"""
+    """Verify user can navigate back to GTP IT homepage from Global Insights And Data Enrichment For e-Invoicing"""
     logger.info("[TEST START] test_smoke_vat_dtai_back_to_homepage")
     pass
 
@@ -105,11 +105,11 @@ def step_validate_vat_category_sections(get_page: Page):
     # Check for VAT-related content (could be VAT section, Compliance section, etc.)
     has_vat_content = bool(re.search(r"\bVAT\b", page_text, re.I))
     has_compliance = bool(re.search(r"\bCompliance\b", page_text, re.I))
-    has_dtai = bool(re.search(r"Digital\s+Tax\s+Administration\s+Insights", page_text, re.I))
+    has_dtai = bool(re.search(r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing", page_text, re.I))
     
     logger.info(f"VAT content found: {has_vat_content}")
     logger.info(f"Compliance section found: {has_compliance}")
-    logger.info(f"DTAI content found: {has_dtai}")
+    logger.info(f"App tile content found: {has_dtai}")
     
     assert has_vat_content or has_compliance or has_dtai, \
         "VAT category sections were not found on the page"
@@ -117,29 +117,29 @@ def step_validate_vat_category_sections(get_page: Page):
     logger.info("[OK] VAT category sections validation passed")
 
 
-@then("DTAI VAT tile is visible")
+@then("Global Insights And Data Enrichment For e-Invoicing tile is visible")
 def step_validate_dtai_tile_visible(get_page: Page):
-    """Verify DTAI VAT tile is visible"""
-    logger.info("[THEN] Validating DTAI VAT tile is visible")
+    """Verify Global Insights And Data Enrichment For e-Invoicing tile is visible"""
+    logger.info("[THEN] Validating Global Insights And Data Enrichment For e-Invoicing tile is visible")
     
     page_text = get_page.inner_text("body")
     
-    # Check for DTAI VAT tile text (supports different dash characters)
-    dtai_pattern = r"Digital\s+Tax\s+Administration\s+Insights\s*[-–—]?\s*VAT"
+    # Check for the "Global Insights And Data Enrichment For e-Invoicing" tile text
+    dtai_pattern = r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing"
     has_dtai_tile = bool(re.search(dtai_pattern, page_text, re.I))
     
     assert has_dtai_tile, \
-        "Digital Tax Administration Insights-VAT tile text was not found on the page"
+        "Global Insights And Data Enrichment For e-Invoicing tile text was not found on the page"
     
-    logger.info("[OK] DTAI VAT tile text found on page")
-    logger.info("DTAI VAT tile validation passed")
+    logger.info("[OK] Global Insights And Data Enrichment For e-Invoicing tile text found on page")
+    logger.info("Global Insights And Data Enrichment For e-Invoicing tile validation passed")
 
 
-@when("DTAI VAT tile description is visible")
-@then("DTAI VAT tile description is visible")
+@when("Global Insights And Data Enrichment For e-Invoicing tile description is visible")
+@then("Global Insights And Data Enrichment For e-Invoicing tile description is visible")
 def step_validate_dtai_tile_description(get_page: Page):
-    """Verify DTAI VAT tile description is visible"""
-    logger.info("[THEN/WHEN] Validating DTAI VAT tile description is visible")
+    """Verify Global Insights And Data Enrichment For e-Invoicing tile description is visible"""
+    logger.info("[THEN/WHEN] Validating Global Insights And Data Enrichment For e-Invoicing tile description is visible")
     
     page_text = get_page.inner_text("body")
     
@@ -151,19 +151,18 @@ def step_validate_dtai_tile_description(get_page: Page):
         re.search(r"monitoring.*reporting", page_text, re.I)
     )
     
-    # Description might not always be visible, so we'll make this a soft assertion
-    if has_description:
-        logger.info("[OK] DTAI VAT tile description found")
-    else:
-        logger.warning("[WARNING] DTAI VAT tile description not found (may be expected)")
-    
-    logger.info("DTAI VAT tile description check completed")
+    assert has_description, (
+        "Global Insights And Data Enrichment For e-Invoicing tile description was not found on the page (expected phrasing about "
+        "Autonomous Data Preparation / VAT compliance / e-Invoicing / monitoring & reporting)"
+    )
+    logger.info("[OK] Global Insights And Data Enrichment For e-Invoicing tile description found")
+    logger.info("Global Insights And Data Enrichment For e-Invoicing tile description check completed")
 
 
-@then("VAT DTAI dashboard is displayed")
+@then("Global Insights And Data Enrichment For e-Invoicing dashboard is displayed")
 def step_validate_dashboard_displayed(get_page: Page, vat_context: Dict):
-    """Verify VAT DTAI dashboard is displayed after clicking tile"""
-    logger.info("[THEN] Validating VAT DTAI dashboard is displayed")
+    """Verify Global Insights And Data Enrichment For e-Invoicing dashboard is displayed after clicking tile"""
+    logger.info("[THEN] Validating Global Insights And Data Enrichment For e-Invoicing dashboard is displayed")
     
     # Wait for dashboard to load
     get_page.wait_for_timeout(5000)
@@ -171,17 +170,17 @@ def step_validate_dashboard_displayed(get_page: Page, vat_context: Dict):
     launch_page = vat_context.get("launch_page")
     if launch_page:
         is_launched = launch_page.verify_dtai_app_launched()
-        assert is_launched, "VAT DTAI dashboard was not displayed after clicking tile"
+        assert is_launched, "Global Insights And Data Enrichment For e-Invoicing dashboard was not displayed after clicking tile"
         logger.info("[OK] Dashboard verified via launch_page object")
     else:
         # Fallback verification
         page_text = get_page.inner_text("body")
         has_dashboard = bool(re.search(r"\bDashboard\b", page_text, re.I))
-        assert has_dashboard, "Dashboard text was not found after launching DTAI VAT"
+        assert has_dashboard, "Dashboard text was not found after launching Global Insights And Data Enrichment For e-Invoicing"
         logger.info("[OK] Dashboard verified via page text")
     
     logger.info(f"Dashboard displayed. Current URL: {get_page.url}")
-    logger.info("VAT DTAI dashboard validation passed")
+    logger.info("Global Insights And Data Enrichment For e-Invoicing dashboard validation passed")
 
 
 @then("User is redirected to GTP IT homepage without re-authentication")
@@ -203,12 +202,12 @@ def step_validate_redirected_to_homepage(get_page: Page):
     assert state != "login", "User was asked to re-authenticate (should not happen)"
     assert state == "home", "User was not redirected to GTP IT homepage"
     
-    # Verify DTAI VAT tile is visible again
+    # Verify the app tile is visible again
     page_text = get_page.inner_text("body")
-    dtai_pattern = r"Digital\s+Tax\s+Administration\s+Insights"
+    dtai_pattern = r"Global\s+Insights\s+And\s+Data\s+Enrichment\s+For\s+e-?Invoicing"
     has_dtai_tile = bool(re.search(dtai_pattern, page_text, re.I))
     
-    assert has_dtai_tile, "DTAI VAT tile was not visible after navigating back to homepage"
+    assert has_dtai_tile, "Global Insights And Data Enrichment For e-Invoicing tile was not visible after navigating back to homepage"
     
     logger.info(f"[OK] Successfully redirected to homepage. Current URL: {get_page.url}")
     logger.info("Homepage redirect validation passed")

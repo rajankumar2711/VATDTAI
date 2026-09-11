@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800057",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800057",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800057",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Rotating equipment vibration assessment",
+          "AddressID": "FR670571",
+          "actDelivDate": "/Date(1772409600000)/",
+          "delLocID": "FRLOC88057",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Cours Berriat 97",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Dijon",
+          "delivPostCode": "21000",
+          "delivAddr3": "Cours Berriat 97",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Dauphiné Gestion Technique SAS Receiving Centre",
+          "DeliveryStreet": "Cours Berriat 97",
+          "DeliveryCity": "Dijon",
+          "DeliveryPostalCode": "21000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92057",
+          "OutboundDelivery": "86000100571"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800057",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Scheduled regional delivery service",
+          "AddressID": "FR670572",
+          "actDelivDate": "/Date(1772409600000)/",
+          "delLocID": "FRLOC88057",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Cours Berriat 97",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Dijon",
+          "delivPostCode": "21000",
+          "delivAddr3": "Cours Berriat 97",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Dauphiné Gestion Technique SAS Receiving Centre",
+          "DeliveryStreet": "Cours Berriat 97",
+          "DeliveryCity": "Dijon",
+          "DeliveryPostalCode": "21000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92057",
+          "OutboundDelivery": "86000100572"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800057",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800057",
+      "invoice_id": "FRJ26000800057",
+      "invoice_uuid": "b7fbe072-6f4d-5919-8a76-c9b530c28dd0",
+      "invIssueDate": "/Date(1772409600000)/",
+      "payDueDate": "/Date(1773619200000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1772409600000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Qualifying exempt service",
+        "Exempt treatment under applicable VAT provision"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000057",
+      "buyerEndpointIdScheme": "0002",
+      "buyerID": "FR83000057",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83057",
+      "purOrdRef": "PO-FR-26-30057",
+      "saleOrdRef": "SO-FR-26-50057",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Cours Berriat 97",
+      "buyerAddr2": "Building C",
+      "buyerCity": "Dijon",
+      "buyerPostCode": "21000",
+      "buyerCountry": "FR",
+      "buyerTaxID": "FR37410000157",
+      "buyerName": "Dauphiné Gestion Technique SAS & Regional | Centre",
+      "buyerTradeName": "Dauphiné Operations",
+      "buyerContactTel": "+33 000 100 0057",
+      "buyerContactEmail": "payables057@fr-buyer.example",
+      "DeliveryStreet": "Cours Berriat 97",
+      "DeliveryCity": "Dijon",
+      "DeliveryPostalCode": "21000",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "V9",
+      "CanonicalTaxCategoryCode": "E",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "3338.28",
+      "sumInvLineNetAmt": "3349.00",
+      "AllowanceTotal": "33.49",
+      "ChargeTotal": "13.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800057')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800057')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800057",
+          "ChargeAmount": "13.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800057",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "3",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1365.00",
+          "itemDesc": "Rotating equipment vibration assessment",
+          "sellerItemID": "FR-SRV-VIB-057",
+          "sellerItemID_Text": "Rotating equipment vibration assessment",
+          "BuyerItemId": "FR-CAT-057-1",
+          "buyerItemID": "FR-CAT-057-1",
+          "Gtin": "5400000100571",
+          "gtin": "5400000100571",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "V9",
+          "CanonicalTaxCategoryCode": "E",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1772409600000)/",
+          "ShipToParty": "FRSHIP92057",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000100571",
+          "BuyersItemIdentification": "FR-CAT-057-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800057",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "1984.00",
+          "itemDesc": "Scheduled regional delivery service",
+          "sellerItemID": "FR-SRV-DELIV-057",
+          "sellerItemID_Text": "Scheduled regional delivery service",
+          "BuyerItemId": "FR-CAT-057-2",
+          "buyerItemID": "FR-CAT-057-2",
+          "Gtin": "5400000100572",
+          "gtin": "5400000100572",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "V9",
+          "CanonicalTaxCategoryCode": "E",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1772409600000)/",
+          "ShipToParty": "FRSHIP92057",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000100572",
+          "BuyersItemIdentification": "FR-CAT-057-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800057",
+          "AllowanceAmount": "33.49",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800057",
+          "taxCatCode": "V9",
+          "CanonicalTaxCategoryCode": "E",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "3329.01",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "VATEX-EU-O",
+          "exemption_reason_text": "Transaction exempt under applicable VAT provision",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0757",
+          "payAccID": "FR4430011200017000000005774",
+          "Iban": "FR4430011200017000000005774",
+          "Swift": "CAETFRP1",
+          "payAccName": "Beaumont Systèmes Techniques SARL",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800057/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800057/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000057",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Avenue des Minimes 77",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Toulouse",
+      "sellerPostCode": "31000",
+      "sellerCountryCode": "FR",
+      "sellerName": "Beaumont Systèmes Techniques SARL",
+      "sellerTradeName": "Beaumont Industrial",
+      "sellerTaxID": "FR77410000057",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR4430011200017000000005774",
+      "Swift": "CAETFRP1",
+      "ContactEmailAddress": "billing057@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0057",
+      "bank_account": [
+        {
+          "iban": "FR4430011200017000000005774",
+          "swift": "CAETFRP1",
+          "account_name": "Beaumont Systèmes Techniques SARL",
+          "bank_name": "Crédit Atlantique Entreprises"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0057",
+        "email": "billing057@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-03-02T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001057",
+      "correlation_id": "f3de566e-ea29-5db4-bc8e-3dbc97044060",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800057",
+      "payload_hash": "fc78892d7e59ca54d726fdb372154adf008af8c9c3f9edd33369126d7b6c44a1",
+      "source_hash": "d9322c47fb18137cc14e67dfbf5e0398443fcdd2a7f17b5d393168a12975d323",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

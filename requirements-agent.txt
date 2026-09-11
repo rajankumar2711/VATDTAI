@@ -1,0 +1,21 @@
+# e-Invoice validation-agent testing dependencies
+# (quarantined under agent-quarantine/: einvoice-agent-testing/,
+#  einvoice_agent_e2e.py, agent_step_defs_archived.py).
+# NOT required by the active Playwright/pytest-bdd UI suite - install only when
+# working on the agent E2E flow:  pip install -r requirements-agent.txt
+azure-functions
+azure-devops
+grpcio
+grpcio-health-checking
+grpcio-tools
+grpcio-reflection
+protobuf
+xlsxwriter
+xlrd
+matplotlib
+pyodbc
+ragas
+httpx
+langchain_community
+sentence-transformers
+openai

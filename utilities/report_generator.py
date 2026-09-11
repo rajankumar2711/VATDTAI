@@ -18,13 +18,59 @@ logger = logging.getLogger(__name__)
 
 class TestReportGenerator:
     """Generate comprehensive test execution reports"""
+
+    MODULE_DISPLAY_NAMES = {
+        "test_tile": "App Tile / Launch",
+        "test_user_management": "User Management",
+        "test_data_ingestion": "Data Ingestion",
+        "test_data_lake_ip": "Data Lake IP",
+        "test_invoice_management": "Invoice Management",
+        "test_reconciliation": "Reconciliation",
+        "test_reports": "Reports",
+    }
+
+    def _friendly_module_name(self, module_path: str) -> str:
+        """Map a test-file path/nodeid to a business-friendly module name."""
+        from pathlib import Path as _Path
+        stem = _Path(str(module_path)).stem
+        if stem in self.MODULE_DISPLAY_NAMES:
+            return self.MODULE_DISPLAY_NAMES[stem]
+        if stem.startswith("test_"):
+            stem = stem[len("test_"):]
+        return stem.replace("_", " ").strip().title() or str(module_path)
+
+    def _relativize(self, url: str) -> str:
+        """Reduce an absolute file:// evidence URL to a path relative to the run
+        folder (e.g. traces/... or videos/...) so links survive the folder move."""
+        if not url:
+            return None
+        for marker in ("/traces/", "/videos/"):
+            idx = url.find(marker)
+            if idx != -1:
+                return url[idx + 1:]
+        return url
+
+    def _humanize_scenario(self, test_name: str) -> str:
+        """Turn a pytest node/function name into a readable scenario label."""
+        name = str(test_name)
+        params = ""
+        if "[" in name and name.endswith("]"):
+            base, params = name.split("[", 1)
+            params = " [" + params
+            name = base
+        if name.startswith("test_"):
+            name = name[len("test_"):]
+        return (name.replace("_", " ").strip().capitalize() + params).strip()
+
     
     def __init__(self, config, test_results: List[Dict], 
-                 total_duration: float, environment: str = "QA"):
+                 total_duration: float, environment: str = "QA",
+                 related_links: Dict[str, str] = None):
         self.config = config
         self.test_results = test_results
         self.total_duration = total_duration
         self.environment = environment
+        self.related_links = related_links or {}
         self.execution_timestamp = datetime.now()
         
     def generate_report(self, output_path: Path) -> str:
@@ -142,9 +188,9 @@ class TestReportGenerator:
     {self._get_styles()}
 </head>
 <body>
-    {self._build_header()}
+    {self._build_header(modules)}
     {self._build_executive_summary(stats, quality)}
-    {self._build_scope_section()}
+    {self._build_scope_section(modules)}
     {self._build_environment_section()}
     {self._build_framework_section()}
     {self._build_execution_summary(stats)}
@@ -180,6 +226,8 @@ class TestReportGenerator:
         }
         .header h1 { font-size: 32px; margin-bottom: 8px; }
         .header-meta { font-size: 14px; opacity: 0.95; }
+        .header-links { font-size: 13px; margin-top: 10px; opacity: 0.95; }
+        .header-links a { color: #fff; text-decoration: underline; }
         
         /* Section */
         .section { 
@@ -375,18 +423,40 @@ class TestReportGenerator:
         }
     </style>"""
     
-    def _build_header(self) -> str:
+    def _build_header(self, modules: List[Dict[str, Any]] = None) -> str:
         """Build report header"""
+        module_names = [self._friendly_module_name(m["name"]) for m in (modules or [])]
+        if not module_names:
+            module_label = "Test Suite"
+        elif len(module_names) == 1:
+            module_label = f"{module_names[0]} Module"
+        else:
+            module_label = ", ".join(module_names) + " Modules"
+        link_specs = [
+            ("Detailed HTML", self.related_links.get("detailed")),
+            ("Allure", self.related_links.get("allure")),
+            ("Allure (single-file)", self.related_links.get("allure_single")),
+            ("Run log", self.related_links.get("run_log")),
+        ]
+        link_bits = [
+            f"<a href='{html_escape(url)}'>{html_escape(label)}</a>"
+            for label, url in link_specs if url
+        ]
+        links_line = (
+            f"""
+            <div class="header-links">Related artifacts: {' | '.join(link_bits)}</div>"""
+            if link_bits else ""
+        )
         return f"""
     <div class="header">
         <div class="container">
             <h1>🎯 AUTOMATION TEST EXECUTION REPORT</h1>
             <div class="header-meta">
-                <strong>VAT DTAI - User Management Module</strong> | 
+                <strong>Global Insights And Data Enrichment For e-Invoicing - {html_escape(module_label)}</strong> | 
                 Environment: {self.environment} | 
                 Execution Date: {self.execution_timestamp.strftime('%B %d, %Y %H:%M:%S')} | 
                 Framework: Playwright + Python + Pytest-BDD
-            </div>
+            </div>{links_line}
         </div>
     </div>
     <div class="container">"""
@@ -469,35 +539,69 @@ class TestReportGenerator:
         
         return "<ul>" + "".join(f"<li>{h}</li>" for h in highlights) + "</ul>"
     
-    def _build_scope_section(self) -> str:
-        """Build scope of testing section"""
+    def _build_scope_section(self, modules: List[Dict[str, Any]] = None) -> str:
+        """Build scope of testing section (driven by actual execution results)."""
+        modules = modules or []
+
+        # Modules actually exercised in this run
+        if modules:
+            module_names = [self._friendly_module_name(m["name"]) for m in modules]
+            module_label = "Modules Under Test" if len(module_names) > 1 else "Module Under Test"
+            modules_value = html_escape(", ".join(module_names))
+        else:
+            module_label = "Modules Under Test"
+            modules_value = "No modules executed"
+
+        # Per-module coverage with executed scenario names
+        coverage_blocks = []
+        if modules:
+            for m in modules:
+                friendly = html_escape(self._friendly_module_name(m["name"]))
+                header = (
+                    f"<p style=\"margin-top:12px;\"><strong>{friendly}</strong> &mdash; "
+                    f"{m['total']} scenario(s) "
+                    f"({m['passed']} passed, {m['failed']} failed, {m['skipped']} skipped)</p>"
+                )
+                items = []
+                for t in m.get("tests", []):
+                    outcome = t.get("outcome", "")
+                    icon = "✅" if outcome == "passed" else ("❌" if outcome == "failed" else "⏭️")
+                    label = html_escape(self._humanize_scenario(t.get("test_name", t.get("nodeid", ""))))
+                    items.append(f"<li>{icon} {label}</li>")
+                items_html = "".join(items) if items else "<li>No scenarios recorded</li>"
+                coverage_blocks.append(f"{header}\n        <ul>{items_html}</ul>")
+            coverage_html = "\n        ".join(coverage_blocks)
+        else:
+            coverage_html = "<p>No test coverage recorded for this run.</p>"
+
+        # Configured browser for the cross-browser exclusion note
+        try:
+            from utilities.read_properties import Read_Configurations
+            browser = Read_Configurations.get_value("browser") or "the configured browser"
+        except Exception:
+            browser = "the configured browser"
+
         return f"""
     <div class="section">
         <h2 class="section-title">2. SCOPE OF TESTING</h2>
         
         <h3 class="section-subtitle">Application Under Test</h3>
         <ul>
-            <li><strong>Application:</strong> VAT DTAI (Digital Tax Administration Insights)</li>
-            <li><strong>Module:</strong> User Management</li>
+            <li><strong>Application:</strong> Global Insights And Data Enrichment For e-Invoicing</li>
+            <li><strong>{module_label}:</strong> {modules_value}</li>
             <li><strong>Environment:</strong> {self.environment}</li>
             <li><strong>Test Type:</strong> Functional, Regression, UI Automation</li>
         </ul>
         
         <h3 class="section-subtitle">Test Coverage</h3>
-        <ul>
-            <li>✅ Role-based access control (Admin, Country Owner)</li>
-            <li>✅ Data sorting and filtering operations</li>
-            <li>✅ Bulk selection functionality</li>
-            <li>✅ View management (Clear Filters, Reset View)</li>
-            <li>✅ Table interactions and navigation</li>
-        </ul>
+        {coverage_html}
         
         <h3 class="section-subtitle">Exclusions</h3>
         <ul>
             <li>❌ API-level testing (separate test suite)</li>
             <li>❌ Performance and load testing</li>
             <li>❌ Security penetration testing</li>
-            <li>❌ Cross-browser compatibility (Chromium only in this run)</li>
+            <li>❌ Cross-browser compatibility ({html_escape(browser)} only in this run)</li>
             <li>❌ Mobile responsive design validation</li>
         </ul>
     </div>"""
@@ -651,6 +755,51 @@ class TestReportGenerator:
                 <td><span class="status-badge status-{'passed' if module['failed'] == 0 else 'failed'}">{module['pass_rate']:.1f}%</span></td>
             </tr>"""
         
+        detail_blocks = ""
+        for module in modules:
+            friendly = html_escape(self._friendly_module_name(module["name"]))
+            test_rows = ""
+            for test in module["tests"]:
+                scenario = html_escape(
+                    self._humanize_scenario(test.get("test_name") or test.get("nodeid", ""))
+                )
+                outcome = str(test.get("outcome", "")).lower()
+                badge = outcome if outcome in ("passed", "failed", "skipped") else "skipped"
+                duration = test.get("duration", 0.0)
+                trace_rel = self._relativize(test.get("trace_url"))
+                video_rel = self._relativize(test.get("video_url"))
+                trace = (
+                    f"<a href='{html_escape(trace_rel)}' target='_blank'>Trace</a>"
+                    if trace_rel else "-"
+                )
+                video = (
+                    f"<a href='{html_escape(video_rel)}' target='_blank'>Video</a>"
+                    if video_rel else "-"
+                )
+                test_rows += f"""
+                <tr>
+                    <td>{scenario}</td>
+                    <td><span class="status-badge status-{badge}">{outcome.title()}</span></td>
+                    <td>{duration:.2f}s</td>
+                    <td>{trace}</td>
+                    <td>{video}</td>
+                </tr>"""
+            detail_blocks += f"""
+        <h3 class="section-subtitle">{friendly} - Scenario Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Status</th>
+                    <th>Duration</th>
+                    <th>Trace</th>
+                    <th>Video</th>
+                </tr>
+            </thead>
+            <tbody>{test_rows}
+            </tbody>
+        </table>"""
+
         return f"""
     <div class="section">
         <h2 class="section-title">6. MODULE-WISE TEST RESULTS</h2>
@@ -671,6 +820,7 @@ class TestReportGenerator:
                 {module_rows}
             </tbody>
         </table>
+        {detail_blocks}
     </div>"""
     
     def _build_failed_analysis(self, failed_tests: List[Dict]) -> str:

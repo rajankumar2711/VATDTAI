@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800083",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800083",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800083",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Motor protection circuit component",
+          "AddressID": "FR670831",
+          "actDelivDate": "/Date(1774656000000)/",
+          "delLocID": "FRLOC88083",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue de Charenton 123",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Grenoble",
+          "delivPostCode": "38000",
+          "delivAddr3": "Rue de Charenton 123",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Escale Gestion Technique SARL Receiving Centre",
+          "DeliveryStreet": "Rue de Charenton 123",
+          "DeliveryCity": "Grenoble",
+          "DeliveryPostalCode": "38000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92083",
+          "OutboundDelivery": "86000100831"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800083",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Technical compliance configuration workshop",
+          "AddressID": "FR670832",
+          "actDelivDate": "/Date(1774656000000)/",
+          "delLocID": "FRLOC88083",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue de Charenton 123",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Grenoble",
+          "delivPostCode": "38000",
+          "delivAddr3": "Rue de Charenton 123",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Escale Gestion Technique SARL Receiving Centre",
+          "DeliveryStreet": "Rue de Charenton 123",
+          "DeliveryCity": "Grenoble",
+          "DeliveryPostalCode": "38000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92083",
+          "OutboundDelivery": "86000100832"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800083",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800083",
+      "invoice_id": "FRJ26000800083",
+      "invoice_uuid": "e52024cb-81d2-5d20-a3f3-120e49ad7bc6",
+      "invIssueDate": "/Date(1774656000000)/",
+      "payDueDate": "/Date(1778544000000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1774656000000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Business-to-business reverse-charge service",
+        "VAT accounted for by the customer under reverse charge"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000083",
+      "buyerEndpointIdScheme": "0002",
+      "buyerID": "FR83000083",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83083",
+      "purOrdRef": "PO-FR-26-30083",
+      "saleOrdRef": "SO-FR-26-50083",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Rue de Charenton 123",
+      "buyerAddr2": "Building D",
+      "buyerCity": "Grenoble",
+      "buyerPostCode": "38000",
+      "buyerCountry": "FR",
+      "buyerTaxID": "PL740000083",
+      "buyerName": "Escale Gestion Technique SARL",
+      "buyerTradeName": "Escale Operations",
+      "buyerContactTel": "+33 000 100 0083",
+      "buyerContactEmail": "payables083@fr-buyer.example",
+      "DeliveryStreet": "Rue de Charenton 123",
+      "DeliveryCity": "Grenoble",
+      "DeliveryPostalCode": "38000",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "842.54",
+      "sumInvLineNetAmt": "823.00",
+      "AllowanceTotal": "8.23",
+      "ChargeTotal": "18.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800083')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800083')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800083",
+          "ChargeAmount": "18.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800083",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "247.00",
+          "itemDesc": "Motor protection circuit component",
+          "sellerItemID": "FR-MAT-MOTOR-083",
+          "sellerItemID_Text": "Motor protection circuit component",
+          "BuyerItemId": "FR-CAT-083-1",
+          "buyerItemID": "FR-CAT-083-1",
+          "Gtin": "5400000100831",
+          "gtin": "5400000100831",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1774656000000)/",
+          "ShipToParty": "FRSHIP92083",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000100831",
+          "BuyersItemIdentification": "FR-CAT-083-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800083",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "2",
+          "invoicedQtyUOM": "DAY",
+          "invLineNetAmt": "576.00",
+          "itemDesc": "Technical compliance configuration workshop",
+          "sellerItemID": "FR-SRV-COMP-083",
+          "sellerItemID_Text": "Technical compliance configuration workshop",
+          "BuyerItemId": "FR-CAT-083-2",
+          "buyerItemID": "FR-CAT-083-2",
+          "Gtin": "5400000100832",
+          "gtin": "5400000100832",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1774656000000)/",
+          "ShipToParty": "FRSHIP92083",
+          "BillingQuantityUnit": "DAY",
+          "StandardItemIdentification": "5400000100832",
+          "BuyersItemIdentification": "FR-CAT-083-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800083",
+          "AllowanceAmount": "8.23",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800083",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "833.27",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "VATEX-EU-AE",
+          "exemption_reason_text": "VAT accounted for by the customer",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0783",
+          "payAccID": "FR0830012200027000000008355",
+          "Iban": "FR0830012200027000000008355",
+          "Swift": "BRRHFRP1",
+          "payAccName": "Clairmont Systèmes Techniques SA",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800083/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800083/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000083",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Boulevard de la Liberté 103",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Rennes",
+      "sellerPostCode": "35000",
+      "sellerCountryCode": "FR",
+      "sellerName": "Clairmont Systèmes Techniques SA",
+      "sellerTradeName": "Clairmont Industrial",
+      "sellerTaxID": "FR33410000083",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR0830012200027000000008355",
+      "Swift": "BRRHFRP1",
+      "ContactEmailAddress": "billing083@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0083",
+      "bank_account": [
+        {
+          "iban": "FR0830012200027000000008355",
+          "swift": "BRRHFRP1",
+          "account_name": "Clairmont Systèmes Techniques SA",
+          "bank_name": "Banque Régionale du Rhône"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0083",
+        "email": "billing083@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-03-28T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001083",
+      "correlation_id": "685b0c7c-5764-5aa3-bce3-24262107cf78",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800083",
+      "payload_hash": "38f803e9dae076bad42356ffdf9415cc79f856f7710abe589f5b6648aa24cd20",
+      "source_hash": "474aba16cf9f6b012c531053f24bba5de7006aace13a268d568c8bb72eac58e9",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

@@ -2,6 +2,7 @@
 import logging
 from pageobjects.base_page import BasePage
 from conftest import get_page
+from utilities import evidence
 
 # Configure logger for this module
 logger = logging.getLogger(__name__)
@@ -9,8 +10,8 @@ logger = logging.getLogger(__name__)
 
 class LaunchAppPage(BasePage):
     """
-    Page Object Model for VAT DTAI Application Launch Flow
-    Handles login, workspace selection, and VAT DTAI app navigation
+    Page Object Model for Global Insights And Data Enrichment For e-Invoicing Application Launch Flow
+    Handles login, workspace selection, and Global Insights And Data Enrichment For e-Invoicing app navigation
     """
     
     def __init__(self, get_page):
@@ -82,27 +83,27 @@ class LaunchAppPage(BasePage):
         # Locator for "VAT Category" section
         self.heading_vat_category = "text=/VAT.*Category/i"
         
-        # Locator for "Digital Tax Administration Insights-VAT" tile/card
-        # Supports multiple text variations with different dashes
-        self.tile_dtai_vat = "text=/Digital\\s+Tax\\s+Administration\\s+Insights.*VAT/i"
+        # Locator for the "Global Insights And Data Enrichment For e-Invoicing" tile/card
+        # (GTP IT rebrand of the former "Digital Tax Administration Insights - VAT" tile)
+        self.tile_dtai_vat = "text=/Global\\s+Insights\\s+And\\s+Data\\s+Enrichment\\s+For\\s+e-?Invoicing/i"
         
-        # Alternative locators for DTAI VAT tile
-        self.tile_dtai_vat_exact = "text=Digital Tax Administration Insights-VAT"
-        self.tile_dtai_vat_ndash = "text=Digital Tax Administration Insights – VAT"
-        self.tile_dtai_vat_mdash = "text=Digital Tax Administration Insights—VAT"
+        # Alternative exact-text locators for the tile
+        self.tile_dtai_vat_exact = "text=Global Insights And Data Enrichment For e-Invoicing"
+        self.tile_dtai_vat_ndash = "text=Global Insights And Data Enrichment For e-Invoicing"
+        self.tile_dtai_vat_mdash = "text=Global Insights And Data Enrichment For e-Invoicing"
         
-        # Locator for clickable DTAI tile container (card/button)
+        # Locator for clickable tile container (card/button)
         # Use when tile text alone is not clickable
-        self.card_dtai_vat = "a:has-text('Digital Tax Administration Insights'), button:has-text('Digital Tax Administration Insights')"
+        self.card_dtai_vat = "a:has-text('Global Insights And Data Enrichment For e-Invoicing'), button:has-text('Global Insights And Data Enrichment For e-Invoicing')"
         
-        # Locator for DTAI tile description text
-        self.text_dtai_description = "text=/VAT compliance.*monitoring.*reporting/i"
+        # Locator for the tile description text
+        self.text_dtai_description = "text=/Autonomous\\s+Data\\s+Preparation\\s+for\\s+Global\\s+e-?Invoicing/i"
         
         # ==========================================
         # POST-LAUNCH LOCATORS (DTAI APP HEADER)
         # ==========================================
         # Locator for DTAI main page header
-        self.heading_dtai_main = "role=heading[level=3][name='Digital Tax Administration Insights']"
+        self.heading_dtai_main = "role=heading[name=/Global Insights And Data Enrichment For e-?Invoicing/i]"
         
         # Locator for breadcrumb "DTAI VAT" link (confirms app launched)
         self.breadcrumb_dtai_vat = "role=link[name='DTAI VAT']"
@@ -126,50 +127,73 @@ class LaunchAppPage(BasePage):
         # UTILITY METHODS
         # ==========================================
     
+    def _click_first_present(self, locators, timeout: int = 8000):
+        """Click the first visible locator from the list; returns the one clicked or None."""
+        for loc in locators:
+            try:
+                el = self.page.locator(loc).first
+                if el.count() > 0 and el.is_visible():
+                    el.click(timeout=timeout)
+                    return loc
+            except Exception:
+                continue
+        return None
+
+    def _select_ey_employee_if_present(self):
+        """UAT EY SSO landing asks to choose account type before the credential form.
+        No-op in QA where this option is absent."""
+        clicked = self._click_first_present([
+            "text=I am EY employee",
+            "role=button[name=/EY employee/i]",
+            "role=link[name=/EY employee/i]",
+            "button:has-text('EY employee')",
+            "a:has-text('EY employee')",
+        ], timeout=5000)
+        if clicked:
+            logger.info(f"[login] Selected 'I am EY employee' via {clicked}")
+            self.page.wait_for_timeout(2500)
+        return clicked
+
     def login_with_credentials(self, username: str, password: str):
         """
-        Perform login with username and password
-        
+        Perform login with username and password.
+
+        Works for both environments: QA (text-input login form) and UAT
+        (EY SSO 'I am EY employee' -> Microsoft login form). Selectors are
+        supersets so the QA path is unchanged while UAT is additionally handled.
+
         Args:
             username: User email/username
             password: User password
         """
-        # Wait for login page to load
-        self.wait_for_element_visible("input[type='text']:visible")
-        
-        # Enter username
-        self.page.locator(self.input_username).fill(username)
-        
-        # Click Sign In / Next button
-        sign_in_buttons = [self.btn_sign_in, self.btn_login, self.btn_log_in]
-        for btn_locator in sign_in_buttons:
-            btn = self.page.locator(btn_locator)
-            if btn.count() > 0:
-                btn.click()
-                break
-        
-        # Wait for password field and enter password
-        self.page.wait_for_timeout(1000)
-        password_field = self.page.locator(self.input_password)
-        if password_field.count() == 0:
-            password_field = self.page.locator(self.input_password_alt)
-        password_field.fill(password)
-        
-        # Click Sign In button again
-        for btn_locator in sign_in_buttons:
-            btn = self.page.locator(btn_locator)
-            if btn.count() > 0:
-                btn.click()
-                break
-        
-        # Handle "Stay signed in?" prompt if appears
-        self.page.wait_for_timeout(1000)
-        no_btn = self.page.locator(self.btn_stay_signed_in_no)
-        skip_btn = self.page.locator(self.btn_stay_signed_in_skip)
-        if no_btn.count() > 0:
-            no_btn.click()
-        elif skip_btn.count() > 0:
-            skip_btn.click()
+        # UAT SSO account-type landing (harmless/no-op in QA).
+        self._select_ey_employee_if_present()
+
+        # Username field: QA uses text inputs; UAT/Microsoft uses input[type=email]/loginfmt.
+        user_sel = "input[type='email'], input[name='loginfmt'], #i0116, input[type='text']:visible"
+        self.page.wait_for_selector(user_sel, state="visible", timeout=60000)
+        self.page.locator(user_sel).first.fill(username)
+
+        # Next / Sign In (role-based first for QA, then Microsoft submit button ids).
+        sign_in_buttons = [self.btn_sign_in, self.btn_login, self.btn_log_in,
+                           "#idSIButton9", "input[type='submit']"]
+        self._click_first_present(sign_in_buttons)
+
+        # Password field: prefer a real password input; fall back to the QA 2nd text input.
+        self.page.wait_for_timeout(1500)
+        pwd_sel = "input[type='password'], input[name='passwd'], #i0118"
+        if self.page.locator(pwd_sel).count() == 0:
+            pwd_sel = self.input_password
+        self.page.wait_for_selector(pwd_sel, state="visible", timeout=30000)
+        self.page.locator(pwd_sel).first.fill(password)
+
+        # Submit credentials.
+        self._click_first_present(sign_in_buttons)
+
+        # 'Stay signed in?' prompt: dismiss with No/Skip so nothing persists.
+        self.page.wait_for_timeout(1500)
+        self._click_first_present([self.btn_stay_signed_in_no, self.btn_stay_signed_in_skip, "#idBtn_Back"],
+                                  timeout=4000)
     
     def select_workspace_and_continue(self, workspace_name: str = "Client Belgium"):
         """
@@ -258,18 +282,29 @@ class LaunchAppPage(BasePage):
             self.page.wait_for_timeout(500)
         
         if continue_btn.count() == 0:
-            raise Exception("Continue button not found on page")
-        
-        if not continue_btn.is_enabled():
-            logger.warning("[WARNING] Continue button is still disabled after workspace selection")
-        
-        # Click Continue
-        logger.info("Clicking Continue button...")
-        try:
-            continue_btn.click(timeout=10000)
-            logger.info("Continue button clicked successfully")
-        except Exception as e:
-            logger.warning(f"Continue click failed: {e}")
+            # UAT: selecting the workspace auto-navigates; there is no Continue button.
+            # Only fail if we are genuinely still stuck on the client-selection page.
+            self.page.wait_for_timeout(3000)
+            body = ""
+            try:
+                body = self.page.inner_text("body")
+            except Exception:
+                pass
+            still_selecting = ("5061676553656c656374436c69656e74" in (self.page.url or "")
+                               and "Welcome to the" in body)
+            if still_selecting:
+                raise Exception("Continue button not found on page")
+            logger.info("No Continue button; client selection auto-navigated (UAT). Proceeding.")
+        else:
+            if not continue_btn.is_enabled():
+                logger.warning("[WARNING] Continue button is still disabled after workspace selection")
+            # Click Continue
+            logger.info("Clicking Continue button...")
+            try:
+                continue_btn.click(timeout=10000)
+                logger.info("Continue button clicked successfully")
+            except Exception as e:
+                logger.warning(f"Continue click failed: {e}")
         
         # Wait for navigation
         self.page.wait_for_timeout(5000)
@@ -282,7 +317,7 @@ class LaunchAppPage(BasePage):
         page_text = self.page.inner_text("body")
         if "User Management" in page_text or "Data Ingestion" in page_text:
             print("Already inside DTAI app after client selection")
-        elif "Digital Tax Administration Insights" in page_text or "Compliance" in page_text:
+        elif "Global Insights And Data Enrichment" in page_text or "Compliance" in page_text:
             print("On GTP IT home page after client selection")
         else:
             print(f"Page content after Continue: {page_text[:300]}")
@@ -294,14 +329,14 @@ class LaunchAppPage(BasePage):
     
     def navigate_to_dtai_vat_app(self):
         """
-        Navigate to VAT DTAI application from home page
+        Navigate to Global Insights And Data Enrichment For e-Invoicing application from home page
         Steps:
         1. Wait for home page to fully load
         2. Click on "Consumption Tax" category
-        3. Scroll to locate "Digital Tax Administration Insights" section
-        4. Click on "Digital Tax Administration Insights - VAT" app
+        3. Scroll to locate "Global Insights And Data Enrichment For e-Invoicing" section
+        4. Click on "Global Insights And Data Enrichment For e-Invoicing" app
         """
-        logger.info("\n=== Starting DTAI VAT app navigation ===")
+        logger.info("\n=== Starting Global Insights And Data Enrichment For e-Invoicing app navigation ===")
         
         # Step 1: Wait for home page to fully load
         logger.info("Step 1: Waiting for home page to fully load...")
@@ -323,7 +358,7 @@ class LaunchAppPage(BasePage):
         
         # Check if already in DTAI app
         if "User Management" in page_text and "Data Ingestion" in page_text:
-            logger.info("Already inside DTAI VAT app, no navigation needed")
+            logger.info("Already inside Global Insights And Data Enrichment For e-Invoicing app, no navigation needed")
             return
         
         # Step 2: Click on "Consumption Tax" category
@@ -375,8 +410,8 @@ class LaunchAppPage(BasePage):
             logger.info("[WARNING] Consumption Tax category not found or not clickable")
             logger.info("  Will search entire page for DTAI app")
         
-        # Step 3: Scroll to locate "Digital Tax Administration Insights" section
-        logger.info("\nStep 3: Scrolling to locate 'Digital Tax Administration Insights' section...")
+        # Step 3: Scroll to locate "Global Insights And Data Enrichment For e-Invoicing" section
+        logger.info("\nStep 3: Scrolling to locate 'Global Insights And Data Enrichment For e-Invoicing' section...")
         
         # Use JavaScript to find and scroll to DTAI section
         dtai_section_found = self.page.evaluate("""() => {
@@ -387,8 +422,8 @@ class LaunchAppPage(BasePage):
             
             for (const elem of elements) {
                 const text = norm(elem.innerText || elem.textContent);
-                if (text.includes('digital tax administration insights') || 
-                    text.includes('digital tax administration insight')) {
+                if (text.includes('global insights and data enrichment for e-invoicing') ||
+                    text.includes('global insights and data enrichment for einvoicing')) {
                     console.log('Found DTAI section:', elem);
                     elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     return { found: true, text: elem.innerText.substring(0, 100) };
@@ -404,10 +439,10 @@ class LaunchAppPage(BasePage):
         else:
             logger.info("  DTAI section heading not found, will search for DTAI app directly")
         
-        # Step 4: Click on "Digital Tax Administration Insights - VAT" app
-        logger.info("\nStep 4: Looking for 'Digital Tax Administration Insights - VAT' app...")
+        # Step 4: Click on "Global Insights And Data Enrichment For e-Invoicing" app
+        logger.info("\nStep 4: Looking for 'Global Insights And Data Enrichment For e-Invoicing' app...")
         
-        # Use comprehensive JavaScript to find and click the DTAI VAT app
+        # Use comprehensive JavaScript to find and click the Global Insights And Data Enrichment For e-Invoicing app
         dtai_clicked = self.page.evaluate("""() => {
             const norm = (v) => (v || '').replace(/\\s+/g, ' ').trim().toLowerCase();
             const isVisible = (el) => {
@@ -423,8 +458,13 @@ class LaunchAppPage(BasePage):
             
             const isExactDTAIVAT = (text) => {
                 const t = norm(text);
-                return /digital tax administration insights\s*-\s*vat/.test(t) ||
-                       /digital tax administration insights\s+vat/.test(t);
+                if (/global insights and data enrichment for e-?invoicing/.test(t)) return true;
+                // Transition: UAT still shows the legacy tile name until the rebranded
+                // app name is deployed there.
+                if (/digital tax administration insights\\s*[-\\u2013\\u2014]?\\s*vat/.test(t)) return true;
+                if (t === 'vat dtai' || t === 'vatdtai') return true;
+                if (/^vat[\\s-]?dtai\\b/.test(t) && t.length <= 40) return true;
+                return false;
             };
             
             // Search all clickable elements
@@ -435,7 +475,7 @@ class LaunchAppPage(BasePage):
             ];
             
             const candidates = Array.from(document.querySelectorAll(selectors.join(', ')));
-            console.log(`Searching ${candidates.length} elements for DTAI VAT app`);
+            console.log(`Searching ${candidates.length} elements for Global Insights And Data Enrichment For e-Invoicing app`);
 
             const tryClick = (elem) => {
                 if (!isVisible(elem)) return null;
@@ -473,7 +513,7 @@ class LaunchAppPage(BasePage):
         }""")
         
         if dtai_clicked and dtai_clicked.get('success'):
-            logger.info(f"[OK] Successfully clicked DTAI VAT app")
+            logger.info(f"[OK] Successfully clicked Global Insights And Data Enrichment For e-Invoicing app")
             logger.info(f"  App text: {dtai_clicked.get('text', '')[:80]}...")
             self.page.wait_for_timeout(5000)
             
@@ -482,23 +522,53 @@ class LaunchAppPage(BasePage):
             new_page_text = self.page.inner_text("body")[:200]
             logger.info(f"Navigated to: {new_url}")
             logger.info(f"Page content: {new_page_text}...")
-            logger.info("=== DTAI VAT app navigation complete ===\n")
+            logger.info("=== Global Insights And Data Enrichment For e-Invoicing app navigation complete ===\n")
         else:
-            logger.info(f"[WARNING] Could not find or click DTAI VAT app")
+            logger.info(f"[WARNING] Could not find or click Global Insights And Data Enrichment For e-Invoicing app")
             logger.info(f"  Searched {dtai_clicked.get('totalSearched', 0)} elements")
-            
-            # Take screenshot for debugging
-            self.page.screenshot(path='reports/screenshots/dtai_app_not_found.png', full_page=True)
-            logger.info(f"  Screenshot saved to: reports/screenshots/dtai_app_not_found.png")
-            
-            raise AssertionError("Digital Tax Administration Insights - VAT app not found on page")
+
+            # Diagnostic: dump the visible tile/card names so the actual app label is known
+            # (useful during the QA->UAT rebrand transition when names differ).
+            try:
+                tile_names = self.page.evaluate("""() => {
+                    const norm = (v) => (v || '').replace(/\\s+/g, ' ').trim();
+                    const isVisible = (el) => {
+                        const r = el.getBoundingClientRect();
+                        const s = window.getComputedStyle(el);
+                        return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none';
+                    };
+                    const sel = 'a, button, [role="button"], [role="link"], .card, .tile, [class*="card"], [class*="tile"], [class*="app"]';
+                    const out = [];
+                    for (const el of Array.from(document.querySelectorAll(sel))) {
+                        if (!isVisible(el)) continue;
+                        const t = norm(el.innerText || el.textContent);
+                        if (t && t.length <= 60) out.push(t);
+                    }
+                    return Array.from(new Set(out)).slice(0, 60);
+                }""")
+                logger.info(f"[DIAG] Visible tile/card labels ({len(tile_names)}): {tile_names}")
+            except Exception as _e:
+                logger.info(f"[DIAG] Could not enumerate tile labels: {_e}")
+
+            # Diagnostic screenshot (only when --debug-shots is enabled).
+            evidence.debug_shot(self.page, "dtai_app_not_found")
+
+            raise AssertionError("Global Insights And Data Enrichment For e-Invoicing app not found on page")
     
     def verify_dtai_app_launched(self):
         """
         Verify that DTAI application has successfully launched
         Returns True if launched successfully, False otherwise
         """
-        # Check for DTAI main heading
+        # URL hex-encodes page names: PageVATDTAI = 506167655445414d5356415444544149.
+        # This is name-agnostic and works across QA and UAT (legacy "VAT DTAI" naming).
+        try:
+            if "506167655445414d5356415444544149" in (self.page.url or ""):
+                return True
+        except Exception:
+            pass
+
+        # Check for DTAI main heading (rebranded name)
         heading = self.page.locator(self.heading_dtai_main)
         if heading.count() > 0:
             return True
@@ -507,6 +577,13 @@ class LaunchAppPage(BasePage):
         breadcrumb = self.page.locator(self.breadcrumb_dtai_vat)
         if breadcrumb.count() > 0:
             return True
+
+        # Module tabs are present regardless of the active tab / app display name.
+        try:
+            if self.page.locator("role=tab[name='Data Ingestion' i]").count() > 0:
+                return True
+        except Exception:
+            pass
         
         return False
     

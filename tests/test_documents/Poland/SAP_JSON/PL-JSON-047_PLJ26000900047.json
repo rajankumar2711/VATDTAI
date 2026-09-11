@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/pl/PLJ26000900047",
+      "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "PLJ26000900047",
+    "CompanyCode": "PL20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900047",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Industrial temperature sensor assembly",
+          "AddressID": "PL670471",
+          "actDelivDate": "/Date(1771545600000)/",
+          "delLocID": "PLLOC88047",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Zana 87",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Szczecin",
+          "delivPostCode": "70-001",
+          "delivAddr3": "ul. Zana 87",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Dolina Zakupy Operacyjne S.A. Receiving Centre",
+          "DeliveryStreet": "ul. Zana 87",
+          "DeliveryCity": "Szczecin",
+          "DeliveryPostalCode": "70-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92047",
+          "OutboundDelivery": "86000200471"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900047",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Warehouse handling equipment inspection",
+          "AddressID": "PL670472",
+          "actDelivDate": "/Date(1771545600000)/",
+          "delLocID": "PLLOC88047",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Zana 87",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Szczecin",
+          "delivPostCode": "70-001",
+          "delivAddr3": "ul. Zana 87",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Dolina Zakupy Operacyjne S.A. Receiving Centre",
+          "DeliveryStreet": "ul. Zana 87",
+          "DeliveryCity": "Szczecin",
+          "DeliveryPostalCode": "70-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92047",
+          "OutboundDelivery": "86000200472"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/header",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "PLJ26000900047",
+      "CountryISOCode": "PL",
+      "invNum": "PLJ26000900047",
+      "invoice_id": "PLJ26000900047",
+      "invoice_uuid": "4a425aba-e601-543a-87d0-55fb63649894",
+      "invIssueDate": "/Date(1771545600000)/",
+      "payDueDate": "/Date(1775433600000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1771545600000)/",
+      "invCurrCode": "PLN",
+      "taxAccCurr": "PLN",
+      "source_system": "SAP_PL_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-PL-JSON",
+      "notes": [
+        "Qualifying zero-rated supply",
+        "Zero-rated treatment under configured source mapping"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "PL83000047",
+      "buyerEndpointIdScheme": "9945",
+      "buyerID": "PL83000047",
+      "buyerIDScheme": "9945",
+      "BuyRef": "PLBUY83047",
+      "purOrdRef": "PO-PL-26-30047",
+      "saleOrdRef": "SO-PL-26-50047",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "ul. Zana 87",
+      "buyerAddr2": "Building C",
+      "buyerCity": "Szczecin",
+      "buyerPostCode": "70-001",
+      "buyerCountry": "PL",
+      "buyerTaxID": "PL6200000147",
+      "buyerName": "Dolina Zakupy Operacyjne S.A. & Regional | Centre",
+      "buyerTradeName": "Dolina Operations",
+      "buyerContactTel": "+48 000 100 0047",
+      "buyerContactEmail": "payables047@pl-buyer.example",
+      "DeliveryStreet": "ul. Zana 87",
+      "DeliveryCity": "Szczecin",
+      "DeliveryPostalCode": "70-001",
+      "DeliveryCountryCode": "PL",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "V0",
+      "CanonicalTaxCategoryCode": "Z",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "2324.56",
+      "sumInvLineNetAmt": "2321.00",
+      "AllowanceTotal": "23.21",
+      "ChargeTotal": "17.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "PL20",
+      "TransactionCurrency": "PLN",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900047')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900047')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900047",
+          "ChargeAmount": "17.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900047",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "7",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "1995.00",
+          "itemDesc": "Industrial temperature sensor assembly",
+          "sellerItemID": "PL-MAT-TEMP-047",
+          "sellerItemID_Text": "Industrial temperature sensor assembly",
+          "BuyerItemId": "PL-CAT-047-1",
+          "buyerItemID": "PL-CAT-047-1",
+          "Gtin": "5400000200471",
+          "gtin": "5400000200471",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1771545600000)/",
+          "ShipToParty": "PLSHIP92047",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000200471",
+          "BuyersItemIdentification": "PL-CAT-047-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900047",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "326.00",
+          "itemDesc": "Warehouse handling equipment inspection",
+          "sellerItemID": "PL-SRV-WHSE-047",
+          "sellerItemID_Text": "Warehouse handling equipment inspection",
+          "BuyerItemId": "PL-CAT-047-2",
+          "buyerItemID": "PL-CAT-047-2",
+          "Gtin": "5400000200472",
+          "gtin": "5400000200472",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1771545600000)/",
+          "ShipToParty": "PLSHIP92047",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000200472",
+          "BuyersItemIdentification": "PL-CAT-047-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900047",
+          "AllowanceAmount": "23.21",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900047",
+          "taxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "2315.29",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "PL",
+          "jurisdiction_region": "Mazowieckie"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/payment",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "PL20",
+          "HouseBank": "UATPL",
+          "HouseBankAccount": "0747",
+          "payAccID": "PL15010901027000000000000047",
+          "Iban": "PL15010901027000000000000047",
+          "Swift": "MBPRPLP1",
+          "payAccName": "Bursztyn Technologie Utrzymania S.A.",
+          "BankCountry": "PL",
+          "BankCountry_Text": "Poland"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900047/seller",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900047/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "PL20",
+      "sellerID": "PL72000047",
+      "sellerEndPointIDScheme": "9945",
+      "sellerAddr1": "ul. Piotrkowska 67",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Łódź",
+      "sellerPostCode": "90-001",
+      "sellerCountryCode": "PL",
+      "sellerName": "Bursztyn Technologie Utrzymania S.A.",
+      "sellerTradeName": "Bursztyn Industrial",
+      "sellerTaxID": "PL6200000047",
+      "sellerTaxScheme": "VAT",
+      "Iban": "PL15010901027000000000000047",
+      "Swift": "MBPRPLP1",
+      "ContactEmailAddress": "billing047@pl-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+48 000 200 0047",
+      "bank_account": [
+        {
+          "iban": "PL15010901027000000000000047",
+          "swift": "MBPRPLP1",
+          "account_name": "Bursztyn Technologie Utrzymania S.A.",
+          "bank_name": "Mazowiecki Bank Przedsiębiorstw"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+48 000 200 0047",
+        "email": "billing047@pl-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-02-20T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_PL_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000002047",
+      "correlation_id": "53aeef07-e697-5d53-a67e-509fcef6ea6a",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_PL_SAP_JSON_V1",
+      "target_platform": "KSeF Poland",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / KSeF",
+      "tax_authority_id": "Krajowa Administracja Skarbowa",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/pl/sap-json/PLJ26000900047",
+      "payload_hash": "69a755e3df9527c6e1cf4b9221148c15bab4bdb784e5b7ce6d2cf3e63cd0bc8c",
+      "source_hash": "a08399499b7f4e4b713f300fc3aa02d07b0c5684c4660e026b1beee1ecd02a1b",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

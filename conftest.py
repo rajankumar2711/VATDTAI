@@ -1,25 +1,152 @@
-﻿import tempfile
-import json
-from styleframe import StyleFrame, Styler
-import pandas as pd
 from contextlib import contextmanager
 import pytest
-from playwright.sync_api import Playwright, Page, APIRequestContext, sync_playwright
+from playwright.sync_api import Playwright, Page, sync_playwright
 from utilities.read_properties import Read_Configurations
-from typing import Generator
 from playwright.sync_api import Browser, Page, BrowserContext
 from datetime import datetime
 from pathlib import Path
 import logging
 import os
+import re
 import subprocess
 import shutil
 from collections import defaultdict
 from html import escape as html_escape
 from utilities.Custom_logger import LogGen
+from utilities import evidence
 
 # Configure logger for conftest
 logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Playwright evidence capture (trace + video).
+# Trace is captured per-test as a chunk on the (shared) context so every test
+# gets its own .zip. Video is recorded once for the shared session context
+# (Option B) and linked to every test row.
+# ---------------------------------------------------------------------------
+_traced_contexts = []
+_session_video_path = None
+# The run folder and its artifact subdirs are (re)pointed in pytest_configure so
+# every producer writes straight into one timestamped folder per run.
+_run_dir = None
+_run_log_dir = None
+_run_log_name = None
+_trace_dir = Path(__file__).resolve().parent / "reports" / "traces"
+_video_dir = Path(__file__).resolve().parent / "reports" / "videos"
+
+# Friendly labels for the scope portion of the run-folder name.
+_MODULE_LABELS = {
+    "test_tile": "Tile",
+    "test_user_management": "User_Management",
+    "test_data_ingestion": "Data_Ingestion",
+    "test_data_lake_ip": "Data_Lake_IP",
+    "test_invoice_management": "Invoice_Management",
+    "test_reconciliation": "Reconciliation",
+    "test_reports": "Reports",
+}
+_SUITE_MARKERS = [
+    ("GIDEI_Smoke", "Smoke_Suite"),
+    ("GIDEI_Sanity", "Sanity_Suite"),
+    ("Regression", "Regression"),
+]
+
+
+def _module_label(path):
+    stem = Path(str(path).split("::")[0]).stem
+    if stem in _MODULE_LABELS:
+        return _MODULE_LABELS[stem]
+    if stem.startswith("test_"):
+        stem = stem[len("test_"):]
+    return stem.replace(" ", "_").title() or "Module"
+
+
+def _resolve_scope_label(markexpr, arg_paths):
+    """Derive the run-folder scope: marker suite > single module > full suite."""
+    if markexpr:
+        for marker, label in _SUITE_MARKERS:
+            if re.search(rf"\b{re.escape(marker)}\b", markexpr):
+                return label
+    modules = []
+    for arg in arg_paths or []:
+        head = str(arg).split("::")[0]
+        if head.endswith(".py") and "test_" in head:
+            modules.append(head)
+    modules = sorted(set(modules))
+    if len(modules) == 1:
+        return _module_label(modules[0])
+    return "Full_Suite"
+
+
+_SUITE_LABELS = {"Smoke_Suite", "Sanity_Suite", "Regression", "Full_Suite"}
+
+
+def _run_log_basename(scope, arg_paths):
+    """Meaningful base for the run log file, e.g. 'Smoke_Suite_Reports'."""
+    parts = [scope]
+    if scope in _SUITE_LABELS:
+        for arg in arg_paths or []:
+            head = str(arg).split("::")[0]
+            if head.endswith(".py") and "test_" in head:
+                label = _module_label(head)
+                if label not in parts:
+                    parts.append(label)
+    return "_".join(parts)
+
+
+def _start_tracing(context):
+    """Begin tracing on a freshly created context (safe to call once per context)."""
+    try:
+        context.tracing.start(screenshots=True, snapshots=True, sources=True)
+        _traced_contexts.append(context)
+    except Exception as exc:
+        logger.debug(f"tracing.start failed: {exc}")
+
+
+def _stop_tracing(context):
+    """Stop tracing on a context before it is closed."""
+    try:
+        if context in _traced_contexts:
+            context.tracing.stop()
+            _traced_contexts.remove(context)
+    except Exception as exc:
+        logger.debug(f"tracing.stop failed: {exc}")
+
+
+def _start_test_trace_chunk(item):
+    """Open a per-test trace chunk on every active traced context."""
+    for ctx in list(_traced_contexts):
+        try:
+            ctx.tracing.start_chunk(title=item.name)
+        except Exception as exc:
+            logger.debug(f"tracing.start_chunk failed: {exc}")
+
+
+def _stop_test_trace_chunk(item):
+    """Close the per-test trace chunk and return the primary trace file path."""
+    primary = None
+    for ctx in list(_traced_contexts):
+        try:
+            _trace_dir.mkdir(parents=True, exist_ok=True)
+            safe = re.sub(r"[^A-Za-z0-9_.-]+", "_", item.nodeid)[:120]
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+            trace_file = _trace_dir / f"{safe}_{ts}.zip"
+            ctx.tracing.stop_chunk(path=str(trace_file))
+            if primary is None and trace_file.exists():
+                primary = str(trace_file)
+        except Exception as exc:
+            logger.debug(f"tracing.stop_chunk failed: {exc}")
+    return primary
+
+
+def _current_log_file():
+    """Return the active scenario log file path from the singleton logger."""
+    if _singleton_logger is None:
+        return None
+    for handler in _singleton_logger.logger.handlers:
+        if isinstance(handler, logging.FileHandler):
+            return handler.baseFilename
+    return None
 
 
 def pytest_bdd_apply_tag(tag, function):
@@ -111,6 +238,74 @@ def pytest_addoption(parser):
         default=None,
         help="Path to stakeholder executive HTML summary report",
     )
+    parser.addoption(
+        "--debug-shots",
+        action="store_true",
+        default=False,
+        help="Capture diagnostic screenshots during page-object steps (off by default)",
+    )
+
+
+@pytest.hookimpl(trylast=True)
+def pytest_configure(config):
+    """Set up the per-run artifact folder and populate the pytest-html 'Base URL'.
+    Runs last so the Base URL overrides the empty value pytest-base-url would set."""
+    global _run_dir, _run_log_dir, _trace_dir, _video_dir, _run_log_name
+    # Unify the environment switch: a single --env drives every config read,
+    # including VAT_Common_Library.get_vat_config_value which keys off VAT_DTAI_ENV.
+    try:
+        os.environ["VAT_DTAI_ENV"] = config.getoption("--env").lower()
+    except Exception:
+        pass
+    try:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        arg_paths = list(getattr(config, "args", []) or [])
+        scope = _resolve_scope_label(getattr(config.option, "markexpr", "") or "", arg_paths)
+        _run_dir = Path(config.rootpath) / "reports" / "runs" / f"{scope}_GIDEI_{timestamp}"
+        _trace_dir = _run_dir / "traces"
+        _video_dir = _run_dir / "videos"
+        _run_log_dir = _run_dir / "logs"
+        _screenshot_dir = _run_dir / "screenshots"
+        for directory in (_trace_dir, _video_dir, _run_log_dir, _screenshot_dir):
+            directory.mkdir(parents=True, exist_ok=True)
+        os.environ["GIDEI_RUN_SCREENSHOT_DIR"] = str(_screenshot_dir)
+        _run_log_name = f"{_run_log_basename(scope, arg_paths)}_Logs_{timestamp}"
+        logger.info(f"=== Run folder: {_run_dir} ===")
+    except Exception as exc:
+        logger.debug(f"Run folder setup skipped: {exc}")
+    if config.getoption("--debug-shots"):
+        os.environ["GIDEI_DEBUG_SHOTS"] = "1"
+    try:
+        env = config.getoption("--env").lower()
+        Read_Configurations.initialize(env)
+        base_url = Read_Configurations.get_value("VAT_DTAI_URL")
+        if not base_url:
+            return
+        if getattr(config.option, "base_url", None) in (None, ""):
+            config.option.base_url = base_url
+        try:
+            from pytest_metadata.plugin import metadata_key
+            config.stash[metadata_key]["Base URL"] = base_url
+        except Exception:
+            meta = getattr(config, "_metadata", None)
+            if isinstance(meta, dict):
+                meta["Base URL"] = base_url
+    except Exception as exc:
+        logger.debug(f"Base URL metadata population skipped: {exc}")
+
+
+def pytest_collection_modifyitems(config, items):
+    """Auto-skip environment-scoped scenarios so a single suite is safe in both
+    environments: `uat_only` runs only under --env uat, `qa_only` only under --env qa."""
+    env = (config.getoption("--env") or "qa").lower()
+    skip_uat = pytest.mark.skip(reason="uat_only scenario: skipped outside UAT (--env uat)")
+    skip_qa = pytest.mark.skip(reason="qa_only scenario: skipped outside QA (--env qa)")
+    for item in items:
+        if "uat_only" in item.keywords and env != "uat":
+            item.add_marker(skip_uat)
+        if "qa_only" in item.keywords and env != "qa":
+            item.add_marker(skip_qa)
+
 
 @pytest.fixture(scope="session")
 def config(request):
@@ -142,7 +337,9 @@ def get_context(launch_browser):
     context = launch_browser.new_context(
         no_viewport=True  # Use full browser window size
     )
+    _start_tracing(context)
     yield context
+    _stop_tracing(context)
     context.close()
 
 
@@ -155,7 +352,7 @@ def get_page(get_context):
     page.close()
 
 
-# Session-scoped authenticated VAT DTAI session (Option B: login once for the whole run).
+# Session-scoped authenticated Global Insights And Data Enrichment For e-Invoicing session (Option B: login once for the whole run).
 # Performs login -> client selection -> Consumption Tax/DTAI navigation -> OK popup ONCE.
 # Modules opt in by overriding `get_page` to return vat_session["page"] (see test_data_ingestion.py).
 @pytest.fixture(scope="session")
@@ -171,7 +368,14 @@ def vat_session(launch_browser, request):
     env = request.config.getoption("--env").lower()
     Read_Configurations.initialize(env)
 
-    context = launch_browser.new_context(no_viewport=True, accept_downloads=True)
+    session_video_dir = _video_dir / f"session_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    session_video_dir.mkdir(parents=True, exist_ok=True)
+    context = launch_browser.new_context(
+        no_viewport=True,
+        accept_downloads=True,
+        record_video_dir=str(session_video_dir),
+    )
+    _start_tracing(context)
     page = context.new_page()
 
     logger.info("=== [vat_session] One-time login + navigation to DTAI dashboard ===")
@@ -185,99 +389,29 @@ def vat_session(launch_browser, request):
     yield session
 
     logger.info("=== [vat_session] Closing shared session ===")
+    global _session_video_path
+    _stop_tracing(context)
     try:
         page.close()
         context.close()
     except Exception:
         pass
+    # The single session video is finalized on context close; pick it up.
+    try:
+        webms = sorted(session_video_dir.glob("*.webm"), key=lambda p: p.stat().st_mtime)
+        if webms:
+            _session_video_path = str(webms[-1])
+            logger.info(f"=== [vat_session] Session video: {_session_video_path} ===")
+    except Exception as exc:
+        logger.debug(f"session video resolution failed: {exc}")
 
 
-# Module-scoped authenticated VAT DTAI fixture
-@pytest.fixture(scope="module")
-def authenticated_vat_page(launch_browser, request):
-    """
-    Module-scoped fixture: Login once per test module, reuse for all tests.
-    Maximized browser window with authenticated session.
-    """
-    from pageobjects.launch_app_page import LaunchAppPage
-    
-    # Create context with no viewport restriction (use full browser window)
-    context = launch_browser.new_context(
-        no_viewport=True  # Allow browser window to determine size
-    )
-    
-    page = context.new_page()
-    
-    # Get VAT DTAI config
-    env = request.config.getoption("--env").lower()
-    Read_Configurations.initialize(env)
-    vat_url = Read_Configurations.get_value("VAT_DTAI_URL")
-    vat_username = Read_Configurations.get_value("VAT_DTAI_USERNAME")
-    vat_password = Read_Configurations.get_value("VAT_DTAI_PASSWORD")
-    
-    # Navigate to VAT DTAI URL first
-    logger.info("\n=== Module Setup: Navigating to VAT DTAI URL ===")
-    logger.info(f"URL: {vat_url}")
-    page.goto(vat_url, wait_until='domcontentloaded', timeout=60000)
-    page.wait_for_timeout(2000)
-    
-    # Perform login once
-    logger.info("\n=== Module Setup: Performing One-Time Login ===")
-    launch_page = LaunchAppPage(page)
-    launch_page.login_with_credentials(vat_username, vat_password)
-    logger.info(f"Login complete. Current URL: {page.url}")
-    
-    # Wait for post-login processing
-    page.wait_for_timeout(25000)
-    
-    # Select workspace and continue
-    launch_page.select_workspace_and_continue("Client Belgium")
-    print(f"Workspace selected. Current URL: {page.url}")
-    
-    # Wait for home page
-    page.wait_for_timeout(5000)
-    
-    # Navigate to DTAI dashboard
-    print("\n=== Navigating to DTAI VAT Application ===")
-    launch_page.navigate_to_dtai_vat_app()
-    page.wait_for_timeout(3000)
-    print(f"DTAI app loaded. Current URL: {page.url}")
-    
-    # Navigate to User Management module
-    print("\n=== Navigating to User Management Module ===")
-    user_mgmt_tab = page.locator("role=tab[name='User Management' i]")
-    if user_mgmt_tab.count() > 0:
-        user_mgmt_tab.click()
-        page.wait_for_timeout(2000)
-        print(f"User Management module loaded. Current URL: {page.url}")
-    else:
-        print("WARNING: User Management tab not found!")
-    
-    print("=== Module Setup Complete: Ready for Tests ===")
-    
-    # Store launch_page for tests to use
-    vat_session_data = {
-        "page": page,
-        "launch_page": launch_page,
-        "authenticated": True,
-        "home_url": page.url
-    }
-    
-    yield vat_session_data
-    
-    # Cleanup after all tests in module complete
-    print("\n=== Module Teardown: Closing Session ===")
-    page.close()
-    context.close()
-
-
-# VAT DTAI Test Context - Shared state across navigation steps (function-scoped)
+# Global Insights And Data Enrichment For e-Invoicing Test Context - Shared state across navigation steps (function-scoped)
 @pytest.fixture()
 def vat_context():
     """
     Function-scoped context for storing test-specific state.
     Used by tests that need per-test isolation.
-    For module-scoped authenticated session, use authenticated_vat_page fixture.
     """
     return {
         "launch_page": None,
@@ -285,34 +419,6 @@ def vat_context():
         "workspace": "Client Belgium",
         "test_data": {},
     }
-
-
-# Module-scoped VAT context for shared session
-@pytest.fixture(scope="module")
-def vat_module_context():
-    """
-    Module-scoped context for storing shared state across all tests in module.
-    Used with authenticated_vat_page for tests sharing authenticated session.
-    """
-    return {
-        "launch_page": None,
-        "role": "Admin",
-        "workspace": "Client Belgium",
-        "current_module": None,
-        "tests_executed": [],
-    }
-
-
-# API Request Context
-@pytest.fixture(scope="session")
-def api_request_context(playwright: Playwright) -> Generator[APIRequestContext, None, None]:
-    request_context = playwright.request.new_context(
-        base_url=Read_Configurations.get_value("baseUrl_UAT"),
-        ignore_https_errors=True
-    )
-    yield request_context
-    request_context.dispose()
-
 
 
 # Singleton logger instance for the whole test session
@@ -323,26 +429,15 @@ _stakeholder_results = []
 def scenario_logger(request):
     global _singleton_logger
     if _singleton_logger is None:
-        _singleton_logger = LogGen()
-    logger_instance = _singleton_logger
-    log_file = None
-    for handler in logger_instance.logger.handlers:
-        if isinstance(handler, logging.FileHandler):
-            log_file = handler.baseFilename
-            break
+        _singleton_logger = LogGen(
+            str(_run_log_dir) if _run_log_dir else None,
+            _run_log_name,
+        )
+    # Per-scenario log slicing + the single "Scenario Logs" attachment are handled
+    # in pytest_runtest_call / pytest_runtest_makereport to avoid duplicate entries.
     yield
-    # Attach log file to pytest-html report using the extra mechanism
-    if log_file and hasattr(request.node, 'rep_call'):
-        try:
-            with open(log_file, 'r', encoding='utf-8') as f:
-                log_content = f.read()
-            extra = getattr(request.node, 'extra', [])
-            from pytest_html import extras
-            extra.append(extras.text(log_content, 'Scenario Logs'))
-            request.node.extra = extra
-        except Exception:
-            pass
-        
+
+
 def _to_file_url(path_value):
     if not path_value:
         return None
@@ -350,100 +445,85 @@ def _to_file_url(path_value):
     return f"file:///{normalized}"
 
 
-def _report_output_path(config, timestamp=None):
-    output = config.getoption("stakeholder_summary")
-    if output:
-        return Path(output)
-    
-    # Add timestamp to stakeholder summary filename
-    if timestamp:
-        return Path(config.rootpath) / "reports" / f"stakeholder_executive_summary_{timestamp}.html"
-    return Path(config.rootpath) / "reports" / "stakeholder_executive_summary.html"
-
-
-def _build_executive_html(results, total_duration, detailed_report, allure_results):
+def _build_run_index_html(run_dir, results, total_duration, report_links):
     total = len(results)
     passed = sum(1 for r in results if r["outcome"] == "passed")
     failed = sum(1 for r in results if r["outcome"] == "failed")
     skipped = sum(1 for r in results if r["outcome"] == "skipped")
 
-    module_map = defaultdict(lambda: {"passed": 0, "failed": 0, "skipped": 0, "duration": 0.0})
-    for row in results:
-        module_map[row["module"]][row["outcome"]] += 1
-        module_map[row["module"]]["duration"] += row["duration"]
+    entries = [
+        ("Test report (Stakeholder + Enterprise)", report_links.get("combined")),
+        ("Detailed HTML report", report_links.get("detailed")),
+        ("Allure report", report_links.get("allure")),
+        ("Allure single-file report", report_links.get("allure_single")),
+        ("Run log", report_links.get("run_log")),
+    ]
+    for label, sub in (("Traces", "traces"), ("Videos", "videos"), ("Logs", "logs")):
+        if (run_dir / sub).exists():
+            entries.append((label, f"{sub}/"))
 
-    module_rows = []
-    for module_name, stats in sorted(module_map.items(), key=lambda x: (x[1]["failed"], x[0]), reverse=True):
-        module_rows.append(
-            f"<tr><td>{html_escape(module_name)}</td><td>{stats['passed']}</td><td>{stats['failed']}</td>"
-            f"<td>{stats['skipped']}</td><td>{stats['duration']:.2f}s</td></tr>"
-        )
-    module_rows_html = "".join(module_rows) if module_rows else "<tr><td colspan='5'>No module data available</td></tr>"
-
-    test_rows = []
-    for row in results:
-        trace_link = f"<a href='{html_escape(row['trace_url'])}' target='_blank'>trace</a>" if row.get("trace_url") else "-"
-        video_link = f"<a href='{html_escape(row['video_url'])}' target='_blank'>video</a>" if row.get("video_url") else "-"
-        test_rows.append(
-            f"<tr><td>{html_escape(row['nodeid'])}</td><td>{row['outcome']}</td><td>{row['duration']:.2f}s</td>"
-            f"<td>{trace_link}</td><td>{video_link}</td></tr>"
-        )
-    test_rows_html = "".join(test_rows) if test_rows else "<tr><td colspan='5'>No test data available</td></tr>"
-
-    detailed_link = f"<a href='{html_escape(detailed_report)}' target='_blank'>Open detailed HTML report</a>" if detailed_report else "Not provided"
-    allure_link = f"<a href='{html_escape(allure_results)}' target='_blank'>Open Allure results folder</a>" if allure_results else "Not provided"
+    items = []
+    for label, href in entries:
+        if href:
+            items.append(
+                f"<li><b>{html_escape(label)}:</b> <a href='{html_escape(href)}'>{html_escape(href)}</a></li>"
+            )
+        else:
+            items.append(f"<li><b>{html_escape(label)}:</b> <span class='muted'>Not available</span></li>")
+    links_html = "".join(items)
 
     return f"""<!doctype html>
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>Stakeholder Executive Test Summary</title>
+  <title>Test Run: {html_escape(run_dir.name)}</title>
   <style>
-    body {{ font-family: Segoe UI, Arial, sans-serif; margin: 20px; color: #1e1e1e; background: #f6f8fb; }}
-    .wrap {{ max-width: 1280px; margin: 0 auto; }}
-    h1 {{ margin: 0 0 6px; }}
-    .meta {{ color: #606a7a; margin-bottom: 18px; }}
-    .cards {{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }}
-    .card {{ background: #fff; border-radius: 10px; padding: 14px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }}
-    .label {{ color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: .4px; }}
-    .value {{ font-size: 28px; font-weight: 700; margin-top: 4px; }}
+    body {{ font-family: Segoe UI, Arial, sans-serif; margin: 24px; color: #1e1e1e; background: #f6f8fb; }}
+    .wrap {{ max-width: 960px; margin: 0 auto; }}
+    h1 {{ margin: 0 0 4px; font-size: 20px; }}
+    .meta {{ color: #606a7a; margin-bottom: 18px; font-size: 13px; }}
+    .cards {{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }}
+    .card {{ background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }}
+    .label {{ color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }}
+    .value {{ font-size: 24px; font-weight: 700; margin-top: 2px; }}
     .ok {{ color: #0f7b0f; }} .bad {{ color: #c62828; }} .warn {{ color: #9a6700; }}
-    .panel {{ background: #fff; border-radius: 10px; padding: 14px; box-shadow: 0 2px 10px rgba(0,0,0,.06); margin-bottom: 14px; }}
-    table {{ width: 100%; border-collapse: collapse; }}
-    th, td {{ border-bottom: 1px solid #e5e7eb; padding: 8px; text-align: left; font-size: 13px; }}
-    th {{ background: #f3f4f6; }}
+    .panel {{ background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }}
+    ul {{ margin: 0; padding-left: 18px; }}
+    li {{ margin: 6px 0; font-size: 14px; }}
     a {{ color: #0658d3; text-decoration: none; }}
+    .muted {{ color: #9aa3af; }}
   </style>
 </head>
 <body>
   <div class='wrap'>
-    <h1>Stakeholder Executive Test Summary</h1>
-    <div class='meta'>Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
+    <h1>Test Run: {html_escape(run_dir.name)}</h1>
+    <div class='meta'>Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} &middot; Duration: {total_duration:.1f}s</div>
     <div class='cards'>
-      <div class='card'><div class='label'>Total Tests</div><div class='value'>{total}</div></div>
+      <div class='card'><div class='label'>Total</div><div class='value'>{total}</div></div>
       <div class='card'><div class='label'>Passed</div><div class='value ok'>{passed}</div></div>
       <div class='card'><div class='label'>Failed</div><div class='value bad'>{failed}</div></div>
       <div class='card'><div class='label'>Skipped</div><div class='value warn'>{skipped}</div></div>
-      <div class='card'><div class='label'>Execution Time</div><div class='value'>{total_duration:.1f}s</div></div>
-    </div>
-    <div class='panel'><b>Detailed report:</b> {detailed_link}<br/><b>Allure results:</b> {allure_link}</div>
-    <div class='panel'>
-      <h3>Module-wise Results</h3>
-      <table>
-        <tr><th>Module</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Duration</th></tr>
-        {module_rows_html}
-      </table>
+      <div class='card'><div class='label'>Time</div><div class='value'>{total_duration:.0f}s</div></div>
     </div>
     <div class='panel'>
-      <h3>Test Case Details (with Trace/Video)</h3>
-      <table>
-        <tr><th>Test Case</th><th>Status</th><th>Duration</th><th>Trace</th><th>Video</th></tr>
-        {test_rows_html}
-      </table>
+      <h3>Artifacts</h3>
+      <ul>{links_html}</ul>
     </div>
   </div>
 </body>
 </html>"""
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_call(item):
+    """Open a per-test Playwright trace chunk and mark the log offset."""
+    log_file = _current_log_file()
+    try:
+        item._log_offset = os.path.getsize(log_file) if log_file and os.path.exists(log_file) else 0
+    except Exception:
+        item._log_offset = 0
+    _start_test_trace_chunk(item)
+    yield
 
 
 @pytest.hookimpl(hookwrapper=True)
@@ -461,20 +541,21 @@ def pytest_runtest_makereport(item, call):
 
     extra = list(getattr(report, "extras", []))
     if report.when == "call":
-        log_file = None
-        if _singleton_logger is not None:
-            logger_instance = _singleton_logger
-            for handler in logger_instance.logger.handlers:
-                if isinstance(handler, logging.FileHandler):
-                    log_file = handler.baseFilename
-                    break
+        # Close the per-test trace chunk and link the resulting trace file.
+        trace_file = _stop_test_trace_chunk(item)
+        if trace_file:
+            trace_url = _to_file_url(trace_file)
 
+        log_file = _current_log_file()
         if log_file:
             try:
+                offset = getattr(item, "_log_offset", 0)
                 with open(log_file, "r", encoding="utf-8") as f:
+                    f.seek(offset)
                     log_content = f.read()
-                from pytest_html import extras
-                extra.append(extras.text(log_content, "Scenario Logs"))
+                if log_content.strip():
+                    from pytest_html import extras
+                    extra.append(extras.text(log_content, "Scenario Logs"))
             except Exception:
                 pass
 
@@ -500,34 +581,22 @@ def pytest_runtest_makereport(item, call):
             try:
                 # Try to get page from fixtures
                 page = None
-                if "authenticated_vat_page" in item.funcargs:
-                    page = item.funcargs["authenticated_vat_page"]["page"]
-                elif "get_page" in item.funcargs:
+                if "get_page" in item.funcargs:
                     page = item.funcargs["get_page"]
                 
                 if page:
-                    # Create screenshots directory
-                    screenshot_dir = Path(item.config.rootpath) / "screenshots"
-                    screenshot_dir.mkdir(parents=True, exist_ok=True)
-                    
-                    # Generate screenshot filename
+                    # Route the failure screenshot into the run folder.
                     test_name = item.nodeid.replace("::", "_").replace("/", "_").replace("\\", "_")
-                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    screenshot_path = screenshot_dir / f"{test_name}_{timestamp}.png"
-                    
-                    # Capture screenshot
-                    page.screenshot(path=str(screenshot_path), full_page=True)
-                    logger.info(f"Screenshot captured on failure: {screenshot_path}")
-                    
-                    # Convert to file URL
-                    screenshot_url = _to_file_url(str(screenshot_path))
-                    
-                    # Add to HTML report extras
-                    try:
-                        from pytest_html import extras
-                        extra.append(extras.url(screenshot_url, name="Screenshot on Failure"))
-                    except:
-                        pass
+                    screenshot_path = evidence.failure_shot(page, test_name)
+
+                    if screenshot_path:
+                        logger.info(f"Screenshot captured on failure: {screenshot_path}")
+                        screenshot_url = _to_file_url(str(screenshot_path))
+                        try:
+                            from pytest_html import extras
+                            extra.append(extras.url(screenshot_url, name="Screenshot on Failure"))
+                        except:
+                            pass
                         
             except Exception as e:
                 logger.warning(f"Failed to capture screenshot: {str(e)}")
@@ -567,132 +636,175 @@ def pytest_runtest_makereport(item, call):
     item.extra = extra
 
 
+def _generate_allure_reports(allure_source_dir, allure_results_dir, allure_report_dir,
+                             run_dir, timestamp, terminalreporter):
+    """Copy raw Allure results into the run folder and build the multi-file and
+    single-file reports. Called last so a slow/hung Allure CLI cannot block the
+    core artifacts. Uses DEVNULL (no inherited stdout pipe) plus a timeout so an
+    orphaned java grandchild can never make the call hang forever."""
+    if not (allure_source_dir.exists() and any(allure_source_dir.iterdir())):
+        return
+    try:
+        shutil.copytree(allure_source_dir, allure_results_dir, dirs_exist_ok=True)
+        terminalreporter.write_line(f"Allure results copied to: {allure_results_dir}")
+    except Exception as e:
+        logger.warning(f"Failed to copy allure results: {str(e)}")
+
+    allure_cmd = shutil.which("allure")
+    if not allure_cmd:
+        terminalreporter.write_line(
+            "Warning: Allure CLI not found. Results collected but HTML report not generated."
+        )
+        return
+    try:
+        terminalreporter.write_line("Generating Allure HTML report...")
+        subprocess.run(
+            [allure_cmd, "generate", str(allure_results_dir), "-o", str(allure_report_dir), "--clean"],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=180,
+        )
+        terminalreporter.write_sep("=", f"Allure report: {allure_report_dir / 'index.html'}")
+    except Exception as e:
+        logger.warning(f"Failed to generate Allure report: {str(e)}")
+        terminalreporter.write_line(f"Warning: Allure report generation failed: {str(e)}")
+
+    try:
+        single_tmp_dir = run_dir / f"allure-report-single_{timestamp}"
+        subprocess.run(
+            [allure_cmd, "generate", str(allure_results_dir), "-o", str(single_tmp_dir),
+             "--single-file", "--clean"],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=180,
+        )
+        single_src = single_tmp_dir / "index.html"
+        if single_src.exists():
+            shutil.copyfile(single_src, run_dir / "allure-single-report.html")
+            shutil.rmtree(single_tmp_dir, ignore_errors=True)
+            terminalreporter.write_sep(
+                "=", f"Allure single-file report: {run_dir / 'allure-single-report.html'}"
+            )
+    except Exception as e:
+        logger.warning(f"Failed to generate single-file Allure report: {str(e)}")
+        terminalreporter.write_line(f"Warning: single-file Allure report generation failed: {str(e)}")
+
+
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     if not _stakeholder_results:
         return
 
-    # Generate timestamp for this test run
+    # Consolidate every artifact for this run under one timestamped folder.
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    
-    # Generate basic stakeholder summary
-    output_path = _report_output_path(config, timestamp)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    base_reports_dir = Path(config.rootpath) / "reports"
+    run_dir = _run_dir or (base_reports_dir / "runs" / f"Full_Suite_GIDEI_{timestamp}")
+    run_dir.mkdir(parents=True, exist_ok=True)
 
     total_duration = sum(r["duration"] for r in _stakeholder_results)
     detailed_html = getattr(config.option, "htmlpath", None)
-    detailed_html_url = _to_file_url(detailed_html) if detailed_html else None
-    
-    # Get allure results and report directories with timestamp
-    base_reports_dir = Path(__file__).resolve().parent / "reports"
-    allure_source_dir = base_reports_dir / "allure-results"  # Original collection directory
-    allure_results_dir = base_reports_dir / f"allure-results_{timestamp}"
-    allure_report_dir = base_reports_dir / f"allure-report_{timestamp}"
-    
-    # Copy allure results to timestamped directory if they exist
-    if allure_source_dir.exists() and any(allure_source_dir.iterdir()):
-        try:
-            shutil.copytree(allure_source_dir, allure_results_dir, dirs_exist_ok=True)
-            terminalreporter.write_line(f"Allure results copied to: {allure_results_dir}")
-        except Exception as e:
-            logger.warning(f"Failed to copy allure results: {str(e)}")
-            terminalreporter.write_line(f"Warning: Failed to copy allure results: {str(e)}")
-    
-    # Generate Allure HTML report if results exist and CLI is available
-    allure_report_url = None
-    if allure_results_dir.exists() and any(allure_results_dir.iterdir()):
-        try:
-            # Check if allure command is available
-            allure_cmd = shutil.which("allure")
-            if allure_cmd:
-                # Generate Allure HTML report
-                terminalreporter.write_line("Generating Allure HTML report...")
-                subprocess.run(
-                    [allure_cmd, "generate", str(allure_results_dir), "-o", str(allure_report_dir), "--clean"],
-                    check=True,
-                    capture_output=True,
-                    text=True
-                )
-                allure_report_url = _to_file_url(str(allure_report_dir / "index.html"))
-                terminalreporter.write_sep("=", f"Allure report: {allure_report_dir / 'index.html'}")
-            else:
-                terminalreporter.write_line(
-                    "Warning: Allure CLI not found. Allure results collected but HTML report not generated."
-                )
-                terminalreporter.write_line(
-                    "To install Allure CLI: https://docs.qameta.io/allure/#_installing_a_commandline"
-                )
-                terminalreporter.write_line(
-                    f"Allure results saved in: {allure_results_dir}"
-                )
-        except subprocess.CalledProcessError as e:
-            logger.warning(f"Failed to generate Allure report: {e.stderr}")
-            terminalreporter.write_line(f"Warning: Allure report generation failed: {e.stderr}")
-        except Exception as e:
-            logger.warning(f"Failed to generate Allure report: {str(e)}")
-            terminalreporter.write_line(f"Warning: Allure report generation failed: {str(e)}")
 
-    html_content = _build_executive_html(
-        _stakeholder_results,
-        total_duration,
-        detailed_html_url,
-        allure_report_url,
-    )
-    output_path.write_text(html_content, encoding="utf-8")
-    terminalreporter.write_sep("=", f"Stakeholder executive summary: {output_path}")
+    # Allure directories inside the run folder (clean names; folder is already timestamped).
+    allure_source_dir = base_reports_dir / "allure-results"  # live collection dir (--alluredir)
+    allure_results_dir = run_dir / "allure-results"
+    allure_report_dir = run_dir / "allure-report"
     
-    # Generate comprehensive enterprise report
+    # Whether an Allure report will be produced (generated last, below).
+    allure_available = bool(
+        shutil.which("allure")
+        and allure_source_dir.exists()
+        and any(allure_source_dir.iterdir())
+    )
+
+    # Link the single shared-session video to every test row (Option B: one
+    # context per run, so one recording covers all scenarios).
+    if _session_video_path:
+        session_video_url = _to_file_url(_session_video_path)
+        for row in _stakeholder_results:
+            if not row.get("video_url"):
+                row["video_url"] = session_video_url
+
+    # Copy the pytest-html detailed report and the run log into the run folder.
+    report_html_name = None
+    if detailed_html:
+        src_html = Path(detailed_html)
+        if src_html.exists():
+            dest_html = run_dir / "report.html"
+            try:
+                if src_html.resolve() != dest_html.resolve():
+                    shutil.copyfile(src_html, dest_html)
+                report_html_name = "report.html"
+            except Exception as e:
+                logger.warning(f"Failed to copy detailed HTML report: {str(e)}")
+
+    src_log = base_reports_dir / "pytest_run.log"
+    run_log_name = None
+    if src_log.exists():
+        try:
+            shutil.copyfile(src_log, run_dir / "pytest_run.log")
+            run_log_name = "pytest_run.log"
+        except Exception as e:
+            logger.warning(f"Failed to copy run log: {str(e)}")
+
+    # Related-artifact links (relative so the run folder stays portable).
+    allure_index_rel = "allure-report/index.html" if allure_available else None
+    allure_single_rel = "allure-single-report.html" if allure_available else None
+    related_links = {
+        "detailed": report_html_name,
+        "allure": allure_index_rel,
+        "allure_single": allure_single_rel,
+        "run_log": run_log_name,
+    }
+
+    # Combined Stakeholder + Enterprise report, written inside the run folder.
+    env = config.getoption("--env", default="qa").upper()
+    combined_report_name = "GIDEI_Stakeholder_Enterprise_Test_Report.html"
+    combined_report_path = run_dir / combined_report_name
+    combined_name = None
     try:
         from utilities.report_generator import TestReportGenerator
-        
-        # Get environment from config
-        env = config.getoption("--env", default="qa").upper()
-        
-        # Generate enterprise report with timestamp
-        enterprise_report_path = Path(config.rootpath) / "reports" / f"enterprise_test_report_{timestamp}.html"
         report_generator = TestReportGenerator(
             config=config,
             test_results=_stakeholder_results,
             total_duration=total_duration,
-            environment=env
+            environment=env,
+            related_links=related_links,
         )
-        report_generator.generate_report(enterprise_report_path)
-        terminalreporter.write_sep("=", f"Enterprise test report generated: {enterprise_report_path}")
-        
+        report_generator.generate_report(combined_report_path)
+        combined_name = combined_report_name
+        terminalreporter.write_sep("=", f"Test report generated: {combined_report_path}")
     except Exception as e:
-        logger.warning(f"Failed to generate enterprise report: {str(e)}")
-        terminalreporter.write_line(f"Warning: Enterprise report generation failed: {str(e)}")
+        logger.warning(f"Failed to generate test report: {str(e)}")
+        terminalreporter.write_line(f"Warning: Test report generation failed: {str(e)}")
 
-@pytest.fixture
-def excel_writer(request):
-    def write_excel():
-        name = getattr(request.node, 'excel_filename', 'default_output')
-        df = getattr(request.node, 'excel_df', pd.DataFrame())
-        basepath = tempfile.gettempdir()
-        filename = f'{basepath}//{name}.xlsx'
-        def try_json(val):
-            if isinstance(val, str):
-                try:
-                    obj = json.loads(val)
-                    return json.dumps(obj, indent=2)
-                except Exception:
-                    return val
-            return val
+    report_links = {
+        "combined": combined_name,
+        "detailed": report_html_name,
+        "allure": allure_index_rel,
+        "allure_single": allure_single_rel,
+        "run_log": run_log_name,
+    }
+
+    # Honour an explicit --stakeholder-summary override by copying the combined report there.
+    override = config.getoption("stakeholder_summary")
+    if override and combined_report_path.exists():
         try:
-            df_pretty = df.applymap(try_json)
+            override_path = Path(override)
+            override_path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(combined_report_path, override_path)
         except Exception as e:
-            print(f"Error processing DataFrame for Excel export: {e}")
-            df_pretty = pd.DataFrame()
-        sf = StyleFrame(df_pretty)
-        sf.set_column_width_dict({col: 40 for col in sf.columns})
-        wrap_style = Styler(wrap_text=True)
-        for col in sf.columns:
-            sf.apply_column_style(col, wrap_style)
-        sf.to_excel(filename).close()
-        print(f"Excel file written to {filename}")
-    request.addfinalizer(write_excel)
-    return lambda name_arg, df_arg: setattr(request.node, 'excel_filename', name_arg) or setattr(request.node, 'excel_df', df_arg)                   
+            logger.warning(f"Failed to write report override: {str(e)}")
 
+    # Landing page linking every artifact in the run folder.
+    try:
+        index_html = _build_run_index_html(
+            run_dir=run_dir,
+            results=_stakeholder_results,
+            total_duration=total_duration,
+            report_links=report_links,
+        )
+        (run_dir / "index.html").write_text(index_html, encoding="utf-8")
+        terminalreporter.write_sep("=", f"Run folder: {run_dir}")
+        terminalreporter.write_sep("=", f"Run index: {run_dir / 'index.html'}")
+    except Exception as e:
+        logger.warning(f"Failed to build run index: {str(e)}")
 
-
-
-
+    # Allure last: a slow/hung Allure CLI must never block the artifacts above.
+    _generate_allure_reports(
+        allure_source_dir, allure_results_dir, allure_report_dir, run_dir, timestamp, terminalreporter
+    )

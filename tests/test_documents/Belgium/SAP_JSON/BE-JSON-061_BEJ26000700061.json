@@ -1,0 +1,361 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700061",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700061",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700061",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700061/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700061",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Servo drive commissioning service",
+          "AddressID": "BE670611",
+          "actDelivDate": "/Date(1793404800000)/",
+          "delLocID": "BELOC88061",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Doorniksesteenweg 101",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Namur",
+          "delivPostCode": "5000",
+          "delivAddr3": "Doorniksesteenweg 101",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Novalis Distribution SA Receiving Centre",
+          "DeliveryStreet": "Doorniksesteenweg 101",
+          "DeliveryCity": "Namur",
+          "DeliveryPostalCode": "5000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92061",
+          "OutboundDelivery": "86000000611"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700061/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700061",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial sensor replacement kit",
+          "AddressID": "BE670612",
+          "actDelivDate": "/Date(1793404800000)/",
+          "delLocID": "BELOC88061",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Doorniksesteenweg 101",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Namur",
+          "delivPostCode": "5000",
+          "delivAddr3": "Doorniksesteenweg 101",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Novalis Distribution SA Receiving Centre",
+          "DeliveryStreet": "Doorniksesteenweg 101",
+          "DeliveryCity": "Namur",
+          "DeliveryPostalCode": "5000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92061",
+          "OutboundDelivery": "86000000612"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700061/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700061",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700061",
+      "invoice_id": "BEJ26000700061",
+      "invoice_uuid": "4bc9caf9-7f76-5974-8a14-32efdcba5468",
+      "invIssueDate": "/Date(1793404800000)/",
+      "payDueDate": "/Date(1795996800000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1793404800000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Scheduled maintenance and replacement components"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000061",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "BE83000061",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83061",
+      "purOrdRef": "PO-BE-26-30061",
+      "saleOrdRef": "SO-BE-26-50061",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Doorniksesteenweg 101",
+      "buyerAddr2": "Building B",
+      "buyerCity": "Namur",
+      "buyerPostCode": "5000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0520000161",
+      "buyerName": "Novalis Distribution SA & Regional | Centre",
+      "buyerTradeName": "Novalis Operations",
+      "buyerContactTel": "+32 000 100 0061",
+      "buyerContactEmail": "payables061@be-buyer.example",
+      "DeliveryStreet": "Doorniksesteenweg 101",
+      "DeliveryCity": "Namur",
+      "DeliveryPostalCode": "5000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within thirty days",
+      "taxCatCode": "V9",
+      "CanonicalTaxCategoryCode": "E",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "4209.52",
+      "sumInvLineNetAmt": "4225.00",
+      "AllowanceTotal": "42.25",
+      "ChargeTotal": "17.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700061')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700061')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700061",
+          "ChargeAmount": "17.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700061",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "7",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "3661.00",
+          "itemDesc": "Servo drive commissioning service",
+          "sellerItemID": "BE-SRV-DRIVE-061",
+          "sellerItemID_Text": "Servo drive commissioning service",
+          "BuyerItemId": "BE-CAT-061-1",
+          "buyerItemID": "BE-CAT-061-1",
+          "Gtin": "5400000000611",
+          "gtin": "5400000000611",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "V9",
+          "CanonicalTaxCategoryCode": "E",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1793404800000)/",
+          "ShipToParty": "BESHIP92061",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000611",
+          "BuyersItemIdentification": "BE-CAT-061-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700061",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "564.00",
+          "itemDesc": "Industrial sensor replacement kit",
+          "sellerItemID": "BE-KIT-SENSOR-061",
+          "sellerItemID_Text": "Industrial sensor replacement kit",
+          "BuyerItemId": "BE-CAT-061-2",
+          "buyerItemID": "BE-CAT-061-2",
+          "Gtin": "5400000000612",
+          "gtin": "5400000000612",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "V9",
+          "CanonicalTaxCategoryCode": "E",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1793404800000)/",
+          "ShipToParty": "BESHIP92061",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000000612",
+          "BuyersItemIdentification": "BE-CAT-061-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700061",
+          "AllowanceAmount": "42.25",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700061",
+          "taxCatCode": "V9",
+          "CanonicalTaxCategoryCode": "E",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "4200.25",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700061/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0761",
+          "payAccID": "BE12000000000000",
+          "Iban": "BE12000000000000",
+          "Swift": "UTSTBEBB",
+          "payAccName": "Synthetic Non Payable Account",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700061/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700061/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000061",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Rue du Progrès 81",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Bruxelles",
+      "sellerPostCode": "1000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Orion Process Engineering NV",
+      "sellerTradeName": "Orion Industrial",
+      "sellerTaxID": "BE0520000061",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE12000000000000",
+      "Swift": "UTSTBEBB",
+      "ContactEmailAddress": "billing061@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0061",
+      "bank_account": [
+        {
+          "iban": "BE12000000000000",
+          "swift": "UTSTBEBB",
+          "account_name": "Synthetic Non Payable Account"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0061",
+        "email": "billing061@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-10-31T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000061",
+      "correlation_id": "041409e5-ced0-57ed-8280-0b6c986beeb8",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-12-31",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700061",
+      "payload_hash": "0d0990932c972bbc47c0b1ee606e80199e32568e1f9916dbf0ef5a8df72400ad",
+      "source_hash": "3e7e71332d442e680a5dea610a38b4eb740603bde0a7fc73b604844180c82ddb",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

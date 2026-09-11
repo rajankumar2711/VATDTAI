@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800095",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800095",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800095",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "On-site automation engineering support",
+          "AddressID": "FR670951",
+          "actDelivDate": "/Date(1775692800000)/",
+          "delLocID": "FRLOC88095",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard de la Liberté 135",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Toulouse",
+          "delivPostCode": "31000",
+          "delivAddr3": "Boulevard de la Liberté 135",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Bastide Achats Professionnels SARL Receiving Centre",
+          "DeliveryStreet": "Boulevard de la Liberté 135",
+          "DeliveryCity": "Toulouse",
+          "DeliveryPostalCode": "31000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92095",
+          "OutboundDelivery": "86000100951"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800095",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Energy meter verification service",
+          "AddressID": "FR670952",
+          "actDelivDate": "/Date(1775692800000)/",
+          "delLocID": "FRLOC88095",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard de la Liberté 135",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Toulouse",
+          "delivPostCode": "31000",
+          "delivAddr3": "Boulevard de la Liberté 135",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Bastide Achats Professionnels SARL Receiving Centre",
+          "DeliveryStreet": "Boulevard de la Liberté 135",
+          "DeliveryCity": "Toulouse",
+          "DeliveryPostalCode": "31000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92095",
+          "OutboundDelivery": "86000100952"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800095",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800095",
+      "invoice_id": "FRJ26000800095",
+      "invoice_uuid": "39bafbbd-0718-5ff9-b4ba-b7cefb1b3a46",
+      "invIssueDate": "/Date(1775692800000)/",
+      "payDueDate": "/Date(1779580800000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1775692800000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Business-to-business reverse-charge service",
+        "VAT accounted for by the customer under reverse charge"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000095",
+      "buyerEndpointIdScheme": "0002",
+      "buyerID": "FR83000095",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83095",
+      "purOrdRef": "PO-FR-26-30095",
+      "saleOrdRef": "SO-FR-26-50095",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Boulevard de la Liberté 135",
+      "buyerAddr2": "Building A",
+      "buyerCity": "Toulouse",
+      "buyerPostCode": "31000",
+      "buyerCountry": "FR",
+      "buyerTaxID": "PL740000095",
+      "buyerName": "Bastide Achats Professionnels SARL",
+      "buyerTradeName": "Bastide Operations",
+      "buyerContactTel": "+33 000 100 0095",
+      "buyerContactEmail": "payables095@fr-buyer.example",
+      "DeliveryStreet": "Boulevard de la Liberté 135",
+      "DeliveryCity": "Toulouse",
+      "DeliveryPostalCode": "31000",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "6114.27",
+      "sumInvLineNetAmt": "6150.00",
+      "AllowanceTotal": "61.50",
+      "ChargeTotal": "16.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800095')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800095')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800095",
+          "ChargeAmount": "16.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800095",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "6",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "2706.00",
+          "itemDesc": "On-site automation engineering support",
+          "sellerItemID": "FR-SRV-AUTO-095",
+          "sellerItemID_Text": "On-site automation engineering support",
+          "BuyerItemId": "FR-CAT-095-1",
+          "buyerItemID": "FR-CAT-095-1",
+          "Gtin": "5400000100951",
+          "gtin": "5400000100951",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1775692800000)/",
+          "ShipToParty": "FRSHIP92095",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000100951",
+          "BuyersItemIdentification": "FR-CAT-095-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800095",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "7",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "3444.00",
+          "itemDesc": "Energy meter verification service",
+          "sellerItemID": "FR-SRV-ENERGY-095",
+          "sellerItemID_Text": "Energy meter verification service",
+          "BuyerItemId": "FR-CAT-095-2",
+          "buyerItemID": "FR-CAT-095-2",
+          "Gtin": "5400000100952",
+          "gtin": "5400000100952",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1775692800000)/",
+          "ShipToParty": "FRSHIP92095",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000100952",
+          "BuyersItemIdentification": "FR-CAT-095-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800095",
+          "AllowanceAmount": "61.50",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800095",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "6105.00",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0795",
+          "payAccID": "FR1430014200047000000009591",
+          "Iban": "FR1430014200047000000009591",
+          "Swift": "BAIIFRP1",
+          "payAccName": "Estuaire Automatisation Moderne SARL",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800095/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800095/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000095",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Cours Berriat 115",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Grenoble",
+      "sellerPostCode": "38000",
+      "sellerCountryCode": "FR",
+      "sellerName": "Estuaire Automatisation Moderne SARL",
+      "sellerTradeName": "Estuaire Industrial",
+      "sellerTaxID": "FR45410000095",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR1430014200047000000009591",
+      "Swift": "BAIIFRP1",
+      "ContactEmailAddress": "billing095@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0095",
+      "bank_account": [
+        {
+          "iban": "FR1430014200047000000009591",
+          "swift": "BAIIFRP1",
+          "account_name": "Estuaire Automatisation Moderne SARL",
+          "bank_name": "Banque des Activités Industrielles"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0095",
+        "email": "billing095@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-04-09T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001095",
+      "correlation_id": "a9b46dc8-81db-50ac-b45c-5ddc3f26f2a1",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800095",
+      "payload_hash": "292fd7266e459ade9519fd6a73ab1f123ab487eafb8bac401b2b3fd9d2671fd9",
+      "source_hash": "ae38573564d38800be0b543fa2b828f1fec865cd825a2ee52a9efb318a33ecf6",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

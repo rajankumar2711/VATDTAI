@@ -1,0 +1,361 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700098",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700098",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700098",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700098/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700098",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Servo drive commissioning service",
+          "AddressID": "BE670981",
+          "actDelivDate": "/Date(1796601600000)/",
+          "delLocID": "BELOC88098",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue du Progrès 138",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Mons",
+          "delivPostCode": "7000",
+          "delivAddr3": "Rue du Progrès 138",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Crescent Commercial Services SRL Receiving Centre",
+          "DeliveryStreet": "Rue du Progrès 138",
+          "DeliveryCity": "Mons",
+          "DeliveryPostalCode": "7000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92098",
+          "OutboundDelivery": "86000000981"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700098/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700098",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial sensor replacement kit",
+          "AddressID": "BE670982",
+          "actDelivDate": "/Date(1796601600000)/",
+          "delLocID": "BELOC88098",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue du Progrès 138",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Mons",
+          "delivPostCode": "7000",
+          "delivAddr3": "Rue du Progrès 138",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Crescent Commercial Services SRL Receiving Centre",
+          "DeliveryStreet": "Rue du Progrès 138",
+          "DeliveryCity": "Mons",
+          "DeliveryPostalCode": "7000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92098",
+          "OutboundDelivery": "86000000982"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700098/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700098",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700098",
+      "invoice_id": "BEJ26000700098",
+      "invoice_uuid": "69dbc609-7a3f-5bb4-b242-2b2240773470",
+      "invIssueDate": "/Date(1796601600000)/",
+      "payDueDate": "/Date(1800489600000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1796601600000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Industrial calibration and site attendance"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000098",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "BE83000098",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83098",
+      "purOrdRef": "PO-BE-26-30098",
+      "saleOrdRef": "SO-BE-26-50098",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Rue du Progrès 138",
+      "buyerAddr2": "Building D",
+      "buyerCity": "Mons",
+      "buyerPostCode": "7000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "FR740000098",
+      "buyerName": "Crescent Commercial Services SRL",
+      "buyerTradeName": "Crescent Operations",
+      "buyerContactTel": "+32 000 100 0098",
+      "buyerContactEmail": "payables098@be-buyer.example",
+      "DeliveryStreet": "Rue du Progrès 138",
+      "DeliveryCity": "Mons",
+      "DeliveryPostalCode": "7000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "2628.44",
+      "sumInvLineNetAmt": "2633.00",
+      "AllowanceTotal": "26.33",
+      "ChargeTotal": "12.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700098')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700098')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700098",
+          "ChargeAmount": "12.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700098",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "2",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1004.00",
+          "itemDesc": "Servo drive commissioning service",
+          "sellerItemID": "BE-SRV-DRIVE-098",
+          "sellerItemID_Text": "Servo drive commissioning service",
+          "BuyerItemId": "BE-CAT-098-1",
+          "buyerItemID": "BE-CAT-098-1",
+          "Gtin": "5400000000981",
+          "gtin": "5400000000981",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1796601600000)/",
+          "ShipToParty": "BESHIP92098",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000981",
+          "BuyersItemIdentification": "BE-CAT-098-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700098",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "3",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "1629.00",
+          "itemDesc": "Industrial sensor replacement kit",
+          "sellerItemID": "BE-KIT-SENSOR-098",
+          "sellerItemID_Text": "Industrial sensor replacement kit",
+          "BuyerItemId": "BE-CAT-098-2",
+          "buyerItemID": "BE-CAT-098-2",
+          "Gtin": "5400000000982",
+          "gtin": "5400000000982",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1796601600000)/",
+          "ShipToParty": "BESHIP92098",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000000982",
+          "BuyersItemIdentification": "BE-CAT-098-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700098",
+          "AllowanceAmount": "26.33",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700098",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "2619.17",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "VATEX-EU-AE",
+          "exemption_reason_text": "VAT accounted for by the customer",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700098/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0798",
+          "payAccID": "BE12000000000000",
+          "Iban": "BE12000000000000",
+          "Swift": "UTSTBEBB",
+          "payAccName": "Synthetic Non Payable Account",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700098/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700098/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000098",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Avenue des Mélèzes 118",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Namur",
+      "sellerPostCode": "5000",
+      "sellerCountryCode": "BE",
+      "sellerName": "Northgate Industrial Services BV",
+      "sellerTradeName": "Northgate Industrial",
+      "sellerTaxID": "BE0520000098",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE12000000000000",
+      "Swift": "UTSTBEBB",
+      "ContactEmailAddress": "billing098@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0098",
+      "bank_account": [
+        {
+          "iban": "BE12000000000000",
+          "swift": "UTSTBEBB",
+          "account_name": "Synthetic Non Payable Account"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0098",
+        "email": "billing098@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-12-07T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000098",
+      "correlation_id": "769e1e04-e252-56eb-b014-1ead515aa6d3",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-12-31",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700098",
+      "payload_hash": "52325328bcf8b92af34ebdb81c7e53762d9ffe304ed4f86e0c3b11a3351f01b0",
+      "source_hash": "040132eaf4113d13666ad5f107364bffed6e700ad8eb7a25f405c24318728c5e",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

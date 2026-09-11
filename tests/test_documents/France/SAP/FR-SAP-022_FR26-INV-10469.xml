@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>8700000000001022</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPFRUAT</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>FRSUP41022</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>FRCUS48022</RCVPRN>
+      <CREDAT>20260522</CREDAT>
+      <CRETIM>102200</CRETIM>
+      <SERIAL>20260522T120000</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>EUR</CURCY>
+      <HWAER>EUR</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>BE01</ZTERM>
+      <BELNR>FR26-INV-10469</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>G2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260522</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260622</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-FR-26-06222</BELNR>
+      <DATUM>20260522</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>BEVOPS0001</LIFNR>
+      <NAME1>Solutions Industrielles Atlantique Precision SAS</NAME1>
+      <NAME2>Accounts Receivable</NAME2>
+      <STRAS>Avenue Victor Hugo 32</STRAS>
+      <ORT01>Lyon</ORT01>
+      <PSTLZ>69002</PSTLZ>
+      <LAND1>FR</LAND1>
+      <STCD1>FR32300000022</STCD1>
+      <TELF1>+33 000 000 1022</TELF1>
+      <SMTP_ADDR>billing@fr-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>BEOPSCUST0001</KUNNR>
+      <NAME1>Bretagne Systèmes Logistiques Precision SAS</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>Rue de la Logistique 32</STRAS>
+      <ORT01>Lille</ORT01>
+      <PSTLZ>59000</PSTLZ>
+      <LAND1>FR</LAND1>
+      <STCD1>FR52300000122</STCD1>
+      <TELF1>+33 000 000 1022</TELF1>
+      <SMTP_ADDR>invoices@fr-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>BEOPSCUST0001S</KUNNR>
+      <NAME1>Bretagne Systèmes Logistiques Precision SAS Distribution</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>Quai des Services 72</STRAS>
+      <ORT01>Lille</ORT01>
+      <PSTLZ>59000</PSTLZ>
+      <LAND1>FR</LAND1>
+      <STCD1>FR72300000222</STCD1>
+      <TELF1>+33 000 000 1022</TELF1>
+      <SMTP_ADDR>invoices@fr-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BERED6</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Belgium OPS maintenance services</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>FRSRV0221</MATNR>
+      <MENGE>4.0000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>5268.00</NETWR>
+      <MWSBT>0.00</MWSBT>
+      <MWSKZ>V0</MWSKZ>
+      <TXJCD>FR</TXJCD>
+      <VPREI>1317.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>4.0000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>FRSERVICE0221</IDTNR>
+        <KTEXT>Annual preventive maintenance for packaging line</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>54123650000011</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BESAPOPSBUY0011</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>FRSRV0222</MATNR>
+      <MENGE>5.0000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>2500.00</NETWR>
+      <MWSBT>0.00</MWSBT>
+      <MWSKZ>V0</MWSKZ>
+      <TXJCD>FR</TXJCD>
+      <VPREI>500.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>5.0000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>FRSERVICE0222</IDTNR>
+        <KTEXT>Calibration of production measurement equipment</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>54123650000012</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BESAPOPSBUY0012</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>7768.00</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>7.35</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>7768.00</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

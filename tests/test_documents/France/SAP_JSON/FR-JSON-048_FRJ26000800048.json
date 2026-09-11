@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800048",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800048",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800048",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Conveyor alignment and testing service",
+          "AddressID": "FR670481",
+          "actDelivDate": "/Date(1771632000000)/",
+          "delLocID": "FRLOC88048",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue de Charenton 88",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Grenoble",
+          "delivPostCode": "38000",
+          "delivAddr3": "Rue de Charenton 88",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Escale Achats Professionnels SARL Receiving Centre",
+          "DeliveryStreet": "Rue de Charenton 88",
+          "DeliveryCity": "Grenoble",
+          "DeliveryPostalCode": "38000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92048",
+          "OutboundDelivery": "86000100481"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800048",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Quarterly application support subscription",
+          "AddressID": "FR670482",
+          "actDelivDate": "/Date(1771632000000)/",
+          "delLocID": "FRLOC88048",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue de Charenton 88",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Grenoble",
+          "delivPostCode": "38000",
+          "delivAddr3": "Rue de Charenton 88",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Escale Achats Professionnels SARL Receiving Centre",
+          "DeliveryStreet": "Rue de Charenton 88",
+          "DeliveryCity": "Grenoble",
+          "DeliveryPostalCode": "38000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92048",
+          "OutboundDelivery": "86000100482"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800048",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800048",
+      "invoice_id": "FRJ26000800048",
+      "invoice_uuid": "af81b2a2-b29e-552d-9a31-80fd13b1c912",
+      "invIssueDate": "/Date(1771632000000)/",
+      "payDueDate": "/Date(1772841600000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1771632000000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Qualifying zero-rated supply",
+        "Zero-rated treatment under configured source mapping"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000048",
+      "buyerEndpointIdScheme": "0002",
+      "buyerID": "FR83000048",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83048",
+      "purOrdRef": "PO-FR-26-30048",
+      "saleOrdRef": "SO-FR-26-50048",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Rue de Charenton 88",
+      "buyerAddr2": "Building D",
+      "buyerCity": "Grenoble",
+      "buyerPostCode": "38000",
+      "buyerCountry": "FR",
+      "buyerTaxID": "PL740000048",
+      "buyerName": "Escale Achats Professionnels SARL",
+      "buyerTradeName": "Escale Operations",
+      "buyerContactTel": "+33 000 100 0048",
+      "buyerContactEmail": "payables048@fr-buyer.example",
+      "DeliveryStreet": "Rue de Charenton 88",
+      "DeliveryCity": "Grenoble",
+      "DeliveryPostalCode": "38000",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "V0",
+      "CanonicalTaxCategoryCode": "Z",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "1005.89",
+      "sumInvLineNetAmt": "988.00",
+      "AllowanceTotal": "9.88",
+      "ChargeTotal": "18.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800048')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800048')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800048",
+          "ChargeAmount": "18.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800048",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "302.00",
+          "itemDesc": "Conveyor alignment and testing service",
+          "sellerItemID": "FR-SRV-CONV-048",
+          "sellerItemID_Text": "Conveyor alignment and testing service",
+          "BuyerItemId": "FR-CAT-048-1",
+          "buyerItemID": "FR-CAT-048-1",
+          "Gtin": "5400000100481",
+          "gtin": "5400000100481",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1771632000000)/",
+          "ShipToParty": "FRSHIP92048",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000100481",
+          "BuyersItemIdentification": "FR-CAT-048-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800048",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "2",
+          "invoicedQtyUOM": "MON",
+          "invLineNetAmt": "686.00",
+          "itemDesc": "Quarterly application support subscription",
+          "sellerItemID": "FR-SRV-APP-048",
+          "sellerItemID_Text": "Quarterly application support subscription",
+          "BuyerItemId": "FR-CAT-048-2",
+          "buyerItemID": "FR-CAT-048-2",
+          "Gtin": "5400000100482",
+          "gtin": "5400000100482",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1771632000000)/",
+          "ShipToParty": "FRSHIP92048",
+          "BillingQuantityUnit": "MON",
+          "StandardItemIdentification": "5400000100482",
+          "BuyersItemIdentification": "FR-CAT-048-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800048",
+          "AllowanceAmount": "9.88",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800048",
+          "taxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "996.62",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0748",
+          "payAccID": "FR5230012200027000000004847",
+          "Iban": "FR5230012200027000000004847",
+          "Swift": "BRRHFRP1",
+          "payAccName": "Clairmont Équipements Professionnels SA",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800048/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800048/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000048",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Boulevard de la Liberté 68",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Rennes",
+      "sellerPostCode": "35000",
+      "sellerCountryCode": "FR",
+      "sellerName": "Clairmont Équipements Professionnels SA",
+      "sellerTradeName": "Clairmont Industrial",
+      "sellerTaxID": "FR68410000048",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR5230012200027000000004847",
+      "Swift": "BRRHFRP1",
+      "ContactEmailAddress": "billing048@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0048",
+      "bank_account": [
+        {
+          "iban": "FR5230012200027000000004847",
+          "swift": "BRRHFRP1",
+          "account_name": "Clairmont Équipements Professionnels SA",
+          "bank_name": "Banque Régionale du Rhône"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0048",
+        "email": "billing048@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-02-21T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001048",
+      "correlation_id": "fb3e8615-5970-5b45-87ac-20d621df9b42",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800048",
+      "payload_hash": "2ead7dbdf33e7e6f22cc8834cff50cabff171e7cf9c9a722f35ca58447fb8645",
+      "source_hash": "9630abd273a5093568096d391e0d9ee5374c91bcf3981f6decd38983f461675d",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

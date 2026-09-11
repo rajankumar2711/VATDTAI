@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800014",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800014",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800014",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Production reporting software support",
+          "AddressID": "FR670141",
+          "actDelivDate": "/Date(1768694400000)/",
+          "delLocID": "FRLOC88014",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Avenue des Minimes 54",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Paris",
+          "delivPostCode": "75012",
+          "delivAddr3": "Avenue des Minimes 54",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Aubrac Approvisionnement Industriel SAS Receiving Centre",
+          "DeliveryStreet": "Avenue des Minimes 54",
+          "DeliveryCity": "Paris",
+          "DeliveryPostalCode": "75012",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92014",
+          "OutboundDelivery": "86000100141"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800014",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Electrical cabinet inspection service",
+          "AddressID": "FR670142",
+          "actDelivDate": "/Date(1768694400000)/",
+          "delLocID": "FRLOC88014",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Avenue des Minimes 54",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Paris",
+          "delivPostCode": "75012",
+          "delivAddr3": "Avenue des Minimes 54",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Aubrac Approvisionnement Industriel SAS Receiving Centre",
+          "DeliveryStreet": "Avenue des Minimes 54",
+          "DeliveryCity": "Paris",
+          "DeliveryPostalCode": "75012",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92014",
+          "OutboundDelivery": "86000100142"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800014",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800014",
+      "invoice_id": "FRJ26000800014",
+      "invoice_uuid": "b4ef49be-8963-53fa-ac40-f25f67740ab7",
+      "invIssueDate": "/Date(1768694400000)/",
+      "payDueDate": "/Date(1772582400000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1768694400000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Domestic taxable supply",
+        "Standard domestic supply subject to VAT"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000014",
+      "buyerEndpointIdScheme": "",
+      "buyerID": "FR83000014",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83014",
+      "purOrdRef": "PO-FR-26-30014",
+      "saleOrdRef": "SO-FR-26-50014",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Avenue des Minimes 54",
+      "buyerAddr2": "Building E",
+      "buyerCity": "Paris",
+      "buyerPostCode": "75012",
+      "buyerCountry": "FR",
+      "buyerTaxID": "PL740000014",
+      "buyerName": "Aubrac Approvisionnement Industriel SAS & Regional | Centre",
+      "buyerTradeName": "Aubrac Operations",
+      "buyerContactTel": "+33 000 100 0014",
+      "buyerContactEmail": "payables014@fr-buyer.example",
+      "DeliveryStreet": "Avenue des Minimes 54",
+      "DeliveryCity": "Paris",
+      "DeliveryPostalCode": "75012",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "397.11",
+      "taxCatRate": "20.00",
+      "invTotalAmtWithTax": "2382.68",
+      "sumInvLineNetAmt": "1993.00",
+      "AllowanceTotal": "19.93",
+      "ChargeTotal": "12.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800014')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800014')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800014",
+          "ChargeAmount": "12.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800014",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "2",
+          "invoicedQtyUOM": "MON",
+          "invLineNetAmt": "748.00",
+          "itemDesc": "Production reporting software support",
+          "sellerItemID": "FR-SRV-REPORT-014",
+          "sellerItemID_Text": "Production reporting software support",
+          "BuyerItemId": "FR-CAT-014-1",
+          "buyerItemID": "FR-CAT-014-1",
+          "Gtin": "5400000100141",
+          "gtin": "5400000100141",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "20.00",
+          "payDueDate": "",
+          "TaxAmount": "149.60",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1768694400000)/",
+          "ShipToParty": "FRSHIP92014",
+          "BillingQuantityUnit": "MON",
+          "StandardItemIdentification": "5400000100141",
+          "BuyersItemIdentification": "FR-CAT-014-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800014",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "3",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1245.00",
+          "itemDesc": "Electrical cabinet inspection service",
+          "sellerItemID": "FR-SRV-CAB-014",
+          "sellerItemID_Text": "Electrical cabinet inspection service",
+          "BuyerItemId": "FR-CAT-014-2",
+          "buyerItemID": "FR-CAT-014-2",
+          "Gtin": "5400000100142",
+          "gtin": "5400000100142",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "20.00",
+          "payDueDate": "",
+          "TaxAmount": "249.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1768694400000)/",
+          "ShipToParty": "FRSHIP92014",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000100142",
+          "BuyersItemIdentification": "FR-CAT-014-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800014",
+          "AllowanceAmount": "19.93",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800014",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "20.00",
+          "taxCatTaxableAmt": "1985.57",
+          "taxCatTaxAmt": "397.11",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0714",
+          "payAccID": "FR3630013200037000000001442",
+          "Iban": "FR3630013200037000000001442",
+          "Swift": "UFPRFRP1",
+          "payAccName": "Durance Maintenance Énergétique SAS",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800014/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800014/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000014",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Rue des Forges 34",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Dijon",
+      "sellerPostCode": "21000",
+      "sellerCountryCode": "FR",
+      "sellerName": "Durance Maintenance Énergétique SAS",
+      "sellerTradeName": "Durance Industrial",
+      "sellerTaxID": "FR34410000014",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR3630013200037000000001442",
+      "Swift": "UFPRFRP1",
+      "ContactEmailAddress": "billing014@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0014",
+      "bank_account": [
+        {
+          "iban": "FR3630013200037000000001442",
+          "swift": "UFPRFRP1",
+          "account_name": "Durance Maintenance Énergétique SAS",
+          "bank_name": "Union Financière Professionnelle"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0014",
+        "email": "billing014@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-01-18T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001014",
+      "correlation_id": "94496227-dcdf-57e1-82d8-6bca9c33b027",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800014",
+      "payload_hash": "87b71fd705f211f6becb346271adbf21587b5d98323cf35b8c3137350ca5d3a4",
+      "source_hash": "9eac36d7dc9c8e8180e720ae32c9cd9cb3a8c1910179e385f98ccb8255cbdbf2",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

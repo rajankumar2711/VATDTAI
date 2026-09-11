@@ -1,0 +1,25 @@
+{
+  "report_window_is_none": false,
+  "pages": [
+    {
+      "url": "https://vatdtaiqa-fpgfhdgxgtaccyhv.eastus-01.azurewebsites.net/#show/506167655445414d5356415444544149/5b5d",
+      "title": "Digital Tax Administration Insights |",
+      "closed": false
+    },
+    {
+      "url": "about:blank",
+      "title": "Submission Report",
+      "closed": false
+    }
+  ],
+  "win_title": "Submission Report",
+  "win_url": "about:blank",
+  "win_body_text": "Submission Report\nExport\nClose\nCountry: BE | Entity: All | Platform: GTES\nDate Range: 01/01/2025 to 10/10/2026\nGenerated On: 08/24/2026 07:52 PM GMT+5:30\n[\n  {\n    \"invNum\": \"Rajan_BE_RC_20260702T154105_REVCHG\",\n    \"SystemDefinedHeader_Column1\": \"6250eac0-49b9-42e8-8f2f-854d86cbb4b9\",\n    \"invTypeCode\": \"380\",\n    \"invIssueDate\": \"Tue Jul 07 2026 00:00:00 GMT+0530 (India Standard Time)\",\n    \"payDueDate\": \"Thu Aug 06 2026 00:00:00 GMT+0530 (India Standard Time)\",\n    \"invCurrCode\": \"EUR\",\n    \"specID\": \"Peppol BIS 3.0\",\n    \"sellerTaxID\": \"BE0123456789\",\n    \"sellerName\": \"Rajan Belgium Components NV\",\n    \"sellerTradeName\": \"SAP Source Billing\",\n    \"sellerAddr1\": \"Avenue Louise 120\",\n    \"sellerCity\": \"Brussels\",\n    \"sellerPostCode\": \"1000\",\n    \"sellerCountryCode\": \"BE\",\n    \"buyerTaxID\": \"BE0789456123\",\n    \"buyerName\": \"Leuven Construction Projects BV\",\n    \"buyerTradeName\": \"Accounts Payable\",\n    \"buyerAddr1\": \"Bondgenotenlaan 88\",\n    \"buyerCity\": \"Leuven\",\n    \"buyerPostCode\": \"3000\",\n    \"buyerCountryCode\": \"BE\",\n    \"purOrdRef\": \"PO-BE-REVCHG-154105\",\n    \"sumInvLineNetAmt\": \"3390\",\n    \"invTotalAmtNoTax\": \"3390\",\n    \"invTotalTaxAmt\": \"0\",\n    \"invTotalAmtWithTax\": \"3390\",\n    \"amtDueForPay\": \"3390\",\n    \"payMeansTypeCode\": \"BE30\",\n    \"payAccID\": null,\n    \"payServiceProvID\": null,\n    \"payTerms\": \"BE30\",\n    \"invNote\": \"Reverse charge Belgium invoice for construction services, VAT to be accounted by buyer\",\n    \"lines\": [\n      {\n        \"invLineID\": \"000010\",",
+  "win_html_len": 1303221,
+  "displayed": true,
+  "title": "Submission Report",
+  "country": "BE",
+  "entity": "All",
+  "columns_count": 0,
+  "columns": []
+}

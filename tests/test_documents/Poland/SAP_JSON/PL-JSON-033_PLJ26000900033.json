@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/pl/PLJ26000900033",
+      "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "PLJ26000900033",
+    "CompanyCode": "PL20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900033",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Conveyor alignment and testing service",
+          "AddressID": "PL670331",
+          "actDelivDate": "/Date(1770336000000)/",
+          "delLocID": "PLLOC88033",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Srebrna 73",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Lublin",
+          "delivPostCode": "20-001",
+          "delivAddr3": "ul. Srebrna 73",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Energia Zarządzanie Obiektami Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "ul. Srebrna 73",
+          "DeliveryCity": "Lublin",
+          "DeliveryPostalCode": "20-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92033",
+          "OutboundDelivery": "86000200331"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900033",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Quarterly application support subscription",
+          "AddressID": "PL670332",
+          "actDelivDate": "/Date(1770336000000)/",
+          "delLocID": "PLLOC88033",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Srebrna 73",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Lublin",
+          "delivPostCode": "20-001",
+          "delivAddr3": "ul. Srebrna 73",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Energia Zarządzanie Obiektami Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "ul. Srebrna 73",
+          "DeliveryCity": "Lublin",
+          "DeliveryPostalCode": "20-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92033",
+          "OutboundDelivery": "86000200332"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/header",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "PLJ26000900033",
+      "CountryISOCode": "PL",
+      "invNum": "PLJ26000900033",
+      "invoice_id": "PLJ26000900033",
+      "invoice_uuid": "c0658aac-e0c3-54f4-ad57-35635bc1847e",
+      "invIssueDate": "/Date(1770336000000)/",
+      "payDueDate": "/Date(1771545600000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1770336000000)/",
+      "invCurrCode": "PLN",
+      "taxAccCurr": "PLN",
+      "source_system": "SAP_PL_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-PL-JSON",
+      "notes": [
+        "Qualifying zero-rated supply",
+        "Zero-rated treatment under configured source mapping"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "PL83000033",
+      "buyerEndpointIdScheme": "9945",
+      "buyerID": "PL83000033",
+      "buyerIDScheme": "9945",
+      "BuyRef": "PLBUY83033",
+      "purOrdRef": "PO-PL-26-30033",
+      "saleOrdRef": "SO-PL-26-50033",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "ul. Srebrna 73",
+      "buyerAddr2": "Building D",
+      "buyerCity": "Lublin",
+      "buyerPostCode": "20-001",
+      "buyerCountry": "PL",
+      "buyerTaxID": "FR740000033",
+      "buyerName": "Energia Zarządzanie Obiektami Sp. z o.o.",
+      "buyerTradeName": "Energia Operations",
+      "buyerContactTel": "+48 000 100 0033",
+      "buyerContactEmail": "payables033@pl-buyer.example",
+      "DeliveryStreet": "ul. Srebrna 73",
+      "DeliveryCity": "Lublin",
+      "DeliveryPostalCode": "20-001",
+      "DeliveryCountryCode": "PL",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "V0",
+      "CanonicalTaxCategoryCode": "Z",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "5587.60",
+      "sumInvLineNetAmt": "5617.00",
+      "AllowanceTotal": "56.17",
+      "ChargeTotal": "17.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "PL20",
+      "TransactionCurrency": "PLN",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900033')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900033')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900033",
+          "ChargeAmount": "17.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900033",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "7",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "4879.00",
+          "itemDesc": "Conveyor alignment and testing service",
+          "sellerItemID": "PL-SRV-CONV-033",
+          "sellerItemID_Text": "Conveyor alignment and testing service",
+          "BuyerItemId": "PL-CAT-033-1",
+          "buyerItemID": "PL-CAT-033-1",
+          "Gtin": "5400000200331",
+          "gtin": "5400000200331",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1770336000000)/",
+          "ShipToParty": "PLSHIP92033",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000200331",
+          "BuyersItemIdentification": "PL-CAT-033-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900033",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "1",
+          "invoicedQtyUOM": "MON",
+          "invLineNetAmt": "738.00",
+          "itemDesc": "Quarterly application support subscription",
+          "sellerItemID": "PL-SRV-APP-033",
+          "sellerItemID_Text": "Quarterly application support subscription",
+          "BuyerItemId": "PL-CAT-033-2",
+          "buyerItemID": "PL-CAT-033-2",
+          "Gtin": "5400000200332",
+          "gtin": "5400000200332",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1770336000000)/",
+          "ShipToParty": "PLSHIP92033",
+          "BillingQuantityUnit": "MON",
+          "StandardItemIdentification": "5400000200332",
+          "BuyersItemIdentification": "PL-CAT-033-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900033",
+          "AllowanceAmount": "56.17",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900033",
+          "taxCatCode": "V0",
+          "CanonicalTaxCategoryCode": "Z",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "5578.33",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "PL",
+          "jurisdiction_region": "Mazowieckie"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/payment",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "PL20",
+          "HouseBank": "UATPL",
+          "HouseBankAccount": "0733",
+          "payAccID": "PL77010901037000000000000033",
+          "Iban": "PL77010901037000000000000033",
+          "Swift": "BRREPLP1",
+          "payAccName": "Cedro Systemy Sterowania Sp. z o.o.",
+          "BankCountry": "PL",
+          "BankCountry_Text": "Poland"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900033/seller",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900033/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "PL20",
+      "sellerID": "PL72000033",
+      "sellerEndPointIDScheme": "9945",
+      "sellerAddr1": "ul. Chorzowska 53",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Katowice",
+      "sellerPostCode": "40-001",
+      "sellerCountryCode": "PL",
+      "sellerName": "Cedro Systemy Sterowania Sp. z o.o.",
+      "sellerTradeName": "Cedro Industrial",
+      "sellerTaxID": "PL6200000033",
+      "sellerTaxScheme": "VAT",
+      "Iban": "PL77010901037000000000000033",
+      "Swift": "BRREPLP1",
+      "ContactEmailAddress": "billing033@pl-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+48 000 200 0033",
+      "bank_account": [
+        {
+          "iban": "PL77010901037000000000000033",
+          "swift": "BRREPLP1",
+          "account_name": "Cedro Systemy Sterowania Sp. z o.o.",
+          "bank_name": "Bank Rozwoju Regionalnego"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+48 000 200 0033",
+        "email": "billing033@pl-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-02-06T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_PL_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000002033",
+      "correlation_id": "f756ca5e-cfae-54c6-af58-fcf0928c0833",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_PL_SAP_JSON_V1",
+      "target_platform": "KSeF Poland",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / KSeF",
+      "tax_authority_id": "Krajowa Administracja Skarbowa",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/pl/sap-json/PLJ26000900033",
+      "payload_hash": "91c9314d05bf166de0c6bd7ed1b2173cce54f55768470ada68a29635c847064e",
+      "source_hash": "c5355b0aa200959338aac727ad763eecdeb0bb044c83e0c818f243f5d1ac8850",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

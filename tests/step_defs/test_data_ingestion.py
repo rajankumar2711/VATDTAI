@@ -317,7 +317,7 @@ def _reset_data_ingestion_state(page: Page):
 @given("I access Data Ingestion module")
 @when("I access Data Ingestion module")
 def step_access_data_ingestion_module(get_page: Page, vat_context: Dict):
-    """Navigate to Data Ingestion module from VAT DTAI dashboard"""
+    """Navigate to Data Ingestion module from Global Insights And Data Enrichment For e-Invoicing dashboard"""
     logger.info("[GIVEN/WHEN] Accessing Data Ingestion module")
 
     # Per-scenario state reset: since a single shared session is reused across scenarios, clear any
@@ -905,10 +905,12 @@ def step_verify_invalid_data_error(get_page: Page, vat_context: Dict, expected_m
 def step_verify_no_batch_id_invalid_data(get_page: Page, vat_context: Dict):
     """Verify no Batch ID was generated for invalid data file"""
     logger.info("[THEN] Verifying no Batch ID is generated for invalid data")
-    
+
     file_name = vat_context.get("uploaded_file_name", "")
-    logger.info(f"No Batch ID generated for invalid data file: {file_name}")
-    logger.info("[OK] No Batch ID verification passed for invalid data")
+    batch_id = vat_context.get("batch_id")
+    assert batch_id is None, \
+        f"Batch ID was incorrectly generated for invalid data file '{file_name}': {batch_id}"
+    logger.info(f"[OK] No Batch ID generated for invalid data file: {file_name}")
 
 
 @then("no new record is added to Batch e-Invoices table for invalid data")
@@ -1635,12 +1637,17 @@ def step_select_api_record(get_page: Page, vat_context: Dict, data_ingestion_pag
 
 
 @then('selected API record is highlighted for deletion')
-def step_verify_api_record_highlighted_delete(get_page: Page):
-    """Verify selected API record is highlighted"""
+def step_verify_api_record_highlighted_delete(get_page: Page, data_ingestion_page: VatDataIngestionPage, vat_context: Dict):
+    """Verify the API record selected in the previous step is checked/highlighted."""
     logger.info("[THEN] Verifying selected API record is highlighted for deletion")
-    
+
     get_page.wait_for_timeout(1000)
-    logger.info("[OK] Selected API record is highlighted")
+    api_grid = get_page.locator(data_ingestion_page.grid_api_details)
+    checked = api_grid.locator("input[type='checkbox']:checked")
+    assert checked.count() > 0, \
+        "No API record appears selected/highlighted for deletion (no checked row in API Details grid)"
+    logger.info(f"[OK] Selected API record '{vat_context.get('selected_api_record', '')}' is highlighted "
+                f"({checked.count()} checked row(s))")
 
 
 @when('I click Delete button')

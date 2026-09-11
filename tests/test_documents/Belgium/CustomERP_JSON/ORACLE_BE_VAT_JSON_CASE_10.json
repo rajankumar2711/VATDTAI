@@ -1,0 +1,252 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-10-80010",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-11T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-10-80010"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7010"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98010"
+          },
+          "oa:TransactionTypeCode": "Standard",
+          "oa:DocumentDateTime": "2026-06-11",
+          "oa:DueDateTime": "2026-07-11",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-11"
+          },
+          "oa:Description": "Mixed-rate invoice covering 21%, 6%, and 0% categories.",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-10-90010",
+            "oa:PurchaseOrderDateTime": "2026-05-28"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01003"
+            },
+            "oa:TaxID": "BE0689123456"
+          },
+          "oa:Name": "Benelux Industrial Systems NV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Chaussée de Louvain 482",
+              "oa:CityName": "Zaventem",
+              "oa:PostalCode": "1930",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Jeroen Maes",
+              "oa:EmailAddress": "ar@beneluxindustrial.be",
+              "oa:Telephone": "+32-2-555-2203"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE43210012345678",
+            "oa:BIC": "GEBABEBB",
+            "oa:BankName": "BNP Paribas Fortis"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-10-00010"
+            },
+            "oa:TaxID": "BE0567123498"
+          },
+          "oa:Name": "Federal Public Service Mobility (Training)",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Wetstraat 78",
+              "oa:CityName": "Brussels",
+              "oa:StateName": "BRU",
+              "oa:PostalCode": "1040",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Federal Public Service Mobility (Training)",
+              "oa:EmailAddress": "training.mobility@belgium.example",
+              "oa:Telephone": "+32-2-555-0106"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "1005403"
+              },
+              "oa:Description": "Docking station USB-C",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "43211617"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "4"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "72.50"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "290.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "21.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "290.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "60.90"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "2006101"
+              },
+              "oa:Description": "Printed training manuals",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "55101518"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "6"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "24.50"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "147.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "6.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "147.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "8.82"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          },
+          {
+            "@sequenceNumber": "3",
+            "oa:LineNumber": "3",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "4000001"
+              },
+              "oa:Description": "Insurance administration fee",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "84131600"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "1"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "310.00"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "310.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "310.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "30"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "747.00"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "69.72"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "816.72"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "816.72"
+          }
+        }
+      }
+    }
+  }
+}

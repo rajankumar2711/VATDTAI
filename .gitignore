@@ -1,29 +1,10 @@
-# Local python packages
-.python_packages/
- 
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-.vscode/
-build/
-dist/
-etl_templates.egg-info/
-playwright_user_data/
-archive/
-utilities/__pycache__/
-venv_31011/
-node_modules/
-reports/logs
-reports/screenshots
-reports/archive
-reports/assets
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+.python_packages/
 build/
 develop-eggs/
 dist/
@@ -40,33 +21,37 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environment
+# Virtual environments
 venv/
+venv_31011/
 ENV/
 env/
 
-# IDE
+# IDE / editor
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Test Reports (don't commit old reports)
-reports/allure-results_*/
-reports/allure-report_*/
-reports/*_2026*.html
-reports/traces/
-reports/videos/
+# Node
+node_modules/
+package-lock.json
 
-# Screenshots
-screenshots/
-debug_screenshots/
+# Playwright
+playwright_user_data/
+.playwright-mcp/
 
 # Logs
 *.log
 output.json
 test_results.txt
+filter_test_debug.txt
+
+# Screenshots (routed into reports/runs/<run>/screenshots at runtime)
+screenshots/
+debug_screenshots/
+login_page.png
 
 # Environment files with secrets
 .env
@@ -78,18 +63,18 @@ BE_SAP_MAX*.csv
 BE_SAP_MAX*.json
 BE_SAP_MAX*.xml
 
-# Node modules
-node_modules/
-package-lock.json
-
 # Temporary files
 *.tmp
 *.bak
-.playwright-mcp/
-filter_test_debug.txt
-login_page.png
 
-# Cache
-.pytest_cache/
-.cache/
+# Archives
+archive/
+
+# Test reports & run artifacts
+# Every report is generated under reports/ (see reports/runs/<run>/...).
+# Structural placeholders already tracked (reports/__init__.py, reports/assets/,
+# reports/screenshots/__init__.py) stay tracked despite this catch-all.
 reports/
+
+# Office lock/temp files
+~$*

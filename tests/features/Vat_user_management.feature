@@ -1,16 +1,16 @@
-@VATDTAI @MVP @UIUX @UM @P1
-Feature: VAT DTAI User Management - P1 Test Cases
+@GIDEI @MVP @UIUX @UM @P1
+Feature: Global Insights And Data Enrichment For e-Invoicing User Management - P1 Test Cases
   As a product owner
-  I want role-based User Management capabilities in VAT DTAI
+  I want role-based User Management capabilities in Global Insights And Data Enrichment For e-Invoicing
   So that Admin and Country Owner can access and manage user data efficiently
 
   Background:
     Given I login as Admin user
     When I select the Client from dropdown and clicked on continue button
-    When I navigate to VAT DTAI application
+    When I navigate to Global Insights And Data Enrichment For e-Invoicing application
     And I click OK on the application popup
 
-  @TC_607973 @ModuleAccess @Admin @VAT_DTAI_Smoke
+  @TC_607973 @ModuleAccess @Admin @GIDEI_Smoke
   Scenario: Verify access to User Management module by Admin
     When I navigate to User Management module
     Then User Management module is accessible and displayed with header "User Management"

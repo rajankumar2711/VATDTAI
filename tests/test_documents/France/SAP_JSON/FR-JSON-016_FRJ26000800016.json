@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/fr/FRJ26000800016",
+      "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "FRJ26000800016",
+    "CompanyCode": "FR20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800016",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Preventive maintenance for packaging equipment",
+          "AddressID": "FR670161",
+          "actDelivDate": "/Date(1768867200000)/",
+          "delLocID": "FRLOC88016",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue des Forges 56",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Rennes",
+          "delivPostCode": "35000",
+          "delivAddr3": "Rue des Forges 56",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Céleste Approvisionnement Industriel SA Receiving Centre",
+          "DeliveryStreet": "Rue des Forges 56",
+          "DeliveryCity": "Rennes",
+          "DeliveryPostalCode": "35000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92016",
+          "OutboundDelivery": "86000100161"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "FRJ26000800016",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Machine safety relay module",
+          "AddressID": "FR670162",
+          "actDelivDate": "/Date(1768867200000)/",
+          "delLocID": "FRLOC88016",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Rue des Forges 56",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Rennes",
+          "delivPostCode": "35000",
+          "delivAddr3": "Rue des Forges 56",
+          "delivCountryCode": "FR",
+          "delivPartyName": "Céleste Approvisionnement Industriel SA Receiving Centre",
+          "DeliveryStreet": "Rue des Forges 56",
+          "DeliveryCity": "Rennes",
+          "DeliveryPostalCode": "35000",
+          "DeliveryCountryCode": "FR",
+          "ShipToParty": "FRSHIP92016",
+          "OutboundDelivery": "86000100162"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/header",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "FRJ26000800016",
+      "CountryISOCode": "FR",
+      "invNum": "FRJ26000800016",
+      "invoice_id": "FRJ26000800016",
+      "invoice_uuid": "34471e72-966e-566f-a3aa-f16b02bc315c",
+      "invIssueDate": "/Date(1768867200000)/",
+      "payDueDate": "/Date(1771459200000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1768867200000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_FR_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-FR-JSON",
+      "notes": [
+        "Domestic taxable supply",
+        "Standard domestic supply subject to VAT"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "FR83000016",
+      "buyerEndpointIdScheme": "",
+      "buyerID": "FR83000016",
+      "buyerIDScheme": "0002",
+      "BuyRef": "FRBUY83016",
+      "purOrdRef": "PO-FR-26-30016",
+      "saleOrdRef": "SO-FR-26-50016",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Rue des Forges 56",
+      "buyerAddr2": "Building B",
+      "buyerCity": "Rennes",
+      "buyerPostCode": "35000",
+      "buyerCountry": "FR",
+      "buyerTaxID": "FR66410000116",
+      "buyerName": "Céleste Approvisionnement Industriel SA & Regional | Centre",
+      "buyerTradeName": "Céleste Operations",
+      "buyerContactTel": "+33 000 100 0016",
+      "buyerContactEmail": "payables016@fr-buyer.example",
+      "DeliveryStreet": "Rue des Forges 56",
+      "DeliveryCity": "Rennes",
+      "DeliveryPostalCode": "35000",
+      "DeliveryCountryCode": "FR",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within thirty days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "770.55",
+      "taxCatRate": "20.00",
+      "invTotalAmtWithTax": "4632.55",
+      "sumInvLineNetAmt": "3877.00",
+      "AllowanceTotal": "38.77",
+      "ChargeTotal": "14.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "FR20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800016')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('FRJ26000800016')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800016",
+          "ChargeAmount": "14.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000010",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800016",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1632.00",
+          "itemDesc": "Preventive maintenance for packaging equipment",
+          "sellerItemID": "FR-SRV-PACK-016",
+          "sellerItemID_Text": "Preventive maintenance for packaging equipment",
+          "BuyerItemId": "FR-CAT-016-1",
+          "buyerItemID": "FR-CAT-016-1",
+          "Gtin": "5400000100161",
+          "gtin": "5400000100161",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "20.00",
+          "payDueDate": "",
+          "TaxAmount": "326.40",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1768867200000)/",
+          "ShipToParty": "FRSHIP92016",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000100161",
+          "BuyersItemIdentification": "FR-CAT-016-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000020",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "FRJ26000800016",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "2245.00",
+          "itemDesc": "Machine safety relay module",
+          "sellerItemID": "FR-MAT-RELAY-016",
+          "sellerItemID_Text": "Machine safety relay module",
+          "BuyerItemId": "FR-CAT-016-2",
+          "buyerItemID": "FR-CAT-016-2",
+          "Gtin": "5400000100162",
+          "gtin": "5400000100162",
+          "itemCountryOrigin": "FR",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "20.00",
+          "payDueDate": "",
+          "TaxAmount": "449.00",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1768867200000)/",
+          "ShipToParty": "FRSHIP92016",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000100162",
+          "BuyersItemIdentification": "FR-CAT-016-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800016",
+          "AllowanceAmount": "38.77",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "FRJ26000800016",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "20.00",
+          "taxCatTaxableAmt": "3852.73",
+          "taxCatTaxAmt": "770.55",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "FR",
+          "jurisdiction_region": "Île-de-France"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/payment",
+            "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "FR20",
+          "HouseBank": "UATFR",
+          "HouseBankAccount": "0716",
+          "payAccID": "FR8530010200007000000001648",
+          "Iban": "FR8530010200007000000001648",
+          "Swift": "BCAFFRP1",
+          "payAccName": "Aveline Automatisation Moderne SAS",
+          "BankCountry": "FR",
+          "BankCountry_Text": "France"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/fr/FRJ26000800016/seller",
+        "uri": "https://synthetic.example.local/sap/fr/FRJ26000800016/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "FR20",
+      "sellerID": "FR72000016",
+      "sellerEndPointIDScheme": "0002",
+      "sellerAddr1": "Rue de Charenton 36",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Paris",
+      "sellerPostCode": "75012",
+      "sellerCountryCode": "FR",
+      "sellerName": "Aveline Automatisation Moderne SAS",
+      "sellerTradeName": "Aveline Industrial",
+      "sellerTaxID": "FR36410000016",
+      "sellerTaxScheme": "VAT",
+      "Iban": "FR8530010200007000000001648",
+      "Swift": "BCAFFRP1",
+      "ContactEmailAddress": "billing016@fr-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+33 000 200 0016",
+      "bank_account": [
+        {
+          "iban": "FR8530010200007000000001648",
+          "swift": "BCAFFRP1",
+          "account_name": "Aveline Automatisation Moderne SAS",
+          "bank_name": "Banque du Centre Affaires"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+33 000 200 0016",
+        "email": "billing016@fr-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-01-20T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_FR_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000001016",
+      "correlation_id": "51ae3c9f-87d5-5029-a90f-86ade644646a",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_FR_SAP_JSON_V1",
+      "target_platform": "Factur-X France",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / Factur-X",
+      "tax_authority_id": "Direction générale des Finances publiques",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/fr/sap-json/FRJ26000800016",
+      "payload_hash": "613100ed747312678403a3aa4a9afa04b602f38b682723ce2f2a3692e1e8a779",
+      "source_hash": "f47cf47b07282e082950cd7204b87b9d25f5a3c5a3a5fee2188c451f9cd37eca",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

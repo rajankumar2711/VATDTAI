@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<INVOIC02>
+  <IDOC BEGIN="1">
+    <EDI_DC40 SEGMENT="1">
+      <TABNAM>EDI_DC40</TABNAM>
+      <MANDT>100</MANDT>
+      <DOCNUM>8700000000002002</DOCNUM>
+      <DOCREL>755</DOCREL>
+      <STATUS>30</STATUS>
+      <DIRECT>1</DIRECT>
+      <OUTMOD>2</OUTMOD>
+      <IDOCTYP>INVOIC02</IDOCTYP>
+      <MESTYP>INVOIC</MESTYP>
+      <STDMES>INVOIC</STDMES>
+      <SNDPOR>SAPPLUAT</SNDPOR>
+      <SNDPRT>LS</SNDPRT>
+      <SNDPRN>PLSUP41002</SNDPRN>
+      <RCVPOR>EDIPORT</RCVPOR>
+      <RCVPRT>KU</RCVPRT>
+      <RCVPRN>PLCUS48002</RCVPRN>
+      <CREDAT>20260502</CREDAT>
+      <CRETIM>100200</CRETIM>
+      <SERIAL>20260502T120000</SERIAL>
+    </EDI_DC40>
+    <E1EDK01 SEGMENT="1">
+      <ACTION>009</ACTION>
+      <CURCY>PLN</CURCY>
+      <HWAER>PLN</HWAER>
+      <WKURS>1.00000</WKURS>
+      <ZTERM>BE01</ZTERM>
+      <BELNR>PL26-INV-10449</BELNR>
+      <NTGEW>128.500</NTGEW>
+      <BRGEW>139.900</BRGEW>
+      <GEWEI>KGM</GEWEI>
+      <FKART_RL>G2</FKART_RL>
+      <ABLAD>BRU-WH1</ABLAD>
+      <BSART>ZBE</BSART>
+    </E1EDK01>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>012</IDDAT>
+      <DATUM>20260502</DATUM>
+    </E1EDK03>
+    <E1EDK03 SEGMENT="1">
+      <IDDAT>026</IDDAT>
+      <DATUM>20260602</DATUM>
+    </E1EDK03>
+    <E1EDK02 SEGMENT="1">
+      <QUALF>001</QUALF>
+      <BELNR>PO-PL-26-06202</BELNR>
+      <DATUM>20260502</DATUM>
+    </E1EDK02>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>LF</PARVW>
+      <LIFNR>BEVOPS0001</LIFNR>
+      <NAME1>Bałtyckie Usługi Techniczne Sp. z o.o.</NAME1>
+      <NAME2>Accounts Receivable</NAME2>
+      <STRAS>al. Jerozolimskie 12</STRAS>
+      <ORT01>Kraków</ORT01>
+      <PSTLZ>30-001</PSTLZ>
+      <LAND1>PL</LAND1>
+      <STCD1>PL5000000002</STCD1>
+      <TELF1>+48 000 000 1002</TELF1>
+      <SMTP_ADDR>billing@pl-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>RE</PARVW>
+      <KUNNR>BEOPSCUST0001</KUNNR>
+      <NAME1>Krakowskie Rozwiązania Inżynieryjne Sp. z o.o.</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>ul. Serwisowa 12</STRAS>
+      <ORT01>Wrocław</ORT01>
+      <PSTLZ>50-001</PSTLZ>
+      <LAND1>PL</LAND1>
+      <STCD1>PL5000000102</STCD1>
+      <TELF1>+48 000 000 1002</TELF1>
+      <SMTP_ADDR>invoices@pl-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKA1 SEGMENT="1">
+      <PARVW>WE</PARVW>
+      <KUNNR>BEOPSCUST0001S</KUNNR>
+      <NAME1>Krakowskie Rozwiązania Inżynieryjne Sp. z o.o. Distribution</NAME1>
+      <NAME2>Accounts Payable</NAME2>
+      <STRAS>ul. Techniczna 52</STRAS>
+      <ORT01>Wrocław</ORT01>
+      <PSTLZ>50-001</PSTLZ>
+      <LAND1>PL</LAND1>
+      <STCD1>PL5000000202</STCD1>
+      <TELF1>+48 000 000 1002</TELF1>
+      <SMTP_ADDR>invoices@pl-industrial.example</SMTP_ADDR>
+    </E1EDKA1>
+    <E1EDKT1 SEGMENT="1">
+      <TSSPEZ>BERED6</TSSPEZ>
+      <E1EDKT2 SEGMENT="1">
+        <TDLINE>Belgium OPS maintenance services</TDLINE>
+      </E1EDKT2>
+    </E1EDKT1>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000010</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>PLSRV0021</MATNR>
+      <MENGE>4.0000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>2308.00</NETWR>
+      <MWSBT>530.84</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>PL</TXJCD>
+      <VPREI>577.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>4.0000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>PLSERVICE0021</IDTNR>
+        <KTEXT>Annual preventive maintenance for packaging line</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>54123650000011</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BESAPOPSBUY0011</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDP01 SEGMENT="1">
+      <POSEX>000020</POSEX>
+      <ACTION>009</ACTION>
+      <MATNR>PLSRV0022</MATNR>
+      <MENGE>5.0000</MENGE>
+      <MENEE>EA</MENEE>
+      <BPRME>EA</BPRME>
+      <NETWR>3300.00</NETWR>
+      <MWSBT>759.00</MWSBT>
+      <MWSKZ>A0</MWSKZ>
+      <TXJCD>PL</TXJCD>
+      <VPREI>660.00</VPREI>
+      <PEINH>1</PEINH>
+      <BSTMNG>5.0000</BSTMNG>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>001</QUALF>
+        <IDTNR>PLSERVICE0022</IDTNR>
+        <KTEXT>Calibration of production measurement equipment</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>002</QUALF>
+        <IDTNR>54123650000012</IDTNR>
+        <KTEXT>GTIN</KTEXT>
+      </E1EDP19>
+      <E1EDP19 SEGMENT="1">
+        <QUALF>003</QUALF>
+        <IDTNR>BESAPOPSBUY0012</IDTNR>
+        <KTEXT>Buyer item identifier</KTEXT>
+      </E1EDP19>
+    </E1EDP01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>211</SUMID>
+      <SUMME>5608.00</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>212</SUMID>
+      <SUMME>1297.19</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+    <E1EDS01 SEGMENT="1">
+      <SUMID>010</SUMID>
+      <SUMME>6897.84</SUMME>
+      <SUNIT>EUR</SUNIT>
+    </E1EDS01>
+  </IDOC>
+</INVOIC02>

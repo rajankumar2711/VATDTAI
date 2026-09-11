@@ -1,0 +1,210 @@
+{
+  "ProcessInvoice": {
+    "@xmlns": "http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xmlns:oa": "http://www.openapplications.org/oagis/10",
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "@xsi:schemaLocation": "http://www.openapplications.org/oagis/10 Invoice.xsd",
+    "@releaseID": "10.1",
+    "@languageCode": "en-US",
+    "oa:ApplicationArea": {
+      "oa:Sender": {
+        "oa:LogicalID": "Oracle-ERP-PROD",
+        "oa:ComponentID": "Receivables",
+        "oa:TaskID": "GenerateInvoice",
+        "oa:ReferenceID": "ORF-BE-05-80005",
+        "oa:AuthorizationID": "SYSADM"
+      },
+      "oa:CreationDateTime": "2026-06-06T09:15:00Z",
+      "oa:BODID": "urn:oracle:oagis:10:ORF-BE-05-80005"
+    },
+    "oa:DataArea": {
+      "oa:Invoice": {
+        "oa:InvoiceHeader": {
+          "oa:DocumentID": {
+            "oa:ID": {
+              "@schemeVersionID": "1.0",
+              "#text": "INV-BE-2026-7005"
+            }
+          },
+          "oa:AlternateDocumentID": {
+            "oa:ID": "SUPP-INV-98005"
+          },
+          "oa:TransactionTypeCode": "Standard",
+          "oa:DocumentDateTime": "2026-06-06",
+          "oa:DueDateTime": "2026-07-06",
+          "oa:PaymentTerms": {
+            "oa:PaymentTermsTypeCode": "Net30",
+            "oa:Description": "Net 30 days"
+          },
+          "oa:Currency": {
+            "oa:CurrencyCode": "EUR",
+            "oa:ExchangeRate": "1.0",
+            "oa:ExchangeRateDateTime": "2026-06-06"
+          },
+          "oa:Description": "Belgium domestic reverse charge - VAT due by recipient.",
+          "oa:PurchaseOrderReference": {
+            "oa:PurchaseOrderID": "PO-BE-05-90005",
+            "oa:PurchaseOrderDateTime": "2026-05-23"
+          }
+        },
+        "oa:Supplier": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleSupplierNumber",
+              "#text": "SUPP-BE-01003"
+            },
+            "oa:TaxID": "BE0689123456"
+          },
+          "oa:Name": "Benelux Industrial Systems NV",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Chaussée de Louvain 482",
+              "oa:CityName": "Zaventem",
+              "oa:PostalCode": "1930",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Jeroen Maes",
+              "oa:EmailAddress": "ar@beneluxindustrial.be",
+              "oa:Telephone": "+32-2-555-2203"
+            }
+          },
+          "oa:BankAccount": {
+            "oa:IBAN": "BE43210012345678",
+            "oa:BIC": "GEBABEBB",
+            "oa:BankName": "BNP Paribas Fortis"
+          }
+        },
+        "oa:Buyer": {
+          "oa:PartyIDs": {
+            "oa:ID": {
+              "@schemeName": "OracleCustomerNumber",
+              "#text": "CUST-05-00005"
+            },
+            "oa:TaxID": "BE0834234511"
+          },
+          "oa:Name": "Liège Social Housing Agency (Training)",
+          "oa:Location": {
+            "oa:Address": {
+              "oa:AddressLine": "Rue de l'Evêché 1",
+              "oa:CityName": "Liège",
+              "oa:StateName": "WLG",
+              "oa:PostalCode": "4000",
+              "oa:CountryCode": "BE"
+            },
+            "oa:Contact": {
+              "oa:Name": "Liège Social Housing Agency (Training)",
+              "oa:EmailAddress": "housing.ap@liege-training.be",
+              "oa:Telephone": "+32-4-555-0109"
+            }
+          }
+        },
+        "oa:InvoiceLine": [
+          {
+            "@sequenceNumber": "1",
+            "oa:LineNumber": "1",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "5000001"
+              },
+              "oa:Description": "Construction subcontract labour",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "72121400"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "1"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "2450.00"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "2450.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "2450.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "10"
+            }
+          },
+          {
+            "@sequenceNumber": "2",
+            "oa:LineNumber": "2",
+            "oa:Item": {
+              "oa:ItemID": {
+                "@schemeName": "SupplierItemID",
+                "#text": "5000002"
+              },
+              "oa:Description": "Mechanical installation service",
+              "oa:Classification": {
+                "@listAgencyName": "UNSPSC",
+                "#text": "72154024"
+              }
+            },
+            "oa:Quantity": {
+              "@unitCode": "EA",
+              "#text": "1"
+            },
+            "oa:UnitPrice": {
+              "@currencyID": "EUR",
+              "#text": "1100.00"
+            },
+            "oa:ExtendedAmount": {
+              "@currencyID": "EUR",
+              "#text": "1100.00"
+            },
+            "oa:Tax": {
+              "oa:TaxTypeCode": "VAT",
+              "oa:Percent": "0.00",
+              "oa:TaxableAmount": {
+                "@currencyID": "EUR",
+                "#text": "1100.00"
+              },
+              "oa:TaxAmount": {
+                "@currencyID": "EUR",
+                "#text": "0.00"
+              }
+            },
+            "oa:PurchaseOrderReference": {
+              "oa:LineNumber": "20"
+            }
+          }
+        ],
+        "oa:InvoiceTotals": {
+          "oa:SubTotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "3550.00"
+          },
+          "oa:TaxAmount": {
+            "@currencyID": "EUR",
+            "#text": "0.00"
+          },
+          "oa:TotalAmount": {
+            "@currencyID": "EUR",
+            "#text": "3550.00"
+          },
+          "oa:PayableAmount": {
+            "@currencyID": "EUR",
+            "#text": "3550.00"
+          }
+        }
+      }
+    }
+  }
+}

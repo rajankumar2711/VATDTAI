@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/pl/PLJ26000900001",
+      "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "PLJ26000900001",
+    "CompanyCode": "PL20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900001",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Preventive maintenance for packaging equipment",
+          "AddressID": "PL670011",
+          "actDelivDate": "/Date(1767571200000)/",
+          "delLocID": "PLLOC88001",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "al. Wyzwolenia 41",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Katowice",
+          "delivPostCode": "40-001",
+          "delivAddr3": "al. Wyzwolenia 41",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Cobalt Usługi Administracyjne Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "al. Wyzwolenia 41",
+          "DeliveryCity": "Katowice",
+          "DeliveryPostalCode": "40-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92001",
+          "OutboundDelivery": "86000200011"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900001",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Machine safety relay module",
+          "AddressID": "PL670012",
+          "actDelivDate": "/Date(1767571200000)/",
+          "delLocID": "PLLOC88001",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "al. Wyzwolenia 41",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Katowice",
+          "delivPostCode": "40-001",
+          "delivAddr3": "al. Wyzwolenia 41",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Cobalt Usługi Administracyjne Sp. z o.o. Receiving Centre",
+          "DeliveryStreet": "al. Wyzwolenia 41",
+          "DeliveryCity": "Katowice",
+          "DeliveryPostalCode": "40-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92001",
+          "OutboundDelivery": "86000200012"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/header",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "PLJ26000900001",
+      "CountryISOCode": "PL",
+      "invNum": "PLJ26000900001",
+      "invoice_id": "PLJ26000900001",
+      "invoice_uuid": "69f6e66d-e44f-536c-9b8f-b4f369e417c8",
+      "invIssueDate": "/Date(1767571200000)/",
+      "payDueDate": "/Date(1770163200000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1767571200000)/",
+      "invCurrCode": "PLN",
+      "taxAccCurr": "PLN",
+      "source_system": "SAP_PL_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-PL-JSON",
+      "notes": [
+        "Domestic taxable supply",
+        "Standard domestic supply subject to VAT"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "PL83000001",
+      "buyerEndpointIdScheme": "",
+      "buyerID": "PL83000001",
+      "buyerIDScheme": "9945",
+      "BuyRef": "PLBUY83001",
+      "purOrdRef": "PO-PL-26-30001",
+      "saleOrdRef": "SO-PL-26-50001",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "al. Wyzwolenia 41",
+      "buyerAddr2": "Building B",
+      "buyerCity": "Katowice",
+      "buyerPostCode": "40-001",
+      "buyerCountry": "PL",
+      "buyerTaxID": "PL6200000101",
+      "buyerName": "Cobalt Usługi Administracyjne Sp. z o.o. & Regional | Centre",
+      "buyerTradeName": "Cobalt Operations",
+      "buyerContactTel": "+48 000 100 0001",
+      "buyerContactEmail": "payables001@pl-buyer.example",
+      "DeliveryStreet": "al. Wyzwolenia 41",
+      "DeliveryCity": "Katowice",
+      "DeliveryPostalCode": "40-001",
+      "DeliveryCountryCode": "PL",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within thirty days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "284.31",
+      "taxCatRate": "23.00",
+      "invTotalAmtWithTax": "1529.73",
+      "sumInvLineNetAmt": "1235.00",
+      "AllowanceTotal": "12.35",
+      "ChargeTotal": "13.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "PL20",
+      "TransactionCurrency": "PLN",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900001')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900001')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900001",
+          "ChargeAmount": "13.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900001",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "3",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "459.00",
+          "itemDesc": "Preventive maintenance for packaging equipment",
+          "sellerItemID": "PL-SRV-PACK-001",
+          "sellerItemID_Text": "Preventive maintenance for packaging equipment",
+          "BuyerItemId": "PL-CAT-001-1",
+          "buyerItemID": "PL-CAT-001-1",
+          "Gtin": "5400000200011",
+          "gtin": "5400000200011",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "23.00",
+          "payDueDate": "",
+          "TaxAmount": "105.57",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1767571200000)/",
+          "ShipToParty": "PLSHIP92001",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000200011",
+          "BuyersItemIdentification": "PL-CAT-001-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900001",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "776.00",
+          "itemDesc": "Machine safety relay module",
+          "sellerItemID": "PL-MAT-RELAY-001",
+          "sellerItemID_Text": "Machine safety relay module",
+          "BuyerItemId": "PL-CAT-001-2",
+          "buyerItemID": "PL-CAT-001-2",
+          "Gtin": "5400000200012",
+          "gtin": "5400000200012",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "23.00",
+          "payDueDate": "",
+          "TaxAmount": "178.48",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1767571200000)/",
+          "ShipToParty": "PLSHIP92001",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000200012",
+          "BuyersItemIdentification": "PL-CAT-001-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900001",
+          "AllowanceAmount": "12.35",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900001",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "23.00",
+          "taxCatTaxableAmt": "1236.15",
+          "taxCatTaxAmt": "284.31",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "PL",
+          "jurisdiction_region": "Mazowieckie"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/payment",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "PL20",
+          "HouseBank": "UATPL",
+          "HouseBankAccount": "0701",
+          "payAccID": "PL21010901017000000000000001",
+          "Iban": "PL21010901017000000000000001",
+          "Swift": "BHPOPLP1",
+          "payAccName": "Astra Inżynieria Przemysłowa Sp. z o.o.",
+          "BankCountry": "PL",
+          "BankCountry_Text": "Poland"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900001/seller",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900001/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "PL20",
+      "sellerID": "PL72000001",
+      "sellerEndPointIDScheme": "9945",
+      "sellerAddr1": "ul. Srebrna 21",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Warszawa",
+      "sellerPostCode": "02-001",
+      "sellerCountryCode": "PL",
+      "sellerName": "Astra Inżynieria Przemysłowa Sp. z o.o.",
+      "sellerTradeName": "Astra Industrial",
+      "sellerTaxID": "PL6200000001",
+      "sellerTaxScheme": "VAT",
+      "Iban": "PL21010901017000000000000001",
+      "Swift": "BHPOPLP1",
+      "ContactEmailAddress": "billing001@pl-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+48 000 200 0001",
+      "bank_account": [
+        {
+          "iban": "PL21010901017000000000000001",
+          "swift": "BHPOPLP1",
+          "account_name": "Astra Inżynieria Przemysłowa Sp. z o.o.",
+          "bank_name": "Bank Handlowy Północ"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+48 000 200 0001",
+        "email": "billing001@pl-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-01-05T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_PL_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000002001",
+      "correlation_id": "ae1c9961-23d9-5779-a449-ae5b27b0681e",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_PL_SAP_JSON_V1",
+      "target_platform": "KSeF Poland",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / KSeF",
+      "tax_authority_id": "Krajowa Administracja Skarbowa",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/pl/sap-json/PLJ26000900001",
+      "payload_hash": "5b10eef8c2bdbfc491a418d0f9bb2000ce8f7010fdf8d4007a94d339d26fc021",
+      "source_hash": "09b6bf00d59166f4268c77d245d85587d41c781a1a1e5d7ce57e9e8d3f08c08e",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

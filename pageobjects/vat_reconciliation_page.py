@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 class VatReconciliationPage(BasePage):
-    """Page object for VAT DTAI Reconciliation module."""
+    """Page object for Global Insights And Data Enrichment For e-Invoicing Reconciliation module."""
 
     def __init__(self, page: Page):
         super().__init__(page)

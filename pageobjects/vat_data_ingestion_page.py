@@ -2,6 +2,7 @@ import logging
 import re
 from pageobjects.base_page import BasePage
 from conftest import get_page
+from utilities import evidence
 
 # Configure logger for this module
 logger = logging.getLogger(__name__)
@@ -9,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 class VatDataIngestionPage(BasePage):
     """
-    Page Object Model for VAT DTAI Data Ingestion Module
+    Page Object Model for Global Insights And Data Enrichment For e-Invoicing Data Ingestion Module
     Based on User Story 595077: [MVP] [UI/UX] [DI] Create Data Ingestion Tab
     """
     
@@ -326,7 +327,7 @@ class VatDataIngestionPage(BasePage):
                 
                 # Take screenshot
                 try:
-                    self.page.screenshot(path=f"screenshots/session_timeout_detected.png", full_page=True)
+                    evidence.debug_shot(self.page, "session_timeout_detected")
                 except:
                     pass
                 
@@ -394,7 +395,7 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot before attempting selection
         try:
-            self.page.screenshot(path=f"screenshots/before_source_system_selection.png", full_page=True)
+            evidence.debug_shot(self.page, "before_source_system_selection")
         except:
             pass
         
@@ -431,7 +432,7 @@ class VatDataIngestionPage(BasePage):
             # Take screenshot of failure
             logger.error("✗ Dropdown button NOT found - Taking diagnostic screenshot")
             try:
-                self.page.screenshot(path=f"screenshots/dropdown_not_found.png", full_page=True)
+                evidence.debug_shot(self.page, "dropdown_not_found")
                 
                 # Log page URL and title for debugging
                 current_url = self.page.url
@@ -469,7 +470,7 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot of opened dropdown
         try:
-            self.page.screenshot(path=f"screenshots/dropdown_opened.png", full_page=True)
+            evidence.debug_shot(self.page, "dropdown_opened")
         except:
             pass
         
@@ -512,14 +513,13 @@ class VatDataIngestionPage(BasePage):
         
         if not option_selected:
             # Take screenshot of failure
-            try:
-                self.page.screenshot(path=f"screenshots/option_not_found.png", full_page=True)
-                # Also save HTML for debugging
-                html_content = self.page.content()
-                with open("screenshots/page_html.html", "w", encoding="utf-8") as f:
-                    f.write(html_content)
-            except:
-                pass
+            evidence.debug_shot(self.page, "option_not_found")
+            if evidence.debug_shots_enabled():
+                try:
+                    html_path = evidence.run_screenshot_dir() / "page_html.html"
+                    html_path.write_text(self.page.content(), encoding="utf-8")
+                except Exception:
+                    pass
             raise Exception(f"Could not select option: {source_system}. Dropdown opened but option not found in menu.")
         
         # Wait for selection to take effect and menu to close
@@ -527,7 +527,7 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot after selection
         try:
-            self.page.screenshot(path=f"screenshots/after_source_system_selection.png", full_page=True)
+            evidence.debug_shot(self.page, "after_source_system_selection")
         except:
             pass
         
@@ -573,7 +573,7 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot before file selection
         try:
-            self.page.screenshot(path=f"screenshots/before_file_selection.png", full_page=True)
+            evidence.debug_shot(self.page, "before_file_selection")
         except:
             pass
         
@@ -615,7 +615,7 @@ class VatDataIngestionPage(BasePage):
         if not dropzone_element:
             logger.error("✗ Dropzone element not found")
             try:
-                self.page.screenshot(path=f"screenshots/dropzone_not_found.png", full_page=True)
+                evidence.debug_shot(self.page, "dropzone_not_found")
             except:
                 pass
             raise Exception("Dropzone clickable area not found using any locator strategy")
@@ -643,7 +643,7 @@ class VatDataIngestionPage(BasePage):
             # to setting the file directly on the Dropzone.js hidden input, which is more reliable.
             logger.warning(f"⚠ File chooser did not open ({e}); falling back to hidden-input set")
             try:
-                self.page.screenshot(path=f"screenshots/file_chooser_failed.png", full_page=True)
+                evidence.debug_shot(self.page, "file_chooser_failed")
             except:
                 pass
             self.set_file_via_input(file_path)
@@ -656,7 +656,7 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot after file selection
         try:
-            self.page.screenshot(path=f"screenshots/after_file_selection_attempt.png", full_page=True)
+            evidence.debug_shot(self.page, "after_file_selection_attempt")
         except:
             pass
         
@@ -730,7 +730,7 @@ class VatDataIngestionPage(BasePage):
         
         # Final screenshot
         try:
-            self.page.screenshot(path=f"screenshots/after_file_verification.png", full_page=True)
+            evidence.debug_shot(self.page, "after_file_verification")
         except:
             pass
         
@@ -807,7 +807,7 @@ class VatDataIngestionPage(BasePage):
         if not upload_btn:
             logger.error("✗ Upload button not found with any locator strategy")
             try:
-                self.page.screenshot(path=f"screenshots/upload_button_not_found.png", full_page=True)
+                evidence.debug_shot(self.page, "upload_button_not_found")
             except:
                 pass
             raise Exception("Upload button not found")
@@ -832,14 +832,14 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot before clicking
         try:
-            self.page.screenshot(path=f"screenshots/before_upload_button_click.png", full_page=True)
+            evidence.debug_shot(self.page, "before_upload_button_click")
         except:
             pass
         
         if not button_enabled:
             logger.error(f"✗✗✗ Upload button did NOT become enabled after {max_wait} seconds")
             try:
-                self.page.screenshot(path=f"screenshots/upload_button_disabled.png", full_page=True)
+                evidence.debug_shot(self.page, "upload_button_disabled")
                 btn_html = upload_btn.evaluate("el => el.outerHTML")
                 logger.error(f"Button HTML: {btn_html}")
                 
@@ -861,7 +861,7 @@ class VatDataIngestionPage(BasePage):
         
         # Take screenshot after clicking
         try:
-            self.page.screenshot(path=f"screenshots/after_upload_button_click.png", full_page=True)
+            evidence.debug_shot(self.page, "after_upload_button_click")
         except:
             pass
 

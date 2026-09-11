@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ProcessInvoice xmlns="http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/" xmlns:oa="http://www.openapplications.org/oagis/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openapplications.org/oagis/10 Invoice.xsd" releaseID="10.1" languageCode="en-US">
+  <oa:ApplicationArea>
+    <oa:Sender>
+      <oa:LogicalID>ERPFRUAT</oa:LogicalID>
+      <oa:ComponentID>Receivables</oa:ComponentID>
+      <oa:TaskID>GenerateInvoice</oa:TaskID>
+      <oa:ReferenceID>REF-FR-26-00011</oa:ReferenceID>
+      <oa:AuthorizationID>SYSADM</oa:AuthorizationID>
+    </oa:Sender>
+    <oa:CreationDateTime>2026-07-11T10:30:00Z</oa:CreationDateTime>
+    <oa:BODID>urn:dtai:fr:invoice:000011</oa:BODID>
+  </oa:ApplicationArea>
+  <oa:DataArea>
+    <oa:Invoice>
+      <oa:InvoiceHeader>
+        <oa:DocumentID>
+          <oa:ID schemeVersionID="1.0">FR26-ERP-20481</oa:ID>
+        </oa:DocumentID>
+        <oa:AlternateDocumentID>
+          <oa:ID>ALT-FR-05411</oa:ID>
+        </oa:AlternateDocumentID>
+        <oa:TransactionTypeCode>380</oa:TransactionTypeCode>
+        <oa:DocumentDateTime>2026-07-11</oa:DocumentDateTime>
+        <oa:DueDateTime>2026-08-11</oa:DueDateTime>
+        <oa:PaymentTerms>
+          <oa:PaymentTermsTypeCode>NET02</oa:PaymentTermsTypeCode>
+          <oa:Description>Customer accounts for VAT under contractual terms</oa:Description>
+        </oa:PaymentTerms>
+        <oa:Currency>
+          <oa:CurrencyCode>EUR</oa:CurrencyCode>
+          <oa:ExchangeRate>1.0</oa:ExchangeRate>
+          <oa:ExchangeRateDateTime>2026-05-17</oa:ExchangeRateDateTime>
+        </oa:Currency>
+        <oa:Description>Belgium ERP OPS technical services</oa:Description>
+        <oa:PurchaseOrderReference>
+          <oa:PurchaseOrderID>PO-FR-26-07111</oa:PurchaseOrderID>
+          <oa:PurchaseOrderDateTime>2026-07-11</oa:PurchaseOrderDateTime>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceHeader>
+      <oa:Supplier>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleSupplierNumber">FRSUP41011</oa:ID>
+          <oa:TaxID>FR21300000011</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Équipements Professionnels du Nord Integrated SARL</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>Boulevard des Ateliers 23</oa:AddressLine>
+            <oa:CityName>Lille</oa:CityName>
+            <oa:PostalCode>59000</oa:PostalCode>
+            <oa:CountryCode>FR</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Billing Operations</oa:Name>
+            <oa:EmailAddress>billing@fr-services.example</oa:EmailAddress>
+            <oa:Telephone>+33 000 000 2011</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+        <oa:BankAccount>
+          <oa:IBAN>FR0000000000000000000000000</oa:IBAN>
+          <oa:BIC>NPYFRPP0</oa:BIC>
+          <oa:BankName>NON-PAYABLE SYNTHETIC BANK</oa:BankName>
+        </oa:BankAccount>
+      </oa:Supplier>
+      <oa:Buyer>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleCustomerNumber">FRCUS41011</oa:ID>
+          <oa:TaxID>PL8000000011</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Provence Facility Management Integrated SARL</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>Quai des Services 23</oa:AddressLine>
+            <oa:CityName>Nantes</oa:CityName>
+            <oa:StateName>BRU</oa:StateName>
+            <oa:PostalCode>44000</oa:PostalCode>
+            <oa:CountryCode>FR</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Billing Operations</oa:Name>
+            <oa:EmailAddress>payables@fr-services.example</oa:EmailAddress>
+            <oa:Telephone>+33 000 000 2011</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+      </oa:Buyer>
+      <oa:InvoiceLine sequenceNumber="1">
+        <oa:LineNumber>1</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">FRERPITEM0111</oa:ItemID>
+          <oa:Description>Quarterly equipment inspection service</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">5700021</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">1.0000</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">750.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">750.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>VAT</oa:TaxTypeCode>
+          <oa:Percent>20.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">750.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">150.00</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>10</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceLine sequenceNumber="2">
+        <oa:LineNumber>2</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">FRERPITEM0112</oa:ItemID>
+          <oa:Description>Replacement sensor installation service</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">5700022</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">2.0000</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">821.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">1642.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>VAT</oa:TaxTypeCode>
+          <oa:Percent>20.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">1642.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">328.40</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>20</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceTotals>
+        <oa:SubTotalAmount currencyID="EUR">2392.00</oa:SubTotalAmount>
+        <oa:TaxAmount currencyID="EUR">478.40</oa:TaxAmount>
+        <oa:TotalAmount currencyID="EUR">2870.40</oa:TotalAmount>
+        <oa:PayableAmount currencyID="EUR">2870.40</oa:PayableAmount>
+      </oa:InvoiceTotals>
+    </oa:Invoice>
+  </oa:DataArea>
+</ProcessInvoice>

@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700009",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700009",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700009",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700009/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700009",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Emergency lighting control inspection",
+          "AddressID": "BE670091",
+          "actDelivDate": "/Date(1768262400000)/",
+          "delLocID": "BELOC88009",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Kempische Steenweg 49",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Bruxelles",
+          "delivPostCode": "1000",
+          "delivAddr3": "Kempische Steenweg 49",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Arcadia Distribution Group NV Receiving Centre",
+          "DeliveryStreet": "Kempische Steenweg 49",
+          "DeliveryCity": "Bruxelles",
+          "DeliveryPostalCode": "1000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92009",
+          "OutboundDelivery": "86000000091"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700009/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700009",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Industrial barcode scanner unit",
+          "AddressID": "BE670092",
+          "actDelivDate": "/Date(1768262400000)/",
+          "delLocID": "BELOC88009",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Kempische Steenweg 49",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Bruxelles",
+          "delivPostCode": "1000",
+          "delivAddr3": "Kempische Steenweg 49",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Arcadia Distribution Group NV Receiving Centre",
+          "DeliveryStreet": "Kempische Steenweg 49",
+          "DeliveryCity": "Bruxelles",
+          "DeliveryPostalCode": "1000",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92009",
+          "OutboundDelivery": "86000000092"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700009/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700009",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700009",
+      "invoice_id": "BEJ26000700009",
+      "invoice_uuid": "753a5978-0e9c-517d-a61a-c76500da802c",
+      "invIssueDate": "/Date(1768262400000)/",
+      "payDueDate": "/Date(1769472000000)/",
+      "invTypeCode": "380",
+      "taxPntDate": "/Date(1768262400000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Domestic taxable supply",
+        "Standard domestic supply subject to VAT"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000009",
+      "buyerEndpointIdScheme": "",
+      "buyerID": "BE83000009",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83009",
+      "purOrdRef": "PO-BE-26-30009",
+      "saleOrdRef": "SO-BE-26-50009",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Kempische Steenweg 49",
+      "buyerAddr2": "Building E",
+      "buyerCity": "Bruxelles",
+      "buyerPostCode": "1000",
+      "buyerCountry": "BE",
+      "buyerTaxID": "FR740000009",
+      "buyerName": "Arcadia Distribution Group NV & Regional | Centre",
+      "buyerTradeName": "Arcadia Operations",
+      "buyerContactTel": "+32 000 100 0009",
+      "buyerContactEmail": "payables009@be-buyer.example",
+      "DeliveryStreet": "Kempische Steenweg 49",
+      "DeliveryCity": "Bruxelles",
+      "DeliveryPostalCode": "1000",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within fourteen days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "586.41",
+      "taxCatRate": "21.00",
+      "invTotalAmtWithTax": "3378.85",
+      "sumInvLineNetAmt": "2806.00",
+      "AllowanceTotal": "28.06",
+      "ChargeTotal": "14.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700009')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700009')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700009",
+          "ChargeAmount": "14.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700009",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1156.00",
+          "itemDesc": "Emergency lighting control inspection",
+          "sellerItemID": "BE-SRV-LIGHT-009",
+          "sellerItemID_Text": "Emergency lighting control inspection",
+          "BuyerItemId": "BE-CAT-009-1",
+          "buyerItemID": "BE-CAT-009-1",
+          "Gtin": "5400000000091",
+          "gtin": "5400000000091",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "242.76",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1768262400000)/",
+          "ShipToParty": "BESHIP92009",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000091",
+          "BuyersItemIdentification": "BE-CAT-009-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700009",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "1650.00",
+          "itemDesc": "Industrial barcode scanner unit",
+          "sellerItemID": "BE-MAT-SCAN-009",
+          "sellerItemID_Text": "Industrial barcode scanner unit",
+          "BuyerItemId": "BE-CAT-009-2",
+          "buyerItemID": "BE-CAT-009-2",
+          "Gtin": "5400000000092",
+          "gtin": "5400000000092",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "346.50",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1768262400000)/",
+          "ShipToParty": "BESHIP92009",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000000092",
+          "BuyersItemIdentification": "BE-CAT-009-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700009",
+          "AllowanceAmount": "28.06",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700009",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "21.00",
+          "taxCatTaxableAmt": "2792.44",
+          "taxCatTaxAmt": "586.41",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700009/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0709",
+          "payAccID": "BE34113500000963",
+          "Iban": "BE34113500000963",
+          "Swift": "CBBKBEB1",
+          "payAccName": "Delta Industrial Controls SA",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700009/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700009/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000009",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Doorniksesteenweg 29",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Kortrijk",
+      "sellerPostCode": "8500",
+      "sellerCountryCode": "BE",
+      "sellerName": "Delta Industrial Controls SA",
+      "sellerTradeName": "Delta Industrial",
+      "sellerTaxID": "BE0520000009",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE34113500000963",
+      "Swift": "CBBKBEB1",
+      "ContactEmailAddress": "billing009@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0009",
+      "bank_account": [
+        {
+          "iban": "BE34113500000963",
+          "swift": "CBBKBEB1",
+          "account_name": "Delta Industrial Controls SA",
+          "bank_name": "Capital Business Bank"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0009",
+        "email": "billing009@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-01-13T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000009",
+      "correlation_id": "a1af5b96-bf5e-540d-a122-bc248b84f9b7",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700009",
+      "payload_hash": "f3b57e8536c32b04d50760cff5676b63ae14f95d6a612943c7d0e3aacd2acc51",
+      "source_hash": "ca6883a4eebc541f1e5d73bd136e7f95d7543d5b5e2516efd709b6b5b35c767d",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

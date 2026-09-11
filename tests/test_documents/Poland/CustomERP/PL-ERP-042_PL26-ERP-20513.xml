@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ProcessInvoice xmlns="http://xmlns.oracle.com/apps/financials/payables/invoices/quickInvoices/invoiceInterfaceService/types/" xmlns:oa="http://www.openapplications.org/oagis/10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openapplications.org/oagis/10 Invoice.xsd" releaseID="10.1" languageCode="en-US">
+  <oa:ApplicationArea>
+    <oa:Sender>
+      <oa:LogicalID>ERPPLUAT</oa:LogicalID>
+      <oa:ComponentID>Receivables</oa:ComponentID>
+      <oa:TaskID>GenerateInvoice</oa:TaskID>
+      <oa:ReferenceID>REF-PL-26-00042</oa:ReferenceID>
+      <oa:AuthorizationID>SYSADM</oa:AuthorizationID>
+    </oa:Sender>
+    <oa:CreationDateTime>2026-08-14T10:30:00Z</oa:CreationDateTime>
+    <oa:BODID>urn:dtai:pl:invoice:000042</oa:BODID>
+  </oa:ApplicationArea>
+  <oa:DataArea>
+    <oa:Invoice>
+      <oa:InvoiceHeader>
+        <oa:DocumentID>
+          <oa:ID schemeVersionID="1.0">PL26-ERP-20513</oa:ID>
+        </oa:DocumentID>
+        <oa:AlternateDocumentID>
+          <oa:ID>ALT-PL-05442</oa:ID>
+        </oa:AlternateDocumentID>
+        <oa:TransactionTypeCode>381</oa:TransactionTypeCode>
+        <oa:DocumentDateTime>2026-08-14</oa:DocumentDateTime>
+        <oa:DueDateTime>2026-09-14</oa:DueDateTime>
+        <oa:PaymentTerms>
+          <oa:PaymentTermsTypeCode>NET02</oa:PaymentTermsTypeCode>
+          <oa:Description>Net 22 days</oa:Description>
+        </oa:PaymentTerms>
+        <oa:Currency>
+          <oa:CurrencyCode>PLN</oa:CurrencyCode>
+          <oa:ExchangeRate>1.0</oa:ExchangeRate>
+          <oa:ExchangeRateDateTime>2026-05-17</oa:ExchangeRateDateTime>
+        </oa:Currency>
+        <oa:Description>Equipment deployment — scheduled phase</oa:Description>
+        <oa:PurchaseOrderReference>
+          <oa:PurchaseOrderID>PO-PL-26-07142</oa:PurchaseOrderID>
+          <oa:PurchaseOrderDateTime>2026-08-14</oa:PurchaseOrderDateTime>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceHeader>
+      <oa:Supplier>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleSupplierNumber">PLSUP41042</oa:ID>
+          <oa:TaxID>PL5000000042</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Warta Rozwiązania Inżynieryjne Modern S.A.</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>ul. Serwisowa 54</oa:AddressLine>
+            <oa:CityName>Poznań</oa:CityName>
+            <oa:PostalCode>60-001</oa:PostalCode>
+            <oa:CountryCode>PL</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Billing Operations</oa:Name>
+            <oa:EmailAddress>billing@pl-services.example</oa:EmailAddress>
+            <oa:Telephone>+48 000 000 2042</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+        <oa:BankAccount>
+          <oa:IBAN>PL00000000000000000000000000</oa:IBAN>
+          <oa:BIC>NPYPLPW0</oa:BIC>
+          <oa:BankName>NON-PAYABLE SYNTHETIC BANK</oa:BankName>
+        </oa:BankAccount>
+      </oa:Supplier>
+      <oa:Buyer>
+        <oa:PartyIDs>
+          <oa:ID schemeName="OracleCustomerNumber">PLCUS41042</oa:ID>
+          <oa:TaxID>PL5000000142</oa:TaxID>
+        </oa:PartyIDs>
+        <oa:Name>Mazurskie Zakupy Techniczne Modern S.A.</oa:Name>
+        <oa:Location>
+          <oa:Address>
+            <oa:AddressLine>ul. Przemysłowa 54</oa:AddressLine>
+            <oa:CityName>Gdańsk</oa:CityName>
+            <oa:StateName>BRU</oa:StateName>
+            <oa:PostalCode>80-001</oa:PostalCode>
+            <oa:CountryCode>PL</oa:CountryCode>
+          </oa:Address>
+          <oa:Contact>
+            <oa:Name>Billing Operations</oa:Name>
+            <oa:EmailAddress>payables@pl-services.example</oa:EmailAddress>
+            <oa:Telephone>+48 000 000 2042</oa:Telephone>
+          </oa:Contact>
+        </oa:Location>
+      </oa:Buyer>
+      <oa:InvoiceLine sequenceNumber="1">
+        <oa:LineNumber>1</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">PLERPITEM0421</oa:ItemID>
+          <oa:Description>Quarterly equipment inspection service</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">5700021</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">2.0000</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">869.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">1738.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>REVERSE</oa:TaxTypeCode>
+          <oa:Percent>0.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">1738.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">0.00</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>10</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceLine sequenceNumber="2">
+        <oa:LineNumber>2</oa:LineNumber>
+        <oa:Item>
+          <oa:ItemID schemeName="SupplierItemID">PLERPITEM0422</oa:ItemID>
+          <oa:Description>Replacement sensor installation service</oa:Description>
+          <oa:Classification listAgencyName="UNSPSC">5700022</oa:Classification>
+        </oa:Item>
+        <oa:Quantity unitCode="EA">3.0000</oa:Quantity>
+        <oa:UnitPrice currencyID="EUR">940.00</oa:UnitPrice>
+        <oa:ExtendedAmount currencyID="EUR">2820.00</oa:ExtendedAmount>
+        <oa:Tax>
+          <oa:TaxTypeCode>REVERSE</oa:TaxTypeCode>
+          <oa:Percent>0.00</oa:Percent>
+          <oa:TaxableAmount currencyID="EUR">2820.00</oa:TaxableAmount>
+          <oa:TaxAmount currencyID="EUR">0.00</oa:TaxAmount>
+        </oa:Tax>
+        <oa:PurchaseOrderReference>
+          <oa:LineNumber>20</oa:LineNumber>
+        </oa:PurchaseOrderReference>
+      </oa:InvoiceLine>
+      <oa:InvoiceTotals>
+        <oa:SubTotalAmount currencyID="EUR">4558.00</oa:SubTotalAmount>
+        <oa:TaxAmount currencyID="EUR">0.00</oa:TaxAmount>
+        <oa:TotalAmount currencyID="EUR">4558.00</oa:TotalAmount>
+        <oa:PayableAmount currencyID="EUR">4569.40</oa:PayableAmount>
+      </oa:InvoiceTotals>
+    </oa:Invoice>
+  </oa:DataArea>
+</ProcessInvoice>

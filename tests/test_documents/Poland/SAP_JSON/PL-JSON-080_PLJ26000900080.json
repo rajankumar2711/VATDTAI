@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/pl/PLJ26000900080",
+      "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "PLJ26000900080",
+    "CompanyCode": "PL20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900080",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "On-site automation engineering support",
+          "AddressID": "PL670801",
+          "actDelivDate": "/Date(1774396800000)/",
+          "delLocID": "PLLOC88080",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Chorzowska 120",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Łódź",
+          "delivPostCode": "90-001",
+          "delivAddr3": "ul. Chorzowska 120",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Brama Zarządzanie Obiektami S.A. Receiving Centre",
+          "DeliveryStreet": "ul. Chorzowska 120",
+          "DeliveryCity": "Łódź",
+          "DeliveryPostalCode": "90-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92080",
+          "OutboundDelivery": "86000200801"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "PLJ26000900080",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Energy meter verification service",
+          "AddressID": "PL670802",
+          "actDelivDate": "/Date(1774396800000)/",
+          "delLocID": "PLLOC88080",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "ul. Chorzowska 120",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Łódź",
+          "delivPostCode": "90-001",
+          "delivAddr3": "ul. Chorzowska 120",
+          "delivCountryCode": "PL",
+          "delivPartyName": "Brama Zarządzanie Obiektami S.A. Receiving Centre",
+          "DeliveryStreet": "ul. Chorzowska 120",
+          "DeliveryCity": "Łódź",
+          "DeliveryPostalCode": "90-001",
+          "DeliveryCountryCode": "PL",
+          "ShipToParty": "PLSHIP92080",
+          "OutboundDelivery": "86000200802"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/header",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "PLJ26000900080",
+      "CountryISOCode": "PL",
+      "invNum": "PLJ26000900080",
+      "invoice_id": "PLJ26000900080",
+      "invoice_uuid": "0b80a390-f894-5ea8-8db8-231ae42022a6",
+      "invIssueDate": "/Date(1774396800000)/",
+      "payDueDate": "/Date(1778284800000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1774396800000)/",
+      "invCurrCode": "PLN",
+      "taxAccCurr": "PLN",
+      "source_system": "SAP_PL_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-PL-JSON",
+      "notes": [
+        "Business-to-business reverse-charge service",
+        "VAT accounted for by the customer under reverse charge"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "PL83000080",
+      "buyerEndpointIdScheme": "9945",
+      "buyerID": "PL83000080",
+      "buyerIDScheme": "9945",
+      "BuyRef": "PLBUY83080",
+      "purOrdRef": "PO-PL-26-30080",
+      "saleOrdRef": "SO-PL-26-50080",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "ul. Chorzowska 120",
+      "buyerAddr2": "Building A",
+      "buyerCity": "Łódź",
+      "buyerPostCode": "90-001",
+      "buyerCountry": "PL",
+      "buyerTaxID": "FR740000080",
+      "buyerName": "Brama Zarządzanie Obiektami S.A.",
+      "buyerTradeName": "Brama Operations",
+      "buyerContactTel": "+48 000 100 0080",
+      "buyerContactEmail": "payables080@pl-buyer.example",
+      "DeliveryStreet": "ul. Chorzowska 120",
+      "DeliveryCity": "Łódź",
+      "DeliveryPostalCode": "90-001",
+      "DeliveryCountryCode": "PL",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "RC",
+      "CanonicalTaxCategoryCode": "AE",
+      "invTotalTaxAmt": "0.00",
+      "taxCatRate": "0.00",
+      "invTotalAmtWithTax": "2402.75",
+      "sumInvLineNetAmt": "2402.00",
+      "AllowanceTotal": "24.02",
+      "ChargeTotal": "15.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "PL20",
+      "TransactionCurrency": "PLN",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900080')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('PLJ26000900080')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900080",
+          "ChargeAmount": "15.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000010",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900080",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "980.00",
+          "itemDesc": "On-site automation engineering support",
+          "sellerItemID": "PL-SRV-AUTO-080",
+          "sellerItemID_Text": "On-site automation engineering support",
+          "BuyerItemId": "PL-CAT-080-1",
+          "buyerItemID": "PL-CAT-080-1",
+          "Gtin": "5400000200801",
+          "gtin": "5400000200801",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1774396800000)/",
+          "ShipToParty": "PLSHIP92080",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000200801",
+          "BuyersItemIdentification": "PL-CAT-080-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000020",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "PLJ26000900080",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "6",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1422.00",
+          "itemDesc": "Energy meter verification service",
+          "sellerItemID": "PL-SRV-ENERGY-080",
+          "sellerItemID_Text": "Energy meter verification service",
+          "BuyerItemId": "PL-CAT-080-2",
+          "buyerItemID": "PL-CAT-080-2",
+          "Gtin": "5400000200802",
+          "gtin": "5400000200802",
+          "itemCountryOrigin": "PL",
+          "invItemTaxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "invItemTaxRate": "0.00",
+          "payDueDate": "",
+          "TaxAmount": "0.00",
+          "TransactionCurrency": "PLN",
+          "DeliveryDate": "/Date(1774396800000)/",
+          "ShipToParty": "PLSHIP92080",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000200802",
+          "BuyersItemIdentification": "PL-CAT-080-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900080",
+          "AllowanceAmount": "24.02",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "PLJ26000900080",
+          "taxCatCode": "RC",
+          "CanonicalTaxCategoryCode": "AE",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "0.00",
+          "taxCatTaxableAmt": "2393.48",
+          "taxCatTaxAmt": "0.00",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "PL",
+          "jurisdiction_region": "Mazowieckie"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/payment",
+            "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "PL20",
+          "HouseBank": "UATPL",
+          "HouseBankAccount": "0780",
+          "payAccID": "PL19010901057000000000000080",
+          "Iban": "PL19010901057000000000000080",
+          "Swift": "BUBZPLP1",
+          "payAccName": "Elektra Inżynieria Przemysłowa Sp. z o.o.",
+          "BankCountry": "PL",
+          "BankCountry_Text": "Poland"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/pl/PLJ26000900080/seller",
+        "uri": "https://synthetic.example.local/sap/pl/PLJ26000900080/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "PL20",
+      "sellerID": "PL72000080",
+      "sellerEndPointIDScheme": "9945",
+      "sellerAddr1": "ul. Zana 100",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Lublin",
+      "sellerPostCode": "20-001",
+      "sellerCountryCode": "PL",
+      "sellerName": "Elektra Inżynieria Przemysłowa Sp. z o.o.",
+      "sellerTradeName": "Elektra Industrial",
+      "sellerTaxID": "PL6200000080",
+      "sellerTaxScheme": "VAT",
+      "Iban": "PL19010901057000000000000080",
+      "Swift": "BUBZPLP1",
+      "ContactEmailAddress": "billing080@pl-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+48 000 200 0080",
+      "bank_account": [
+        {
+          "iban": "PL19010901057000000000000080",
+          "swift": "BUBZPLP1",
+          "account_name": "Elektra Inżynieria Przemysłowa Sp. z o.o.",
+          "bank_name": "Bank Usług Biznesowych"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+48 000 200 0080",
+        "email": "billing080@pl-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-03-25T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_PL_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000002080",
+      "correlation_id": "b3144b1a-8d30-5db9-aac2-0026d5b1a747",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_PL_SAP_JSON_V1",
+      "target_platform": "KSeF Poland",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / KSeF",
+      "tax_authority_id": "Krajowa Administracja Skarbowa",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/pl/sap-json/PLJ26000900080",
+      "payload_hash": "150c7b091acd8b4953db6f8754c6523956163fa836b0b5a3666fd1cac6e35edc",
+      "source_hash": "1fb87a59224769685836f3b3ef1208a948a0a7dc0d48126cd3e0653e3bff9f09",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

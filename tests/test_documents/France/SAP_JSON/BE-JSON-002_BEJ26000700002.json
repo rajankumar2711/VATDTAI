@@ -1,0 +1,363 @@
+{
+  "d": {
+    "__metadata": {
+      "id": "https://synthetic.example.local/sap/be/BEJ26000700002",
+      "uri": "https://synthetic.example.local/sap/be/BEJ26000700002",
+      "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_APIType"
+    },
+    "BillingDocument": "BEJ26000700002",
+    "CompanyCode": "BE20",
+    "to_Delivery": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700002/delivery/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/delivery/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700002",
+          "BillingDocumentItem": "000010",
+          "BillingDocumentItemText": "Industrial temperature sensor assembly",
+          "AddressID": "BE670021",
+          "actDelivDate": "/Date(1767657600000)/",
+          "delLocID": "BELOC88002",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard Initialis 42",
+          "delivAddr2": "Receiving Dock 1",
+          "delivCity": "Kortrijk",
+          "delivPostCode": "8500",
+          "delivAddr3": "Boulevard Initialis 42",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Demer Operations Partners SA Receiving Centre",
+          "DeliveryStreet": "Boulevard Initialis 42",
+          "DeliveryCity": "Kortrijk",
+          "DeliveryPostalCode": "8500",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92002",
+          "OutboundDelivery": "86000000021"
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700002/delivery/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/delivery/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_ShippingDeliveryType"
+          },
+          "BillingDocument": "BEJ26000700002",
+          "BillingDocumentItem": "000020",
+          "BillingDocumentItemText": "Warehouse handling equipment inspection",
+          "AddressID": "BE670022",
+          "actDelivDate": "/Date(1767657600000)/",
+          "delLocID": "BELOC88002",
+          "delivLocIDScheme": "GLN",
+          "delivAddr1": "Boulevard Initialis 42",
+          "delivAddr2": "Receiving Dock 2",
+          "delivCity": "Kortrijk",
+          "delivPostCode": "8500",
+          "delivAddr3": "Boulevard Initialis 42",
+          "delivCountryCode": "BE",
+          "delivPartyName": "Demer Operations Partners SA Receiving Centre",
+          "DeliveryStreet": "Boulevard Initialis 42",
+          "DeliveryCity": "Kortrijk",
+          "DeliveryPostalCode": "8500",
+          "DeliveryCountryCode": "BE",
+          "ShipToParty": "BESHIP92002",
+          "OutboundDelivery": "86000000022"
+        }
+      ]
+    },
+    "to_Header": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700002/header",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/header",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_HeaderType"
+      },
+      "BillingDocument": "BEJ26000700002",
+      "CountryISOCode": "BE",
+      "invNum": "BEJ26000700002",
+      "invoice_id": "BEJ26000700002",
+      "invoice_uuid": "2296e45b-f60d-5f9f-917b-a61678e3b71f",
+      "invIssueDate": "/Date(1767657600000)/",
+      "payDueDate": "/Date(1771545600000)/",
+      "invTypeCode": "381",
+      "taxPntDate": "/Date(1767657600000)/",
+      "invCurrCode": "EUR",
+      "taxAccCurr": "EUR",
+      "source_system": "SAP_BE_UAT_JSON",
+      "schema_version": "1.4.0",
+      "legal_basis_code": "EN16931-BE-JSON",
+      "notes": [
+        "Domestic taxable supply",
+        "Standard domestic supply subject to VAT"
+      ],
+      "attachments": [],
+      "status": "received",
+      "buyerEndpointId": "BE83000002",
+      "buyerEndpointIdScheme": "0208",
+      "buyerID": "BE83000002",
+      "buyerIDScheme": "0208",
+      "BuyRef": "BEBUY83002",
+      "purOrdRef": "PO-BE-26-30002",
+      "saleOrdRef": "SO-BE-26-50002",
+      "invRef": "",
+      "invRefDate": null,
+      "bankCreditorID": "",
+      "sellerBankCreditorScheme": "",
+      "buyerAddr1": "Boulevard Initialis 42",
+      "buyerAddr2": "Building C",
+      "buyerCity": "Kortrijk",
+      "buyerPostCode": "8500",
+      "buyerCountry": "BE",
+      "buyerTaxID": "BE0520000102",
+      "buyerName": "Demer Operations Partners SA & Regional | Centre",
+      "buyerTradeName": "Demer Operations",
+      "buyerContactTel": "+32 000 100 0002",
+      "buyerContactEmail": "payables002@be-buyer.example",
+      "DeliveryStreet": "Boulevard Initialis 42",
+      "DeliveryCity": "Kortrijk",
+      "DeliveryPostalCode": "8500",
+      "DeliveryCountryCode": "BE",
+      "payMeansTypeCode": "49",
+      "payMeansText": "Bank transfer",
+      "payTerms": "Payment within forty five days",
+      "taxCatCode": "A0",
+      "CanonicalTaxCategoryCode": "S",
+      "invTotalTaxAmt": "363.75",
+      "taxCatRate": "21.00",
+      "invTotalAmtWithTax": "2105.17",
+      "sumInvLineNetAmt": "1735.00",
+      "AllowanceTotal": "17.35",
+      "ChargeTotal": "14.50",
+      "DiscountRate": "0.00",
+      "DiscountDate": "",
+      "roundingAmt": "0.00",
+      "paidAmt": "0.00",
+      "CompanyCode": "BE20",
+      "TransactionCurrency": "EUR",
+      "to_Currency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700002')/to_Currency"
+        }
+      },
+      "to_TransactionCurrency": {
+        "__deferred": {
+          "uri": "https://synthetic.example.local/YY1_GTES_SD_Header('BEJ26000700002')/to_TransactionCurrency"
+        }
+      }
+    },
+    "to_Header_Charges": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700002",
+          "ChargeAmount": "14.50",
+          "ChargeReasonCode": "FC",
+          "ChargeReasonText": "Scheduled delivery service charge"
+        }
+      ]
+    },
+    "to_Lines": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000010",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000010",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700002",
+          "BillingDocumentItem": "000010",
+          "invoicedQty": "4",
+          "invoicedQtyUOM": "EA",
+          "invLineNetAmt": "680.00",
+          "itemDesc": "Industrial temperature sensor assembly",
+          "sellerItemID": "BE-MAT-TEMP-002",
+          "sellerItemID_Text": "Industrial temperature sensor assembly",
+          "BuyerItemId": "BE-CAT-002-1",
+          "buyerItemID": "BE-CAT-002-1",
+          "Gtin": "5400000000021",
+          "gtin": "5400000000021",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "142.80",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1767657600000)/",
+          "ShipToParty": "BESHIP92002",
+          "BillingQuantityUnit": "EA",
+          "StandardItemIdentification": "5400000000021",
+          "BuyersItemIdentification": "BE-CAT-002-1",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000010/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000010/to_TransactionCurrency"
+            }
+          }
+        },
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000020",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000020",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTES_SD_LinesType"
+          },
+          "BillingDocument": "BEJ26000700002",
+          "BillingDocumentItem": "000020",
+          "invoicedQty": "5",
+          "invoicedQtyUOM": "HUR",
+          "invLineNetAmt": "1055.00",
+          "itemDesc": "Warehouse handling equipment inspection",
+          "sellerItemID": "BE-SRV-WHSE-002",
+          "sellerItemID_Text": "Warehouse handling equipment inspection",
+          "BuyerItemId": "BE-CAT-002-2",
+          "buyerItemID": "BE-CAT-002-2",
+          "Gtin": "5400000000022",
+          "gtin": "5400000000022",
+          "itemCountryOrigin": "BE",
+          "invItemTaxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "invItemTaxRate": "21.00",
+          "payDueDate": "",
+          "TaxAmount": "221.55",
+          "TransactionCurrency": "EUR",
+          "DeliveryDate": "/Date(1767657600000)/",
+          "ShipToParty": "BESHIP92002",
+          "BillingQuantityUnit": "HUR",
+          "StandardItemIdentification": "5400000000022",
+          "BuyersItemIdentification": "BE-CAT-002-2",
+          "allowances": [],
+          "charges": [],
+          "to_BillingQuantityUnit": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000020/to_BillingQuantityUnit"
+            }
+          },
+          "to_TransactionCurrency": {
+            "__deferred": {
+              "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/line/000020/to_TransactionCurrency"
+            }
+          }
+        }
+      ]
+    },
+    "to_Lines_Allows": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700002",
+          "AllowanceAmount": "17.35",
+          "AllowancePercent": "1.00",
+          "AllowanceReasonCode": "95",
+          "AllowanceReasonText": "Contractual volume allowance"
+        }
+      ]
+    },
+    "to_TaxSummary": {
+      "results": [
+        {
+          "BillingDocument": "BEJ26000700002",
+          "taxCatCode": "A0",
+          "CanonicalTaxCategoryCode": "S",
+          "taxCatSchemeCode": "VAT",
+          "taxCatRate": "21.00",
+          "taxCatTaxableAmt": "1732.15",
+          "taxCatTaxAmt": "363.75",
+          "exemption_reason_code": "",
+          "exemption_reason_text": "",
+          "jurisdiction_country": "BE",
+          "jurisdiction_region": "Brussels-Capital"
+        }
+      ]
+    },
+    "to_PayMeans": {
+      "results": [
+        {
+          "__metadata": {
+            "id": "https://synthetic.example.local/sap/be/BEJ26000700002/payment",
+            "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/payment",
+            "type": "YY1_GTES_SD_API_CDS.YY1_GTESPayMeansType"
+          },
+          "CompanyCode": "BE20",
+          "HouseBank": "UATBE",
+          "HouseBankAccount": "0702",
+          "payAccID": "BE74111500000214",
+          "Iban": "BE74111500000214",
+          "Swift": "MCBKBEB1",
+          "payAccName": "Borealis Process Engineering SRL",
+          "BankCountry": "BE",
+          "BankCountry_Text": "Belgium"
+        }
+      ]
+    },
+    "to_Seller": {
+      "__metadata": {
+        "id": "https://synthetic.example.local/sap/be/BEJ26000700002/seller",
+        "uri": "https://synthetic.example.local/sap/be/BEJ26000700002/seller",
+        "type": "YY1_GTES_SD_API_CDS.YY1_GTESCompanyCodeDetailType"
+      },
+      "CompanyCode": "BE20",
+      "sellerID": "BE72000002",
+      "sellerEndPointIDScheme": "0208",
+      "sellerAddr1": "Kempische Steenweg 22",
+      "sellerAddr2": "Finance Department",
+      "sellerCity": "Hasselt",
+      "sellerPostCode": "3500",
+      "sellerCountryCode": "BE",
+      "sellerName": "Borealis Process Engineering SRL",
+      "sellerTradeName": "Borealis Industrial",
+      "sellerTaxID": "BE0520000002",
+      "sellerTaxScheme": "VAT",
+      "Iban": "BE74111500000214",
+      "Swift": "MCBKBEB1",
+      "ContactEmailAddress": "billing002@be-supplier.example",
+      "ContactName": "Billing Operations",
+      "ContactTelephone": "+32 000 200 0002",
+      "bank_account": [
+        {
+          "iban": "BE74111500000214",
+          "swift": "MCBKBEB1",
+          "account_name": "Borealis Process Engineering SRL",
+          "bank_name": "Meuse Corporate Banking"
+        }
+      ],
+      "contact": {
+        "name": "Billing Operations",
+        "phone": "+32 000 200 0002",
+        "email": "billing002@be-supplier.example"
+      }
+    },
+    "audit_metadata": {
+      "received_at": "2026-01-06T00:00:00+00:00",
+      "ingested_at": "",
+      "validated_at": "",
+      "transformed_at": "",
+      "source_system_id": "SAP_BE_UAT_JSON",
+      "source_system_type": "SAP",
+      "source_format": "JSON",
+      "source_document_id": "9300000000000002",
+      "correlation_id": "91fa9dc5-e470-59c6-a611-019f7db8bf09",
+      "schema_version": "1.4.0",
+      "transformation_rule_id": "CANONICAL_BE_SAP_JSON_V1",
+      "target_platform": "Peppol PINT BE",
+      "target_format": "EN16931 JSON",
+      "processing_status": "received",
+      "retry_count": 0,
+      "last_error_code": "",
+      "clearance_model": "post-audit",
+      "legal_regime": "EN 16931 / PEPPOL BIS 3.0",
+      "tax_authority_id": "FPS Finance Belgium",
+      "clearance_token": "",
+      "retention_expiry": "2037-04-30",
+      "archival_location": "https://archive.synthetic.example/be/sap-json/BEJ26000700002",
+      "payload_hash": "715b28604e03526279e6ae9a5dae978667e97e4a259fdd8b2529296266ee6655",
+      "source_hash": "6299002439ca44dfc1a9d6c43b80494732333bcd17d76a37d5060219c1f76018",
+      "digital_signature": "",
+      "signing_certificate_id": "",
+      "signing_timestamp": "",
+      "signature_valid": false
+    }
+  }
+}

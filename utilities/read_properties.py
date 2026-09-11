@@ -17,9 +17,8 @@ configuration.read(os.path.join(base_directory, 'Configuration', 'config.ini'))
 class Read_Configurations:
     configuration = configuration
     _env_mapping = {
-        #"uat": "Catalyst application details UAT",
-        "qa": "Catalyst application details QA",
-        #"prod": "Catalyst application details PROD",
+        "qa": "GIDEI application details QA",
+        "uat": "GIDEI application details UAT",
     }
     _env_section = None
 

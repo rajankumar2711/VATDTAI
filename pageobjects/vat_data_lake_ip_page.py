@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 class VatDataLakeIPPage(BasePage):
-    """Page object for VAT DTAI Data Lake IP tab."""
+    """Page object for Global Insights And Data Enrichment For e-Invoicing Data Lake IP tab."""
 
     def __init__(self, page: Page):
         super().__init__(page)
